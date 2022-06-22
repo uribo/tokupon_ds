@@ -1,0 +1,53 @@
+project:
+  type: book
+
+lang: "ja"
+
+book:
+  title: "データサイエンス入門"
+  author: "瓜生真也（徳島大学デザイン型AI教育研究センター）"
+  institute: "徳島大学デザイン型AI教育研究センター"
+  date: "2022/6/22"
+  cover-image: cover.png
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - part: "基礎"
+      chapters:
+        - data.qmd
+        - summary_statistics.qmd
+        - visualization.qmd
+    - part: "発展"
+      chapters:
+        - regression.qmd
+        - classification.qmd
+    - summary.qmd
+    - references.qmd
+  appendices: 
+    - dataset.qmd
+    - r_intro.qmd
+  repo-url: https://github.com/uribo/tokupon_ds
+  page-footer: 
+    background: light
+    left: "Copyright 2022, Shinya Uryu"
+    right: 
+      - icon: github
+        href: https://github.com/uribo
+      - icon: twitter 
+        href: https://twitter.com/u_ribo
+
+crossref:
+  appendix-title: "付録"
+  appendix-delim: "."
+  appendix-labels: arabic
+
+callout-appearance: default
+callout-icon: true
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    css: style.css
+    toc: true
