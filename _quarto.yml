@@ -4,7 +4,7 @@ project:
 lang: "ja"
 
 book:
-  title: "データサイエンス入門"
+  title: "データ分析入門"
   author: "瓜生真也（徳島大学デザイン型AI教育研究センター）"
   institute: "徳島大学デザイン型AI教育研究センター"
   date: "2022/6/22"
