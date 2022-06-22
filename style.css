@@ -1,0 +1,12 @@
+div.callout-note {
+  margin-right: 20px;
+  background-size: 80px;
+  background-repeat: no-repeat;
+  background-position: 95% 90%;
+  min-height: 140px;
+  max-width: 100%;
+}
+
+div.callout-note {
+  background-image: url("images/tokupon.png");
+}
