@@ -57,3 +57,5 @@ format:
     code-link: false
     css: style.css
     toc: true
+    code-fold: true
+    code-summary: "コードを表示"
