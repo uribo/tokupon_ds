@@ -121,6 +121,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -252,13 +253,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#データの種類" id="toc-データの種類" class="nav-link active" data-scroll-target="#データの種類"> <span class="header-section-number">2.1</span> データの種類</a></li>
-  <li><a href="#変数と尺度水準" id="toc-変数と尺度水準" class="nav-link" data-scroll-target="#変数と尺度水準"> <span class="header-section-number">2.2</span> 変数と尺度水準</a>
+  <li><a href="#データの種類" id="toc-データの種類" class="nav-link active" data-scroll-target="#データの種類"> <span class="header-section-number">2.1</span> データの種類</a>
   <ul class="collapse">
-  <li><a href="#データフレーム" id="toc-データフレーム" class="nav-link" data-scroll-target="#データフレーム"> <span class="header-section-number">2.2.1</span> データフレーム</a></li>
+  <li><a href="#データフレーム" id="toc-データフレーム" class="nav-link" data-scroll-target="#データフレーム"> <span class="header-section-number">2.1.1</span> データフレーム</a></li>
   </ul></li>
-  <li><a href="#データをグラフに表現する" id="toc-データをグラフに表現する" class="nav-link" data-scroll-target="#データをグラフに表現する"> <span class="header-section-number">2.3</span> データをグラフに表現する</a></li>
-  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ"> <span class="header-section-number">2.4</span> まとめ</a></li>
+  <li><a href="#データをグラフに表現する" id="toc-データをグラフに表現する" class="nav-link" data-scroll-target="#データをグラフに表現する"> <span class="header-section-number">2.2</span> データをグラフに表現する</a></li>
+  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ"> <span class="header-section-number">2.3</span> まとめ</a></li>
   </ul>
 </nav>
     </div>
@@ -281,22 +281,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<div class="cell">
+
+</div>
 <section id="データの種類" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="データの種類"><span class="header-section-number">2.1</span> データの種類</h2>
-<p>データと言われて思い浮かべるものはなんでしょうか。 データとは個々の情報</p>
-<p>値のあつまり</p>
-<p>対象から情報を引き出す … ある動物について、体の一部の大きさや体重を測る、雌雄を調べる</p>
-</section>
-<section id="変数と尺度水準" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="変数と尺度水準"><span class="header-section-number">2.2</span> 変数と尺度水準</h2>
-<p>体重という変数</p>
-<p>体重を記録するときは数値を用いました。 数量を表す変数のことを量的変数と言います。 数量からなる変数なので、平均を求めたり大きい順番に並び替えるといった処理が可能です。</p>
-<p>では雌雄や分類群はどのように記録するのが適切でしょうか。 これらは数量として扱いにくいものです。 「雄」や「雌」、「鳥類」や「霊長類」という具合に項目を変数として扱う場合、 それは質的変数またはカテゴリ変数と呼ばれます。 質的変数は量的変数のように足し算や引き算といった計算ができないのが特徴です。</p>
+<p>データと言われて思い浮かべるものはなんでしょうか。 ここではデータをさまざまな計測や観察により得られる情報のことを示します。 対象から情報を引き出したものと言い換えることもできます。 多くは数値の形をしていますが、文字列である場合もあります。 例をあげてみましょう。 ある動物について、体の一部の大きさや体重を測る、雌雄を調べる。 これらはデータの一つです。</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "食肉類" "鳥類"   "食肉類"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.0 3.5 5.4</code></pre>
+</div>
+</div>
+<p>複数の動物の体重のように共通の手法によって得られた値のことを<strong>変数</strong>といいます。 動物の体重は、個体や種類が違うと値も変わります。</p>
+<p>体重を記録するときは数値を用いました。 このように<strong>数量を表す変数のことを量的変数</strong>といいます。 数値からなる変数なので、平均を求めたり大きい順番に並び替えるといった処理が可能です。</p>
+<p>量的変数の場合、数値の種類によってさらに離散変数と連続変数に分類できます。 <strong>変数の数値がとり得る値が一定の間隔によりバラバラなものを離散変数</strong>と呼びます。 例えばサイコロの出目は一般的に1から6までの整数であるため、離散変数です。 また動物を1頭、2頭と数えた個体数も同じです。</p>
+<p>離散型の量的変数に対し、<strong>連続値で表現される変数を連続変数</strong>といいます。 3.5<span class="math inline">\(kg\)</span>、5.4<span class="math inline">\(kg\)</span>のように表現される体重は連続変数です。</p>
+<p>では雌雄や分類群はどのように記録するのが適切でしょうか。 これらは数量として扱いにくいものです。 「雄」や「雌」、「鳥類」や「霊長類」という具合に項目を変数として扱う場合、 それは<strong>質的変数</strong>またはカテゴリ変数と呼ばれます。 質的変数は量的変数のように足し算や引き算といった計算ができないのが特徴です。</p>
 <!-- 因子、水準 -->
-<p>質的変数は名義尺度と順序尺度に</p>
-<p>量的変数は間隔尺度と比例尺度</p>
-<section id="データフレーム" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="データフレーム"><span class="header-section-number">2.2.1</span> データフレーム</h3>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+尺度水準
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>変数の性質により、量的変数と質的変数をより細かく分類することもあるよ。 尺度水準と呼ばれる基準を用いると、量的変数は間隔尺度と比例尺度に、質的変数は名義尺度と順序尺度に分けて考えることができるんだ。それぞれの特徴を説明するね。</p>
+<ul>
+<li>比例尺度</li>
+<li>間隔尺度</li>
+<li>順序尺度</li>
+<li>名義尺度</li>
+</ul>
+</div>
+</div>
+<p>データの種類に応じて名前がついている理由は、 データの種類によって適切なデータ分析の手法が異なるためです。 データ分析を行う際は、データがどの種類の変数なのか意識することが大切です。</p>
+<section id="データフレーム" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="データフレーム"><span class="header-section-number">2.1.1</span> データフレーム</h3>
 <p>データ分析の作業においては、データの変数を比較し、関係を調べることが頻繁に行われます。 特定の個体や観測について複数の項目を同時に扱えるようにするために、データを表形式でまとめて表現します。 これを表データまたは<strong>データフレーム</strong>と呼びます。</p>
 <p>データフレームの例として、いくつかの動物の体の大きさ（体長）と体重の記録をデータフレームにまとめてみましょう。 データフレームでは個人や個体、観測といったデータを一つの<strong>行</strong>にまとめます。 レッサーパンダの体長と体重の行、チンパンジーの体長と体重の行と、それぞれの値を行単位で記録します。 22種類の動物のデータをとった場合は22行、40種の動物についてであれば40行となりますね。 また、動物の分類群や名前や体長、体重といった変数を<strong>列</strong>として表します。</p>
 <div class="cell">
@@ -523,11 +549,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="データをグラフに表現する" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="データをグラフに表現する"><span class="header-section-number">2.3</span> データをグラフに表現する</h2>
+<section id="データをグラフに表現する" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="データをグラフに表現する"><span class="header-section-number">2.2</span> データをグラフに表現する</h2>
 <p>数学は統計学的な考え方において必須ではありません。</p>
 <p>探索的データ分析</p>
-<p>度数分布表、ヒストグラム、散布図、カルトグラム</p>
+<p>度数分布表、ヒストグラム、箱ヒゲ図、散布図、カルトグラム</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 2
@@ -548,33 +574,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [13]  31.0    NA   1.2 250.0  35.0  69.0    NA    NA  40.0    NA</code></pre>
 </div>
 </div>
+<p>このような数値の羅列を示してデータの特徴を説明することは困難です。</p>
+<p>データを要約する方法にはさまざまなものがあります。代表的なものは平均値の計算です。</p>
+<p>データに含まれる数値の傾向を大まかに把握する</p>
 <p>最小値、最大値</p>
 <p>連続的な値を取る変数では、厳密には値は互いに異なり、同じ値となることはほとんどありません。 そのため、観測値をいくつかのグループに分け、度数（頻度）を調べます。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.2</code></pre>
 </div>
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 250</code></pre>
 </div>
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   1.2 250.0</code></pre>
 </div>
 </div>
+<p>データの分布を明らかにする。</p>
+<p>ある値がデータに含まれる数（度数）を表す</p>
 <p><strong>度数分布表</strong>は手元のデータの値をいくつかの階級 (class)</p>
-<p>数え上げて度数を表にする。</p>
 <p>度数分布をグラフ化する方法の一つとして<strong>ヒストグラム</strong>があります。</p>
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -592,8 +622,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>データに対する説得力を増すためにも使われます。</p>
 <p>データの特徴を素早く捉えることができます。</p>
 </section>
-<section id="まとめ" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="まとめ"><span class="header-section-number">2.4</span> まとめ</h2>
+<section id="まとめ" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="まとめ"><span class="header-section-number">2.3</span> まとめ</h2>
 <ul>
 <li>データの種類</li>
 </ul>
