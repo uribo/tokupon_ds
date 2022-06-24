@@ -1,5 +1,23 @@
 # 回帰問題に挑戦
 
+```{r}
+library(palmerpenguins)
+```
+
+
+次に示すのは南極大陸に生育するペンギンの大きさを調べた観測データです。
+それぞれの変数は次の意味をもちます（詳細は[付録のデータセット](dataset.qmd)を参照してください）。
+
+- `species`: ペンギンの種類（種名）
+- `bill_length_mm`: 口ばしの長さ。単位はミリメートル
+- `body_mass_g`: 体重。単位はグラム
+
+```{r}
+#| echo: false
+#| eval: true
+dplyr::select(penguins, species, bill_length_mm, body_mass_g)
+```
+
 ## 回帰と相関
 
 ## 線形回帰
