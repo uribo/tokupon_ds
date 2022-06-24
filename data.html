@@ -282,15 +282,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <div class="cell">
-
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dfはデータフレーム(data frame)の頭文字から</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="ot">&lt;-</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">col_types =</span> <span class="st">"ccdd_"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="データの種類" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="データの種類"><span class="header-section-number">2.1</span> データの種類</h2>
 <p>データと言われて思い浮かべるものはなんでしょうか。 ここではデータをさまざまな計測や観察により得られる情報のことを示します。 対象から情報を引き出したものと言い換えることもできます。 多くは数値の形をしていますが、文字列である場合もあります。 例をあげてみましょう。 ある動物について、体の一部の大きさや体重を測る、雌雄を調べる。 これらはデータの一つです。</p>
 <div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ある動物の種類についての分類群や体重を調べました</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"食肉類"</span>, <span class="st">"鳥類"</span>, <span class="st">"食肉類"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "食肉類" "鳥類"   "食肉類"</code></pre>
 </div>
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">6</span>, <span class="fl">3.5</span>, <span class="fl">5.4</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6.0 3.5 5.4</code></pre>
 </div>
@@ -307,16 +322,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-尺度水準
+測定の尺度
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>変数の性質により、量的変数と質的変数をより細かく分類することもあるよ。 尺度水準と呼ばれる基準を用いると、量的変数は間隔尺度と比例尺度に、質的変数は名義尺度と順序尺度に分けて考えることができるんだ。それぞれの特徴を説明するね。</p>
 <ul>
-<li>比例尺度</li>
-<li>間隔尺度</li>
-<li>順序尺度</li>
-<li>名義尺度</li>
+<li>比例尺度: 量的変数のうち値の比それ自体に意味のある尺度。</li>
+<li>間隔尺度: 量的変数で値の差自体に意味のある尺度。<code>例) 華氏で記録した温度</code></li>
+<li>順序尺度: 質的変数で項目に順序があるもの。大小の比較ができるが演算には意味を持たない。代表値は最頻値や中央値で表される。<code>例) 動物の保全状況</code></li>
+<li>名義尺度: 質的変数のうち、順序がないもの。値の比較や演算に意味を持たず、数値を単なる名前として対象に割り振る。このとき代表値の指標としては最頻値のみが利用できる。名義尺度だけで与えられるデータをカテゴリデータと呼ぶこともある。<code>例) 雌雄、動物の分類群</code></li>
 </ul>
 </div>
 </div>
@@ -392,14 +407,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>先ほど5種の動物のデータフレームを示しましたが、データ分析を進めていくには より多くのデータが必要になります。 たくさんのデータがあれば、データから見えてくる傾向・パターンも見えやすくなります。 ここでは22種の動物について、同様の体長、体重を調べたデータを用意しました。 ここからはこのデータを使い、データを調べていくことにします。 なおデータフレームをプログラミング言語で扱うときは列の名前（列名）に 漢字やひらがなを使うと意味がわかりやすいですが、できるだけ英語やローマ字を使ったものにしましょう。 ここでも次のように列名を日本語から英語に変えてあります。</p>
+<p>先ほど5種の動物のデータフレームを示しましたが、データ分析を進めていくには より多くのデータが必要になります。 たくさんのデータがあれば、データから見えてくる傾向・パターンも見えやすくなります。 ここでは22種の動物について、同様の体長、体重を調べたデータを用意しました。 ここからはこの<strong>動物データ</strong>を使い、データを調べていくことにします。 なおデータフレームをプログラミング言語で扱うときは列の名前（列名）に 漢字やひらがなを使うと意味がわかりやすいですが、できるだけ英語やローマ字を使ったものにしましょう。 ここでも次のように列名を日本語から英語に変えてあります。</p>
 <ul>
 <li><code>taxon</code>: 動物の分類群</li>
 <li><code>name</code>: 動物の種名</li>
 <li><code>body_lengh_cm</code>: 体長(単位はcm)</li>
 <li><code>weight_kg</code>: 体重(単位はkg)</li>
 </ul>
+<p>Rで動物データを扱えるようにするコマンドを表示します。 データは<code>df_zoo</code>というオブジェクトに格納され、いつでも参照できるようになっています。 変数を参照するには<code>$</code>を使います。</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dfはデータフレーム(data frame)の頭文字から</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="ot">&lt;-</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">col_types =</span> <span class="st">"ccdd_"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df_zoo</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_zoo)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
 <thead>
@@ -547,6 +574,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_zoo<span class="sc">$</span>name</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "レッサーパンダ"       "ホオジロカンムリヅル" "コツメカワウソ"      
+ [4] "カナダガン"           "チンパンジー"         "シシオザル"          
+ [7] "マントヒヒ"           "ピューマ"             "カピバラ"            
+[10] "ライオン"             "アフリカハゲコウ"     "シロオリックス"      
+[13] "ミーアキャット"       "シンリンオオカミ"     "アンデスコンドル"    
+[16] "ホッキョクグマ"       "リスザル"             "フンボルトペンギン"  
+[19] "ラマ"                 "ポニー"               "モルモット"          
+[22] "ヒツジ"              </code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="データをグラフに表現する" class="level2" data-number="2.2">
@@ -555,20 +595,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>探索的データ分析</p>
 <p>度数分布表、ヒストグラム、箱ヒゲ図、散布図、カルトグラム</p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 2
-  taxon        n
-  &lt;chr&gt;    &lt;int&gt;
-1 偶蹄類       1
-2 奇蹄類       1
-3 霊長類       4
-4 食肉類       7
-5 鯨偶蹄類     2
-6 鳥類         5
-7 齧歯類       2</code></pre>
-</div>
-</div>
-<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_zoo<span class="sc">$</span>body_lengh_cm</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  63.5 100.0  64.0 110.0  85.0  66.0  80.0 168.0 134.0 250.0 130.0 175.0
 [13]  31.0    NA   1.2 250.0  35.0  69.0    NA    NA  40.0    NA</code></pre>
@@ -578,34 +608,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>データを要約する方法にはさまざまなものがあります。代表的なものは平均値の計算です。</p>
 <p>データに含まれる数値の傾向を大まかに把握する</p>
 <p>最小値、最大値</p>
-<p>連続的な値を取る変数では、厳密には値は互いに異なり、同じ値となることはほとんどありません。 そのため、観測値をいくつかのグループに分け、度数（頻度）を調べます。</p>
+<p>データの分布を明らかにする。</p>
+<p>ある値がデータに含まれる数を<ruby>度数<rt>どすう</rt></ruby>または<ruby>頻度<rt>ひんど</rt></ruby>といいます。 動物のデータセットの分類群に対して度数を求めると次のようになります。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 度数、頻度を英語で frequency といいます</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(df_zoo, taxon, <span class="at">name =</span> <span class="st">"frequency"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">taxon</th>
+<th style="text-align: right;">frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">偶蹄類</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">奇蹄類</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">霊長類</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">食肉類</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">鯨偶蹄類</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">鳥類</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">齧歯類</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>対象が量的変数の場合は頻度を簡単に求めることができます。 それでは量的変数、特に連続変数に対し度数を求めるにはどうすれば良いでしょうか。 量的変数に対して連続変数では同じ値をとることが少ないです。 そのため連続変数の度数を求めるときは、変数がとり得る値をいくつかの階級に分けて考えます。</p>
+<p>階級分けのために、まずは変数の最小値と最大値を調べましょう。 最小値と最大値はそれぞれ<code>min()</code>関数と<code>max()</code>関数に対象の変数を与えることで求められます。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 動物データの体長について最小値・最大値を求める</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.2</code></pre>
 </div>
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 250</code></pre>
 </div>
+</div>
+<p>最小値・最大値を一度に求めるための<code>range()</code>関数も同様に扱えます。</p>
+<div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   1.2 250.0</code></pre>
 </div>
 </div>
-<p>データの分布を明らかにする。</p>
-<p>ある値がデータに含まれる数（度数）を表す</p>
+<p>最小値と最大値がわかったところで、次は階級を設定します。</p>
+<p>データ中の度数をまとめて表形式にしたものは度数分布表と呼ばれます。</p>
+<p>分類群の値ごとに同じデータがどれだけあるかをカウントして度数を求めます。</p>
 <p><strong>度数分布表</strong>は手元のデータの値をいくつかの階級 (class)</p>
 <p>度数分布をグラフ化する方法の一つとして<strong>ヒストグラム</strong>があります。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ragg)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_lengh_cm)) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">6</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/動物の体長のヒストグラム-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<!-- ビンの数を変えるとヒストグラムの形も変わる -->
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
