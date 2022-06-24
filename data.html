@@ -252,11 +252,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#変数と尺度水準" id="toc-変数と尺度水準" class="nav-link active" data-scroll-target="#変数と尺度水準"> <span class="header-section-number">2.1</span> 変数と尺度水準</a>
+  <li><a href="#データの種類" id="toc-データの種類" class="nav-link active" data-scroll-target="#データの種類"> <span class="header-section-number">2.1</span> データの種類</a></li>
+  <li><a href="#変数と尺度水準" id="toc-変数と尺度水準" class="nav-link" data-scroll-target="#変数と尺度水準"> <span class="header-section-number">2.2</span> 変数と尺度水準</a>
   <ul class="collapse">
-  <li><a href="#データフレーム" id="toc-データフレーム" class="nav-link" data-scroll-target="#データフレーム"> <span class="header-section-number">2.1.1</span> データフレーム</a></li>
+  <li><a href="#データフレーム" id="toc-データフレーム" class="nav-link" data-scroll-target="#データフレーム"> <span class="header-section-number">2.2.1</span> データフレーム</a></li>
   </ul></li>
-  <li><a href="#データをグラフに表現する" id="toc-データをグラフに表現する" class="nav-link" data-scroll-target="#データをグラフに表現する"> <span class="header-section-number">2.2</span> データをグラフに表現する</a></li>
+  <li><a href="#データをグラフに表現する" id="toc-データをグラフに表現する" class="nav-link" data-scroll-target="#データをグラフに表現する"> <span class="header-section-number">2.3</span> データをグラフに表現する</a></li>
+  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ"> <span class="header-section-number">2.4</span> まとめ</a></li>
   </ul>
 </nav>
     </div>
@@ -279,94 +281,271 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="変数と尺度水準" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="変数と尺度水準"><span class="header-section-number">2.1</span> 変数と尺度水準</h2>
-<p>質的変数と量的変数</p>
+<section id="データの種類" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="データの種類"><span class="header-section-number">2.1</span> データの種類</h2>
+<p>データと言われて思い浮かべるものはなんでしょうか。 データとは個々の情報</p>
+<p>値のあつまり</p>
+<p>対象から情報を引き出す … ある動物について、体の一部の大きさや体重を測る、雌雄を調べる</p>
+</section>
+<section id="変数と尺度水準" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="変数と尺度水準"><span class="header-section-number">2.2</span> 変数と尺度水準</h2>
+<p>体重という変数</p>
+<p>体重を記録するときは数値を用いました。 数量を表す変数のことを量的変数と言います。 数量からなる変数なので、平均を求めたり大きい順番に並び替えるといった処理が可能です。</p>
+<p>では雌雄や分類群はどのように記録するのが適切でしょうか。 これらは数量として扱いにくいものです。 「雄」や「雌」、「鳥類」や「霊長類」という具合に項目を変数として扱う場合、 それは質的変数またはカテゴリ変数と呼ばれます。 質的変数は量的変数のように足し算や引き算といった計算ができないのが特徴です。</p>
+<!-- 因子、水準 -->
 <p>質的変数は名義尺度と順序尺度に</p>
 <p>量的変数は間隔尺度と比例尺度</p>
-<section id="データフレーム" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="データフレーム"><span class="header-section-number">2.1.1</span> データフレーム</h3>
-<p>表形式でデータを記述したものを表データまたは<strong>データフレーム</strong>と呼びます。 データフレームは特定の個体や観測について、複数の項目を同時に扱うことができます。</p>
-<p>例として、あるクラスにおける生徒の身長と体重の観測をデータフレームにまとめてみましょう。 データフレームでは個人や観測ごとのデータを一つの<strong>行</strong>にまとめます。 サトウさんについての身長と体重についての行、ウチダさんについての身長と体重の行というようにそれぞれの値を行単位で記録します。 20人のクラスでの身長と体重の記録であれば20行、30人のクラスでは30行となりますね。 生徒の名前や身長、体重といった項目は<strong>変数</strong>と呼び、<strong>列</strong>として表します。</p>
+<section id="データフレーム" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="データフレーム"><span class="header-section-number">2.2.1</span> データフレーム</h3>
+<p>データ分析の作業においては、データの変数を比較し、関係を調べることが頻繁に行われます。 特定の個体や観測について複数の項目を同時に扱えるようにするために、データを表形式でまとめて表現します。 これを表データまたは<strong>データフレーム</strong>と呼びます。</p>
+<p>データフレームの例として、いくつかの動物の体の大きさ（体長）と体重の記録をデータフレームにまとめてみましょう。 データフレームでは個人や個体、観測といったデータを一つの<strong>行</strong>にまとめます。 レッサーパンダの体長と体重の行、チンパンジーの体長と体重の行と、それぞれの値を行単位で記録します。 22種類の動物のデータをとった場合は22行、40種の動物についてであれば40行となりますね。 また、動物の分類群や名前や体長、体重といった変数を<strong>列</strong>として表します。</p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 3
-  名前          身長  体重
-  &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt;
-1 サトウさん    153.  48.4
-2 ウチダさん    163.  59  
-3 エンドウさん  145.  47.2
-4 ミシマさん    122.  39.1</code></pre>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>5種の動物についての体長・体重のデータフレーム</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">分類群</th>
+<th style="text-align: left;">動物の名前</th>
+<th style="text-align: right;">体長(cm)</th>
+<th style="text-align: right;">体重(kg)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">食肉類</td>
+<td style="text-align: left;">レッサーパンダ</td>
+<td style="text-align: right;">63.5</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">霊長類</td>
+<td style="text-align: left;">チンパンジー</td>
+<td style="text-align: right;">85.0</td>
+<td style="text-align: right;">60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">霊長類</td>
+<td style="text-align: left;">マントヒヒ</td>
+<td style="text-align: right;">80.0</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">食肉類</td>
+<td style="text-align: left;">ライオン</td>
+<td style="text-align: right;">250.0</td>
+<td style="text-align: right;">225</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">鳥類</td>
+<td style="text-align: left;">フンボルトペンギン</td>
+<td style="text-align: right;">69.0</td>
+<td style="text-align: right;">6</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<p>データフレームではデータを横に見たものが行、縦に見たものを列と考えます。 上記のデータフレームは4行3列のデータフレームといえます。</p>
-<p>データ分析の作業においては、データの変数を比較し、関係を調べることが頻繁に行われます。 この時にデータフレームとしてデータを扱えると便利です。</p>
-<p>次に示すのは南極大陸に生育するペンギンの大きさを調べた観測データです。 ここからはこのデータフレームを題材にして説明を行います。 それぞれの変数は次の意味をもちます（詳細は<a href="./dataset.html">付録のデータセット</a>を参照してください）。</p>
+<p>データフレームではデータを横に見たものが行、縦に見たものを列と考えます。 上記のデータフレームは5行4列のデータフレームといえます。</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+表計算ソフトウェアでも表データを扱う
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>表計算ソフトウェアにデータを記録するときもデータフレームと同じ形式をとるよ。 ここでは1,2,3といった数字が行、A、B、Cといったアルファベットが列を示しているね。 それぞれの値を記録している場所のことをセルというよ。 これはデータを記録している番地のようなもので、例えば、チンパンジーの体重はB3を参照すれば良いことになるね。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/excel_table.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">表計算ソフトウェアで表データを扱う</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>先ほど5種の動物のデータフレームを示しましたが、データ分析を進めていくには より多くのデータが必要になります。 たくさんのデータがあれば、データから見えてくる傾向・パターンも見えやすくなります。 ここでは22種の動物について、同様の体長、体重を調べたデータを用意しました。 ここからはこのデータを使い、データを調べていくことにします。 なおデータフレームをプログラミング言語で扱うときは列の名前（列名）に 漢字やひらがなを使うと意味がわかりやすいですが、できるだけ英語やローマ字を使ったものにしましょう。 ここでも次のように列名を日本語から英語に変えてあります。</p>
 <ul>
-<li><code>species</code>: ペンギンの種類（種名）</li>
-<li><code>bill_length_mm</code>: 口ばしの長さ。単位はミリメートル</li>
-<li><code>body_mass_g</code>: 体重。単位はグラム</li>
+<li><code>taxon</code>: 動物の分類群</li>
+<li><code>name</code>: 動物の種名</li>
+<li><code>body_lengh_cm</code>: 体長(単位はcm)</li>
+<li><code>weight_kg</code>: 体重(単位はkg)</li>
 </ul>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 344 × 3
-   species bill_length_mm body_mass_g
-   &lt;fct&gt;            &lt;dbl&gt;       &lt;int&gt;
- 1 Adelie            39.1        3750
- 2 Adelie            39.5        3800
- 3 Adelie            40.3        3250
- 4 Adelie            NA            NA
- 5 Adelie            36.7        3450
- 6 Adelie            39.3        3650
- 7 Adelie            38.9        3625
- 8 Adelie            39.2        4675
- 9 Adelie            34.1        3475
-10 Adelie            42          4250
-# … with 334 more rows</code></pre>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">taxon</th>
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">body_lengh_cm</th>
+<th style="text-align: right;">weight_kg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">食肉類</td>
+<td style="text-align: left;">レッサーパンダ</td>
+<td style="text-align: right;">63.5</td>
+<td style="text-align: right;">6.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">鳥類</td>
+<td style="text-align: left;">ホオジロカンムリヅル</td>
+<td style="text-align: right;">100.0</td>
+<td style="text-align: right;">3.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">食肉類</td>
+<td style="text-align: left;">コツメカワウソ</td>
+<td style="text-align: right;">64.0</td>
+<td style="text-align: right;">5.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">鳥類</td>
+<td style="text-align: left;">カナダガン</td>
+<td style="text-align: right;">110.0</td>
+<td style="text-align: right;">6.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">霊長類</td>
+<td style="text-align: left;">チンパンジー</td>
+<td style="text-align: right;">85.0</td>
+<td style="text-align: right;">60.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">霊長類</td>
+<td style="text-align: left;">シシオザル</td>
+<td style="text-align: right;">66.0</td>
+<td style="text-align: right;">10.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">霊長類</td>
+<td style="text-align: left;">マントヒヒ</td>
+<td style="text-align: right;">80.0</td>
+<td style="text-align: right;">20.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">食肉類</td>
+<td style="text-align: left;">ピューマ</td>
+<td style="text-align: right;">168.0</td>
+<td style="text-align: right;">80.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">齧歯類</td>
+<td style="text-align: left;">カピバラ</td>
+<td style="text-align: right;">134.0</td>
+<td style="text-align: right;">66.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">食肉類</td>
+<td style="text-align: left;">ライオン</td>
+<td style="text-align: right;">250.0</td>
+<td style="text-align: right;">225.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">鳥類</td>
+<td style="text-align: left;">アフリカハゲコウ</td>
+<td style="text-align: right;">130.0</td>
+<td style="text-align: right;">9.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">偶蹄類</td>
+<td style="text-align: left;">シロオリックス</td>
+<td style="text-align: right;">175.0</td>
+<td style="text-align: right;">220.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">食肉類</td>
+<td style="text-align: left;">ミーアキャット</td>
+<td style="text-align: right;">31.0</td>
+<td style="text-align: right;">0.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">食肉類</td>
+<td style="text-align: left;">シンリンオオカミ</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">30.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">鳥類</td>
+<td style="text-align: left;">アンデスコンドル</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">15.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">食肉類</td>
+<td style="text-align: left;">ホッキョクグマ</td>
+<td style="text-align: right;">250.0</td>
+<td style="text-align: right;">410.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">霊長類</td>
+<td style="text-align: left;">リスザル</td>
+<td style="text-align: right;">35.0</td>
+<td style="text-align: right;">1.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">鳥類</td>
+<td style="text-align: left;">フンボルトペンギン</td>
+<td style="text-align: right;">69.0</td>
+<td style="text-align: right;">6.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">鯨偶蹄類</td>
+<td style="text-align: left;">ラマ</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">140.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">奇蹄類</td>
+<td style="text-align: left;">ポニー</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">齧歯類</td>
+<td style="text-align: left;">モルモット</td>
+<td style="text-align: right;">40.0</td>
+<td style="text-align: right;">1.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">鯨偶蹄類</td>
+<td style="text-align: left;">ヒツジ</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>
 </section>
-<section id="データをグラフに表現する" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="データをグラフに表現する"><span class="header-section-number">2.2</span> データをグラフに表現する</h2>
+<section id="データをグラフに表現する" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="データをグラフに表現する"><span class="header-section-number">2.3</span> データをグラフに表現する</h2>
 <p>数学は統計学的な考え方において必須ではありません。</p>
 <p>探索的データ分析</p>
 <p>度数分布表、ヒストグラム、散布図、カルトグラム</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  species       n
-  &lt;fct&gt;     &lt;int&gt;
-1 Adelie      152
-2 Chinstrap    68
-3 Gentoo      124</code></pre>
+<pre><code># A tibble: 7 × 2
+  taxon        n
+  &lt;chr&gt;    &lt;int&gt;
+1 偶蹄類       1
+2 奇蹄類       1
+3 霊長類       4
+4 食肉類       7
+5 鯨偶蹄類     2
+6 鳥類         5
+7 齧歯類       2</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 39.1 39.5 40.3   NA 36.7 39.3 38.9 39.2 34.1 42.0 37.8 37.8 41.1 38.6 34.6
- [16] 36.6 38.7 42.5 34.4 46.0 37.8 37.7 35.9 38.2 38.8 35.3 40.6 40.5 37.9 40.5
- [31] 39.5 37.2 39.5 40.9 36.4 39.2 38.8 42.2 37.6 39.8 36.5 40.8 36.0 44.1 37.0
- [46] 39.6 41.1 37.5 36.0 42.3 39.6 40.1 35.0 42.0 34.5 41.4 39.0 40.6 36.5 37.6
- [61] 35.7 41.3 37.6 41.1 36.4 41.6 35.5 41.1 35.9 41.8 33.5 39.7 39.6 45.8 35.5
- [76] 42.8 40.9 37.2 36.2 42.1 34.6 42.9 36.7 35.1 37.3 41.3 36.3 36.9 38.3 38.9
- [91] 35.7 41.1 34.0 39.6 36.2 40.8 38.1 40.3 33.1 43.2 35.0 41.0 37.7 37.8 37.9
-[106] 39.7 38.6 38.2 38.1 43.2 38.1 45.6 39.7 42.2 39.6 42.7 38.6 37.3 35.7 41.1
-[121] 36.2 37.7 40.2 41.4 35.2 40.6 38.8 41.5 39.0 44.1 38.5 43.1 36.8 37.5 38.1
-[136] 41.1 35.6 40.2 37.0 39.7 40.2 40.6 32.1 40.7 37.3 39.0 39.2 36.6 36.0 37.8
-[151] 36.0 41.5 46.1 50.0 48.7 50.0 47.6 46.5 45.4 46.7 43.3 46.8 40.9 49.0 45.5
-[166] 48.4 45.8 49.3 42.0 49.2 46.2 48.7 50.2 45.1 46.5 46.3 42.9 46.1 44.5 47.8
-[181] 48.2 50.0 47.3 42.8 45.1 59.6 49.1 48.4 42.6 44.4 44.0 48.7 42.7 49.6 45.3
-[196] 49.6 50.5 43.6 45.5 50.5 44.9 45.2 46.6 48.5 45.1 50.1 46.5 45.0 43.8 45.5
-[211] 43.2 50.4 45.3 46.2 45.7 54.3 45.8 49.8 46.2 49.5 43.5 50.7 47.7 46.4 48.2
-[226] 46.5 46.4 48.6 47.5 51.1 45.2 45.2 49.1 52.5 47.4 50.0 44.9 50.8 43.4 51.3
-[241] 47.5 52.1 47.5 52.2 45.5 49.5 44.5 50.8 49.4 46.9 48.4 51.1 48.5 55.9 47.2
-[256] 49.1 47.3 46.8 41.7 53.4 43.3 48.1 50.5 49.8 43.5 51.5 46.2 55.1 44.5 48.8
-[271] 47.2   NA 46.8 50.4 45.2 49.9 46.5 50.0 51.3 45.4 52.7 45.2 46.1 51.3 46.0
-[286] 51.3 46.6 51.7 47.0 52.0 45.9 50.5 50.3 58.0 46.4 49.2 42.4 48.5 43.2 50.6
-[301] 46.7 52.0 50.5 49.5 46.4 52.8 40.9 54.2 42.5 51.0 49.7 47.5 47.6 52.0 46.9
-[316] 53.5 49.0 46.2 50.9 45.5 50.9 50.8 50.1 49.0 51.5 49.8 48.1 51.4 45.7 50.7
-[331] 42.5 52.2 45.2 49.3 50.2 45.6 51.9 46.8 45.7 55.8 43.5 49.6 50.8 50.2</code></pre>
+<pre><code> [1]  63.5 100.0  64.0 110.0  85.0  66.0  80.0 168.0 134.0 250.0 130.0 175.0
+[13]  31.0    NA   1.2 250.0  35.0  69.0    NA    NA  40.0    NA</code></pre>
 </div>
 </div>
 <p>最小値、最大値</p>
@@ -374,24 +553,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(penguins<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 32.1</code></pre>
+<pre><code>[1] 1.2</code></pre>
 </div>
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(penguins<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 59.6</code></pre>
+<pre><code>[1] 250</code></pre>
 </div>
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(penguins<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(df_zoo<span class="sc">$</span>body_lengh_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 32.1 59.6</code></pre>
+<pre><code>[1]   1.2 250.0</code></pre>
 </div>
 </div>
 <p><strong>度数分布表</strong>は手元のデータの値をいくつかの階級 (class)</p>
@@ -412,6 +591,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>データに対する説得力を増すためにも使われます。</p>
 <p>データの特徴を素早く捉えることができます。</p>
+</section>
+<section id="まとめ" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="まとめ"><span class="header-section-number">2.4</span> まとめ</h2>
+<ul>
+<li>データの種類</li>
+</ul>
 
 
 </section>

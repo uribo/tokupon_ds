@@ -20,3 +20,14 @@ div.callout-note {
 div.callout-note {
   background-image: url("images/tokupon.png");
 }
+
+div.callout-caption-container {
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 95% 0%;
+  min-height: 30px;
+}
+
+div.callout-caption-container {
+  background-image: url("images/tokupon.png");
+}
