@@ -40,7 +40,7 @@ if (!file.exists("data-raw/tokushima_zoo_animals22.csv")) {
               "食肉類", "霊長類", "鳥類", "鯨偶蹄類", "奇蹄類",
               "齧歯類", "鯨偶蹄類"),
       name = animals,
-      body_lengh_cm = c(63.5, 100, 64, 110, 85,
+      body_length_cm = c(63.5, 100, 64, 110, 85,
                     66, 80, 168, 134, 250,
                     130, 175, 31, NA_real_, 1.2,
                     250, 35, 69, NA_real_, NA_real_,

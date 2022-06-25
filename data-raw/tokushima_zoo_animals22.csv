@@ -1,4 +1,4 @@
-taxon,name,body_lengh_cm,weight_kg,link
+taxon,name,body_length_cm,weight_kg,link
 食肉類,レッサーパンダ,63.5,6,https://ja.wikipedia.org/wiki/レッサーパンダ
 鳥類,ホオジロカンムリヅル,100,3.5,https://ja.wikipedia.org/wiki/ホオジロカンムリヅル
 食肉類,コツメカワウソ,64,5.4,https://ja.wikipedia.org/wiki/コツメカワウソ

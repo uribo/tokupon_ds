@@ -124,7 +124,7 @@ df_zoo_subset |>
 
 - `taxon`: 動物の分類群
 - `name`: 動物の種名
-- `body_lengh_cm`: 体長(単位はcm)
+- `body_length_cm`: 体長(単位はcm)
 - `weight_kg`: 体重(単位はkg)
 
 Rで動物データを扱えるようにするコマンドを表示します。
@@ -163,7 +163,7 @@ df_zoo$name
 
 
 ```{r}
-df_zoo$body_lengh_cm
+df_zoo$body_length_cm
 ```
 
 このような数値の羅列を示してデータの特徴を説明することは困難です。
@@ -198,15 +198,15 @@ count(df_zoo, taxon, name = "frequency") |>
 ```{r}
 #| echo: true
 # 動物データの体長について最小値・最大値を求める
-min(df_zoo$body_lengh_cm, na.rm = TRUE)
-max(df_zoo$body_lengh_cm, na.rm = TRUE)
+min(df_zoo$body_length_cm, na.rm = TRUE)
+max(df_zoo$body_length_cm, na.rm = TRUE)
 ```
 
 最小値・最大値を一度に求めるための`range()`関数も同様に扱えます。
 
 ```{r}
 #| echo: true
-range(df_zoo$body_lengh_cm, na.rm = TRUE)
+range(df_zoo$body_length_cm, na.rm = TRUE)
 ```
 
 最小値と最大値がわかったところで、次は階級を設定します。
@@ -231,7 +231,7 @@ library(ragg)
 library(ggplot2)
 
 df_zoo |> 
-  ggplot(aes(body_lengh_cm)) +
+  ggplot(aes(body_length_cm)) +
   geom_histogram(bins = 6)
 ```
 

@@ -14,10 +14,10 @@ df_zoo <-
 - 中央値
 
 ```{r}
-sort(df_zoo$body_lengh_cm)
-median(df_zoo$body_lengh_cm, na.rm = TRUE)
+sort(df_zoo$body_length_cm)
+median(df_zoo$body_length_cm, na.rm = TRUE)
 
-(sort(df_zoo$body_lengh_cm)[9] + sort(df_zoo$body_lengh_cm)[10]) / 2
+(sort(df_zoo$body_length_cm)[9] + sort(df_zoo$body_length_cm)[10]) / 2
 ```
 
 ## データのばらつき
