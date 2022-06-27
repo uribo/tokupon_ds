@@ -1,9 +1,30 @@
-# 回帰問題に挑戦
+---
+title: "回帰問題に挑戦"
+---
 
 ```{r}
 library(palmerpenguins)
 ```
 
+[相関](correlation.qmd)
+
+## 単回帰モデル
+
+```{r}
+df_zoo <- 
+  readr::read_csv("data-raw/tokushima_zoo_animals22.csv", 
+                col_types = "ccdd_")
+```
+
+```{r}
+lm_res <- 
+  lm(weight_kg ~ body_length_cm, data = df_zoo)
+lm_res
+
+summary(lm_res)
+```
+
+### 最小二乗法
 
 次に示すのは南極大陸に生育するペンギンの大きさを調べた観測データです。
 それぞれの変数は次の意味をもちます（詳細は[付録のデータセット](dataset.qmd)を参照してください）。
@@ -20,7 +41,4 @@ dplyr::select(penguins, species, bill_length_mm, body_mass_g)
 
 ## 回帰と相関
 
-## 線形回帰
-
-最小二乗法
 

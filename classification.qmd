@@ -1,7 +1,26 @@
-# 分類問題に挑戦
+---
+title: "分類問題に挑戦"
+---
+
+```{r}
+library(dplyr)
+```
+
 
 ## ロジスティック回帰
 
 ## 主成分分析
+
+
+```{r}
+df_zoo <- 
+  readr::read_csv("data-raw/tokushima_zoo_animals22.csv", 
+                col_types = "ccdd_")
+
+subset(df_zoo, select = c(body_length_cm, weight_kg)) |> 
+  dplyr::filter(!is.na(body_length_cm)) |> 
+  prcomp(scale. = TRUE)
+```
+
 
 ## クラスタリング

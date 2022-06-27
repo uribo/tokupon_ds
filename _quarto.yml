@@ -18,6 +18,7 @@ book:
       chapters:
         - data.qmd
         - summary_statistics.qmd
+        - correlation.qmd
         - visualization.qmd
     - part: "発展"
       chapters:
