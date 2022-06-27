@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.619">
+<meta name="generator" content="quarto-0.9.624">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>データ分析入門 - 5&nbsp; 回帰問題に挑戦</title>
+<title>データ分析入門 - 6&nbsp; 回帰問題に挑戦</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -188,7 +188,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">グラフの作成</span></a>
+  <a href="./correlation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">相関: 2変数の関係を調べる</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">グラフの作成</span></a>
   </div>
 </li>
     </ul>
@@ -203,12 +208,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regression.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></a>
+  <a href="./regression.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></a>
+  <a href="./classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></a>
   </div>
 </li>
     </ul>
@@ -252,8 +257,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#回帰と相関" id="toc-回帰と相関" class="nav-link active" data-scroll-target="#回帰と相関"> <span class="header-section-number">5.1</span> 回帰と相関</a></li>
-  <li><a href="#線形回帰" id="toc-線形回帰" class="nav-link" data-scroll-target="#線形回帰"> <span class="header-section-number">5.2</span> 線形回帰</a></li>
+  <li><a href="#単回帰モデル" id="toc-単回帰モデル" class="nav-link active" data-scroll-target="#単回帰モデル"> <span class="header-section-number">6.1</span> 単回帰モデル</a>
+  <ul class="collapse">
+  <li><a href="#最小二乗法" id="toc-最小二乗法" class="nav-link" data-scroll-target="#最小二乗法"> <span class="header-section-number">6.1.1</span> 最小二乗法</a></li>
+  </ul></li>
+  <li><a href="#回帰と相関" id="toc-回帰と相関" class="nav-link" data-scroll-target="#回帰と相関"> <span class="header-section-number">6.2</span> 回帰と相関</a></li>
   </ul>
 </nav>
     </div>
@@ -262,7 +270,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></h1>
 </div>
 
 
@@ -282,6 +290,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p><a href="./correlation.html">相関</a></p>
+<section id="単回帰モデル" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="単回帰モデル"><span class="header-section-number">6.1</span> 単回帰モデル</h2>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="ot">&lt;-</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">col_types =</span> <span class="st">"ccdd_"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lm_res <span class="ot">&lt;-</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(weight_kg <span class="sc">~</span> body_length_cm, <span class="at">data =</span> df_zoo)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>lm_res</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = weight_kg ~ body_length_cm, data = df_zoo)
+
+Coefficients:
+   (Intercept)  body_length_cm  
+       -72.574           1.324  </code></pre>
+</div>
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_res)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = weight_kg ~ body_length_cm, data = df_zoo)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-90.587 -37.539  -6.151  25.768 151.495 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    -72.5743    26.0890  -2.782   0.0133 *  
+body_length_cm   1.3243     0.2109   6.280  1.1e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 61.48 on 16 degrees of freedom
+  (4 observations deleted due to missingness)
+Multiple R-squared:  0.7114,    Adjusted R-squared:  0.6933 
+F-statistic: 39.43 on 1 and 16 DF,  p-value: 1.098e-05</code></pre>
+</div>
+</div>
+<section id="最小二乗法" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="最小二乗法"><span class="header-section-number">6.1.1</span> 最小二乗法</h3>
 <p>次に示すのは南極大陸に生育するペンギンの大きさを調べた観測データです。 それぞれの変数は次の意味をもちます（詳細は<a href="./dataset.html">付録のデータセット</a>を参照してください）。</p>
 <ul>
 <li><code>species</code>: ペンギンの種類（種名）</li>
@@ -306,12 +369,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 # … with 334 more rows</code></pre>
 </div>
 </div>
-<section id="回帰と相関" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="回帰と相関"><span class="header-section-number">5.1</span> 回帰と相関</h2>
 </section>
-<section id="線形回帰" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="線形回帰"><span class="header-section-number">5.2</span> 線形回帰</h2>
-<p>最小二乗法</p>
+</section>
+<section id="回帰と相関" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="回帰と相関"><span class="header-section-number">6.2</span> 回帰と相関</h2>
 
 
 </section>
@@ -496,12 +557,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./visualization.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">グラフの作成</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">グラフの作成</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./classification.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

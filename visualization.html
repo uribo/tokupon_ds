@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.619">
+<meta name="generator" content="quarto-0.9.624">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>データ分析入門 - 4&nbsp; グラフの作成</title>
+<title>データ分析入門 - 5&nbsp; グラフの作成</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,7 +26,7 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./regression.html" rel="next">
-<link href="./summary_statistics.html" rel="prev">
+<link href="./correlation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,7 +68,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">グラフの作成</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">グラフの作成</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -125,7 +125,12 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./visualization.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">グラフの作成</span></a>
+  <a href="./correlation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">相関: 2変数の関係を調べる</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./visualization.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">グラフの作成</span></a>
   </div>
 </li>
     </ul>
@@ -140,12 +145,12 @@ ul.task-list{list-style: none;}
     <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></a>
+  <a href="./regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></a>
+  <a href="./classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></a>
   </div>
 </li>
     </ul>
@@ -185,14 +190,21 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#棒グラフ" id="toc-棒グラフ" class="nav-link active" data-scroll-target="#棒グラフ"> <span class="header-section-number">5.1</span> 棒グラフ</a></li>
+  <li><a href="#散布図" id="toc-散布図" class="nav-link" data-scroll-target="#散布図"> <span class="header-section-number">5.2</span> 散布図</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">グラフの作成</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">グラフの作成</span></h1>
 </div>
 
 
@@ -206,8 +218,17 @@ ul.task-list{list-style: none;}
 
 </header>
 
+<section id="棒グラフ" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="棒グラフ"><span class="header-section-number">5.1</span> 棒グラフ</h2>
+</section>
+<section id="散布図" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="散布図"><span class="header-section-number">5.2</span> 散布図</h2>
+<p><a href="./correlation.html">相関</a></p>
+<p><a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html">Datasaurus</a>の紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。</p>
+<p>アンスコムの例</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -388,13 +409,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./summary_statistics.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">データの特徴を捉える</span></span>
+      <a href="./correlation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">相関: 2変数の関係を調べる</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./regression.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

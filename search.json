@@ -98,39 +98,67 @@
     "text": "3.3 相関: 2つの変数の間の関係\n相関係数\n相関係数は変数間の因果関係を示すものではありません。 例えば、ある地域の８月において、毎日のアイスの売り上げ個数と熱中症患者数の間に 正の相関があった場合でも、アイスが熱中症の原因となっているわけではありません。 アイスの売り上げ、熱中症の双方に影響するもの、気温が原因です。 気温について考慮せずに分析を進めてしまうと、見せかけの因果関係を発生させてしまいます。 熱中症患者の増加を抑えるためにアイスの販売を規制するなどの誤った対策が取られてしまう 恐れがあります。"
   },
   {
+    "objectID": "correlation.html",
+    "href": "correlation.html",
+    "title": "4  相関: 2変数の関係を調べる",
+    "section": "",
+    "text": "外れ値が相関係数に及ぼす影響\n相関関係と因果関係"
+  },
+  {
+    "objectID": "visualization.html#散布図",
+    "href": "visualization.html#散布図",
+    "title": "5  グラフの作成",
+    "section": "5.2 散布図",
+    "text": "5.2 散布図\n相関\nDatasaurusの紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。\nアンスコムの例"
+  },
+  {
     "objectID": "regression.html",
     "href": "regression.html",
-    "title": "5  回帰問題に挑戦",
+    "title": "6  回帰問題に挑戦",
     "section": "",
-    "text": "コードを表示\nlibrary(palmerpenguins)\n次に示すのは南極大陸に生育するペンギンの大きさを調べた観測データです。 それぞれの変数は次の意味をもちます（詳細は付録のデータセットを参照してください）。"
+    "text": "コードを表示\nlibrary(palmerpenguins)\n相関"
+  },
+  {
+    "objectID": "regression.html#単回帰モデル",
+    "href": "regression.html#単回帰モデル",
+    "title": "6  回帰問題に挑戦",
+    "section": "6.1 単回帰モデル",
+    "text": "6.1 単回帰モデル\n\n\nコードを表示\ndf_zoo <- \n  readr::read_csv(\"data-raw/tokushima_zoo_animals22.csv\", \n                col_types = \"ccdd_\")\n\n\n\n\nコードを表示\nlm_res <- \n  lm(weight_kg ~ body_length_cm, data = df_zoo)\nlm_res\n\n\n\nCall:\nlm(formula = weight_kg ~ body_length_cm, data = df_zoo)\n\nCoefficients:\n   (Intercept)  body_length_cm  \n       -72.574           1.324  \n\n\nコードを表示\nsummary(lm_res)\n\n\n\nCall:\nlm(formula = weight_kg ~ body_length_cm, data = df_zoo)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-90.587 -37.539  -6.151  25.768 151.495 \n\nCoefficients:\n               Estimate Std. Error t value Pr(>|t|)    \n(Intercept)    -72.5743    26.0890  -2.782   0.0133 *  \nbody_length_cm   1.3243     0.2109   6.280  1.1e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 61.48 on 16 degrees of freedom\n  (4 observations deleted due to missingness)\nMultiple R-squared:  0.7114,    Adjusted R-squared:  0.6933 \nF-statistic: 39.43 on 1 and 16 DF,  p-value: 1.098e-05\n\n\n\n6.1.1 最小二乗法\n次に示すのは南極大陸に生育するペンギンの大きさを調べた観測データです。 それぞれの変数は次の意味をもちます（詳細は付録のデータセットを参照してください）。\n\nspecies: ペンギンの種類（種名）\nbill_length_mm: 口ばしの長さ。単位はミリメートル\nbody_mass_g: 体重。単位はグラム\n\n\n\n# A tibble: 344 × 3\n   species bill_length_mm body_mass_g\n   <fct>            <dbl>       <int>\n 1 Adelie            39.1        3750\n 2 Adelie            39.5        3800\n 3 Adelie            40.3        3250\n 4 Adelie            NA            NA\n 5 Adelie            36.7        3450\n 6 Adelie            39.3        3650\n 7 Adelie            38.9        3625\n 8 Adelie            39.2        4675\n 9 Adelie            34.1        3475\n10 Adelie            42          4250\n# … with 334 more rows"
   },
   {
     "objectID": "regression.html#回帰と相関",
     "href": "regression.html#回帰と相関",
-    "title": "5  回帰問題に挑戦",
-    "section": "5.1 回帰と相関",
-    "text": "5.1 回帰と相関"
+    "title": "6  回帰問題に挑戦",
+    "section": "6.2 回帰と相関",
+    "text": "6.2 回帰と相関"
   },
   {
-    "objectID": "regression.html#線形回帰",
-    "href": "regression.html#線形回帰",
-    "title": "5  回帰問題に挑戦",
-    "section": "5.2 線形回帰",
-    "text": "5.2 線形回帰\n最小二乗法"
+    "objectID": "classification.html",
+    "href": "classification.html",
+    "title": "7  分類問題に挑戦",
+    "section": "",
+    "text": "コードを表示\nlibrary(dplyr)\n\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union"
+  },
+  {
+    "objectID": "classification.html#ロジスティック回帰",
+    "href": "classification.html#ロジスティック回帰",
+    "title": "7  分類問題に挑戦",
+    "section": "7.1 ロジスティック回帰",
+    "text": "7.1 ロジスティック回帰"
   },
   {
     "objectID": "classification.html#主成分分析",
     "href": "classification.html#主成分分析",
-    "title": "6  分類問題に挑戦",
-    "section": "6.2 主成分分析",
-    "text": "6.2 主成分分析"
+    "title": "7  分類問題に挑戦",
+    "section": "7.2 主成分分析",
+    "text": "7.2 主成分分析\n\n\nコードを表示\ndf_zoo <- \n  readr::read_csv(\"data-raw/tokushima_zoo_animals22.csv\", \n                col_types = \"ccdd_\")\n\nsubset(df_zoo, select = c(body_length_cm, weight_kg)) |> \n  dplyr::filter(!is.na(body_length_cm)) |> \n  prcomp(scale. = TRUE)\n\n\nStandard deviations (1, .., p=2):\n[1] 1.3577273 0.3956975\n\nRotation (n x k) = (2 x 2):\n                     PC1        PC2\nbody_length_cm 0.7071068 -0.7071068\nweight_kg      0.7071068  0.7071068"
   },
   {
     "objectID": "classification.html#クラスタリング",
     "href": "classification.html#クラスタリング",
-    "title": "6  分類問題に挑戦",
-    "section": "6.3 クラスタリング",
-    "text": "6.3 クラスタリング"
+    "title": "7  分類問題に挑戦",
+    "section": "7.3 クラスタリング",
+    "text": "7.3 クラスタリング"
   },
   {
     "objectID": "summary.html",

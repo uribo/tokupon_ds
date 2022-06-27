@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="瓜生真也（徳島大学デザイン型AI教育研究センター）">
 
-<title>データ分析入門</title>
+<title>データ分析入門 - 4&nbsp; 相関: 2変数の関係を調べる</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,7 +25,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./visualization.html" rel="next">
+<link href="./summary_statistics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,7 +68,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">データ分析入門</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">相関: 2変数の関係を調べる</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -97,7 +97,7 @@ ul.task-list{list-style: none;}
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">前書き</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">前書き</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -125,7 +125,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./correlation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">相関: 2変数の関係を調べる</span></a>
+  <a href="./correlation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">相関: 2変数の関係を調べる</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -190,100 +190,32 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">目次</h2>
-   
-  <ul>
-  <li><a href="#前書き" id="toc-前書き" class="nav-link active" data-scroll-target="#前書き">前書き</a>
-  <ul class="collapse">
-  <li><a href="#とくぽんによる解説" id="toc-とくぽんによる解説" class="nav-link" data-scroll-target="#とくぽんによる解説">とくぽんによる解説</a></li>
-  <li><a href="#実行環境" id="toc-実行環境" class="nav-link" data-scroll-target="#実行環境">実行環境</a></li>
-  <li><a href="#ライセンス" id="toc-ライセンス" class="nav-link" data-scroll-target="#ライセンス">ライセンス</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">データ分析入門</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">相関: 2変数の関係を調べる</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">作者</div>
-    <div class="quarto-title-meta-contents">
-             <p>瓜生真也（徳島大学デザイン型AI教育研究センター） </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">公開</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2022年6月23日</p>
-    </div>
-  </div>
     
   </div>
   
 
 </header>
 
-
-<section id="前書き" class="level1 unnumbered">
-<p><img src="cover.png" title="データ分析入門" class="quarto-cover-image img-fluid"></p><h1 class="unnumbered">前書き</h1>
-<p>このページは徳島大学<a href="http://tokushima-u.ac.jp/ai/">デザイン型AI教育研究センター</a>が 開催する、小中高生を対象にした「とくぽんAI塾 2022」のコースの一つである「データ分析入門」 の資料置き場です。このコースでは、<a href="http://cran.r-project.org">R言語</a>を使ったデータ分析にチャレンジします。</p>
-<p>コースは基礎編と発展編の2つに分けられます。基礎編では、データ分析に必要な知識・背景の理解のための 素養を身につけることを目指します。まず、データの種類と扱い方、表現方法を<a href="./intro.html">第1章</a>で学びます。 次に第2章では</p>
-<section id="とくぽんによる解説" class="level2">
-<h2 class="anchored" data-anchor-id="とくぽんによる解説">とくぽんによる解説</h2>
-<p>徳島大学マスコットキャラクターの「とくぽん」が解説を行います。 とくぽんによる解説には次の種類があります。</p>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-ノート
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>全般的な補足事項</p>
-</div>
-</div>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-警告
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>注意事項</p>
-</div>
-</div>
-</section>
-<section id="実行環境" class="level2">
-<h2 class="anchored" data-anchor-id="実行環境">実行環境</h2>
-<ul>
-<li>R version 4.2.0</li>
-<li>macOS Monterey 12.4</li>
-</ul>
-<p>このページは<a href="http://quarto.org">Quarto</a>を使って作成されています。 renvによるパッケージ管理、GitHub actionsによるページのビルドを行っています。</p>
-</section>
-<section id="ライセンス" class="level2">
-<h2 class="anchored" data-anchor-id="ライセンス">ライセンス</h2>
-<p>MIT</p>
+<p>相関関係の種類</p>
+<p>外れ値が相関係数に及ぼす影響</p>
+<p>相関関係と因果関係</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -464,10 +396,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./summary_statistics.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">データの特徴を捉える</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./visualization.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">グラフの作成</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
