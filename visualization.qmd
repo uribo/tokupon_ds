@@ -2,6 +2,19 @@
 title: "グラフの作成"
 ---
 
+```{r}
+library(ggplot2)
+```
+
+
+[データをグラフに表現する](data.qmd#データをグラフに表現する)では、ヒストグラムと箱ヒゲ図を紹介しました。
+
+## 1変数のデータの要約
+
+代表値、ヒストグラムや箱ヒゲ図による表現から一歩進んで
+
+ドット、蜂群、ヴァイオリンプロット、Sina、ハイブリッド、雨雲プロット
+
 ## 棒グラフ
 
 ## 散布図
@@ -11,3 +24,25 @@ title: "グラフの作成"
 [Datasaurus](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html)の紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。
 
 アンスコムの例
+
+```{r}
+anscombe
+```
+
+```{r}
+anscombe_long <- 
+  anscombe |> 
+  tidyr::pivot_longer(
+    tidyselect::everything(),
+    names_to = c(".value", "set"),
+    names_pattern = "(.)(.)")
+
+# anscombe_long |> 
+#   dplyr::filter(set == 1) |> 
+#   ggplot(aes(x, y)) +
+#   geom_point(color = "orange") +
+#   geom_smooth(method = lm, se = FALSE)
+```
+
+
+
