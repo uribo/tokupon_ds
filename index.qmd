@@ -29,7 +29,7 @@
 
 ## 実行環境
 
-- R version 4.2.0
+- R version 4.2.1
 - macOS Monterey 12.4
 
 このページは[Quarto](http://quarto.org)を使って作成されています。
