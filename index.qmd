@@ -19,7 +19,7 @@
 
 :::
 
-::: {.callout-warning}
+::: {.callout-warning .tokupon_none}
 
 注意事項
 

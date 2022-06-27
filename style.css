@@ -21,6 +21,10 @@ div.callout-note {
   background-image: url("images/tokupon.png");
 }
 
+div.tokupon_none {
+  background-image: none
+}
+
 div.callout-caption-container {
   background-repeat: no-repeat;
   background-size: 24px;
