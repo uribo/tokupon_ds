@@ -57,6 +57,15 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "検索"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1VZEWMXCVL"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
+</script>
 
 
 <link rel="stylesheet" href="style.css">
@@ -197,7 +206,7 @@ ul.task-list{list-style: none;}
   <li><a href="#前書き" id="toc-前書き" class="nav-link active" data-scroll-target="#前書き">前書き</a>
   <ul class="collapse">
   <li><a href="#とくぽんによる解説" id="toc-とくぽんによる解説" class="nav-link" data-scroll-target="#とくぽんによる解説">とくぽんによる解説</a></li>
-  <li><a href="#実行環境" id="toc-実行環境" class="nav-link" data-scroll-target="#実行環境">実行環境</a></li>
+  <li><a href="#rコードおよび実行環境" id="toc-rコードおよび実行環境" class="nav-link" data-scroll-target="#rコードおよび実行環境">Rコードおよび実行環境</a></li>
   <li><a href="#ライセンス" id="toc-ライセンス" class="nav-link" data-scroll-target="#ライセンス">ライセンス</a></li>
   </ul></li>
   </ul>
@@ -255,7 +264,7 @@ ul.task-list{list-style: none;}
 <p>全般的な補足事項</p>
 </div>
 </div>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-warning tokupon_none callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -269,13 +278,16 @@ ul.task-list{list-style: none;}
 </div>
 </div>
 </section>
-<section id="実行環境" class="level2">
-<h2 class="anchored" data-anchor-id="実行環境">実行環境</h2>
+<section id="rコードおよび実行環境" class="level2">
+<h2 class="anchored" data-anchor-id="rコードおよび実行環境">Rコードおよび実行環境</h2>
 <ul>
 <li>R version 4.2.1</li>
 <li>macOS Monterey 12.4</li>
 </ul>
-<p>このページは<a href="http://quarto.org">Quarto</a>を使って作成されています。 renvによるパッケージ管理、GitHub actionsによるページのビルドを行っています。</p>
+<p>このページは<a href="http://quarto.org">Quarto</a>を使って作成されています。</p>
+<p>ページ中のRのコードは下記のようにコードブロックで表示しています。 このコードブロックは右上にカーソルを移動させたときに表示されるアイコンをクリックすることで 内容がコピーされます。また、一部のコードについては非表示の状態のものもあります。 <code>コードを表示</code>とある場合、クリックによってコードが表示されます。</p>
+<p><img src="images/code_block.gif" class="img-fluid"></p>
+<p>renvによるパッケージ管理、GitHub actionsによるページのビルドを行っています。</p>
 </section>
 <section id="ライセンス" class="level2">
 <h2 class="anchored" data-anchor-id="ライセンス">ライセンス</h2>
