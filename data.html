@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.624">
+<meta name="generator" content="quarto-0.9.626">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -291,16 +291,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
   <li><a href="#変数の性質の違い" id="toc-変数の性質の違い" class="nav-link" data-scroll-target="#変数の性質の違い"> <span class="header-section-number">2.1.1</span> 変数の性質の違い</a></li>
   <li><a href="#データフレーム" id="toc-データフレーム" class="nav-link" data-scroll-target="#データフレーム"> <span class="header-section-number">2.1.2</span> データフレーム</a></li>
   </ul></li>
-  <li><a href="#データをグラフに表現する" id="toc-データをグラフに表現する" class="nav-link" data-scroll-target="#データをグラフに表現する"> <span class="header-section-number">2.2</span> データをグラフに表現する</a>
-  <ul class="collapse">
-  <li><a href="#代表値" id="toc-代表値" class="nav-link" data-scroll-target="#代表値"> <span class="header-section-number">2.2.1</span> 代表値</a></li>
-  <li><a href="#データの分布" id="toc-データの分布" class="nav-link" data-scroll-target="#データの分布"> <span class="header-section-number">2.2.2</span> データの分布</a></li>
-  <li><a href="#データのばらつき" id="toc-データのばらつき" class="nav-link" data-scroll-target="#データのばらつき"> <span class="header-section-number">2.2.3</span> データのばらつき</a></li>
-  <li><a href="#ヒストグラム" id="toc-ヒストグラム" class="nav-link" data-scroll-target="#ヒストグラム"> <span class="header-section-number">2.2.4</span> ヒストグラム</a></li>
-  <li><a href="#箱ひげ図" id="toc-箱ひげ図" class="nav-link" data-scroll-target="#箱ひげ図"> <span class="header-section-number">2.2.5</span> 箱ひげ図</a></li>
-  </ul></li>
-  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ"> <span class="header-section-number">2.3</span> まとめ</a></li>
-  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">2.4</span> 参考文献・URL</a></li>
+  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ"> <span class="header-section-number">2.2</span> まとめ</a></li>
+  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">2.3</span> 参考文献・URL</a></li>
   </ul>
 </nav>
     </div>
@@ -626,154 +618,14 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </section>
 </section>
-<section id="データをグラフに表現する" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="データをグラフに表現する"><span class="header-section-number">2.2</span> データをグラフに表現する</h2>
-<p>数学は統計学的な考え方において必須ではありません。</p>
-<p>探索的データ分析</p>
-<p>度数分布表、ヒストグラム、箱ヒゲ図、散布図、カルトグラム</p>
-<p><a href="./intro.html#">データ分析の目的</a>の一つに「データを要約すること」があることを示しました。 それでは実際に、データの要約に取り組んでみましょう。 例として動物データの体長を表示します。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_zoo<span class="sc">$</span>body_length_cm</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  63.5 100.0  64.0 110.0  85.0  66.0  80.0 168.0 134.0 250.0 130.0 175.0
-[13]  31.0    NA   1.2 250.0  35.0  69.0    NA    NA  40.0    NA</code></pre>
-</div>
-</div>
-<p>このデータの特徴として言えることは何でしょうか？ 動物データに含まれるわずか22件の数値でも、こうした数値の羅列からデータの特徴を説明することは困難です。 データ分析で扱うデータの件数は数千、数万となる場合もあり、一つ一つデータを見ていくことも 現実的ではありません。 そこでデータを要約するために<strong>代表値</strong>の計算や<strong>データの可視化</strong>が行われます。</p>
-<section id="代表値" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="代表値"><span class="header-section-number">2.2.1</span> 代表値</h3>
-<p>まず、複数の数値の性質や特徴をよく表す代表値について説明します。 代表値によるデータの要約は、データに含まれる数値の傾向を大まかに把握するために便利です。 代表値という名前の通り、数値によるデータの表現方法となります。</p>
-<p>代表値によるデータを要約する方法にはさまざまなものがあります。代表的なものは<strong>平均値</strong>の計算です。</p>
-<p>平均値にも複数の種類が存在しますが、ここではより一般的な算術平均を平均値の例として扱います。</p>
-<p>最小値、最大値</p>
-</section>
-<section id="データの分布" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="データの分布"><span class="header-section-number">2.2.2</span> データの分布</h3>
-<p>データの分布を明らかにする。</p>
-<p>ある値がデータに含まれる数を<ruby>度数<rt>どすう</rt></ruby>または<ruby>頻度<rt>ひんど</rt></ruby>といいます。 動物のデータセットの分類群に対して度数を求めると次のようになります。</p>
-<div class="cell">
-<details>
-<summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 度数、頻度を英語で frequency といいます</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(df_zoo, taxon, <span class="at">name =</span> <span class="st">"frequency"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: left;">taxon</th>
-<th style="text-align: right;">frequency</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">偶蹄類</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">奇蹄類</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">霊長類</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">食肉類</td>
-<td style="text-align: right;">7</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">鯨偶蹄類</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">鳥類</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">齧歯類</td>
-<td style="text-align: right;">2</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>対象が量的変数の場合は頻度を簡単に求めることができます。 それでは量的変数、特に連続変数に対し度数を求めるにはどうすれば良いでしょうか。 量的変数に対して連続変数では同じ値をとることが少ないです。 そのため連続変数の度数を求めるときは、変数がとり得る値をいくつかの階級に分けて考えます。</p>
-<p>階級分けのために、まずは変数の最小値と最大値を調べましょう。 最小値と最大値はそれぞれ<code>min()</code>関数と<code>max()</code>関数に対象の変数を与えることで求められます。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 動物データの体長について最小値・最大値を求める</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 250</code></pre>
-</div>
-</div>
-<p>最小値・最大値を一度に求めるための<code>range()</code>関数も同様に扱えます。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]   1.2 250.0</code></pre>
-</div>
-</div>
-<p>最小値と最大値がわかったところで、次は階級を設定します。</p>
-<p>データ中の度数をまとめて表形式にしたものは度数分布表と呼ばれます。</p>
-<p>分類群の値ごとに同じデータがどれだけあるかをカウントして度数を求めます。</p>
-<p><strong>度数分布表</strong>は手元のデータの値をいくつかの階級 (class)</p>
-</section>
-<section id="データのばらつき" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="データのばらつき"><span class="header-section-number">2.2.3</span> データのばらつき</h3>
-<p>分散、標準偏差</p>
-</section>
-<section id="ヒストグラム" class="level3" data-number="2.2.4">
-<h3 data-number="2.2.4" class="anchored" data-anchor-id="ヒストグラム"><span class="header-section-number">2.2.4</span> ヒストグラム</h3>
-<p>代表値に対して、データを図で表現する方法を解説します。 ヒストグラム、箱ヒゲ図、散布図は数値を図で表すための方法として用いられます。</p>
-<p>度数分布をグラフ化する方法の一つとして<strong>ヒストグラム</strong>があります。</p>
-<div class="cell">
-<details>
-<summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_length_cm)) <span class="sc">+</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">6</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="data_files/figure-html/動物の体長のヒストグラム-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<!-- ビンの数を変えるとヒストグラムの形も変わる -->
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-階級幅の異なるヒストグラム
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>階級の幅が一定でないヒストグラムが存在するよ。</p>
-</div>
-</div>
-<p>データに対する説得力を増すためにも使われます。</p>
-<p>データの特徴を素早く捉えることができます。</p>
-</section>
-<section id="箱ひげ図" class="level3" data-number="2.2.5">
-<h3 data-number="2.2.5" class="anchored" data-anchor-id="箱ひげ図"><span class="header-section-number">2.2.5</span> 箱ひげ図</h3>
-</section>
-</section>
-<section id="まとめ" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="まとめ"><span class="header-section-number">2.3</span> まとめ</h2>
+<section id="まとめ" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="まとめ"><span class="header-section-number">2.2</span> まとめ</h2>
 <ul>
 <li>データの種類</li>
 </ul>
 </section>
-<section id="参考文献url" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">2.4</span> 参考文献・URL</h2>
+<section id="参考文献url" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">2.3</span> 参考文献・URL</h2>
 <ul>
 <li><span class="citation" data-cites="R300000001-I031484010-00">(<a href="references.html#ref-R300000001-I031484010-00" role="doc-biblioref">北川源四郎 と 内田誠一 2021</a>)</span></li>
 </ul>

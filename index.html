@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.624">
+<meta name="generator" content="quarto-0.9.626">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -206,6 +206,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
   <li><a href="#前書き" id="toc-前書き" class="nav-link active" data-scroll-target="#前書き">前書き</a>
   <ul class="collapse">
   <li><a href="#とくぽんによる解説" id="toc-とくぽんによる解説" class="nav-link" data-scroll-target="#とくぽんによる解説">とくぽんによる解説</a></li>
+  <li><a href="#ご意見募集" id="toc-ご意見募集" class="nav-link" data-scroll-target="#ご意見募集">ご意見募集</a></li>
   <li><a href="#rコードおよび実行環境" id="toc-rコードおよび実行環境" class="nav-link" data-scroll-target="#rコードおよび実行環境">Rコードおよび実行環境</a></li>
   <li><a href="#ライセンス" id="toc-ライセンス" class="nav-link" data-scroll-target="#ライセンス">ライセンス</a></li>
   </ul></li>
@@ -246,11 +247,12 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 <section id="前書き" class="level1 unnumbered">
 <p><img src="cover.png" title="データ分析入門" class="quarto-cover-image img-fluid"></p><h1 class="unnumbered">前書き</h1>
-<p>このページは徳島大学<a href="http://tokushima-u.ac.jp/ai/">デザイン型AI教育研究センター</a>が 開催する、小中高生を対象にした「とくぽんAI塾 2022」のコースの一つである「データ分析入門」 の資料置き場です。このコースでは、<a href="http://cran.r-project.org">R言語</a>を使ったデータ分析にチャレンジします。</p>
-<p>コースは基礎編と発展編の2つに分けられます。基礎編では、データ分析に必要な知識・背景の理解のための 素養を身につけることを目指します。まず、データの種類と扱い方、表現方法を<a href="./intro.html">第1章</a>で学びます。 次に第2章では</p>
+<p>このページは徳島大学<a href="http://tokushima-u.ac.jp/ai/">デザイン型AI教育研究センター</a>が 開催する、小中高生を対象にした「とくぽんAI塾 2022」のコースの一つである「データ分析入門」 の資料置き場です。</p>
+<p>コースは基礎編と発展編の2つに分けられます。基礎編では、データ分析に必要な知識・背景の理解のための 素養を身につけることを目指します。発展編ではデータ分析の問題への挑戦として、回帰と分類問題について 取り組みます。 このコースでは、基礎から発展まで通して<a href="http://cran.r-project.org">R言語</a>を使ったデータ分析を行います。</p>
+<p>まずデータ分析についての大まかな内容とデータ分析で扱われる課題について<a href="./intro.html">第1章</a>で学びます。 次に<a href="./data.html">第2章</a>では、データの種類と扱い方、表現方法を身につけます。 <a href="./summary_statistics.html">第3章</a>ではデータを<ruby>要約<rt>ようやく</rt></ruby>し、伝えやすくするための方法を紹介します。 ここでは特に１つの<ruby>変数<rt>へんすう</rt></ruby>について扱います。 <a href="./correlation.html">第4章</a>は２つの変数の関係を調べるための相関について理解を深めます。 基礎編の最終章となる<a href="./visualization.html">第5章</a>では、データ分析に欠かせないデータのグラフ化、可視化のノウハウを学びます。 ここでは一般的な統計グラフの他に地図による表現についても紹介します。 続く発展編では、<a href="./regression.html">回帰</a>と<a href="./classification.html">分類</a>についてそれぞれ課題を設定し、Rによるプログラミングとその出力の理解を目指します。</p>
 <section id="とくぽんによる解説" class="level2">
 <h2 class="anchored" data-anchor-id="とくぽんによる解説">とくぽんによる解説</h2>
-<p>徳島大学マスコットキャラクターの「とくぽん」が解説を行います。 とくぽんによる解説には次の種類があります。</p>
+<p>徳島大学マスコットキャラクターの「<a href="https://www.tokushima-u.ac.jp/about/profile/univ_mascot/index.html">とくぽん</a>」が解説を行います。 とくぽんによる解説には次の種類があります。</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -261,7 +263,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>全般的な補足事項</p>
+<p>全般的な補足をコメントするよ。</p>
 </div>
 </div>
 <div class="callout-warning tokupon_none callout callout-style-default callout-captioned">
@@ -274,9 +276,13 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>注意事項</p>
+<p>注意が必要な事柄がある場合に説明をするよ。</p>
 </div>
 </div>
+</section>
+<section id="ご意見募集" class="level2">
+<h2 class="anchored" data-anchor-id="ご意見募集">ご意見募集</h2>
+<p>この内容が分かりにくかった、読めないが漢字があったときには 気軽にコメントいただけると改善のために役立ちます。 コメントは<a href="https://github.com/uribo/tokupon_ds/issues/new">GitHub issues</a>もしくは<a href="https://docs.google.com/forms/d/e/1FAIpQLScsdOwAHDCj2eFg-PCLayWSQKViWO-BnzRWHCxsZPn_lVf6_A/viewform?usp=sf_link">フォーム</a>から投稿をお願いします。</p>
 </section>
 <section id="rコードおよび実行環境" class="level2">
 <h2 class="anchored" data-anchor-id="rコードおよび実行環境">Rコードおよび実行環境</h2>
