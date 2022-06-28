@@ -6,6 +6,12 @@ title: "グラフの作成"
 library(ggplot2)
 ```
 
+## 探索的データ解析
+
+第二次世界大戦の後、1977年にジョン・テューキーが著書「Exploratory Data Analysis」のなかで探索的データ解析の重要性を説きました。
+
+データ解析の第一歩は計算ではない
+
 
 [データをグラフに表現する](data.qmd#データをグラフに表現する)では、ヒストグラムと箱ヒゲ図を紹介しました。
 
@@ -44,5 +50,15 @@ anscombe_long <-
 #   geom_smooth(method = lm, se = FALSE)
 ```
 
+
+## 地図表現
+
+```{r}
+library(sf)
+library(rnaturalearth)
+# library(rnaturalearthhires)
+```
+
+動物の分布を示す地図を作成してみよう。
 
 
