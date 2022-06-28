@@ -139,7 +139,7 @@ df_zoo |>
 
 データの特徴を素早く捉えることができます。
 
-### 箱ひげ図
+
 
 
 ## 代表値
@@ -157,7 +157,34 @@ median(df_zoo$body_length_cm, na.rm = TRUE)
 
 パーセンタイル
 
-箱ヒゲ図
+
+### 箱ヒゲ図
+
+中央値を太い線で描く
+
+箱
+
+箱から<ruby>髭<rt>ひげ</rt></ruby>が伸びているような図であることから箱ヒゲ図と呼ばれます。
+
+```{r}
+#| warning: false
+#| dev: ragg_png
+df_zoo |> 
+  ggplot(aes(y = body_length_cm)) +
+  geom_boxplot()
+
+# 分類群ごとの箱ヒゲ図を描画
+# あらかじめ中央値を計算し、グラフ上では中央値の並びで分類群が表示されるように
+# 調整しています。
+df_zoo |> 
+  filter(!is.na(body_length_cm)) |> 
+  group_by(taxon) |> 
+  mutate(body_length_median = median(body_length_cm)) |> 
+  ungroup() |> 
+  mutate(taxon = forcats::fct_reorder(taxon, body_length_median)) |> 
+  ggplot(aes(taxon, body_length_cm)) +
+  geom_boxplot()
+```
 
 ## 相関: 2つの変数の間の関係
 
