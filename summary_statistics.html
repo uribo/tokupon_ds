@@ -272,10 +272,12 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
   <li><a href="#データの分布" id="toc-データの分布" class="nav-link" data-scroll-target="#データの分布"> <span class="header-section-number">3.1.2</span> データの分布</a></li>
   <li><a href="#データのばらつき" id="toc-データのばらつき" class="nav-link" data-scroll-target="#データのばらつき"> <span class="header-section-number">3.1.3</span> データのばらつき</a></li>
   <li><a href="#ヒストグラム" id="toc-ヒストグラム" class="nav-link" data-scroll-target="#ヒストグラム"> <span class="header-section-number">3.1.4</span> ヒストグラム</a></li>
-  <li><a href="#箱ひげ図" id="toc-箱ひげ図" class="nav-link" data-scroll-target="#箱ひげ図"> <span class="header-section-number">3.1.5</span> 箱ひげ図</a></li>
   </ul></li>
   <li><a href="#代表値-1" id="toc-代表値-1" class="nav-link" data-scroll-target="#代表値-1"> <span class="header-section-number">3.2</span> 代表値</a></li>
-  <li><a href="#データのばらつき-1" id="toc-データのばらつき-1" class="nav-link" data-scroll-target="#データのばらつき-1"> <span class="header-section-number">3.3</span> データのばらつき</a></li>
+  <li><a href="#データのばらつき-1" id="toc-データのばらつき-1" class="nav-link" data-scroll-target="#データのばらつき-1"> <span class="header-section-number">3.3</span> データのばらつき</a>
+  <ul class="collapse">
+  <li><a href="#箱ヒゲ図" id="toc-箱ヒゲ図" class="nav-link" data-scroll-target="#箱ヒゲ図"> <span class="header-section-number">3.3.1</span> 箱ヒゲ図</a></li>
+  </ul></li>
   <li><a href="#相関-2つの変数の間の関係" id="toc-相関-2つの変数の間の関係" class="nav-link" data-scroll-target="#相関-2つの変数の間の関係"> <span class="header-section-number">3.4</span> 相関: 2つの変数の間の関係</a></li>
   </ul>
 </nav>
@@ -443,9 +445,6 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>データに対する説得力を増すためにも使われます。</p>
 <p>データの特徴を素早く捉えることができます。</p>
 </section>
-<section id="箱ひげ図" class="level3" data-number="3.1.5">
-<h3 data-number="3.1.5" class="anchored" data-anchor-id="箱ひげ図"><span class="header-section-number">3.1.5</span> 箱ひげ図</h3>
-</section>
 </section>
 <section id="代表値-1" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="代表値-1"><span class="header-section-number">3.2</span> 代表値</h2>
@@ -480,7 +479,40 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <section id="データのばらつき-1" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="データのばらつき-1"><span class="header-section-number">3.3</span> データのばらつき</h2>
 <p>パーセンタイル</p>
-<p>箱ヒゲ図</p>
+<section id="箱ヒゲ図" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="箱ヒゲ図"><span class="header-section-number">3.3.1</span> 箱ヒゲ図</h3>
+<p>中央値を太い線で描く</p>
+<p>箱</p>
+<p>箱から<ruby>髭<rt>ひげ</rt></ruby>が伸びているような図であることから箱ヒゲ図と呼ばれます。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> body_length_cm)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="summary_statistics_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分類群ごとの箱ヒゲ図を描画</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># あらかじめ中央値を計算し、グラフ上では中央値の並びで分類群が表示されるように</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 調整しています。</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(taxon) <span class="sc">|&gt;</span> </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">body_length_median =</span> <span class="fu">median</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">taxon =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(taxon, body_length_median)) <span class="sc">|&gt;</span> </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(taxon, body_length_cm)) <span class="sc">+</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="summary_statistics_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
 </section>
 <section id="相関-2つの変数の間の関係" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="相関-2つの変数の間の関係"><span class="header-section-number">3.4</span> 相関: 2つの変数の間の関係</h2>

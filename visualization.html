@@ -266,9 +266,11 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#変数のデータの要約" id="toc-変数のデータの要約" class="nav-link active" data-scroll-target="#変数のデータの要約"> <span class="header-section-number">5.1</span> 1変数のデータの要約</a></li>
-  <li><a href="#棒グラフ" id="toc-棒グラフ" class="nav-link" data-scroll-target="#棒グラフ"> <span class="header-section-number">5.2</span> 棒グラフ</a></li>
-  <li><a href="#散布図" id="toc-散布図" class="nav-link" data-scroll-target="#散布図"> <span class="header-section-number">5.3</span> 散布図</a></li>
+  <li><a href="#探索的データ解析" id="toc-探索的データ解析" class="nav-link active" data-scroll-target="#探索的データ解析"> <span class="header-section-number">5.1</span> 探索的データ解析</a></li>
+  <li><a href="#変数のデータの要約" id="toc-変数のデータの要約" class="nav-link" data-scroll-target="#変数のデータの要約"> <span class="header-section-number">5.2</span> 1変数のデータの要約</a></li>
+  <li><a href="#棒グラフ" id="toc-棒グラフ" class="nav-link" data-scroll-target="#棒グラフ"> <span class="header-section-number">5.3</span> 棒グラフ</a></li>
+  <li><a href="#散布図" id="toc-散布図" class="nav-link" data-scroll-target="#散布図"> <span class="header-section-number">5.4</span> 散布図</a></li>
+  <li><a href="#地図表現" id="toc-地図表現" class="nav-link" data-scroll-target="#地図表現"> <span class="header-section-number">5.5</span> 地図表現</a></li>
   </ul>
 </nav>
     </div>
@@ -297,17 +299,22 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<section id="探索的データ解析" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="探索的データ解析"><span class="header-section-number">5.1</span> 探索的データ解析</h2>
+<p>第二次世界大戦の後、1977年にジョン・テューキーが著書「Exploratory Data Analysis」のなかで探索的データ解析の重要性を説きました。</p>
+<p>データ解析の第一歩は計算ではない</p>
 <p><a href="./data.html#データをグラフに表現する">データをグラフに表現する</a>では、ヒストグラムと箱ヒゲ図を紹介しました。</p>
-<section id="変数のデータの要約" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="変数のデータの要約"><span class="header-section-number">5.1</span> 1変数のデータの要約</h2>
+</section>
+<section id="変数のデータの要約" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="変数のデータの要約"><span class="header-section-number">5.2</span> 1変数のデータの要約</h2>
 <p>代表値、ヒストグラムや箱ヒゲ図による表現から一歩進んで</p>
 <p>ドット、蜂群、ヴァイオリンプロット、Sina、ハイブリッド、雨雲プロット</p>
 </section>
-<section id="棒グラフ" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="棒グラフ"><span class="header-section-number">5.2</span> 棒グラフ</h2>
+<section id="棒グラフ" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="棒グラフ"><span class="header-section-number">5.3</span> 棒グラフ</h2>
 </section>
-<section id="散布図" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="散布図"><span class="header-section-number">5.3</span> 散布図</h2>
+<section id="散布図" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="散布図"><span class="header-section-number">5.4</span> 散布図</h2>
 <p><a href="./correlation.html">相関</a></p>
 <p><a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html">Datasaurus</a>の紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。</p>
 <p>アンスコムの例</p>
@@ -348,6 +355,24 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_smooth(method = lm, se = FALSE)</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section>
+<section id="地図表現" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="地図表現"><span class="header-section-number">5.5</span> 地図表現</h2>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1; sf_use_s2() is TRUE</code></pre>
+</div>
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(rnaturalearthhires)</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>動物の分布を示す地図を作成してみよう。</p>
 
 
 </section>
