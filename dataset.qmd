@@ -9,6 +9,8 @@
 
 ## とくしま動物園で飼育される動物の体の大きさと体重
 
+- 名称: **動物データ**
+
 ```{r}
 #| include: false
 if (!file.exists("data-raw/tokushima_zoo_animals22.csv")) {
@@ -52,7 +54,8 @@ if (!file.exists("data-raw/tokushima_zoo_animals22.csv")) {
     mutate(link = paste0("https://ja.wikipedia.org/wiki/",
                          recode(name,
                          `アンデスコンドル` = "コンドル",
-                         `ラマ` = "リャマ")))
+                         `ラマ` = "リャマ"))) %>% 
+    assertr::verify(dim(.) == c(22, 5))
   tksmzoo_animals22 |> 
     readr::write_csv("data-raw/tokushima_zoo_animals22.csv")
 }
@@ -67,4 +70,92 @@ if (!file.exists("data-raw/tokushima_zoo_animals22.csv")) {
 このデータは`r fontawesome::fa("github")` [GitHubリポジトリ](https://github.com/uribo/tokupon_ds)に保存してあります。
 
 https://github.com/uribo/tokupon_ds/blob/main/data-raw/tokushima_zoo_animals22.csv
+
+## とくしま動物園で飼育される動物の保全状況と生息地
+
+- 名称: **動物保全状況データ**
+
+```{r}
+#| include: false
+library(dplyr)
+df_zoo_name <- 
+  tibble::tibble(
+    name = c("レッサーパンダ", "ホオジロカンムリヅル", 
+             "コツメカワウソ", "カナダガン", "チンパンジー", 
+             "シシオザル", "マントヒヒ", "ピューマ", "カピバラ", 
+             "ライオン", "アフリカハゲコウ", "シロオリックス", 
+             "ミーアキャット", "シンリンオオカミ", "アンデスコンドル", 
+             "ホッキョクグマ", "リスザル", "フンボルトペンギン", 
+             "ラマ", "ポニー", "モルモット", "ヒツジ"),
+    scientific_name = c("Ailurus fulgens", "Balearica regulorum", 
+                        "Aonyx cinerea", "Branta canadensis", "Pan troglodytes",
+                        "Macaca silenus", "Papio hamadryas", "Puma concolor", 
+                        "Hydrochoerus hydrochaeris", "Panthera leo",
+                        "Leptoptilos crumeniferus", "Oryx dammah", "Suricata suricatta", 
+                        "Canis lupus", "Vultur gryphus",
+                        "Ursus maritimus", NA_character_, "Spheniscus humboldti",
+                        "Lama glama", NA_character_,
+                        "Cavia porcellus", "Ovis aries")) |> 
+    filter(!is.na(scientific_name)) %>% 
+    assertr::verify(dim(.) == c(20, 2))
+```
+
+
+動物データのうち、生物種名（学名）が判別可能な`r nrow(df_zoo_name)`種についての生息地とその保全状況を
+示すデータセットです。[国際自然保護連合(IUCN)](https://www.iucn.org)が指定する[IUCNレッドリスト](https://www.iucnredlist.org)からデータを取得しています。
+
+```{r}
+#| include: false
+if (file.exists("data-raw/tokushima_zoo_animals_conservation_status.rds") == FALSE) {
+  library(rredlist)
+  animal_scname <- 
+      df_zoo_name |> 
+      purrr::pluck("scientific_name")
+    
+  result_red_list_search <-
+    animal_scname |> 
+    purrr::map_dfr(
+      ~ tibble::as_tibble(purrr::pluck(rredlist::rl_search(name = .x), 
+                                       "result")))
+    result_red_list_search |> 
+    readr::write_rds("data-raw/redlist_search_raw.rds")
+    
+  result_red_list_occ <- 
+    animal_scname |> 
+    purrr::set_names(animal_scname) |>
+    purrr::map_dfr(~ tibble::as_tibble(purrr::pluck(rredlist::rl_occ_country(name = .x), 
+                                                    "result")),
+    .id = "scientific_name")
+    
+  result_red_list_occ |> 
+    readr::write_rds("data-raw/redlist_occ_country_raw.rds")
+    
+  result_red_list_occ <- 
+    result_red_list_occ |> 
+    select(!c(distribution_code)) |> 
+    tidyr::nest(occ = c(code, country, presence, origin))
+    
+  df_red_list_information <-
+    result_red_list_search |>
+    select(
+      taxonid,
+      scientific_name,
+      main_common_name,
+      category,
+      population_trend,
+      ends_with("_system"),
+      starts_with("elevation_"),
+      starts_with("depth_")) |>
+    tidyr::nest(ecosystem = ends_with("_system"),
+                limitation = c(ends_with("upper"), ends_with("lower"))) |>
+    left_join(result_red_list_occ, by = "scientific_name")
+
+  df_zoo_name <- 
+    df_zoo_name |> 
+    left_join(df_red_list_information, by = "scientific_name")
+    
+  df_zoo_name |> 
+    readr::write_rds("data-raw/tokushima_zoo_animals_conservation_status.rds")
+}
+```
 
