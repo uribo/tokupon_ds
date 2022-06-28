@@ -12,7 +12,7 @@
 ```{r}
 #| include: false
 if (!file.exists("data-raw/tokushima_zoo_animals22.csv")) {
-  library(magrittr)
+  library(dplyr)
   library(rvest)
   url <-
     "https://www.city.tokushima.tokushima.jp/zoo/gallery/ichiran.html"
@@ -28,6 +28,8 @@ if (!file.exists("data-raw/tokushima_zoo_animals22.csv")) {
     html_text() %>%
     ensurer::ensure(length(.) == 22)
   
+  # リスザルはリスザル属の総称
+  # ポニーは肩までの高さが147cm以下の馬の総称
   tksmzoo_animals22 <-
     tibble::tibble(
       taxon = c("食肉類", "鳥類", "食肉類", "鳥類", "霊長類",
@@ -46,30 +48,11 @@ if (!file.exists("data-raw/tokushima_zoo_animals22.csv")) {
                 # ホッキョクグマは平均体重のうち最大値を採用
                 9, 220, 0.9, 30.3, 15,
                 410, 1.1, 6, 140, NA_real_,
-                1.5, NA_real_),
-      link = c("https://ja.wikipedia.org/wiki/レッサーパンダ",
-           "https://ja.wikipedia.org/wiki/ホオジロカンムリヅル",
-           "https://ja.wikipedia.org/wiki/コツメカワウソ",
-           "https://ja.wikipedia.org/wiki/カナダガン",
-           "https://ja.wikipedia.org/wiki/チンパンジー",
-           "https://ja.wikipedia.org/wiki/シシオザル",
-           "https://ja.wikipedia.org/wiki/マントヒヒ",
-           "https://ja.wikipedia.org/wiki/ピューマ",
-           "https://ja.wikipedia.org/wiki/カピバラ",
-           "https://ja.wikipedia.org/wiki/ライオン",
-           "https://ja.wikipedia.org/wiki/アフリカハゲコウ",
-           "https://ja.wikipedia.org/wiki/シロオリックス",
-           "https://ja.wikipedia.org/wiki/ミーアキャット",
-           "https://ja.wikipedia.org/wiki/シンリンオオカミ",
-           "https://ja.wikipedia.org/wiki/コンドル",
-           "https://ja.wikipedia.org/wiki/ホッキョクグマ",
-           "https://ja.wikipedia.org/wiki/リスザル",
-           "https://ja.wikipedia.org/wiki/フンボルトペンギン",
-           "https://ja.wikipedia.org/wiki/リャマ",
-           # ポニーは肩までの高さが147cm以下の馬の総称
-           "https://ja.wikipedia.org/wiki/ポニー",
-           "https://ja.wikipedia.org/wiki/モルモット",
-           "https://ja.wikipedia.org/wiki/ヒツジ"))
+                1.5, NA_real_)) |> 
+    mutate(link = paste0("https://ja.wikipedia.org/wiki/",
+                         recode(name,
+                         `アンデスコンドル` = "コンドル",
+                         `ラマ` = "リャマ")))
   tksmzoo_animals22 |> 
     readr::write_csv("data-raw/tokushima_zoo_animals22.csv")
 }
@@ -81,7 +64,7 @@ if (!file.exists("data-raw/tokushima_zoo_animals22.csv")) {
 原則として、各種の体長および体重の最大値を記録しています。
 適当な値の記載がなかった項目については欠損値を与えています。
 
-データは[GitHubリポジトリ](https://github.com/uribo/tokupon_ds)に保存してあります。
+このデータは`r fontawesome::fa("github")` [GitHubリポジトリ](https://github.com/uribo/tokupon_ds)に保存してあります。
 
 https://github.com/uribo/tokupon_ds/blob/main/data-raw/tokushima_zoo_animals22.csv
 
