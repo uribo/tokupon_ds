@@ -56,9 +56,53 @@ anscombe_long <-
 ```{r}
 library(sf)
 library(rnaturalearth)
-# library(rnaturalearthhires)
+library(rnaturalearthhires)
 ```
 
-動物の分布を示す地図を作成してみよう。
+```{r}
+library(dplyr)
+df_zoo_conservation <- 
+  readr::read_rds("data-raw/tokushima_zoo_animals_conservation_status.rds")
+
+df_countries <-
+  countrycode::codelist |>
+  select(iso2c, cldr.name.ja) |>
+  janitor::clean_names()
+
+ne_world <-
+  rnaturalearth::ne_countries(scale = 10, returnclass = "sf") |>
+  select(admin, name, pop_est, pop_year, iso_a2, continent)
+
+sf_zoo_conservation <- 
+  ne_world |> 
+  left_join(df_zoo_conservation |> 
+              filter(name == "フンボルトペンギン") |> 
+              tidyr::unnest(cols = occ) |> 
+              select(code, presence),
+            by = c("iso_a2" = "code")) |> 
+  mutate(presence = tidyr::replace_na(presence, "Absence"))
+```
+
+動物の分布を示す地図を作成してみましょう。
+
+```{r}
+ggplot() +
+  geom_sf(data = sf_zoo_conservation, 
+          aes(fill = presence), 
+          size = 0.001) +
+  scale_fill_viridis_d()
+```
+
+```{r}
+library(mapview)
+```
+
+
+```{r}
+#| echo: true
+#| eval: false
+mapview(sf_zoo_conservation, 
+                 zcol = "presence")
+```
 
 
