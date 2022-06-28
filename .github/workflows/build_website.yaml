@@ -29,7 +29,7 @@ jobs:
           sudo apt-get install -y libcurl4-openssl-dev
           sudo apt-get install -y libharfbuzz-dev
           sudo apt-get install -y libfribidi-dev
-          sudo apt-get install -y libudunits2-dev
+          sudo apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libproj-dev
 
       - uses: r-lib/actions/setup-r@v2
         with:
