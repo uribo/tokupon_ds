@@ -77,6 +77,18 @@
         "sys"
       ]
     },
+    "assertr": {
+      "Package": "assertr",
+      "Version": "2.8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "38c61c51fa8311904551d58895da2858",
+      "Requirements": [
+        "MASS",
+        "dplyr",
+        "rlang"
+      ]
+    },
     "base64enc": {
       "Package": "base64enc",
       "Version": "0.1-3",
