@@ -309,62 +309,600 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <section id="令和2年度-学校保健統計調査-都道府県別の身長体重の平均値及び標準偏差" class="level2" data-number="B.2">
 <h2 data-number="B.2" class="anchored" data-anchor-id="令和2年度-学校保健統計調査-都道府県別の身長体重の平均値及び標準偏差"><span class="header-section-number">B.2</span> 令和2年度 学校保健統計調査 都道府県別の身長・体重の平均値及び標準偏差</h2>
 <p>e-Statで公開されている<a href="https://www.e-stat.go.jp/stat-search/files?page=1&amp;layout=datalist&amp;toukei=00400002&amp;tstat=000001011648&amp;cycle=0&amp;tclass1=000001156246&amp;tclass2=000001156248&amp;stat_infid=000032108465&amp;tclass3val=0">ファイル</a>をRで処理しました。</p>
-<div class="cell">
+<div class="cell" data-file="data-raw/hoken_toukei.R">
 <details>
 <summary>コードを表示</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-overflow-scroll code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="st">"data-raw/令和2年度_学校保健統計調査_都道府県別_身長と体重_5歳.csv"</span>) <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  df_hoken_toukei <span class="ot">&lt;-</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">"data-raw/r2_hoken_tokei_05.xls"</span>, </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">sheet =</span> <span class="dv">1</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">range =</span> <span class="st">"B8:J55"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"区分"</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">paste</span>(<span class="st">"男"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                                        <span class="fu">c</span>(<span class="fu">paste</span>(<span class="st">"身長"</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                                                <span class="fu">c</span>(<span class="st">"平均値"</span>, <span class="st">"標準偏差"</span>),</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">sep =</span> <span class="st">"_"</span>), </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                                          <span class="fu">paste</span>(<span class="st">"体重"</span>,</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                                                <span class="fu">c</span>(<span class="st">"平均値"</span>, <span class="st">"標準偏差"</span>),</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">sep =</span> <span class="st">"_"</span>)),</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">sep =</span> <span class="st">"_"</span>),</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">paste</span>(<span class="st">"女"</span>,</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">c</span>(<span class="fu">paste</span>(<span class="st">"身長"</span>,</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                                               <span class="fu">c</span>(<span class="st">"平均値"</span>, <span class="st">"標準偏差"</span>),</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">sep =</span> <span class="st">"_"</span>), </span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                                         <span class="fu">paste</span>(<span class="st">"体重"</span>,</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                                               <span class="fu">c</span>(<span class="st">"平均値"</span>, <span class="st">"標準偏差"</span>),</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">sep =</span> <span class="st">"_"</span>)),</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">sep =</span> <span class="st">"_"</span>))) <span class="sc">|&gt;</span> </span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(区分 <span class="ot">=</span> stringr<span class="sc">::</span><span class="fu">str_squish</span>(区分) <span class="sc">|&gt;</span> </span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                    stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(<span class="st">"[:space:]"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(区分 <span class="sc">!=</span> <span class="st">"全国"</span>) <span class="sc">|&gt;</span>  </span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(男_身長_平均値))</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  df_hoken_toukei <span class="sc">|&gt;</span> </span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    readr<span class="sc">::</span><span class="fu">write_csv</span>(<span class="st">"data-raw/令和2年度_学校保健統計調査_都道府県別_身長と体重_5歳.csv"</span>)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  df_hoken_toukei <span class="ot">&lt;-</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/令和2年度_学校保健統計調査_都道府県別_身長と体重_5歳.csv"</span>,</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col_types =</span> <span class="st">"cdddddddd"</span>)</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>df_hoken_toukei</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(<span class="st">"https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032108465&amp;fileKind=0"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">destfile =</span> <span class="st">"data-raw/r2_hoken_tokei_05.xls"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  df_hoken_toukei <span class="ot">&lt;-</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">"data-raw/r2_hoken_tokei_05.xls"</span>, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sheet =</span> <span class="dv">1</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">range =</span> <span class="st">"B8:J55"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"区分"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                                   <span class="fu">paste</span>(<span class="st">"男"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                                         <span class="fu">c</span>(<span class="fu">paste</span>(<span class="st">"身長"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                                                 <span class="fu">c</span>(<span class="st">"平均値"</span>, <span class="st">"標準偏差"</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">sep =</span> <span class="st">"_"</span>), </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">paste</span>(<span class="st">"体重"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                                                 <span class="fu">c</span>(<span class="st">"平均値"</span>, <span class="st">"標準偏差"</span>),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">sep =</span> <span class="st">"_"</span>)),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">sep =</span> <span class="st">"_"</span>),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                                   <span class="fu">paste</span>(<span class="st">"女"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                                         <span class="fu">c</span>(<span class="fu">paste</span>(<span class="st">"身長"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                                                 <span class="fu">c</span>(<span class="st">"平均値"</span>, <span class="st">"標準偏差"</span>),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">sep =</span> <span class="st">"_"</span>), </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">paste</span>(<span class="st">"体重"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                                                 <span class="fu">c</span>(<span class="st">"平均値"</span>, <span class="st">"標準偏差"</span>),</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">sep =</span> <span class="st">"_"</span>)),</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">sep =</span> <span class="st">"_"</span>))) <span class="sc">|&gt;</span> </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(区分 <span class="ot">=</span> stringr<span class="sc">::</span><span class="fu">str_squish</span>(区分) <span class="sc">|&gt;</span> </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                    stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(<span class="st">"[:space:]"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(区分 <span class="sc">!=</span> <span class="st">"全国"</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(男_身長_平均値))</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  df_hoken_toukei <span class="sc">|&gt;</span> </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    readr<span class="sc">::</span><span class="fu">write_csv</span>(<span class="st">"data-raw/令和2年度_学校保健統計調査_都道府県別_身長と体重_5歳.csv"</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  df_hoken_toukei <span class="ot">&lt;-</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/令和2年度_学校保健統計調査_都道府県別_身長と体重_5歳.csv"</span>,</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col_types =</span> <span class="st">"cdddddddd"</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 47 × 9
-   区分   男_身長_平均値 男_身長_標準偏差 男_体重_平均値 男_体重_標準偏差
-   &lt;chr&gt;           &lt;dbl&gt;            &lt;dbl&gt;          &lt;dbl&gt;            &lt;dbl&gt;
- 1 宮城             113.             4.77           20.1             3.12
- 2 石川             113.             5              19.6             2.78
- 3 奈良             113.             4.67           19.8             2.85
- 4 東京             112.             5              19.8             2.99
- 5 富山             112.             4.93           19.5             2.89
- 6 兵庫             112.             4.94           19.8             2.94
- 7 和歌山           112.             5.16           19.8             2.98
- 8 福井             112.             4.88           19.4             2.75
- 9 京都             112.             5.07           19.5             2.91
-10 秋田             112              5.12           19.8             3.56
-# … with 37 more rows, and 4 more variables: 女_身長_平均値 &lt;dbl&gt;,
-#   女_身長_標準偏差 &lt;dbl&gt;, 女_体重_平均値 &lt;dbl&gt;, 女_体重_標準偏差 &lt;dbl&gt;</code></pre>
+</div>
+<div class="cell" data-df-print="paged">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_hoken_toukei</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">区分</th>
+<th style="text-align: right;">男_身長_平均値</th>
+<th style="text-align: right;">男_身長_標準偏差</th>
+<th style="text-align: right;">男_体重_平均値</th>
+<th style="text-align: right;">男_体重_標準偏差</th>
+<th style="text-align: right;">女_身長_平均値</th>
+<th style="text-align: right;">女_身長_標準偏差</th>
+<th style="text-align: right;">女_体重_平均値</th>
+<th style="text-align: right;">女_体重_標準偏差</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">宮城</td>
+<td style="text-align: right;">112.8</td>
+<td style="text-align: right;">4.77</td>
+<td style="text-align: right;">20.1</td>
+<td style="text-align: right;">3.12</td>
+<td style="text-align: right;">111.6</td>
+<td style="text-align: right;">4.77</td>
+<td style="text-align: right;">19.6</td>
+<td style="text-align: right;">3.31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">石川</td>
+<td style="text-align: right;">112.6</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">19.6</td>
+<td style="text-align: right;">2.78</td>
+<td style="text-align: right;">111.5</td>
+<td style="text-align: right;">4.90</td>
+<td style="text-align: right;">19.2</td>
+<td style="text-align: right;">2.83</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">奈良</td>
+<td style="text-align: right;">112.6</td>
+<td style="text-align: right;">4.67</td>
+<td style="text-align: right;">19.8</td>
+<td style="text-align: right;">2.85</td>
+<td style="text-align: right;">111.0</td>
+<td style="text-align: right;">4.63</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">3.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">東京</td>
+<td style="text-align: right;">112.5</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">19.8</td>
+<td style="text-align: right;">2.99</td>
+<td style="text-align: right;">111.5</td>
+<td style="text-align: right;">5.06</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">2.78</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">富山</td>
+<td style="text-align: right;">112.4</td>
+<td style="text-align: right;">4.93</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">2.89</td>
+<td style="text-align: right;">110.8</td>
+<td style="text-align: right;">4.69</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">2.51</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">兵庫</td>
+<td style="text-align: right;">112.3</td>
+<td style="text-align: right;">4.94</td>
+<td style="text-align: right;">19.8</td>
+<td style="text-align: right;">2.94</td>
+<td style="text-align: right;">111.0</td>
+<td style="text-align: right;">4.74</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.65</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">和歌山</td>
+<td style="text-align: right;">112.2</td>
+<td style="text-align: right;">5.16</td>
+<td style="text-align: right;">19.8</td>
+<td style="text-align: right;">2.98</td>
+<td style="text-align: right;">111.3</td>
+<td style="text-align: right;">5.08</td>
+<td style="text-align: right;">19.6</td>
+<td style="text-align: right;">3.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">福井</td>
+<td style="text-align: right;">112.1</td>
+<td style="text-align: right;">4.88</td>
+<td style="text-align: right;">19.4</td>
+<td style="text-align: right;">2.75</td>
+<td style="text-align: right;">111.3</td>
+<td style="text-align: right;">4.64</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">2.64</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">京都</td>
+<td style="text-align: right;">112.1</td>
+<td style="text-align: right;">5.07</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">2.91</td>
+<td style="text-align: right;">111.4</td>
+<td style="text-align: right;">4.77</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">2.86</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">秋田</td>
+<td style="text-align: right;">112.0</td>
+<td style="text-align: right;">5.12</td>
+<td style="text-align: right;">19.8</td>
+<td style="text-align: right;">3.56</td>
+<td style="text-align: right;">111.2</td>
+<td style="text-align: right;">4.88</td>
+<td style="text-align: right;">19.4</td>
+<td style="text-align: right;">2.98</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">山形</td>
+<td style="text-align: right;">112.0</td>
+<td style="text-align: right;">4.80</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">2.98</td>
+<td style="text-align: right;">111.4</td>
+<td style="text-align: right;">4.84</td>
+<td style="text-align: right;">19.4</td>
+<td style="text-align: right;">2.97</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">神奈川</td>
+<td style="text-align: right;">111.9</td>
+<td style="text-align: right;">4.70</td>
+<td style="text-align: right;">19.6</td>
+<td style="text-align: right;">2.89</td>
+<td style="text-align: right;">111.0</td>
+<td style="text-align: right;">4.98</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.82</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">群馬</td>
+<td style="text-align: right;">111.7</td>
+<td style="text-align: right;">4.71</td>
+<td style="text-align: right;">19.7</td>
+<td style="text-align: right;">3.51</td>
+<td style="text-align: right;">110.9</td>
+<td style="text-align: right;">4.68</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">3.23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">千葉</td>
+<td style="text-align: right;">111.7</td>
+<td style="text-align: right;">4.94</td>
+<td style="text-align: right;">19.4</td>
+<td style="text-align: right;">2.97</td>
+<td style="text-align: right;">110.7</td>
+<td style="text-align: right;">5.03</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">2.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">大分</td>
+<td style="text-align: right;">111.7</td>
+<td style="text-align: right;">4.54</td>
+<td style="text-align: right;">19.6</td>
+<td style="text-align: right;">2.75</td>
+<td style="text-align: right;">110.6</td>
+<td style="text-align: right;">4.65</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">2.65</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">大阪</td>
+<td style="text-align: right;">111.6</td>
+<td style="text-align: right;">4.74</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">2.80</td>
+<td style="text-align: right;">110.4</td>
+<td style="text-align: right;">5.06</td>
+<td style="text-align: right;">18.9</td>
+<td style="text-align: right;">2.66</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">北海道</td>
+<td style="text-align: right;">111.5</td>
+<td style="text-align: right;">4.82</td>
+<td style="text-align: right;">19.6</td>
+<td style="text-align: right;">2.93</td>
+<td style="text-align: right;">110.5</td>
+<td style="text-align: right;">4.83</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">2.90</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">佐賀</td>
+<td style="text-align: right;">111.5</td>
+<td style="text-align: right;">5.03</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">2.99</td>
+<td style="text-align: right;">110.5</td>
+<td style="text-align: right;">4.77</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.58</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">埼玉</td>
+<td style="text-align: right;">111.4</td>
+<td style="text-align: right;">5.04</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">3.05</td>
+<td style="text-align: right;">110.7</td>
+<td style="text-align: right;">4.86</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">2.77</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">岐阜</td>
+<td style="text-align: right;">111.4</td>
+<td style="text-align: right;">4.76</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">2.74</td>
+<td style="text-align: right;">110.6</td>
+<td style="text-align: right;">4.33</td>
+<td style="text-align: right;">18.8</td>
+<td style="text-align: right;">2.55</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">静岡</td>
+<td style="text-align: right;">111.4</td>
+<td style="text-align: right;">4.79</td>
+<td style="text-align: right;">19.2</td>
+<td style="text-align: right;">2.67</td>
+<td style="text-align: right;">110.5</td>
+<td style="text-align: right;">4.54</td>
+<td style="text-align: right;">18.8</td>
+<td style="text-align: right;">2.34</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">愛知</td>
+<td style="text-align: right;">111.4</td>
+<td style="text-align: right;">4.84</td>
+<td style="text-align: right;">19.2</td>
+<td style="text-align: right;">2.95</td>
+<td style="text-align: right;">110.6</td>
+<td style="text-align: right;">4.89</td>
+<td style="text-align: right;">18.9</td>
+<td style="text-align: right;">2.63</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">福岡</td>
+<td style="text-align: right;">111.4</td>
+<td style="text-align: right;">4.76</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">2.99</td>
+<td style="text-align: right;">110.4</td>
+<td style="text-align: right;">4.84</td>
+<td style="text-align: right;">19.2</td>
+<td style="text-align: right;">2.92</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">青森</td>
+<td style="text-align: right;">111.3</td>
+<td style="text-align: right;">5.05</td>
+<td style="text-align: right;">19.7</td>
+<td style="text-align: right;">2.97</td>
+<td style="text-align: right;">111.1</td>
+<td style="text-align: right;">5.05</td>
+<td style="text-align: right;">19.9</td>
+<td style="text-align: right;">3.15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">福島</td>
+<td style="text-align: right;">111.3</td>
+<td style="text-align: right;">4.65</td>
+<td style="text-align: right;">19.4</td>
+<td style="text-align: right;">3.04</td>
+<td style="text-align: right;">109.6</td>
+<td style="text-align: right;">4.84</td>
+<td style="text-align: right;">18.8</td>
+<td style="text-align: right;">2.64</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">茨城</td>
+<td style="text-align: right;">111.2</td>
+<td style="text-align: right;">4.92</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">2.87</td>
+<td style="text-align: right;">109.7</td>
+<td style="text-align: right;">5.06</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">3.27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">長野</td>
+<td style="text-align: right;">111.2</td>
+<td style="text-align: right;">4.65</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.71</td>
+<td style="text-align: right;">110.0</td>
+<td style="text-align: right;">4.50</td>
+<td style="text-align: right;">18.6</td>
+<td style="text-align: right;">2.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">滋賀</td>
+<td style="text-align: right;">111.2</td>
+<td style="text-align: right;">4.85</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.97</td>
+<td style="text-align: right;">110.4</td>
+<td style="text-align: right;">5.09</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">2.59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">山口</td>
+<td style="text-align: right;">111.2</td>
+<td style="text-align: right;">4.78</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">2.57</td>
+<td style="text-align: right;">109.8</td>
+<td style="text-align: right;">5.12</td>
+<td style="text-align: right;">18.8</td>
+<td style="text-align: right;">2.84</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">山梨</td>
+<td style="text-align: right;">111.1</td>
+<td style="text-align: right;">5.47</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">3.20</td>
+<td style="text-align: right;">110.8</td>
+<td style="text-align: right;">5.05</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.91</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">新潟</td>
+<td style="text-align: right;">111.0</td>
+<td style="text-align: right;">4.66</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.47</td>
+<td style="text-align: right;">110.3</td>
+<td style="text-align: right;">4.56</td>
+<td style="text-align: right;">18.8</td>
+<td style="text-align: right;">2.54</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">島根</td>
+<td style="text-align: right;">111.0</td>
+<td style="text-align: right;">5.07</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.83</td>
+<td style="text-align: right;">110.1</td>
+<td style="text-align: right;">4.64</td>
+<td style="text-align: right;">18.4</td>
+<td style="text-align: right;">2.36</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">岡山</td>
+<td style="text-align: right;">111.0</td>
+<td style="text-align: right;">4.88</td>
+<td style="text-align: right;">19.2</td>
+<td style="text-align: right;">2.83</td>
+<td style="text-align: right;">109.9</td>
+<td style="text-align: right;">4.74</td>
+<td style="text-align: right;">18.8</td>
+<td style="text-align: right;">2.54</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">三重</td>
+<td style="text-align: right;">110.8</td>
+<td style="text-align: right;">4.97</td>
+<td style="text-align: right;">19.2</td>
+<td style="text-align: right;">2.78</td>
+<td style="text-align: right;">110.5</td>
+<td style="text-align: right;">4.71</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">2.69</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">香川</td>
+<td style="text-align: right;">110.8</td>
+<td style="text-align: right;">4.62</td>
+<td style="text-align: right;">19.2</td>
+<td style="text-align: right;">2.74</td>
+<td style="text-align: right;">109.4</td>
+<td style="text-align: right;">4.75</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">2.74</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">熊本</td>
+<td style="text-align: right;">110.8</td>
+<td style="text-align: right;">4.89</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.67</td>
+<td style="text-align: right;">109.8</td>
+<td style="text-align: right;">4.71</td>
+<td style="text-align: right;">18.8</td>
+<td style="text-align: right;">2.75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">岩手</td>
+<td style="text-align: right;">110.7</td>
+<td style="text-align: right;">4.66</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.82</td>
+<td style="text-align: right;">110.4</td>
+<td style="text-align: right;">4.67</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">2.90</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">栃木</td>
+<td style="text-align: right;">110.6</td>
+<td style="text-align: right;">4.77</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">2.74</td>
+<td style="text-align: right;">109.8</td>
+<td style="text-align: right;">4.56</td>
+<td style="text-align: right;">18.9</td>
+<td style="text-align: right;">2.79</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">広島</td>
+<td style="text-align: right;">110.6</td>
+<td style="text-align: right;">4.94</td>
+<td style="text-align: right;">19.2</td>
+<td style="text-align: right;">2.65</td>
+<td style="text-align: right;">109.7</td>
+<td style="text-align: right;">4.85</td>
+<td style="text-align: right;">18.8</td>
+<td style="text-align: right;">2.44</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">愛媛</td>
+<td style="text-align: right;">110.5</td>
+<td style="text-align: right;">4.96</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.84</td>
+<td style="text-align: right;">109.6</td>
+<td style="text-align: right;">5.01</td>
+<td style="text-align: right;">18.9</td>
+<td style="text-align: right;">2.74</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">高知</td>
+<td style="text-align: right;">110.4</td>
+<td style="text-align: right;">4.51</td>
+<td style="text-align: right;">18.9</td>
+<td style="text-align: right;">2.38</td>
+<td style="text-align: right;">109.5</td>
+<td style="text-align: right;">5.48</td>
+<td style="text-align: right;">18.6</td>
+<td style="text-align: right;">3.13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">宮崎</td>
+<td style="text-align: right;">110.4</td>
+<td style="text-align: right;">4.97</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.45</td>
+<td style="text-align: right;">109.0</td>
+<td style="text-align: right;">4.71</td>
+<td style="text-align: right;">18.6</td>
+<td style="text-align: right;">2.69</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">沖縄</td>
+<td style="text-align: right;">110.4</td>
+<td style="text-align: right;">4.84</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">2.56</td>
+<td style="text-align: right;">109.9</td>
+<td style="text-align: right;">4.75</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">2.99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">鳥取</td>
+<td style="text-align: right;">110.3</td>
+<td style="text-align: right;">4.59</td>
+<td style="text-align: right;">18.9</td>
+<td style="text-align: right;">2.84</td>
+<td style="text-align: right;">109.6</td>
+<td style="text-align: right;">4.94</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">2.56</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">鹿児島</td>
+<td style="text-align: right;">110.3</td>
+<td style="text-align: right;">4.98</td>
+<td style="text-align: right;">19.2</td>
+<td style="text-align: right;">2.75</td>
+<td style="text-align: right;">109.2</td>
+<td style="text-align: right;">4.96</td>
+<td style="text-align: right;">18.6</td>
+<td style="text-align: right;">2.54</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">長崎</td>
+<td style="text-align: right;">110.2</td>
+<td style="text-align: right;">4.71</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">2.68</td>
+<td style="text-align: right;">109.9</td>
+<td style="text-align: right;">5.15</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.91</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">徳島</td>
+<td style="text-align: right;">110.1</td>
+<td style="text-align: right;">4.94</td>
+<td style="text-align: right;">19.2</td>
+<td style="text-align: right;">2.95</td>
+<td style="text-align: right;">109.5</td>
+<td style="text-align: right;">4.58</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">2.82</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </section>
@@ -373,6 +911,64 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <ul>
 <li>名称: <strong>動物データ</strong></li>
 </ul>
+<div class="cell" data-file="data-raw/zoo.R">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-overflow-scroll code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>)) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(rvest)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">&lt;-</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://www.city.tokushima.tokushima.jp/zoo/gallery/ichiran.html"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">read_html</span>(url)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2016-04-01</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">|&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_element</span>(<span class="at">css =</span> <span class="st">'#main &gt; div.h1bg &gt; div.update.clearfix &gt; p'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_text</span>()</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  animals <span class="ot">&lt;-</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">|&gt;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">'#main &gt; div.main_inner &gt; div &gt; p &gt; span'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_text</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    ensurer<span class="sc">::</span><span class="fu">ensure</span>(<span class="fu">length</span>(.) <span class="sc">==</span> <span class="dv">22</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># リスザルはリスザル属の総称</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ポニーは肩までの高さが147cm以下の馬の総称</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  df_zoo <span class="ot">&lt;-</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">taxon =</span> <span class="fu">c</span>(<span class="st">"食肉類"</span>, <span class="st">"鳥類"</span>, <span class="st">"食肉類"</span>, <span class="st">"鳥類"</span>, <span class="st">"霊長類"</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                <span class="st">"霊長類"</span>, <span class="st">"霊長類"</span>, <span class="st">"食肉類"</span>, <span class="st">"齧歯類"</span>, <span class="st">"食肉類"</span>,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                <span class="st">"鳥類"</span>, <span class="st">"偶蹄類"</span>, <span class="st">"食肉類"</span>, <span class="st">"食肉類"</span>, <span class="st">"鳥類"</span>,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                <span class="st">"食肉類"</span>, <span class="st">"霊長類"</span>, <span class="st">"鳥類"</span>, <span class="st">"鯨偶蹄類"</span>, <span class="st">"奇蹄類"</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                <span class="st">"齧歯類"</span>, <span class="st">"鯨偶蹄類"</span>),</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">name =</span> animals,</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">body_length_cm =</span> <span class="fu">c</span>(<span class="fl">63.5</span>, <span class="dv">100</span>, <span class="dv">64</span>, <span class="dv">110</span>, <span class="dv">85</span>,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                         <span class="dv">66</span>, <span class="dv">80</span>, <span class="dv">168</span>, <span class="dv">134</span>, <span class="dv">250</span>,</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>                         <span class="dv">130</span>, <span class="dv">175</span>, <span class="dv">31</span>, <span class="cn">NA_real_</span>, <span class="fl">1.2</span>,</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                         <span class="dv">250</span>, <span class="dv">35</span>, <span class="dv">69</span>, <span class="cn">NA_real_</span>, <span class="cn">NA_real_</span>,</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>                         <span class="dv">40</span>, <span class="cn">NA_real_</span>),</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">weight_kg =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="fl">3.5</span>, <span class="fl">5.4</span>, <span class="fl">6.5</span>, <span class="dv">60</span>,</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>                    <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">80</span>, <span class="dv">66</span>, <span class="dv">225</span>,</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># ホッキョクグマは平均体重のうち最大値を採用</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>                    <span class="dv">9</span>, <span class="dv">220</span>, <span class="fl">0.9</span>, <span class="fl">30.3</span>, <span class="dv">15</span>,</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                    <span class="dv">410</span>, <span class="fl">1.1</span>, <span class="dv">6</span>, <span class="dv">140</span>, <span class="cn">NA_real_</span>,</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>                    <span class="fl">1.5</span>, <span class="cn">NA_real_</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">link =</span> <span class="fu">paste0</span>(<span class="st">"https://ja.wikipedia.org/wiki/"</span>,</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">recode</span>(name,</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>                                <span class="st">`</span><span class="at">アンデスコンドル</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"コンドル"</span>,</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>                                <span class="st">`</span><span class="at">ラマ</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"リャマ"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    assertr<span class="sc">::</span><span class="fu">verify</span>(<span class="fu">dim</span>(.) <span class="sc">==</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">5</span>))</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    readr<span class="sc">::</span><span class="fu">write_csv</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>)</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  df_zoo <span class="ot">&lt;-</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">!</span>link)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  df_zoo <span class="ot">&lt;-</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>, </span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col_types =</span> <span class="st">"ccdd_"</span>)</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p><a href="https://www.city.tokushima.tokushima.jp/zoo/index.html">とくしま動物園</a>で飼育される 22種の動物（2016年4月1日時点の情報）について体の大きさ（体長 cm）と体重（kg）をデータセット化したものです。 体長と体重については各動物のWikipediaのページを参照して記録しています。 原則として、各種の体長および体重の最大値を記録しています。 適当な値の記載がなかった項目については欠損値を与えています。</p>
 <p>このデータは<svg aria-hidden="true" role="img" viewbox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> <a href="https://github.com/uribo/tokupon_ds">GitHubリポジトリ</a>に保存してあります。</p>
 <p>https://github.com/uribo/tokupon_ds/blob/main/data-raw/tokushima_zoo_animals22.csv</p>
@@ -383,6 +979,87 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <li>名称: <strong>動物保全状況データ</strong></li>
 </ul>
 <p>動物データのうち、生物種名（学名）が判別可能な20種についての生息地とその保全状況を 示すデータセットです。<a href="https://www.iucn.org">国際自然保護連合(IUCN)</a>が指定する<a href="https://www.iucnredlist.org">IUCNレッドリスト</a>からデータを取得しています。</p>
+<div class="cell" data-file="data-raw/zoo_conservation.R">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-overflow-scroll code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_zoo_name <span class="ot">&lt;-</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"レッサーパンダ"</span>, <span class="st">"ホオジロカンムリヅル"</span>, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>             <span class="st">"コツメカワウソ"</span>, <span class="st">"カナダガン"</span>, <span class="st">"チンパンジー"</span>, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>             <span class="st">"シシオザル"</span>, <span class="st">"マントヒヒ"</span>, <span class="st">"ピューマ"</span>, <span class="st">"カピバラ"</span>, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>             <span class="st">"ライオン"</span>, <span class="st">"アフリカハゲコウ"</span>, <span class="st">"シロオリックス"</span>, </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>             <span class="st">"ミーアキャット"</span>, <span class="st">"シンリンオオカミ"</span>, <span class="st">"アンデスコンドル"</span>, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>             <span class="st">"ホッキョクグマ"</span>, <span class="st">"リスザル"</span>, <span class="st">"フンボルトペンギン"</span>, </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>             <span class="st">"ラマ"</span>, <span class="st">"ポニー"</span>, <span class="st">"モルモット"</span>, <span class="st">"ヒツジ"</span>),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">scientific_name =</span> <span class="fu">c</span>(<span class="st">"Ailurus fulgens"</span>, <span class="st">"Balearica regulorum"</span>, </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Aonyx cinerea"</span>, <span class="st">"Branta canadensis"</span>, <span class="st">"Pan troglodytes"</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Macaca silenus"</span>, <span class="st">"Papio hamadryas"</span>, <span class="st">"Puma concolor"</span>, </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Hydrochoerus hydrochaeris"</span>, <span class="st">"Panthera leo"</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Leptoptilos crumeniferus"</span>, <span class="st">"Oryx dammah"</span>, <span class="st">"Suricata suricatta"</span>, </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Canis lupus"</span>, <span class="st">"Vultur gryphus"</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Ursus maritimus"</span>, <span class="cn">NA_character_</span>, <span class="st">"Spheniscus humboldti"</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Lama glama"</span>, <span class="cn">NA_character_</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Cavia porcellus"</span>, <span class="st">"Ovis aries"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(scientific_name)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  assertr<span class="sc">::</span><span class="fu">verify</span>(<span class="fu">dim</span>(.) <span class="sc">==</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">2</span>))</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="st">"data-raw/tokushima_zoo_animals_conservation_status.rds"</span>) <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(rredlist)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  animal_scname <span class="ot">&lt;-</span> </span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    df_zoo_name <span class="sc">|&gt;</span> </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    purrr<span class="sc">::</span><span class="fu">pluck</span>(<span class="st">"scientific_name"</span>)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  result_red_list_search <span class="ot">&lt;-</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    animal_scname <span class="sc">|&gt;</span> </span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    purrr<span class="sc">::</span><span class="fu">map_dfr</span>(</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> tibble<span class="sc">::</span><span class="fu">as_tibble</span>(purrr<span class="sc">::</span><span class="fu">pluck</span>(rredlist<span class="sc">::</span><span class="fu">rl_search</span>(<span class="at">name =</span> .x), </span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"result"</span>)))</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  result_red_list_search <span class="sc">|&gt;</span> </span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    readr<span class="sc">::</span><span class="fu">write_rds</span>(<span class="st">"data-raw/redlist_search_raw.rds"</span>)</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  result_red_list_occ <span class="ot">&lt;-</span> </span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    animal_scname <span class="sc">|&gt;</span> </span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    purrr<span class="sc">::</span><span class="fu">set_names</span>(animal_scname) <span class="sc">|&gt;</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    purrr<span class="sc">::</span><span class="fu">map_dfr</span>(<span class="sc">~</span> tibble<span class="sc">::</span><span class="fu">as_tibble</span>(purrr<span class="sc">::</span><span class="fu">pluck</span>(rredlist<span class="sc">::</span><span class="fu">rl_occ_country</span>(<span class="at">name =</span> .x), </span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>                                                    <span class="st">"result"</span>)),</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>                   <span class="at">.id =</span> <span class="st">"scientific_name"</span>)</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>  result_red_list_occ <span class="sc">|&gt;</span> </span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    readr<span class="sc">::</span><span class="fu">write_rds</span>(<span class="st">"data-raw/redlist_occ_country_raw.rds"</span>)</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  result_red_list_occ <span class="ot">&lt;-</span> </span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    result_red_list_occ <span class="sc">|&gt;</span> </span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">!</span><span class="fu">c</span>(distribution_code)) <span class="sc">|&gt;</span> </span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">nest</span>(<span class="at">occ =</span> <span class="fu">c</span>(code, country, presence, origin))</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>  df_red_list_information <span class="ot">&lt;-</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    result_red_list_search <span class="sc">|&gt;</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>      taxonid,</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>      scientific_name,</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>      main_common_name,</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>      category,</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>      population_trend,</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>      tidyselect<span class="sc">::</span><span class="fu">ends_with</span>(<span class="st">"_system"</span>),</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>      tidyselect<span class="sc">::</span><span class="fu">starts_with</span>(<span class="st">"elevation_"</span>),</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>      tidyselect<span class="sc">::</span><span class="fu">starts_with</span>(<span class="st">"depth_"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">nest</span>(<span class="at">ecosystem =</span> tidyselect<span class="sc">::</span><span class="fu">ends_with</span>(<span class="st">"_system"</span>),</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>                <span class="at">limitation =</span> <span class="fu">c</span>(tidyselect<span class="sc">::</span><span class="fu">ends_with</span>(<span class="st">"upper"</span>), tidyselect<span class="sc">::</span><span class="fu">ends_with</span>(<span class="st">"lower"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">left_join</span>(result_red_list_occ, <span class="at">by =</span> <span class="st">"scientific_name"</span>)</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>  df_zoo_conservation <span class="ot">&lt;-</span> </span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>    df_zoo_name <span class="sc">|&gt;</span> </span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">left_join</span>(df_red_list_information, <span class="at">by =</span> <span class="st">"scientific_name"</span>)</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>  df_zoo_conservation <span class="sc">|&gt;</span> </span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>    readr<span class="sc">::</span><span class="fu">write_rds</span>(<span class="st">"data-raw/tokushima_zoo_animals_conservation_status.rds"</span>)</span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>  df_zoo_conservation <span class="ot">&lt;-</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>    readr<span class="sc">::</span><span class="fu">read_rds</span>(<span class="st">"data-raw/tokushima_zoo_animals_conservation_status.rds"</span>)</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
 </section>
