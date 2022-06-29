@@ -12,97 +12,21 @@ e-Statで公開されている[ファイル](https://www.e-stat.go.jp/stat-searc
 
 ```{r}
 #| code-overflow: scroll
-if (file.exists("data-raw/令和2年度_学校保健統計調査_都道府県別_身長と体重_5歳.csv") == FALSE) {
-  df_hoken_toukei <- 
-    readxl::read_xls("data-raw/r2_hoken_tokei_05.xls", 
-                   sheet = 1,
-                   range = "B8:J55",
-                   col_names = c("区分",
-                                 paste("男",
-                                        c(paste("身長",
-                                                c("平均値", "標準偏差"),
-                                                sep = "_"), 
-                                          paste("体重",
-                                                c("平均値", "標準偏差"),
-                                                sep = "_")),
-                                       sep = "_"),
-                                 paste("女",
-                                       c(paste("身長",
-                                               c("平均値", "標準偏差"),
-                                               sep = "_"), 
-                                         paste("体重",
-                                               c("平均値", "標準偏差"),
-                                               sep = "_")),
-                                       sep = "_"))) |> 
-    dplyr::mutate(区分 = stringr::str_squish(区分) |> 
-                    stringr::str_remove_all("[:space:]")) |> 
-    dplyr::filter(区分 != "全国") |>  
-    dplyr::arrange(dplyr::desc(男_身長_平均値))
-  
-  df_hoken_toukei |> 
-    readr::write_csv("data-raw/令和2年度_学校保健統計調査_都道府県別_身長と体重_5歳.csv")
-} else {
-  df_hoken_toukei <-
-    readr::read_csv("data-raw/令和2年度_学校保健統計調査_都道府県別_身長と体重_5歳.csv",
-                    col_types = "cdddddddd")
-}
-
-df_hoken_toukei
+#| file: "data-raw/hoken_toukei.R"
 ```
 
+```{r}
+#| df-print: paged
+df_hoken_toukei
+```
 
 ## とくしま動物園で飼育される動物の体の大きさと体重
 
 - 名称: **動物データ**
 
 ```{r}
-#| include: false
-if (!file.exists("data-raw/tokushima_zoo_animals22.csv")) {
-  library(dplyr)
-  library(rvest)
-  url <-
-    "https://www.city.tokushima.tokushima.jp/zoo/gallery/ichiran.html"
-  x <-
-    read_html(url)
-  # 2016-04-01
-  x |>
-    html_element(css = '#main > div.h1bg > div.update.clearfix > p') |>
-    html_text()
-  animals <-
-    x |>
-    html_elements(css = '#main > div.main_inner > div > p > span') |>
-    html_text() %>%
-    ensurer::ensure(length(.) == 22)
-  
-  # リスザルはリスザル属の総称
-  # ポニーは肩までの高さが147cm以下の馬の総称
-  tksmzoo_animals22 <-
-    tibble::tibble(
-      taxon = c("食肉類", "鳥類", "食肉類", "鳥類", "霊長類",
-              "霊長類", "霊長類", "食肉類", "齧歯類", "食肉類",
-              "鳥類", "偶蹄類", "食肉類", "食肉類", "鳥類",
-              "食肉類", "霊長類", "鳥類", "鯨偶蹄類", "奇蹄類",
-              "齧歯類", "鯨偶蹄類"),
-      name = animals,
-      body_length_cm = c(63.5, 100, 64, 110, 85,
-                    66, 80, 168, 134, 250,
-                    130, 175, 31, NA_real_, 1.2,
-                    250, 35, 69, NA_real_, NA_real_,
-                    40, NA_real_),
-      weight_kg = c(6, 3.5, 5.4, 6.5, 60,
-                10, 20, 80, 66, 225,
-                # ホッキョクグマは平均体重のうち最大値を採用
-                9, 220, 0.9, 30.3, 15,
-                410, 1.1, 6, 140, NA_real_,
-                1.5, NA_real_)) |> 
-    mutate(link = paste0("https://ja.wikipedia.org/wiki/",
-                         recode(name,
-                         `アンデスコンドル` = "コンドル",
-                         `ラマ` = "リャマ"))) %>% 
-    assertr::verify(dim(.) == c(22, 5))
-  tksmzoo_animals22 |> 
-    readr::write_csv("data-raw/tokushima_zoo_animals22.csv")
-}
+#| code-overflow: scroll
+#| file: "data-raw/zoo.R"
 ```
 
 [とくしま動物園](https://www.city.tokushima.tokushima.jp/zoo/index.html)で飼育される
@@ -119,87 +43,10 @@ https://github.com/uribo/tokupon_ds/blob/main/data-raw/tokushima_zoo_animals22.c
 
 - 名称: **動物保全状況データ**
 
-```{r}
-#| include: false
-library(dplyr)
-df_zoo_name <- 
-  tibble::tibble(
-    name = c("レッサーパンダ", "ホオジロカンムリヅル", 
-             "コツメカワウソ", "カナダガン", "チンパンジー", 
-             "シシオザル", "マントヒヒ", "ピューマ", "カピバラ", 
-             "ライオン", "アフリカハゲコウ", "シロオリックス", 
-             "ミーアキャット", "シンリンオオカミ", "アンデスコンドル", 
-             "ホッキョクグマ", "リスザル", "フンボルトペンギン", 
-             "ラマ", "ポニー", "モルモット", "ヒツジ"),
-    scientific_name = c("Ailurus fulgens", "Balearica regulorum", 
-                        "Aonyx cinerea", "Branta canadensis", "Pan troglodytes",
-                        "Macaca silenus", "Papio hamadryas", "Puma concolor", 
-                        "Hydrochoerus hydrochaeris", "Panthera leo",
-                        "Leptoptilos crumeniferus", "Oryx dammah", "Suricata suricatta", 
-                        "Canis lupus", "Vultur gryphus",
-                        "Ursus maritimus", NA_character_, "Spheniscus humboldti",
-                        "Lama glama", NA_character_,
-                        "Cavia porcellus", "Ovis aries")) |> 
-    filter(!is.na(scientific_name)) %>% 
-    assertr::verify(dim(.) == c(20, 2))
-```
-
-
-動物データのうち、生物種名（学名）が判別可能な`r nrow(df_zoo_name)`種についての生息地とその保全状況を
+動物データのうち、生物種名（学名）が判別可能な20種についての生息地とその保全状況を
 示すデータセットです。[国際自然保護連合(IUCN)](https://www.iucn.org)が指定する[IUCNレッドリスト](https://www.iucnredlist.org)からデータを取得しています。
 
 ```{r}
-#| include: false
-if (file.exists("data-raw/tokushima_zoo_animals_conservation_status.rds") == FALSE) {
-  library(rredlist)
-  animal_scname <- 
-      df_zoo_name |> 
-      purrr::pluck("scientific_name")
-    
-  result_red_list_search <-
-    animal_scname |> 
-    purrr::map_dfr(
-      ~ tibble::as_tibble(purrr::pluck(rredlist::rl_search(name = .x), 
-                                       "result")))
-    result_red_list_search |> 
-    readr::write_rds("data-raw/redlist_search_raw.rds")
-    
-  result_red_list_occ <- 
-    animal_scname |> 
-    purrr::set_names(animal_scname) |>
-    purrr::map_dfr(~ tibble::as_tibble(purrr::pluck(rredlist::rl_occ_country(name = .x), 
-                                                    "result")),
-    .id = "scientific_name")
-    
-  result_red_list_occ |> 
-    readr::write_rds("data-raw/redlist_occ_country_raw.rds")
-    
-  result_red_list_occ <- 
-    result_red_list_occ |> 
-    select(!c(distribution_code)) |> 
-    tidyr::nest(occ = c(code, country, presence, origin))
-    
-  df_red_list_information <-
-    result_red_list_search |>
-    select(
-      taxonid,
-      scientific_name,
-      main_common_name,
-      category,
-      population_trend,
-      ends_with("_system"),
-      starts_with("elevation_"),
-      starts_with("depth_")) |>
-    tidyr::nest(ecosystem = ends_with("_system"),
-                limitation = c(ends_with("upper"), ends_with("lower"))) |>
-    left_join(result_red_list_occ, by = "scientific_name")
-
-  df_zoo_name <- 
-    df_zoo_name |> 
-    left_join(df_red_list_information, by = "scientific_name")
-    
-  df_zoo_name |> 
-    readr::write_rds("data-raw/tokushima_zoo_animals_conservation_status.rds")
-}
+#| code-overflow: scroll
+#| file: "data-raw/zoo_conservation.R"
 ```
-
