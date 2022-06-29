@@ -59,6 +59,7 @@ format:
       dark: darkly
     code-link: false
     css: style.css
+    highlight-style: github
     toc: true
     code-fold: true
     code-summary: "コードを表示"
