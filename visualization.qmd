@@ -60,16 +60,19 @@ anscombe_long <-
 <!-- スノウのコレラの話 -->
 
 ```{r}
-library(sf)
-library(rnaturalearth)
-library(rnaturalearthhires)
+#| include: false
+#| file: "data-raw/zoo_conservation.R"
 ```
 
 ```{r}
+#| message: false
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthhires)
 library(dplyr)
-df_zoo_conservation <- 
-  readr::read_rds("data-raw/tokushima_zoo_animals_conservation_status.rds")
+```
 
+```{r}
 df_countries <-
   countrycode::codelist |>
   select(iso2c, cldr.name.ja) |>

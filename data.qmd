@@ -11,10 +11,7 @@ library(dplyr)
 
 ```{r}
 #| include: false
-# dfはデータフレーム(data frame)の頭文字から
-df_zoo <- 
-  readr::read_csv("data-raw/tokushima_zoo_animals22.csv", 
-                col_types = "ccdd_")
+#| file: "data-raw/zoo.R"
 ```
 
 データを図で可視化する方法
@@ -107,15 +104,19 @@ c("食肉類", "鳥類", "食肉類")
 #| echo: false
 df_zoo_subset <- 
   df_zoo |> 
-  dplyr::filter(name %in% c("レッサーパンダ", "チンパンジー", "マントヒヒ", "ライオン", "フンボルトペンギン"))
-
-df_zoo_subset |> 
-  purrr::set_names(c("分類群", "動物の名前", "体長(cm)", "体重(kg)")) |> 
-  knitr::kable(caption = glue::glue("{nrow(df_zoo_subset)}種の動物についての体長・体重のデータフレーム"))
+  dplyr::filter(name %in% c("レッサーパンダ", "チンパンジー", "マントヒヒ", "ライオン", "フンボルトペンギン")) |> 
+    purrr::set_names(c("分類群", "動物の名前", "体長(cm)", "体重(kg)"))
 ```
 
+```{r}
+#| label: tbl-zoo_subset
+#| tbl-cap: 5種の動物についての体長・体重のデータフレーム
+df_zoo_subset
+```
+
+
 データフレームではデータを横に見たものが行、縦に見たものを列と考えます。
-上記のデータフレームは`r nrow(df_zoo_subset)`行`r ncol(df_zoo_subset)`列のデータフレームといえます。
+@tbl-zoo_subset のデータフレームは`r nrow(df_zoo_subset)`行`r ncol(df_zoo_subset)`列のデータフレームといえます。
 
 ::: {.callout-tip .tokupon_none}
 #### 表計算ソフトウェアでも表データを扱う
@@ -133,7 +134,7 @@ df_zoo_subset |>
 より多くのデータが必要になります。
 たくさんのデータがあれば、データから見えてくる傾向・パターンも見えやすくなります。
 ここでは22種の動物について、同様の体長、体重を調べたデータを用意しました。
-ここからはこの**動物データ**を使い、データを調べていくことにします。
+ここからはこの**動物データ** (@tbl-zoo) を使い、データを調べていくことにします。
 このデータは[とくしま動物園](https://www.city.tokushima.tokushima.jp/zoo/index.html)で
 飼育される動物について記録したものです。詳細は付録[データセット](dataset.qmd#とくしま動物園で飼育される動物の体の大きさと体重)で解説しています。
 
@@ -151,7 +152,9 @@ Rで動物データを扱えるようにするコマンドを表示します。
 変数を参照するにはドル記号 `$`を使います。
 
 ```{r}
-#| eval: false
+#| label: tbl-zoo
+#| tbl-cap: 動物データ
+#| eval: true
 #| echo: true
 #| code-fold: false
 # dfはデータフレーム(data frame)の頭文字から
@@ -161,10 +164,6 @@ df_zoo <-
 df_zoo
 ```
 
-```{r}
-# html上で表を出力するコードです
-knitr::kable(df_zoo)
-```
 ```{r}
 #| echo: true
 #| code-fold: false

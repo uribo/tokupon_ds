@@ -1,4 +1,7 @@
-# データセット
+---
+title: "データセット"
+df-print: paged
+---
 
 ## 南極大陸に生育するペンギンの大きさについての観測データ
 
@@ -16,7 +19,7 @@ e-Statで公開されている[ファイル](https://www.e-stat.go.jp/stat-searc
 ```
 
 ```{r}
-#| df-print: paged
+#| code-fold: false
 df_hoken_toukei
 ```
 
@@ -35,6 +38,11 @@ df_hoken_toukei
 原則として、各種の体長および体重の最大値を記録しています。
 適当な値の記載がなかった項目については欠損値を与えています。
 
+```{r}
+#| code-fold: false
+df_zoo
+```
+
 このデータは`r fontawesome::fa("github")` [GitHubリポジトリ](https://github.com/uribo/tokupon_ds)に保存してあります。
 
 https://github.com/uribo/tokupon_ds/blob/main/data-raw/tokushima_zoo_animals22.csv
@@ -43,10 +51,16 @@ https://github.com/uribo/tokupon_ds/blob/main/data-raw/tokushima_zoo_animals22.c
 
 - 名称: **動物保全状況データ**
 
-動物データのうち、生物種名（学名）が判別可能な20種についての生息地とその保全状況を
-示すデータセットです。[国際自然保護連合(IUCN)](https://www.iucn.org)が指定する[IUCNレッドリスト](https://www.iucnredlist.org)からデータを取得しています。
-
 ```{r}
 #| code-overflow: scroll
 #| file: "data-raw/zoo_conservation.R"
 ```
+
+動物データのうち、生物種名（学名）が判別可能な`r nrow(df_zoo_name)`種についての生息地とその保全状況を
+示すデータセットです。[国際自然保護連合(IUCN)](https://www.iucn.org)が指定する[IUCNレッドリスト](https://www.iucnredlist.org)からデータを取得しています。
+
+```{r}
+#| code-fold: false
+df_zoo_conservation
+```
+

@@ -8,12 +8,9 @@ library(dplyr)
 library(ragg)
 ```
 
-
 ```{r}
 #| include: false
-df_zoo <- 
-  readr::read_csv("data-raw/tokushima_zoo_animals22.csv", 
-                col_types = "ccdd_")
+#| file: "data-raw/zoo.R"
 ```
 
 [データ分析の目的](intro.qmd#)の一つに「データを要約すること」があることを示しました。

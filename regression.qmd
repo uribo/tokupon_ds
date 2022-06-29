@@ -11,9 +11,8 @@ library(palmerpenguins)
 ## 単回帰モデル
 
 ```{r}
-df_zoo <- 
-  readr::read_csv("data-raw/tokushima_zoo_animals22.csv", 
-                col_types = "ccdd_")
+#| include: false
+#| file: "data-raw/zoo.R"
 ```
 
 ```{r}
