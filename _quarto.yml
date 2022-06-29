@@ -63,3 +63,4 @@ format:
     toc: true
     code-fold: true
     code-summary: "コードを表示"
+    df-print: kable
