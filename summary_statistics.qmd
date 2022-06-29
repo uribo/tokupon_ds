@@ -97,9 +97,12 @@ range(df_zoo$body_length_cm, na.rm = TRUE)
 度数分布をグラフ化する方法の一つとして**ヒストグラム**があります。
 
 ```{r}
-#| label: 動物の体長のヒストグラム
+#| label: histogram_for_body_length
+#| fig-cap: 動物の体長のヒストグラム
 #| warning: false
+#| dev: ragg_png
 library(ggplot2)
+library(ragg)
 
 df_zoo |> 
   ggplot(aes(body_length_cm)) +

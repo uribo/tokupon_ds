@@ -53,7 +53,7 @@ x[21:40]
 ここで紹介する関数は一部の例です。
 
 ```{r}
-# code-fold: true
+#| code-fold: true
 df_zoo <- 
   readr::read_csv("data-raw/tokushima_zoo_animals22.csv", 
                 col_types = "ccdd_")
