@@ -372,9 +372,18 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>データ分析の作業においては、データの変数を比較し、関係を調べることが頻繁に行われます。 特定の個体や観測について複数の項目を同時に扱えるようにするために、データを表形式でまとめて表現します。 これを表データまたは<strong>データフレーム</strong>と呼びます。</p>
 <p>データフレームの例として、いくつかの動物の体の大きさ（体長）と体重の記録をデータフレームにまとめてみましょう。 データフレームでは個人や個体、観測といったデータを一つの<strong>行</strong>にまとめます。 レッサーパンダの体長と体重の行、チンパンジーの体長と体重の行と、それぞれの値を行単位で記録します。 22種類の動物のデータをとった場合は22行、40種の動物についてであれば40行となりますね。 また、動物の分類群や名前や体長、体重といった変数を<strong>列</strong>として表します。</p>
 <div class="cell">
+
+</div>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_zoo_subset</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
+<div class="kable-table">
+<div id="tbl-zoo_subset" class="anchored">
 <table class="table table-sm table-striped">
-<caption>5種の動物についての体長・体重のデータフレーム</caption>
+<caption>表 2.1: 5種の動物についての体長・体重のデータフレーム</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">分類群</th>
@@ -418,7 +427,9 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </table>
 </div>
 </div>
-<p>データフレームではデータを横に見たものが行、縦に見たものを列と考えます。 上記のデータフレームは5行4列のデータフレームといえます。</p>
+</div>
+</div>
+<p>データフレームではデータを横に見たものが行、縦に見たものを列と考えます。 <a href="#tbl-zoo_subset">表&nbsp;<span>2.1</span></a> のデータフレームは5行4列のデータフレームといえます。</p>
 <div class="callout-tip tokupon_none callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -438,7 +449,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>先ほど5種の動物のデータフレームを示しましたが、データ分析を進めていくには より多くのデータが必要になります。 たくさんのデータがあれば、データから見えてくる傾向・パターンも見えやすくなります。 ここでは22種の動物について、同様の体長、体重を調べたデータを用意しました。 ここからはこの<strong>動物データ</strong>を使い、データを調べていくことにします。 このデータは<a href="https://www.city.tokushima.tokushima.jp/zoo/index.html">とくしま動物園</a>で 飼育される動物について記録したものです。詳細は付録<a href="./dataset.html#とくしま動物園で飼育される動物の体の大きさと体重">データセット</a>で解説しています。</p>
+<p>先ほど5種の動物のデータフレームを示しましたが、データ分析を進めていくには より多くのデータが必要になります。 たくさんのデータがあれば、データから見えてくる傾向・パターンも見えやすくなります。 ここでは22種の動物について、同様の体長、体重を調べたデータを用意しました。 ここからはこの<strong>動物データ</strong> (<a href="#tbl-zoo">表&nbsp;<span>2.2</span></a>) を使い、データを調べていくことにします。 このデータは<a href="https://www.city.tokushima.tokushima.jp/zoo/index.html">とくしま動物園</a>で 飼育される動物について記録したものです。詳細は付録<a href="./dataset.html#とくしま動物園で飼育される動物の体の大きさと体重">データセット</a>で解説しています。</p>
 <p>データフレームをプログラミング言語で扱うときは列の名前（列名）に 漢字やひらがなを使うと意味がわかりやすいですが、できるだけ英語やローマ字を使ったものにしましょう。 ここでも次のように列名を日本語から英語に変えてあります。</p>
 <ul>
 <li><code>taxon</code>: 動物の分類群</li>
@@ -448,20 +459,16 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </ul>
 <p>Rで動物データを扱えるようにするコマンドを表示します。 データは<code>df_zoo</code>というオブジェクトに格納され、いつでも表示（参照）できるようになっています。 変数を参照するにはドル記号 <code>$</code>を使います。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dfはデータフレーム(data frame)の頭文字から</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="ot">&lt;-</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>, </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">col_types =</span> <span class="st">"ccdd_"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df_zoo</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<details>
-<summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># html上で表を出力するコードです</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df_zoo)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dfはデータフレーム(data frame)の頭文字から</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="ot">&lt;-</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">col_types =</span> <span class="st">"ccdd_"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df_zoo</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
+<div id="tbl-zoo" class="anchored">
 <table class="table table-sm table-striped">
+<caption>表 2.2: 動物データ</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">taxon</th>
@@ -605,6 +612,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 </div>
 </div>
 <div class="cell">
