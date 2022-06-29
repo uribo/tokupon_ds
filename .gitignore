@@ -3,8 +3,8 @@
 .RData
 .Ruserdata
 *.xlsx
-
 /.quarto/
 _book/
 data-raw/redlist_search_raw.rds
 data-raw/redlist_occ_country_raw.rds
+.DS_Store

@@ -155,7 +155,7 @@ median(df_zoo$body_length_cm, na.rm = TRUE)
 
 ## データのばらつき
 
-パーセンタイル
+パーセンタイル、誤差
 
 
 ### 箱ヒゲ図
