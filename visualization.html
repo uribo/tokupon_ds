@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.626">
+<meta name="generator" content="quarto-0.9.629">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -247,12 +247,17 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dataset.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">データセット</span></a>
+  <a href="./exercise.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">練習問題の答えと解説</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Rのイロハ</span></a>
+  <a href="./dataset.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">データセット</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Rのイロハ</span></a>
   </div>
 </li>
     </ul>
@@ -269,8 +274,9 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
   <li><a href="#探索的データ解析" id="toc-探索的データ解析" class="nav-link active" data-scroll-target="#探索的データ解析"> <span class="header-section-number">5.1</span> 探索的データ解析</a></li>
   <li><a href="#変数のデータの要約" id="toc-変数のデータの要約" class="nav-link" data-scroll-target="#変数のデータの要約"> <span class="header-section-number">5.2</span> 1変数のデータの要約</a></li>
   <li><a href="#棒グラフ" id="toc-棒グラフ" class="nav-link" data-scroll-target="#棒グラフ"> <span class="header-section-number">5.3</span> 棒グラフ</a></li>
-  <li><a href="#散布図" id="toc-散布図" class="nav-link" data-scroll-target="#散布図"> <span class="header-section-number">5.4</span> 散布図</a></li>
-  <li><a href="#地図表現" id="toc-地図表現" class="nav-link" data-scroll-target="#地図表現"> <span class="header-section-number">5.5</span> 地図表現</a></li>
+  <li><a href="#折れ線グラフ" id="toc-折れ線グラフ" class="nav-link" data-scroll-target="#折れ線グラフ"> <span class="header-section-number">5.4</span> 折れ線グラフ</a></li>
+  <li><a href="#散布図" id="toc-散布図" class="nav-link" data-scroll-target="#散布図"> <span class="header-section-number">5.5</span> 散布図</a></li>
+  <li><a href="#地図表現" id="toc-地図表現" class="nav-link" data-scroll-target="#地図表現"> <span class="header-section-number">5.6</span> 地図表現</a></li>
   </ul>
 </nav>
     </div>
@@ -312,9 +318,13 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </section>
 <section id="棒グラフ" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="棒グラフ"><span class="header-section-number">5.3</span> 棒グラフ</h2>
+<p><strong>棒グラフはデータの大小を棒の高さで比較する</strong>グラフの種類です。</p>
 </section>
-<section id="散布図" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="散布図"><span class="header-section-number">5.4</span> 散布図</h2>
+<section id="折れ線グラフ" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="折れ線グラフ"><span class="header-section-number">5.4</span> 折れ線グラフ</h2>
+</section>
+<section id="散布図" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="散布図"><span class="header-section-number">5.5</span> 散布図</h2>
 <p><a href="./correlation.html">相関</a></p>
 <p><a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html">Datasaurus</a>の紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。</p>
 <p>アンスコムの例</p>
@@ -356,8 +366,9 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </details>
 </div>
 </section>
-<section id="地図表現" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="地図表現"><span class="header-section-number">5.5</span> 地図表現</h2>
+<section id="地図表現" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="地図表現"><span class="header-section-number">5.6</span> 地図表現</h2>
+<!-- スノウのコレラの話 -->
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
@@ -369,10 +380,79 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <details>
 <summary>コードを表示</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(rnaturalearthhires)</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearthhires)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>動物の分布を示す地図を作成してみよう。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_zoo_conservation <span class="ot">&lt;-</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_rds</span>(<span class="st">"data-raw/tokushima_zoo_animals_conservation_status.rds"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>df_countries <span class="ot">&lt;-</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  countrycode<span class="sc">::</span>codelist <span class="sc">|&gt;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(iso2c, cldr.name.ja) <span class="sc">|&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>ne_world <span class="ot">&lt;-</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  rnaturalearth<span class="sc">::</span><span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="dv">10</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(admin, name, pop_est, pop_year, iso_a2, continent)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>sf_zoo_conservation <span class="ot">&lt;-</span> </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  ne_world <span class="sc">|&gt;</span> </span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(df_zoo_conservation <span class="sc">|&gt;</span> </span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>              <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"フンボルトペンギン"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>              tidyr<span class="sc">::</span><span class="fu">unnest</span>(<span class="at">cols =</span> occ) <span class="sc">|&gt;</span> </span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>              <span class="fu">select</span>(code, presence),</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"iso_a2"</span> <span class="ot">=</span> <span class="st">"code"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">presence =</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(presence, <span class="st">"Absence"</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>動物の分布を示す地図を作成してみましょう。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> sf_zoo_conservation, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">fill =</span> presence), </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="fl">0.001</span>) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="visualization_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapview)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mapview</span>(sf_zoo_conservation, </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">zcol =</span> <span class="st">"presence"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
 </section>

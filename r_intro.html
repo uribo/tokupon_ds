@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.626">
+<meta name="generator" content="quarto-0.9.629">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>データ分析入門 - 付録 B. Rのイロハ</title>
+<title>データ分析入門 - 付録 C. Rのイロハ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -139,7 +139,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">付録 B. Rのイロハ</h1>
+      <h1 class="quarto-secondary-nav-title">付録 C. Rのイロハ</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -246,12 +246,17 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dataset.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">データセット</span></a>
+  <a href="./exercise.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">練習問題の答えと解説</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r_intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Rのイロハ</span></a>
+  <a href="./dataset.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">データセット</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Rのイロハ</span></a>
   </div>
 </li>
     </ul>
@@ -265,16 +270,16 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#rrstudioのインストール" id="toc-rrstudioのインストール" class="nav-link active" data-scroll-target="#rrstudioのインストール"> <span class="header-section-number">B.1</span> R、RStudioのインストール</a></li>
-  <li><a href="#電卓として使ってみよう" id="toc-電卓として使ってみよう" class="nav-link" data-scroll-target="#電卓として使ってみよう"> <span class="header-section-number">B.2</span> 電卓として使ってみよう</a>
+  <li><a href="#rrstudioのインストール" id="toc-rrstudioのインストール" class="nav-link active" data-scroll-target="#rrstudioのインストール"> <span class="header-section-number">C.1</span> R、RStudioのインストール</a></li>
+  <li><a href="#電卓として使ってみよう" id="toc-電卓として使ってみよう" class="nav-link" data-scroll-target="#電卓として使ってみよう"> <span class="header-section-number">C.2</span> 電卓として使ってみよう</a>
   <ul class="collapse">
-  <li><a href="#値を比較する" id="toc-値を比較する" class="nav-link" data-scroll-target="#値を比較する"> <span class="header-section-number">B.2.1</span> 値を比較する</a></li>
-  <li><a href="#関数" id="toc-関数" class="nav-link" data-scroll-target="#関数"> <span class="header-section-number">B.2.2</span> 関数</a></li>
+  <li><a href="#値を比較する" id="toc-値を比較する" class="nav-link" data-scroll-target="#値を比較する"> <span class="header-section-number">C.2.1</span> 値を比較する</a></li>
+  <li><a href="#関数" id="toc-関数" class="nav-link" data-scroll-target="#関数"> <span class="header-section-number">C.2.2</span> 関数</a></li>
   </ul></li>
-  <li><a href="#データフレーム" id="toc-データフレーム" class="nav-link" data-scroll-target="#データフレーム"> <span class="header-section-number">B.3</span> データフレーム</a>
+  <li><a href="#データフレーム" id="toc-データフレーム" class="nav-link" data-scroll-target="#データフレーム"> <span class="header-section-number">C.3</span> データフレーム</a>
   <ul class="collapse">
-  <li><a href="#データの読み込み" id="toc-データの読み込み" class="nav-link" data-scroll-target="#データの読み込み"> <span class="header-section-number">B.3.1</span> データの読み込み</a></li>
-  <li><a href="#データのコピー" id="toc-データのコピー" class="nav-link" data-scroll-target="#データのコピー"> <span class="header-section-number">B.3.2</span> データのコピー</a></li>
+  <li><a href="#データの読み込み" id="toc-データの読み込み" class="nav-link" data-scroll-target="#データの読み込み"> <span class="header-section-number">C.3.1</span> データの読み込み</a></li>
+  <li><a href="#データのコピー" id="toc-データのコピー" class="nav-link" data-scroll-target="#データのコピー"> <span class="header-section-number">C.3.2</span> データのコピー</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -284,7 +289,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">付録 B. Rのイロハ</h1>
+<h1 class="title d-none d-lg-block">付録 C. Rのイロハ</h1>
 </div>
 
 
@@ -299,11 +304,11 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </header>
 
 <p>オブジェクト、クラス</p>
-<section id="rrstudioのインストール" class="level2" data-number="B.1">
-<h2 data-number="B.1" class="anchored" data-anchor-id="rrstudioのインストール"><span class="header-section-number">B.1</span> R、RStudioのインストール</h2>
+<section id="rrstudioのインストール" class="level2" data-number="C.1">
+<h2 data-number="C.1" class="anchored" data-anchor-id="rrstudioのインストール"><span class="header-section-number">C.1</span> R、RStudioのインストール</h2>
 </section>
-<section id="電卓として使ってみよう" class="level2" data-number="B.2">
-<h2 data-number="B.2" class="anchored" data-anchor-id="電卓として使ってみよう"><span class="header-section-number">B.2</span> 電卓として使ってみよう</h2>
+<section id="電卓として使ってみよう" class="level2" data-number="C.2">
+<h2 data-number="C.2" class="anchored" data-anchor-id="電卓として使ってみよう"><span class="header-section-number">C.2</span> 電卓として使ってみよう</h2>
 <p>値をオブジェクトに保存することを代入と言います。 代入は <code>&lt;-</code> を使って実行します。 代入した値はオブジェクトを呼び出すこと（参照と言います）によって取り出せます。 また、オブジェクトのコピーや上書きといった処理も可能です。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 + 1の計算結果をオブジェクトxに代入（保存）</span></span>
@@ -334,11 +339,11 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
-<section id="値を比較する" class="level3" data-number="B.2.1">
-<h3 data-number="B.2.1" class="anchored" data-anchor-id="値を比較する"><span class="header-section-number">B.2.1</span> 値を比較する</h3>
+<section id="値を比較する" class="level3" data-number="C.2.1">
+<h3 data-number="C.2.1" class="anchored" data-anchor-id="値を比較する"><span class="header-section-number">C.2.1</span> 値を比較する</h3>
 </section>
-<section id="関数" class="level3" data-number="B.2.2">
-<h3 data-number="B.2.2" class="anchored" data-anchor-id="関数"><span class="header-section-number">B.2.2</span> 関数</h3>
+<section id="関数" class="level3" data-number="C.2.2">
+<h3 data-number="C.2.2" class="anchored" data-anchor-id="関数"><span class="header-section-number">C.2.2</span> 関数</h3>
 <p>関数には</p>
 <p><ruby>引数<rt>ひきすう</rt></ruby>を指定できるものがあります。</p>
 <p><code>引数名 = 値</code> の関係で記述します。複数の引数を利用する場合、カンマ <code>,</code> を使って引数を区切ります。</p>
@@ -365,8 +370,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </section>
 </section>
-<section id="データフレーム" class="level2" data-number="B.3">
-<h2 data-number="B.3" class="anchored" data-anchor-id="データフレーム"><span class="header-section-number">B.3</span> データフレーム</h2>
+<section id="データフレーム" class="level2" data-number="C.3">
+<h2 data-number="C.3" class="anchored" data-anchor-id="データフレーム"><span class="header-section-number">C.3</span> データフレーム</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">名前</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"サトウさん"</span>, <span class="st">"ウチダさん"</span>, <span class="st">"エンドウさん"</span>, <span class="st">"ミシマさん"</span>),</span>
@@ -380,12 +385,12 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 4   ミシマさん 121.7 39.1</code></pre>
 </div>
 </div>
-<section id="データの読み込み" class="level3" data-number="B.3.1">
-<h3 data-number="B.3.1" class="anchored" data-anchor-id="データの読み込み"><span class="header-section-number">B.3.1</span> データの読み込み</h3>
+<section id="データの読み込み" class="level3" data-number="C.3.1">
+<h3 data-number="C.3.1" class="anchored" data-anchor-id="データの読み込み"><span class="header-section-number">C.3.1</span> データの読み込み</h3>
 <p>csv</p>
 </section>
-<section id="データのコピー" class="level3" data-number="B.3.2">
-<h3 data-number="B.3.2" class="anchored" data-anchor-id="データのコピー"><span class="header-section-number">B.3.2</span> データのコピー</h3>
+<section id="データのコピー" class="level3" data-number="C.3.2">
+<h3 data-number="C.3.2" class="anchored" data-anchor-id="データのコピー"><span class="header-section-number">C.3.2</span> データのコピー</h3>
 <p>表計算ソフトウェアに格納されているデータをRに読み込ませる方法を紹介します。</p>
 
 
@@ -572,7 +577,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./dataset.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">データセット</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">データセット</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

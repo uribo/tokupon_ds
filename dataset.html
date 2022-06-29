@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.626">
+<meta name="generator" content="quarto-0.9.629">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>データ分析入門 - 付録 A. データセット</title>
+<title>データ分析入門 - 付録 B. データセット</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./r_intro.html" rel="next">
-<link href="./references.html" rel="prev">
+<link href="./exercise.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -140,7 +140,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">付録 A. データセット</h1>
+      <h1 class="quarto-secondary-nav-title">付録 B. データセット</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -247,12 +247,17 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dataset.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">データセット</span></a>
+  <a href="./exercise.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">練習問題の答えと解説</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Rのイロハ</span></a>
+  <a href="./dataset.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">データセット</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Rのイロハ</span></a>
   </div>
 </li>
     </ul>
@@ -266,9 +271,10 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#南極大陸に生育するペンギンの大きさについての観測データ" id="toc-南極大陸に生育するペンギンの大きさについての観測データ" class="nav-link active" data-scroll-target="#南極大陸に生育するペンギンの大きさについての観測データ"> <span class="header-section-number">A.1</span> 南極大陸に生育するペンギンの大きさについての観測データ</a></li>
-  <li><a href="#とくしま動物園で飼育される動物の体の大きさと体重" id="toc-とくしま動物園で飼育される動物の体の大きさと体重" class="nav-link" data-scroll-target="#とくしま動物園で飼育される動物の体の大きさと体重"> <span class="header-section-number">A.2</span> とくしま動物園で飼育される動物の体の大きさと体重</a></li>
-  <li><a href="#とくしま動物園で飼育される動物の保全状況と生息地" id="toc-とくしま動物園で飼育される動物の保全状況と生息地" class="nav-link" data-scroll-target="#とくしま動物園で飼育される動物の保全状況と生息地"> <span class="header-section-number">A.3</span> とくしま動物園で飼育される動物の保全状況と生息地</a></li>
+  <li><a href="#南極大陸に生育するペンギンの大きさについての観測データ" id="toc-南極大陸に生育するペンギンの大きさについての観測データ" class="nav-link active" data-scroll-target="#南極大陸に生育するペンギンの大きさについての観測データ"> <span class="header-section-number">B.1</span> 南極大陸に生育するペンギンの大きさについての観測データ</a></li>
+  <li><a href="#令和2年度-学校保健統計調査-都道府県別の身長体重の平均値及び標準偏差" id="toc-令和2年度-学校保健統計調査-都道府県別の身長体重の平均値及び標準偏差" class="nav-link" data-scroll-target="#令和2年度-学校保健統計調査-都道府県別の身長体重の平均値及び標準偏差"> <span class="header-section-number">B.2</span> 令和2年度 学校保健統計調査 都道府県別の身長・体重の平均値及び標準偏差</a></li>
+  <li><a href="#とくしま動物園で飼育される動物の体の大きさと体重" id="toc-とくしま動物園で飼育される動物の体の大きさと体重" class="nav-link" data-scroll-target="#とくしま動物園で飼育される動物の体の大きさと体重"> <span class="header-section-number">B.3</span> とくしま動物園で飼育される動物の体の大きさと体重</a></li>
+  <li><a href="#とくしま動物園で飼育される動物の保全状況と生息地" id="toc-とくしま動物園で飼育される動物の保全状況と生息地" class="nav-link" data-scroll-target="#とくしま動物園で飼育される動物の保全状況と生息地"> <span class="header-section-number">B.4</span> とくしま動物園で飼育される動物の保全状況と生息地</a></li>
   </ul>
 </nav>
     </div>
@@ -277,7 +283,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">付録 A. データセット</h1>
+<h1 class="title d-none d-lg-block">付録 B. データセット</h1>
 </div>
 
 
@@ -291,8 +297,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 </header>
 
-<section id="南極大陸に生育するペンギンの大きさについての観測データ" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="南極大陸に生育するペンギンの大きさについての観測データ"><span class="header-section-number">A.1</span> 南極大陸に生育するペンギンの大きさについての観測データ</h2>
+<section id="南極大陸に生育するペンギンの大きさについての観測データ" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="南極大陸に生育するペンギンの大きさについての観測データ"><span class="header-section-number">B.1</span> 南極大陸に生育するペンギンの大きさについての観測データ</h2>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
@@ -300,8 +306,70 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </details>
 </div>
 </section>
-<section id="とくしま動物園で飼育される動物の体の大きさと体重" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="とくしま動物園で飼育される動物の体の大きさと体重"><span class="header-section-number">A.2</span> とくしま動物園で飼育される動物の体の大きさと体重</h2>
+<section id="令和2年度-学校保健統計調査-都道府県別の身長体重の平均値及び標準偏差" class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="令和2年度-学校保健統計調査-都道府県別の身長体重の平均値及び標準偏差"><span class="header-section-number">B.2</span> 令和2年度 学校保健統計調査 都道府県別の身長・体重の平均値及び標準偏差</h2>
+<p>e-Statで公開されている<a href="https://www.e-stat.go.jp/stat-search/files?page=1&amp;layout=datalist&amp;toukei=00400002&amp;tstat=000001011648&amp;cycle=0&amp;tclass1=000001156246&amp;tclass2=000001156248&amp;stat_infid=000032108465&amp;tclass3val=0">ファイル</a>をRで処理しました。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-overflow-scroll code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="st">"data-raw/令和2年度_学校保健統計調査_都道府県別_身長と体重_5歳.csv"</span>) <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  df_hoken_toukei <span class="ot">&lt;-</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">"data-raw/r2_hoken_tokei_05.xls"</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">sheet =</span> <span class="dv">1</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">range =</span> <span class="st">"B8:J55"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"区分"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">paste</span>(<span class="st">"男"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                                        <span class="fu">c</span>(<span class="fu">paste</span>(<span class="st">"身長"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                                                <span class="fu">c</span>(<span class="st">"平均値"</span>, <span class="st">"標準偏差"</span>),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">sep =</span> <span class="st">"_"</span>), </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                                          <span class="fu">paste</span>(<span class="st">"体重"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                                                <span class="fu">c</span>(<span class="st">"平均値"</span>, <span class="st">"標準偏差"</span>),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                                                <span class="at">sep =</span> <span class="st">"_"</span>)),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">sep =</span> <span class="st">"_"</span>),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">paste</span>(<span class="st">"女"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">c</span>(<span class="fu">paste</span>(<span class="st">"身長"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                                               <span class="fu">c</span>(<span class="st">"平均値"</span>, <span class="st">"標準偏差"</span>),</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">sep =</span> <span class="st">"_"</span>), </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                                         <span class="fu">paste</span>(<span class="st">"体重"</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                                               <span class="fu">c</span>(<span class="st">"平均値"</span>, <span class="st">"標準偏差"</span>),</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">sep =</span> <span class="st">"_"</span>)),</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">sep =</span> <span class="st">"_"</span>))) <span class="sc">|&gt;</span> </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(区分 <span class="ot">=</span> stringr<span class="sc">::</span><span class="fu">str_squish</span>(区分) <span class="sc">|&gt;</span> </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                    stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(<span class="st">"[:space:]"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(区分 <span class="sc">!=</span> <span class="st">"全国"</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(男_身長_平均値))</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  df_hoken_toukei <span class="sc">|&gt;</span> </span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    readr<span class="sc">::</span><span class="fu">write_csv</span>(<span class="st">"data-raw/令和2年度_学校保健統計調査_都道府県別_身長と体重_5歳.csv"</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  df_hoken_toukei <span class="ot">&lt;-</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/令和2年度_学校保健統計調査_都道府県別_身長と体重_5歳.csv"</span>,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col_types =</span> <span class="st">"cdddddddd"</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>df_hoken_toukei</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 47 × 9
+   区分   男_身長_平均値 男_身長_標準偏差 男_体重_平均値 男_体重_標準偏差
+   &lt;chr&gt;           &lt;dbl&gt;            &lt;dbl&gt;          &lt;dbl&gt;            &lt;dbl&gt;
+ 1 宮城             113.             4.77           20.1             3.12
+ 2 石川             113.             5              19.6             2.78
+ 3 奈良             113.             4.67           19.8             2.85
+ 4 東京             112.             5              19.8             2.99
+ 5 富山             112.             4.93           19.5             2.89
+ 6 兵庫             112.             4.94           19.8             2.94
+ 7 和歌山           112.             5.16           19.8             2.98
+ 8 福井             112.             4.88           19.4             2.75
+ 9 京都             112.             5.07           19.5             2.91
+10 秋田             112              5.12           19.8             3.56
+# … with 37 more rows, and 4 more variables: 女_身長_平均値 &lt;dbl&gt;,
+#   女_身長_標準偏差 &lt;dbl&gt;, 女_体重_平均値 &lt;dbl&gt;, 女_体重_標準偏差 &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="とくしま動物園で飼育される動物の体の大きさと体重" class="level2" data-number="B.3">
+<h2 data-number="B.3" class="anchored" data-anchor-id="とくしま動物園で飼育される動物の体の大きさと体重"><span class="header-section-number">B.3</span> とくしま動物園で飼育される動物の体の大きさと体重</h2>
 <ul>
 <li>名称: <strong>動物データ</strong></li>
 </ul>
@@ -309,8 +377,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>このデータは<svg aria-hidden="true" role="img" viewbox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> <a href="https://github.com/uribo/tokupon_ds">GitHubリポジトリ</a>に保存してあります。</p>
 <p>https://github.com/uribo/tokupon_ds/blob/main/data-raw/tokushima_zoo_animals22.csv</p>
 </section>
-<section id="とくしま動物園で飼育される動物の保全状況と生息地" class="level2" data-number="A.3">
-<h2 data-number="A.3" class="anchored" data-anchor-id="とくしま動物園で飼育される動物の保全状況と生息地"><span class="header-section-number">A.3</span> とくしま動物園で飼育される動物の保全状況と生息地</h2>
+<section id="とくしま動物園で飼育される動物の保全状況と生息地" class="level2" data-number="B.4">
+<h2 data-number="B.4" class="anchored" data-anchor-id="とくしま動物園で飼育される動物の保全状況と生息地"><span class="header-section-number">B.4</span> とくしま動物園で飼育される動物の保全状況と生息地</h2>
 <ul>
 <li>名称: <strong>動物保全状況データ</strong></li>
 </ul>
@@ -498,13 +566,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./references.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">参考文献・URL</span>
+      <a href="./exercise.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">練習問題の答えと解説</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./r_intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Rのイロハ</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Rのイロハ</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

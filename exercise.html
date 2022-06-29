@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>データ分析入門 - 7&nbsp; 分類問題に挑戦</title>
+<title>データ分析入門 - 付録 A. 練習問題の答えと解説</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,8 +88,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
-<link href="./regression.html" rel="prev">
+<link href="./dataset.html" rel="next">
+<link href="./references.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -140,7 +140,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></h1>
+      <h1 class="quarto-secondary-nav-title">付録 A. 練習問題の答えと解説</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -222,7 +222,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./classification.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></a>
+  <a href="./classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></a>
   </div>
 </li>
     </ul>
@@ -247,7 +247,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercise.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">練習問題の答えと解説</span></a>
+  <a href="./exercise.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">練習問題の答えと解説</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -271,9 +271,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#ロジスティック回帰" id="toc-ロジスティック回帰" class="nav-link active" data-scroll-target="#ロジスティック回帰"> <span class="header-section-number">7.1</span> ロジスティック回帰</a></li>
-  <li><a href="#主成分分析" id="toc-主成分分析" class="nav-link" data-scroll-target="#主成分分析"> <span class="header-section-number">7.2</span> 主成分分析</a></li>
-  <li><a href="#クラスタリング" id="toc-クラスタリング" class="nav-link" data-scroll-target="#クラスタリング"> <span class="header-section-number">7.3</span> クラスタリング</a></li>
+  <li><a href="#章-テストの点数がクラスの平均点よりも低くても上位に含まれる" id="toc-章-テストの点数がクラスの平均点よりも低くても上位に含まれる" class="nav-link active" data-scroll-target="#章-テストの点数がクラスの平均点よりも低くても上位に含まれる"> <span class="header-section-number">A.1</span> 1章: テストの点数がクラスの平均点よりも低くても上位に含まれる？</a></li>
+  <li><a href="#章-動物データの代表値を計算しよう" id="toc-章-動物データの代表値を計算しよう" class="nav-link" data-scroll-target="#章-動物データの代表値を計算しよう"> <span class="header-section-number">A.2</span> 3章: 動物データの代表値を計算しよう</a></li>
   </ul>
 </nav>
     </div>
@@ -282,7 +281,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></h1>
+<h1 class="title d-none d-lg-block">付録 A. 練習問題の答えと解説</h1>
 </div>
 
 
@@ -296,55 +295,93 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 </header>
 
-<div class="cell">
+<section id="章-テストの点数がクラスの平均点よりも低くても上位に含まれる" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="章-テストの点数がクラスの平均点よりも低くても上位に含まれる"><span class="header-section-number">A.1</span> 1章: テストの点数がクラスの平均点よりも低くても上位に含まれる？</h2>
 <details>
-<summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>
+答えと解説を表示
+</summary>
+<p><strong>40人のクラスで平均点が48点のとき、点数が45点であっても上位20人の中に含まれることがある。</strong></p>
+平均値はデータの真ん中を表わす数値ではないよ。
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># クラス中の40人のテストの点数</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 16 24 27 31 32 32 33 33 36 36 37 38 39 40 40 42 43 43 43 44 44 45 46 46 48
+[26] 50 50 52 52 53 54 65 62 66 70 75 73 82 88 89</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x) <span class="co"># クラスの平均点</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 47.975</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x) <span class="co"># クラスの点数の中央値</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 44</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> x) <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">100</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(x), <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(x), <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="exercise_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<section id="ロジスティック回帰" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="ロジスティック回帰"><span class="header-section-number">7.1</span> ロジスティック回帰</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 16 24 27 31 32 32 33 33 36 36 37 38 39 40 40 42 43 43 43 44</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">21</span><span class="sc">:</span><span class="dv">40</span>]</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 44 45 46 46 48 50 50 52 52 53 54 65 62 66 70 75 73 82 88 89</code></pre>
+</div>
+</div>
 </section>
-<section id="主成分分析" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="主成分分析"><span class="header-section-number">7.2</span> 主成分分析</h2>
+<section id="章-動物データの代表値を計算しよう" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="章-動物データの代表値を計算しよう"><span class="header-section-number">A.2</span> 3章: 動物データの代表値を計算しよう</h2>
+<p>ここで紹介する関数は一部の例です。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="ot">&lt;-</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>, </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">col_types =</span> <span class="st">"ccdd_"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df_zoo, <span class="at">select =</span> <span class="fu">c</span>(body_length_cm, weight_kg)) <span class="sc">|&gt;</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prcomp</span>(<span class="at">scale. =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="ot">&lt;-</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">col_types =</span> <span class="st">"ccdd_"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df_zoo)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Standard deviations (1, .., p=2):
-[1] 1.3577273 0.3956975
-
-Rotation (n x k) = (2 x 2):
-                     PC1        PC2
-body_length_cm 0.7071068 -0.7071068
-weight_kg      0.7071068  0.7071068</code></pre>
+<pre><code>    taxon               name           body_length_cm     weight_kg     
+ Length:22          Length:22          Min.   :  1.20   Min.   :  0.90  
+ Class :character   Class :character   1st Qu.: 63.62   1st Qu.:  5.85  
+ Mode  :character   Mode  :character   Median : 82.50   Median : 12.50  
+                                       Mean   :102.87   Mean   : 65.81  
+                                       3rd Qu.:133.00   3rd Qu.: 69.50  
+                                       Max.   :250.00   Max.   :410.00  
+                                       NA's   :4        NA's   :2       </code></pre>
+</div>
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 中央値</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)[<span class="dv">3</span>]</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> 50% 
+82.5 </code></pre>
 </div>
 </div>
-</section>
-<section id="クラスタリング" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="クラスタリング"><span class="header-section-number">7.3</span> クラスタリング</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(df_zoo)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(df_zoo)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>summarytools<span class="sc">::</span><span class="fu">descr</span>(df_zoo)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
@@ -528,13 +565,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./regression.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></span>
+      <a href="./references.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">参考文献・URL</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link">
-        <span class="nav-page-text">まとめ</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./dataset.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">データセット</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

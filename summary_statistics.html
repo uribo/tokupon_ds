@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.626">
+<meta name="generator" content="quarto-0.9.629">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -78,6 +78,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -130,6 +149,7 @@ gtag('js', new Date());
 gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -247,12 +267,17 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dataset.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">データセット</span></a>
+  <a href="./exercise.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">練習問題の答えと解説</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Rのイロハ</span></a>
+  <a href="./dataset.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">データセット</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Rのイロハ</span></a>
   </div>
 </li>
     </ul>
@@ -266,19 +291,21 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#データをグラフに表現する" id="toc-データをグラフに表現する" class="nav-link active" data-scroll-target="#データをグラフに表現する"> <span class="header-section-number">3.1</span> データをグラフに表現する</a>
+  <li><a href="#データの分布" id="toc-データの分布" class="nav-link active" data-scroll-target="#データの分布"> <span class="header-section-number">3.1</span> データの分布</a>
   <ul class="collapse">
-  <li><a href="#代表値" id="toc-代表値" class="nav-link" data-scroll-target="#代表値"> <span class="header-section-number">3.1.1</span> 代表値</a></li>
-  <li><a href="#データの分布" id="toc-データの分布" class="nav-link" data-scroll-target="#データの分布"> <span class="header-section-number">3.1.2</span> データの分布</a></li>
-  <li><a href="#データのばらつき" id="toc-データのばらつき" class="nav-link" data-scroll-target="#データのばらつき"> <span class="header-section-number">3.1.3</span> データのばらつき</a></li>
-  <li><a href="#ヒストグラム" id="toc-ヒストグラム" class="nav-link" data-scroll-target="#ヒストグラム"> <span class="header-section-number">3.1.4</span> ヒストグラム</a></li>
+  <li><a href="#ヒストグラム" id="toc-ヒストグラム" class="nav-link" data-scroll-target="#ヒストグラム"> <span class="header-section-number">3.1.1</span> ヒストグラム</a></li>
   </ul></li>
-  <li><a href="#代表値-1" id="toc-代表値-1" class="nav-link" data-scroll-target="#代表値-1"> <span class="header-section-number">3.2</span> 代表値</a></li>
+  <li><a href="#代表値" id="toc-代表値" class="nav-link" data-scroll-target="#代表値"> <span class="header-section-number">3.2</span> 代表値</a>
+  <ul class="collapse">
+  <li><a href="#データの位置を示す代表値-平均値中央値最頻値" id="toc-データの位置を示す代表値-平均値中央値最頻値" class="nav-link" data-scroll-target="#データの位置を示す代表値-平均値中央値最頻値"> <span class="header-section-number">3.2.1</span> データの位置を示す代表値: 平均値、中央値、最頻値</a></li>
+  <li><a href="#データのばらつき" id="toc-データのばらつき" class="nav-link" data-scroll-target="#データのばらつき"> <span class="header-section-number">3.2.2</span> データのばらつき</a></li>
+  </ul></li>
   <li><a href="#データのばらつき-1" id="toc-データのばらつき-1" class="nav-link" data-scroll-target="#データのばらつき-1"> <span class="header-section-number">3.3</span> データのばらつき</a>
   <ul class="collapse">
   <li><a href="#箱ヒゲ図" id="toc-箱ヒゲ図" class="nav-link" data-scroll-target="#箱ヒゲ図"> <span class="header-section-number">3.3.1</span> 箱ヒゲ図</a></li>
   </ul></li>
   <li><a href="#相関-2つの変数の間の関係" id="toc-相関-2つの変数の間の関係" class="nav-link" data-scroll-target="#相関-2つの変数の間の関係"> <span class="header-section-number">3.4</span> 相関: 2つの変数の間の関係</a></li>
+  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">3.5</span> 参考文献・URL</a></li>
   </ul>
 </nav>
     </div>
@@ -301,45 +328,25 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 </header>
 
-<div class="cell">
-<details>
-<summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="ot">&lt;-</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">col_types =</span> <span class="st">"ccdd_"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<section id="データをグラフに表現する" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="データをグラフに表現する"><span class="header-section-number">3.1</span> データをグラフに表現する</h2>
-<p>数学は統計学的な考え方において必須ではありません。</p>
-<p>探索的データ分析</p>
-<p>度数分布表、ヒストグラム、箱ヒゲ図、散布図、カルトグラム</p>
 <p><a href="./intro.html#">データ分析の目的</a>の一つに「データを要約すること」があることを示しました。 それでは実際に、データの要約に取り組んでみましょう。 例として動物データの体長を表示します。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_zoo<span class="sc">$</span>body_length_cm</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_zoo<span class="sc">$</span>body_length_cm</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  63.5 100.0  64.0 110.0  85.0  66.0  80.0 168.0 134.0 250.0 130.0 175.0
 [13]  31.0    NA   1.2 250.0  35.0  69.0    NA    NA  40.0    NA</code></pre>
 </div>
 </div>
 <p>このデータの特徴として言えることは何でしょうか？ 動物データに含まれるわずか22件の数値でも、こうした数値の羅列からデータの特徴を説明することは困難です。 データ分析で扱うデータの件数は数千、数万となる場合もあり、一つ一つデータを見ていくことも 現実的ではありません。 そこでデータを要約するために<strong>代表値</strong>の計算や<strong>データの可視化</strong>が行われます。</p>
-<section id="代表値" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="代表値"><span class="header-section-number">3.1.1</span> 代表値</h3>
-<p>まず、複数の数値の性質や特徴をよく表す代表値について説明します。 代表値によるデータの要約は、データに含まれる数値の傾向を大まかに把握するために便利です。 代表値という名前の通り、数値によるデータの表現方法となります。</p>
-<p>代表値によるデータを要約する方法にはさまざまなものがあります。代表的なものは<strong>平均値</strong>の計算です。</p>
-<p>平均値にも複数の種類が存在しますが、ここではより一般的な算術平均を平均値の例として扱います。</p>
-<p>最小値、最大値</p>
-</section>
-<section id="データの分布" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="データの分布"><span class="header-section-number">3.1.2</span> データの分布</h3>
+<section id="データの分布" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="データの分布"><span class="header-section-number">3.1</span> データの分布</h2>
 <p>データの分布を明らかにする。</p>
 <p>ある値がデータに含まれる数を<ruby>度数<rt>どすう</rt></ruby>または<ruby>頻度<rt>ひんど</rt></ruby>といいます。 動物のデータセットの分類群に対して度数を求めると次のようになります。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 度数、頻度を英語で frequency といいます</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(df_zoo, taxon, <span class="at">name =</span> <span class="st">"frequency"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 度数、頻度を英語で frequency といいます</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(df_zoo, taxon, <span class="at">name =</span> <span class="st">"frequency"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
@@ -385,19 +392,19 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>対象が量的変数の場合は頻度を簡単に求めることができます。 それでは量的変数、特に連続変数に対し度数を求めるにはどうすれば良いでしょうか。 量的変数に対して連続変数では同じ値をとることが少ないです。 そのため連続変数の度数を求めるときは、変数がとり得る値をいくつかの階級に分けて考えます。</p>
 <p>階級分けのために、まずは変数の最小値と最大値を調べましょう。 最小値と最大値はそれぞれ<code>min()</code>関数と<code>max()</code>関数に対象の変数を与えることで求められます。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 動物データの体長について最小値・最大値を求める</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 動物データの体長について最小値・最大値を求める</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 250</code></pre>
 </div>
 </div>
 <p>最小値・最大値を一度に求めるための<code>range()</code>関数も同様に扱えます。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   1.2 250.0</code></pre>
 </div>
@@ -406,26 +413,30 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>データ中の度数をまとめて表形式にしたものは度数分布表と呼ばれます。</p>
 <p>分類群の値ごとに同じデータがどれだけあるかをカウントして度数を求めます。</p>
 <p><strong>度数分布表</strong>は手元のデータの値をいくつかの階級 (class)</p>
-</section>
-<section id="データのばらつき" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="データのばらつき"><span class="header-section-number">3.1.3</span> データのばらつき</h3>
-<p>分散、標準偏差</p>
-</section>
-<section id="ヒストグラム" class="level3" data-number="3.1.4">
-<h3 data-number="3.1.4" class="anchored" data-anchor-id="ヒストグラム"><span class="header-section-number">3.1.4</span> ヒストグラム</h3>
+<p>数学は統計学的な考え方において必須ではありません。</p>
+<p>探索的データ分析</p>
+<p>度数分布表、ヒストグラム、箱ヒゲ図、散布図、カルトグラム</p>
+<section id="ヒストグラム" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="ヒストグラム"><span class="header-section-number">3.1.1</span> ヒストグラム</h3>
 <p>代表値に対して、データを図で表現する方法を解説します。 ヒストグラム、箱ヒゲ図、散布図は数値を図で表すための方法として用いられます。</p>
 <p>度数分布をグラフ化する方法の一つとして<strong>ヒストグラム</strong>があります。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_length_cm)) <span class="sc">+</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">6</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ragg)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_length_cm)) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">6</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="summary_statistics_files/figure-html/動物の体長のヒストグラム-1.png" class="img-fluid" width="672"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="summary_statistics_files/figure-html/histogram_for_body_length-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">動物の体長のヒストグラム</figcaption><p></p>
+</figure>
+</div>
 </div>
 </div>
 <!-- ビンの数を変えるとヒストグラムの形も変わる -->
@@ -446,39 +457,131 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>データの特徴を素早く捉えることができます。</p>
 </section>
 </section>
-<section id="代表値-1" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="代表値-1"><span class="header-section-number">3.2</span> 代表値</h2>
-<ul>
-<li>中央値</li>
-</ul>
+<section id="代表値" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="代表値"><span class="header-section-number">3.2</span> 代表値</h2>
+<p>まず、複数の数値の性質や特徴をよく表す代表値について説明します。 代表値によるデータの要約は、データに含まれる数値の傾向を大まかに把握するために便利です。 代表値という名前の通り、数値によるデータの表現方法となります。</p>
+<p>代表値によるデータの要約方法にはさまざまなものがあります。代表的なものは<strong>平均値</strong>の計算です。 平均値の他に中央値、最頻値が代表値としてしばしば使われます。 いくつかの代表値を紹介します。 その特徴をみていきましょう。</p>
+<section id="データの位置を示す代表値-平均値中央値最頻値" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="データの位置を示す代表値-平均値中央値最頻値"><span class="header-section-number">3.2.1</span> データの位置を示す代表値: 平均値、中央値、最頻値</h3>
+<p>量的変数はデータを度数分布表やヒストグラムに表わすことで、 その分布の形を調べることができます。</p>
+<p>分布の位置を示す代表値として広く用いられるものに、平均値、中央値、最頻値の3つがあります。</p>
+<p>まず、代表値の代表として平均値を紹介します。 平均値にも複数の種類が存在しますが、ここではより一般的な<strong>算術平均</strong>を平均値の例として扱います。算術平均とは、2個以上のデータ（データの数を<span class="math inline">\(N\)</span>とします）があるとき、そのすべての数値を足し合わせて<span class="math inline">\(N\)</span>で割った値のことです。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1,3,5,7,10の平均を求めましょう</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">7</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># まずは対象の数値を足し合わせます</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 次に数値の数(5)によって足し合わせた数値を割り算します</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x) <span class="sc">/</span> <span class="fu">length</span>(x)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean()関数を用いて平均値を計算することもできます。</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.2</code></pre>
+</div>
+</div>
+<p>平均値はその言葉の通り、データの真ん中あたりを示す代表値です。 しかし、「あたり」という点に注意してください。 平均値は必ずしもデータの真ん中を示す値ではありません。</p>
+<p>中央値は、すべてのデータを大きさの順番に並べたとき、大きい方と小さい方のちょうど真ん中にくる値を指します。 例えば得られている数値が1, 10, 5, 3, 7の場合には数値の数は5個なので、その真ん中の順位は3になります。 この真ん中の順位にくる数値を中央値とします。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(df_zoo<span class="sc">$</span>body_length_cm)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># xの数値は大きさの順番になっていないので並び替える</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(x)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]   1.2  31.0  35.0  40.0  63.5  64.0  66.0  69.0  80.0  85.0 100.0 110.0
-[13] 130.0 134.0 168.0 175.0 250.0 250.0</code></pre>
+<pre><code>[1]  1  3  5  7 10</code></pre>
 </div>
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(x)[<span class="dv">3</span>]</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 82.5</code></pre>
+<pre><code>[1] 5</code></pre>
 </div>
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">sort</span>(df_zoo<span class="sc">$</span>body_length_cm)[<span class="dv">9</span>] <span class="sc">+</span> <span class="fu">sort</span>(df_zoo<span class="sc">$</span>body_length_cm)[<span class="dv">10</span>]) <span class="sc">/</span> <span class="dv">2</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 82.5</code></pre>
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>一方、数値の個数が偶数のときには真ん中の数を決めるのに悩んでしまいます。 例えば4つの数値からなるデータの中央値を求めようとすると、真ん中は2.5番目となってしまいます。データの中には2.5番目の値は含まれません。 このときは2番目と3番目の値の平均を中央値として利用します。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの個数が偶数の場合の中央値の求め方</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(x[<span class="dv">2</span>], x[<span class="dv">3</span>]))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># median()関数で中央値を求められる</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>最頻値はデータの中で最も頻繁に出現する値のことを言います。 クラスのテストの点数で、96点の人が3人と最も多かったとき、最頻値は96です。ただし92点の人が同様に3人いたときには96、92が最頻値となります。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">73</span>, <span class="dv">58</span>, <span class="dv">96</span>, <span class="dv">61</span>, <span class="dv">87</span>, <span class="dv">54</span>, <span class="dv">92</span>, <span class="dv">92</span>, <span class="dv">63</span>, <span class="dv">80</span>,</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">92</span>, <span class="dv">59</span>, <span class="dv">77</span>, <span class="dv">96</span>, <span class="dv">62</span>, <span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">59</span>, <span class="dv">76</span>, <span class="dv">96</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 各点数の人数を求めます</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(x)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>x
+54 58 59 61 62 63 64 73 76 77 80 87 92 96 
+ 1  1  2  1  1  1  2  1  1  1  1  1  3  3 </code></pre>
+</div>
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 最頻値を求めます</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">which</span>(<span class="fu">table</span>(x) <span class="sc">==</span> <span class="fu">max</span>(<span class="fu">table</span>(x))))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "92" "96"</code></pre>
+</div>
+</div>
+<p>上記の例は変数が離散変数の場合の最頻値の求め方でした。 連続変数の場合も手順は変わりませんが、数値を適当な間隔でまとめた階級により判断することがあります。</p>
+<!-- これについては後ほど、ヒストグラムを紹介するときに説明します。 -->
+<div class="callout-tip tokupon_none callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+動物データの代表値を計算しよう
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>動物データに対して平均値や中央値、最頻値を求めてみよう。 Rにはここで紹介した<code>mean()</code>や<code>median()</code>以外にも 代表値の算出を行う関数が用意されているよ。 それらについて調べて実行してみよう。</p>
+<p>コードの例と解説は<a href="./exercise.html">練習問題</a>をみてね。</p>
 </div>
 </div>
 </section>
+<section id="データのばらつき" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="データのばらつき"><span class="header-section-number">3.2.2</span> データのばらつき</h3>
+<p>分散、標準偏差</p>
+</section>
+</section>
 <section id="データのばらつき-1" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="データのばらつき-1"><span class="header-section-number">3.3</span> データのばらつき</h2>
-<p>パーセンタイル</p>
+<p>パーセンタイル、誤差</p>
 <section id="箱ヒゲ図" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="箱ヒゲ図"><span class="header-section-number">3.3.1</span> 箱ヒゲ図</h3>
 <p>中央値を太い線で描く</p>
@@ -487,29 +590,29 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> body_length_cm)) <span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> body_length_cm)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="summary_statistics_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="summary_statistics_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分類群ごとの箱ヒゲ図を描画</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># あらかじめ中央値を計算し、グラフ上では中央値の並びで分類群が表示されるように</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 調整しています。</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(taxon) <span class="sc">|&gt;</span> </span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">body_length_median =</span> <span class="fu">median</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">taxon =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(taxon, body_length_median)) <span class="sc">|&gt;</span> </span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(taxon, body_length_cm)) <span class="sc">+</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分類群ごとの箱ヒゲ図を描画</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># あらかじめ中央値を計算し、グラフ上では中央値の並びで分類群が表示されるように</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 調整しています。</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(taxon) <span class="sc">|&gt;</span> </span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">body_length_median =</span> <span class="fu">median</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">taxon =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(taxon, body_length_median)) <span class="sc">|&gt;</span> </span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(taxon, body_length_cm)) <span class="sc">+</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="summary_statistics_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
+<p><img src="summary_statistics_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -518,8 +621,19 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <h2 data-number="3.4" class="anchored" data-anchor-id="相関-2つの変数の間の関係"><span class="header-section-number">3.4</span> 相関: 2つの変数の間の関係</h2>
 <p>相関係数</p>
 <p>相関係数は変数間の因果関係を示すものではありません。 例えば、ある地域の８月において、毎日のアイスの売り上げ個数と熱中症患者数の間に 正の相関があった場合でも、アイスが熱中症の原因となっているわけではありません。 アイスの売り上げ、熱中症の双方に影響するもの、気温が原因です。 気温について考慮せずに分析を進めてしまうと、見せかけの因果関係を発生させてしまいます。 熱中症患者の増加を抑えるためにアイスの販売を規制するなどの誤った対策が取られてしまう 恐れがあります。</p>
+</section>
+<section id="参考文献url" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">3.5</span> 参考文献・URL</h2>
+<ul>
+<li><span class="citation" data-cites="R300000001-I030221455-00">(<a href="references.html#ref-R300000001-I030221455-00" role="doc-biblioref">編 2020</a>)</span></li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-R300000001-I030221455-00" class="csl-entry" role="doc-biblioentry">
+編. 2020. <em>データの分析 : 日本統計学会公式認定統計検定3級対応</em>. 改訂版. 東京図書. <a href="http://id.ndl.go.jp/bib/030221455">http://id.ndl.go.jp/bib/030221455</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
