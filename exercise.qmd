@@ -17,6 +17,9 @@ x[32:40] <- x[32:40] + rpois(n = 9, lambda = 10)
 <details><summary>答えと解説を表示</summary>
 
 **40人のクラスで平均点が`r round(mean(x), digits = 0)`点のとき、点数が45点であっても上位20人の中に含まれることがある。**
+
+
+平均値はデータの真ん中を表わす数値ではないよ。
 </details>
 
 
@@ -28,13 +31,15 @@ x
 mean(x) # クラスの平均点
 median(x) # クラスの点数の中央値
 
-tibble::tibble(
-  x = x) |> 
+p <- 
+  tibble::tibble(x = x) |> 
   ggplot(aes(x)) +
   geom_density() +
-  geom_vline(xintercept = median(x), color = "red") +
-  geom_vline(xintercept = mean(x), color = "blue", linetype = "dashed") +
   xlim(0, 100)
+
+p +
+  geom_vline(xintercept = median(x), color = "red") +
+  geom_vline(xintercept = mean(x), color = "blue", linetype = "dashed")
 ```
 
 ```{r}
@@ -43,5 +48,26 @@ x[1:20]
 x[21:40]
 ```
 
+## 3章: 動物データの代表値を計算しよう
 
+ここで紹介する関数は一部の例です。
+
+```{r}
+# code-fold: true
+df_zoo <- 
+  readr::read_csv("data-raw/tokushima_zoo_animals22.csv", 
+                col_types = "ccdd_")
+
+summary(df_zoo)
+# 中央値
+quantile(df_zoo$body_length_cm, na.rm = TRUE)[3]
+```
+
+```{r}
+#| eval: false
+#| echo: true
+skimr::skim(df_zoo)
+psych::describe(df_zoo)
+summarytools::descr(df_zoo)
+```
 
