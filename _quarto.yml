@@ -8,7 +8,7 @@ book:
   author: "瓜生真也（徳島大学デザイン型AI教育研究センター）"
   institute: "徳島大学デザイン型AI教育研究センター"
   google-analytics: "G-1VZEWMXCVL"
-  date: "2022/6/28"
+  date: "2022/6/29"
   cover-image: cover.png
   search: true
   number-depth: 2
@@ -28,6 +28,7 @@ book:
     - summary.qmd
     - references.qmd
   appendices: 
+    - exercise.qmd
     - dataset.qmd
     - r_intro.qmd
   site-url: https://uribo.github.io/tokupon_ds/

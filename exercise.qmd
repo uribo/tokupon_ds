@@ -1,0 +1,47 @@
+---
+title: "練習問題の答えと解説"
+code-fold: false
+---
+
+## 1章: テストの点数がクラスの平均点よりも低くても上位に含まれる？
+
+```{r}
+#| include: false
+set.seed(12)
+x <- 
+  sort(round(rnorm(n = 40, mean = 48, sd = 16), digits = 0))
+x[32:40] <- x[32:40] + rpois(n = 9, lambda = 10)
+```
+
+
+<details><summary>答えと解説を表示</summary>
+
+**40人のクラスで平均点が`r round(mean(x), digits = 0)`点のとき、点数が45点であっても上位20人の中に含まれることがある。**
+</details>
+
+
+```{r}
+library(ggplot2)
+
+# クラス中の40人のテストの点数
+x
+mean(x) # クラスの平均点
+median(x) # クラスの点数の中央値
+
+tibble::tibble(
+  x = x) |> 
+  ggplot(aes(x)) +
+  geom_density() +
+  geom_vline(xintercept = median(x), color = "red") +
+  geom_vline(xintercept = mean(x), color = "blue", linetype = "dashed") +
+  xlim(0, 100)
+```
+
+```{r}
+x[1:20]
+
+x[21:40]
+```
+
+
+

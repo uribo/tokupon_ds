@@ -23,9 +23,16 @@
 徳島大学マスコットキャラクターの「[とくぽん](https://www.tokushima-u.ac.jp/about/profile/univ_mascot/index.html)」が解説を行います。
 とくぽんによる解説には次の種類があります。
 
-::: {.callout-note}
+::: {.callout-note .tokupon}
 
 全般的な補足をコメントするよ。
+
+:::
+
+::: {.callout-tip .tokupon_none}
+#### 練習問題
+
+とくぽんからの問題だよ。これまでの内容をおさらいして考えてみてね。
 
 :::
 
