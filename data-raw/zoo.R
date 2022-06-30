@@ -35,19 +35,12 @@ if (!file.exists("data-raw/tokushima_zoo_animals22.csv")) {
                     # ホッキョクグマは平均体重のうち最大値を採用
                     9, 220, 0.9, 30.3, 15,
                     410, 1.1, 6, 140, NA_real_,
-                    1.5, NA_real_)) |> 
-    mutate(link = paste0("https://ja.wikipedia.org/wiki/",
-                         recode(name,
-                                `アンデスコンドル` = "コンドル",
-                                `ラマ` = "リャマ"))) %>% 
-    assertr::verify(dim(.) == c(22, 5))
+                    1.5, NA_real_)) %>%
+    assertr::verify(dim(.) == c(22, 4))
   df_zoo |> 
     readr::write_csv("data-raw/tokushima_zoo_animals22.csv")
-  df_zoo <-
-    df_zoo |> 
-    select(!link)
 } else {
   df_zoo <-
     readr::read_csv("data-raw/tokushima_zoo_animals22.csv", 
-                    col_types = "ccdd_")
+                    col_types = "ccdd")
 }
