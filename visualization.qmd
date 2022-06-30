@@ -12,6 +12,8 @@ library(ggplot2)
 
 データ解析の第一歩は計算ではない
 
+視覚化がモデル構築の足がかりになる
+
 
 [データをグラフに表現する](data.qmd#データをグラフに表現する)では、ヒストグラムと箱ヒゲ図を紹介しました。
 
@@ -29,7 +31,9 @@ library(ggplot2)
 
 ## 散布図
 
-[相関](correlation.qmd)
+[相関](correlation.qmd)を調べる際に散布図を用いる
+
+2つの量的変数を縦軸と横軸
 
 [Datasaurus](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html)の紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。
 
@@ -54,6 +58,10 @@ anscombe_long <-
 #   geom_smooth(method = lm, se = FALSE)
 ```
 
+```{r}
+library(datasauRus)
+```
+
 
 ## 地図表現
 
@@ -61,7 +69,7 @@ anscombe_long <-
 
 ```{r}
 #| include: false
-#| file: "data-raw/zoo_conservation.R"
+source("data-raw/zoo_conservation.R")
 ```
 
 ```{r}
@@ -114,4 +122,4 @@ mapview(sf_zoo_conservation,
                  zcol = "presence")
 ```
 
-
+## 参考文献・URL
