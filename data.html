@@ -294,10 +294,13 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
   <li><a href="#データの種類" id="toc-データの種類" class="nav-link active" data-scroll-target="#データの種類"> <span class="header-section-number">2.1</span> データの種類</a>
   <ul class="collapse">
   <li><a href="#変数の性質の違い" id="toc-変数の性質の違い" class="nav-link" data-scroll-target="#変数の性質の違い"> <span class="header-section-number">2.1.1</span> 変数の性質の違い</a></li>
-  <li><a href="#データフレーム" id="toc-データフレーム" class="nav-link" data-scroll-target="#データフレーム"> <span class="header-section-number">2.1.2</span> データフレーム</a></li>
   </ul></li>
-  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ"> <span class="header-section-number">2.2</span> まとめ</a></li>
-  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">2.3</span> 参考文献・URL</a></li>
+  <li><a href="#データフレーム" id="toc-データフレーム" class="nav-link" data-scroll-target="#データフレーム"> <span class="header-section-number">2.2</span> データフレーム</a>
+  <ul class="collapse">
+  <li><a href="#rでのデータフレーム操作" id="toc-rでのデータフレーム操作" class="nav-link" data-scroll-target="#rでのデータフレーム操作"> <span class="header-section-number">2.2.1</span> Rでのデータフレーム操作</a></li>
+  </ul></li>
+  <li><a href="#まとめと課題" id="toc-まとめと課題" class="nav-link" data-scroll-target="#まとめと課題"> <span class="header-section-number">2.3</span> まとめと課題</a></li>
+  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">2.4</span> 参考文献・URL</a></li>
   </ul>
 </nav>
     </div>
@@ -338,7 +341,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <pre><code>[1] "食肉類" "鳥類"   "食肉類"</code></pre>
 </div>
 </div>
-<p>「複数の動物の体重」のように、共通の手法によって得られた値のことを<ruby><strong>変数</strong><rt>へんすう</rt></ruby>といいます。 動物の体重は、個体や種類が違うと値も変わります。</p>
+<p>「複数の動物の体重」のように、共通の手法によって得られた値のことを<ruby><strong>変数</strong><rt>へんすう</rt></ruby>といいます。 動物の体重は、個体や種類が違うと値も変わります。 このように対象によって数値が変わるもの、変化する値を意味します。</p>
 <section id="変数の性質の違い" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="変数の性質の違い"><span class="header-section-number">2.1.1</span> 変数の性質の違い</h3>
 <p>体重を記録するときは数値を用いました。 このように<strong>数量を表す変数のことを量的変数</strong>といいます。 数値からなる変数なので、平均を求めたり大きい順番に並び替えるといった処理が可能です。</p>
@@ -367,8 +370,9 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 <p>データの種類に応じて名前がついている理由は、 データの種類によって適切なデータ分析の手法が異なるためです。 データ分析を行う際は、データがどの種類の変数なのか意識することが大切です。</p>
 </section>
-<section id="データフレーム" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="データフレーム"><span class="header-section-number">2.1.2</span> データフレーム</h3>
+</section>
+<section id="データフレーム" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="データフレーム"><span class="header-section-number">2.2</span> データフレーム</h2>
 <p>データ分析の作業においては、データの変数を比較し、関係を調べることが頻繁に行われます。 特定の個体や観測について複数の項目を同時に扱えるようにするために、データを表形式でまとめて表現します。 これを表データまたは<strong>データフレーム</strong>と呼びます。</p>
 <p>データフレームの例として、いくつかの動物の体の大きさ（体長）と体重の記録をデータフレームにまとめてみましょう。 データフレームでは個人や個体、観測といったデータを一つの<strong>行</strong>にまとめます。 レッサーパンダの体長と体重の行、チンパンジーの体長と体重の行と、それぞれの値を行単位で記録します。 22種類の動物のデータをとった場合は22行、40種の動物についてであれば40行となりますね。 また、動物の分類群や名前や体長、体重といった変数を<strong>列</strong>として表します。</p>
 <div class="cell">
@@ -440,7 +444,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>表計算ソフトウェアにデータを記録するときもデータフレームと同じ形式をとるよ。 ここでは1,2,3といった数字が行、A、B、Cといったアルファベットが列を示しているね。 それぞれの値を記録している場所のことをセルというよ。 これはデータを記録している番地のようなもので、例えば、チンパンジーの体重はB3を参照すれば良いことになるね。</p>
+<p>表計算ソフトウェアにデータを記録するときもデータフレームと同じ形式をとるよ。 ここでは1,2,3といった数字が行、A、B、Cといったアルファベットが列を示しているね。 それぞれの値を記録している場所のことをセルというよ。 これはデータを記録している番地のようなもので、例えば、チンパンジーの体重はC3を参照すれば良いことになるね。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/excel_table.png" class="img-fluid figure-img"></p>
@@ -450,20 +454,23 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 <p>先ほど5種の動物のデータフレームを示しましたが、データ分析を進めていくには より多くのデータが必要になります。 たくさんのデータがあれば、データから見えてくる傾向・パターンも見えやすくなります。 ここでは22種の動物について、同様の体長、体重を調べたデータを用意しました。 ここからはこの<strong>動物データ</strong> (<a href="#tbl-zoo">表&nbsp;<span>2.2</span></a>) を使い、データを調べていくことにします。 このデータは<a href="https://www.city.tokushima.tokushima.jp/zoo/index.html">とくしま動物園</a>で 飼育される動物について記録したものです。詳細は付録<a href="./dataset.html#とくしま動物園で飼育される動物の体の大きさと体重">データセット</a>で解説しています。</p>
-<p>データフレームをプログラミング言語で扱うときは列の名前（列名）に 漢字やひらがなを使うと意味がわかりやすいですが、できるだけ英語やローマ字を使ったものにしましょう。 ここでも次のように列名を日本語から英語に変えてあります。</p>
-<ul>
-<li><code>taxon</code>: 動物の分類群</li>
-<li><code>name</code>: 動物の種名</li>
-<li><code>body_length_cm</code>: 体長(単位はcm)</li>
-<li><code>weight_kg</code>: 体重(単位はkg)</li>
-</ul>
-<p>Rで動物データを扱えるようにするコマンドを表示します。 データは<code>df_zoo</code>というオブジェクトに格納され、いつでも表示（参照）できるようになっています。 変数を参照するにはドル記号 <code>$</code>を使います。</p>
+<section id="rでのデータフレーム操作" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="rでのデータフレーム操作"><span class="header-section-number">2.2.1</span> Rでのデータフレーム操作</h3>
+<p>動物データはcsvファイルと呼ばれるテキストファイルの一種に記録されたデータです。 csvファイルはデータを記録するためのファイル形式として広く使われるもので、 カンマ <code>,</code> によって変数を区切っていくのが特徴です。 データフレーム同様、個体や観測のデータを一つの行にまとめます。 具体的には動物データの中身は次のようになっています。</p>
+<pre><code>taxon,name,body_length_cm,weight_kg
+食肉類,レッサーパンダ,63.5,6
+鳥類,ホオジロカンムリヅル,100,3.5
+食肉類,コツメカワウソ,64,5.4
+以下省略...</code></pre>
+<p>Rではcsvをはじめとした各種ファイルをデータフレームとして扱うための関数が用意されています。 <code>read.csv()</code>関数でcsvファイルを読み込むには、関数の第一引数にファイルのパス（置き場所）を文字列で与えて実行します。データは<code>df_zoo</code>というオブジェクトに格納され、いつでも表示（参照）できるようになっています。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dfはデータフレーム(data frame)の頭文字から</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="ot">&lt;-</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>, </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">col_types =</span> <span class="st">"ccdd_"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df_zoo</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dfはデータフレーム(data frame)の頭文字から</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 動物データの読み込み</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="ot">&lt;-</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read.csv</span>(<span class="st">"data-raw/tokushima_zoo_animals22.csv"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_zoo</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <div id="tbl-zoo" class="anchored">
@@ -616,9 +623,17 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<p>上記のコマンドの実行により、データフレームが出力されたかと思います。 一行目の出力が変数を示しています。これは列の名前（列名）とも呼ばれます。 データフレームをプログラミング言語で扱うときはこの列名にはできるだけ英語やローマ字を使ったものにしましょう。 漢字やひらがなを使うと意味がわかりやすいですが、海外で開発されたRのようなプログラムは日本語の扱いに不自由な点があるためです。 ここでも次のように動物データの列名を日本語から英語に変えてあります。</p>
+<ul>
+<li><code>taxon</code>: 動物の分類群</li>
+<li><code>name</code>: 動物の種名</li>
+<li><code>body_length_cm</code>: 体長(単位はcm)</li>
+<li><code>weight_kg</code>: 体重(単位はkg)</li>
+</ul>
+<p>変数を参照するにはドル記号 <code>$</code>を使います。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレーム中の変数を参照するにはドル記号 $ に続けて変数名を与えます。</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_zoo<span class="sc">$</span>name</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレーム中の変数を参照するにはドル記号 $ に続けて変数名を与えます。</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_zoo<span class="sc">$</span>name</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "レッサーパンダ"       "ホオジロカンムリヅル" "コツメカワウソ"      
  [4] "カナダガン"           "チンパンジー"         "シシオザル"          
@@ -630,16 +645,26 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 [22] "ヒツジ"              </code></pre>
 </div>
 </div>
+<p>ファイルを用意せずに、直接データフレームの生成もできます。 これには<code>data.frame()</code>関数と<code>c()</code>関数を使います。 <code>data.frame()</code>関数の引数に<code>変数名 = 値</code>の形式でデータを与えていきます。 文字列の変数は引用符 <code>"</code> で囲む点、データの区切りにはカンマ <code>,</code> を使う点に注意してください。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">taxon =</span> <span class="fu">c</span>(<span class="st">"食肉類"</span>, <span class="st">"鳥類"</span>, <span class="st">"食肉類"</span>),</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"レッサーパンダ"</span>, <span class="st">"ホオジロカンムリヅル"</span>, <span class="st">"コツメカワウソ"</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">body_length_cm =</span> <span class="fu">c</span>(<span class="fl">6.0</span>, <span class="fl">3.5</span>, <span class="fl">5.4</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">weight_kg =</span> <span class="fu">c</span>(<span class="fl">63.5</span>, <span class="dv">100</span>, <span class="fl">64.0</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<!-- Windowsなら read.table('clipboard') が手軽?-->
 </section>
 </section>
-<section id="まとめ" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="まとめ"><span class="header-section-number">2.2</span> まとめ</h2>
+<section id="まとめと課題" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="まとめと課題"><span class="header-section-number">2.3</span> まとめと課題</h2>
 <ul>
-<li>データの種類</li>
+<li>データをとる対象ごとに得られる、共通の手法によって得られた値のことを変数と呼びます。 変数は性質の違いによって分類できます。身近なものを対象に分類をしてみましょう。</li>
 </ul>
 </section>
-<section id="参考文献url" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">2.3</span> 参考文献・URL</h2>
+<section id="参考文献url" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">2.4</span> 参考文献・URL</h2>
 <ul>
 <li><span class="citation" data-cites="R300000001-I031484010-00">(<a href="references.html#ref-R300000001-I031484010-00" role="doc-biblioref">北川源四郎 と 内田誠一 2021</a>)</span></li>
 </ul>

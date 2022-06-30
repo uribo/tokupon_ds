@@ -15,6 +15,88 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -204,7 +286,19 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#データ分析における2つの関係" id="toc-データ分析における2つの関係" class="nav-link active" data-scroll-target="#データ分析における2つの関係"> <span class="header-section-number">4.1</span> データ分析における2つの関係</a></li>
+  <li><a href="#相関" id="toc-相関" class="nav-link" data-scroll-target="#相関"> <span class="header-section-number">4.2</span> 相関</a>
+  <ul class="collapse">
+  <li><a href="#相関係数" id="toc-相関係数" class="nav-link" data-scroll-target="#相関係数"> <span class="header-section-number">4.2.1</span> 相関係数</a></li>
+  </ul></li>
+  <li><a href="#クロス集計表" id="toc-クロス集計表" class="nav-link" data-scroll-target="#クロス集計表"> <span class="header-section-number">4.3</span> クロス集計表</a></li>
+  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">4.4</span> 参考文献・URL</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -225,11 +319,260 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 </header>
 
-<p>相関関係の種類</p>
+<p><a href="./summary_statistics.html">前章</a>では、動物の体長や体重といった1つの変数を扱う方法を紹介しました。 この章では、体長と体重、体重と分類群を一度に考える、つまり2変数の関係を見ていくことにします。 まずは関係という言葉自体について、データ分析の視点で扱われる2つの関係を説明します。</p>
+<section id="データ分析における2つの関係" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="データ分析における2つの関係"><span class="header-section-number">4.1</span> データ分析における2つの関係</h2>
+<p><strong>データ分析における「関係」は複数の変数がともに変化する状態</strong>を指します。 関係を扱うときには次に説明する<strong>因果関係と<ruby>相関<rt>そうかん</rt></ruby>関係</strong>の2種類があり、似たものでありながら異なる状態を示すもので注意が必要です。</p>
+<p>本書の冒頭、<a href="./intro.html#データ分析って何">データ分析の目的</a>の中でみたように、 「ペンギンは翼の長さが大きい個体であれば口ばしの長さも大きくなる」はペンギンの体の部位の関係を示すものです。 こうした<strong>変数の間の関連性を相関関係</strong>といいます。 一方で、翼が長くなると口ばしが大きくなる、とするわけではありません。 逆も然りで、口ばしが大きくなれば翼が長くなるわけでもありません。 つまり、翼と口ばしの長さは、どちらかが大きくなればどちらかが大きくなることを説明するものではありません。 このような<strong>原因から結果を伴う状態を因果関係</strong>と言います。原因と結果の関係とも言えます。</p>
+<p>ペンギンデータは野外に生息するペンギン個体の観測により得られたデータです。 各個体はここで観測していない年齢や食事の内容も異なるはずです。 その場合、翼や口ばしの長さに対する影響も当然変わると考えられます。 2つの変数の関連性は明らかですが、片方の変数が原因となり、もう片方の変数の値を決めている、 因果関係があるとは言えないのです。</p>
+<p>因果関係を明らかにするのは容易ではありません。</p>
+<p>因果関係がないものに因果関係を見出すことの危険性</p>
+<p>擬似相関 … ２つの変数に因果関係がないのに、見えない要因によって因果関係があるかのように推測されること</p>
+<p>擬似相関の例として有名な話があります。 ある街でのアイスクリームの売り上げが最も高い時期には、熱中症の搬送者数も最も多いことが指摘されました。 この時、アイスクリームの売り上げ増が熱中症の原因（あるいは結果）であると主張されましたが、 アイスクリームの売り上げや熱中症の増加も実際には、気温の高さが原因となっています。 気温について無視し、2つの変数の関係を議論すること、特に因果関係の有無を判断することは危険です。 ここでの気温のような観測されていない変数を潜在変数といいます。</p>
+</section>
+<section id="相関" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="相関"><span class="header-section-number">4.2</span> 相関</h2>
+<p>2つの量的変数の関係性を明らかにするために、相関という考え方を導入します。 ペンギンデータでは翼と口ばしの長さの関係を見ました。 これらの変数のように、互いの値が増えれば片方も増えるという傾向を示す関係を正の相関関係といいます。 一方、片方の変数の値が増えたときにもう片方の値が減少する場合、負の相関関係があるといいます。 この2つの関係に加えて、相関にはもう一つの関係があります。 それは変数の間に関係が見られない状態です。このことを無相関と呼びます。</p>
+<p>変数間の相関関係はグラフ上に表現すると傾向を掴みやすくなります。 <strong>散布図</strong>と呼ばれる2つの変数を扱うグラフを利用して相関関係を整理してみましょう<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。 <span class="citation" data-cites="fig_correlation">(<a href="references.html#ref-fig_correlation" role="doc-biblioref"><strong>fig_correlation?</strong></a>)</span> に相関関係を表わす3つの状態を示しました。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df_corr <span class="ot">&lt;-</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_positive =</span> <span class="dv">5</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">3</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_negative =</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">4</span>))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  df_corr <span class="sc">|&gt;</span> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y_positive)) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"正の相関関係"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  df_corr <span class="sc">|&gt;</span>  </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"無相関"</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  df_corr <span class="sc">|&gt;</span> </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y_negative)) <span class="sc">+</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"負の相関関係"</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">3</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="correlation_files/figure-html/fig_correlation-1.png" class="img-fluid figure-img" width="1152"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">相関関係を示す3つの状態</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>回帰モデルにつながる</p>
+<section id="相関係数" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="相関係数"><span class="header-section-number">4.2.1</span> 相関係数</h3>
+<p><strong>相関係数は2つの変数の間の関係性の強さを評価する指標</strong>です。 -1以上から1以下の値をとり、変数の関係が強いほど、散布図にしたときに直線関係に近いものほど、絶対値が1に近づきます。</p>
+<p>相関係数の種類</p>
+<p>ピアソンの積率相関係数が最も頻繁に利用されます。 本書でも、相関係数といった時にはピアソンの積率相関係数を指して使います。</p>
+<p>共分散… データの測定単位に依存</p>
+<div class="callout-warning tokupon_none callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+相関係数の注意点
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>相関係数はあくまでも変数の関係が直線関係にあることを仮定しているよ。 だから2変数間の関係が直線的でないときは適切な計算が行えないんだ。</p>
+<p>また、相関係数は外れ値の影響を受けやすいよ。 外れ値とはデータに含まれる極端に小さい・大きい値のことだよ。</p>
+</div>
+</div>
+<p>Rでは相関係数の算出を<code>cor.test()</code>関数によって行います。</p>
+<p><span class="citation" data-cites="fig_correlation">(<a href="references.html#ref-fig_correlation" role="doc-biblioref"><strong>fig_correlation?</strong></a>)</span> で示した3つの状態について、それぞれ相関係数を算出すると次の値になります。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">formula =</span> <span class="sc">~</span> x <span class="sc">+</span> y_positive, <span class="at">data =</span> df_corr) <span class="co"># 正の相関関係</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  x and y_positive
+t = 14.7, df = 98, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.7562318 0.8821464
+sample estimates:
+     cor 
+0.829446 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">formula =</span> <span class="sc">~</span> x <span class="sc">+</span> y, <span class="at">data =</span> df_corr) <span class="co"># 無相関</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  x and y
+t = -0.49095, df = 98, p-value = 0.6246
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.2435805  0.1483291
+sample estimates:
+        cor 
+-0.04953215 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">formula =</span> <span class="sc">~</span> x <span class="sc">+</span> y_negative, <span class="at">data =</span> df_corr) <span class="co"># 負の相関関係</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  x and y_negative
+t = -11.321, df = 98, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.8269376 -0.6529155
+sample estimates:
+       cor 
+-0.7527922 </code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 相関係数はデータの測定単位に依存しない</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="fu">scale</span>(df_zoo<span class="sc">$</span>body_length_cm), </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">scale</span>(df_zoo<span class="sc">$</span>weight_kg))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  scale(df_zoo$body_length_cm) and scale(df_zoo$weight_kg)
+t = 6.2796, df = 16, p-value = 1.098e-05
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.6211387 0.9401080
+sample estimates:
+      cor 
+0.8434235 </code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 動物データについて相関係数を求める</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(df_zoo<span class="sc">$</span>body_length_cm, df_zoo<span class="sc">$</span>weight_kg)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  df_zoo$body_length_cm and df_zoo$weight_kg
+t = 6.2796, df = 16, p-value = 1.098e-05
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.6211387 0.9401080
+sample estimates:
+      cor 
+0.8434235 </code></pre>
+</div>
+</div>
+<p>どんな変数間であろうと相関係数は必ず出る</p>
+<p>相関係数は標準化された値どうしの共分散とも考えられる</p>
 <p>外れ値が相関係数に及ぼす影響</p>
-<p>相関関係と因果関係</p>
+</section>
+</section>
+<section id="クロス集計表" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="クロス集計表"><span class="header-section-number">4.3</span> クロス集計表</h2>
+<p>質的変数の変数間の関係を調べる方法を紹介します。 <strong>ペンギンデータ</strong>には、種の名前 species、生育する島の名前 island、性別 sex の3つの質的変数があります。 これらの質的変数間の関係を調べるためにクロス集計表を用います。</p>
+<p>クロス集計表では、対象の質的変数に含まれる件数をカウントし、表にまとめます。 表の行・列には変数の項目が並びます。 <a href="#tbl-penguins_sp_islands">表&nbsp;<span>4.1</span></a> にペンギンデータにおける島ごとの種数を整理しました。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species, island) <span class="sc">|&gt;</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> island, <span class="at">values_from =</span> n, <span class="at">values_fill =</span> <span class="dv">0</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="kable-table">
+<div id="tbl-penguins_sp_islands" class="anchored">
+<table class="table table-sm table-striped">
+<caption>表 4.1: ペンギンデータにおける島ごとの種数</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">species</th>
+<th style="text-align: right;">Biscoe</th>
+<th style="text-align: right;">Dream</th>
+<th style="text-align: right;">Torgersen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">52</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chinstrap</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gentoo</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>この表を見るだけで次の事柄がわかります。</p>
+<ul>
+<li>アデリーペンギン Adelie は調査地のどの島にも生育する</li>
+<li>ヒゲペンギン Chinstrap はDream島にだけ生育する</li>
+<li>ジェンツーペンギン Gentoo はBiscoe島に多いがDreamやTorgersenには生育しない</li>
+</ul>
+<p>クロス集計表の利用によって1変数を調べただけではわからなかったデータの特徴を知ることができました。</p>
+</section>
+<section id="参考文献url" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">4.4</span> 参考文献・URL</h2>
+<ul>
+<li><span class="citation" data-cites="R300000001-I030221455-00">(<a href="references.html#ref-R300000001-I030221455-00" role="doc-biblioref">日本統計学会 2020</a>)</span></li>
+<li><span class="citation" data-cites="R300000001-I031803943-00">(<a href="references.html#ref-R300000001-I031803943-00" role="doc-biblioref">阿部真人 2021</a>)</span></li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-R300000001-I030221455-00" class="csl-entry" role="doc-biblioentry">
+日本統計学会. 2020. <em>データの分析 : 日本統計学会公式認定統計検定3級対応</em>. 改訂版. 東京図書. <a href="http://id.ndl.go.jp/bib/030221455">http://id.ndl.go.jp/bib/030221455</a>.
+</div>
+<div id="ref-R300000001-I031803943-00" class="csl-entry" role="doc-biblioentry">
+阿部真人. 2021. <em>統計学入門 : データ分析に必須の知識・考え方 : 仮説検定から統計モデリングまで重要トピックを完全網羅</em>. ソシム. <a href="http://id.ndl.go.jp/bib/031803943">http://id.ndl.go.jp/bib/031803943</a>.
+</div>
+</div>
+</section>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="./intro.html#データ分析って何">はじめに</a>の中でペンギンデータの体の部位の関係を見たときに使われていた（<a href="intro.html#fig-penguins">図&nbsp;<span>1.1</span></a>）のも散布図です。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

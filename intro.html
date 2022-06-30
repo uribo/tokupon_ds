@@ -324,10 +324,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 <section id="データ分析って何" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="データ分析って何"><span class="header-section-number">1.1</span> データ分析って何？</h2>
-<p>データ分析とは、 得られたデータを人間が利用できる形に変換することで 対象についての理解や予測を目指す手続き</p>
-<p>データの取得は観測や実験により行われます。</p>
-<p>データ分析を行うために統計学の知識を活用します。 統計学では確率論と呼ばれる数学の力を使うことでデータ分析の幅を広げることができます。</p>
-<p>数学は理系の印象がありますが、データ分析は文理問わず求められる技能です。</p>
+<p>データ分析とは、 データを人間が利用できる形に変換することで 対象についての理解や予測を目指す手続きを指します。 ここでいうデータとは、観測や実験により取得されるものです。</p>
 <p>データ分析には次の目的があります。</p>
 <ul>
 <li>データを<ruby>要約<rt>ようやく</rt></ruby>すること</li>
@@ -335,8 +332,54 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <li>新たに得られるデータに対する予測を行うこと</li>
 </ul>
 <p>要約とは物事の中心となる大切な部分を短くまとめることです。 一般的にデータ分析の対象となるデータは<ruby>膨大<rt>ぼうだい</rt></ruby>です。 そのため一つ一つのデータを見ていくことは難しいです。 そこでデータを要約する方法として代表値によるデータの集約やグラフによるデータ可視化が行われます。 この方法について、コースの中でも<a href="./summary_statistics.html">第2章</a>と<a href="./visualization.html">第4章</a>で扱います。</p>
-<p>２つ目の目的として、データがもつ意味やデータに含まれる値の関係性を説明することがあります。 例えば全国の都道府県で身長と体重を記録したデータから何が言えるでしょうか。</p>
-<p><ruby>比較<rt>ひかく</rt></ruby>（2つあるいは3つ以上のものを比べ、そこにある違いを考えること）</p>
+<p>２つ目の目的として、データがもつ意味やデータに含まれる値の関係性を説明することがあります。 例えば、動物園で飼育されるペンギンの各個体について、体の部位を測定したデータを集めたとします。 そのとき、体の部位ごとにどのような意味、関係があるかを説明する場合、データ分析が役立ちます。</p>
+<p>次に示す <a href="#fig-penguins">図&nbsp;<span>1.1</span></a> は、ペンギンの各個体の大きさを記録したデータをグラフ化したものです。 この図からどのようなことが言えるでしょうか。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(flipper_length_mm, bill_length_mm)) <span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"翼の長さ(mm)"</span>) <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"口ばしの長さ(mm)"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-penguins" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="intro_files/figure-html/fig-penguins-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 1.1: ペンギンの体の大きさの関係</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-penguins">図&nbsp;<span>1.1</span></a> のようなグラフを散布図と呼びます。 散布図は２つのデータの関係を示すのによく使われます。 ここではグラフの下部と左側に表記がある通り（それぞれx軸、y軸と言います）、 「翼の長さ」と「口ばしの長さ」を示しています。 軸の横に書かれている数値はその大きさです。 一つ一つの点がペンギンの個体を表しています。</p>
+<p><a href="#fig-penguins">図&nbsp;<span>1.1</span></a> を見ると、<strong>翼の長さが大きい個体ほど口ばしの長さも大きい</strong>と言えるような気がします。 そこでデータ分析では「ペンギンの個体は翼の長さが大きい個体ほど口ばしの長さも大きい」という仮定を置きます。 この仮定を説明するために、データ分析ではデータの間の関係を説明する「モデル」を考えます。</p>
+<p>また、先ほどの<strong>ペンギンデータ</strong>は実は複数のペンギンの種類について調べたデータだったとします。 このとき、体の部位の関係の説明にペンギンの種類という、もう一つのデータが加わることになります。 そこで <a href="#fig-penguins">図&nbsp;<span>1.1</span></a> の図に手を入れて、種類ごとに色分けした図を見てみることにします (<a href="#fig-penguins_species">図&nbsp;<span>1.2</span></a>)。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"アデリーペンギン"</span>, <span class="st">"ヒゲペンギン"</span>, <span class="st">"ジェンツーペンギン"</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-penguins_species" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="intro_files/figure-html/fig-penguins_species-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 1.2: ペンギンの体の大きさの関係を種類別に比較する</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-penguins_species">図&nbsp;<span>1.2</span></a> では、最初の仮定（翼の長さと口ばしの長さが比例して大きくなる）が変わることはなさそうです。 しかしペンギンの種類によって体の部位の大きさには幅が決まっていそうだ、ということも見えてきました。 具体的にはアデリーペンギン、ヒゲペンギン、ジェンツーペンギンの順番で体の大きさに違いがあるようです。 これも新たな仮定としておきましょう。 この仮定を調べるためのモデルも存在します。 こうしたデータ間の<ruby>比較<rt>ひかく</rt></ruby>（2つあるいは3つ以上のものを比べ、そこにある違いを考えること）もデータ分析で扱う内容です。</p>
+<p>データ分析の最後の目的は、新たに得られるデータに対する予測を行うことです。 これまでに集めたデータや構築したモデルから、新たなデータへの予測を行います。 モデルが存在することで、ある程度の未知のデータに対する予測が可能になります。 ペンギンの体の大きさの例で見たように、翼の長さがわかれば、口ばしの長さに対する見通しが立ちます。 また、ある程度の大きさであれば種類まで特定できるかもしれません。</p>
+<p>データ分析を行うために統計学の知識を活用します。 統計学では確率論と呼ばれる数学の力を使うことでデータ分析の幅を広げることができます。</p>
+<p>数学は理系の印象がありますが、データ分析は文理問わず求められる技能です。</p>
 <section id="データ分析のプロセス" class="level3" data-number="1.1.1">
 <h3 data-number="1.1.1" class="anchored" data-anchor-id="データ分析のプロセス"><span class="header-section-number">1.1.1</span> データ分析のプロセス</h3>
 <p>課題や適切なデータを見つける、データを解析する、解析結果を利用する</p>
@@ -366,37 +409,37 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </section>
 <section id="データグラフに騙されない" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="データグラフに騙されない"><span class="header-section-number">1.2</span> データ、グラフに騙されない</h2>
-<p>普段の生活の中で、数値やグラフを目にする機会がたくさんあります。 天気予報や学校のテストの成績、スマートフォンやスマートウォッチで記録される歩数（<a href="#fig-my_activity">図&nbsp;<span>1.1</span></a>）などです。</p>
+<p>普段の生活の中で、数値やグラフを目にする機会がたくさんあります。 天気予報や学校のテストの成績、スマートフォンやスマートウォッチで記録される歩数（<a href="#fig-my_activity">図&nbsp;<span>1.3</span></a>）などです。</p>
 <div id="fig-my_activity" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/my_activity.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 1.1: スマートフォンに記録される活動量。数値を時間ごとにグラフ化し、一日の活動量と時間帯の関係がわかる</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 1.3: スマートフォンに記録される活動量。数値を時間ごとにグラフ化し、一日の活動量と時間帯の関係がわかる</figcaption><p></p>
 </figure>
 </div>
 <p>このような数字やグラフを見た時に感じる印象は人それぞれですが、 多くの人が共感するものも存在します。</p>
-<p>次の <a href="#fig-hoken_ugly">図&nbsp;<span>1.2</span></a> は文部科学省が毎年行う「学校保健統計調査」から5歳の幼児（男）における都道府県別の身長・体重の平均値を棒グラフにしたものです。全国で最も順位の低い県は徳島県であることがわかります。全国一位の宮城県と比べると何倍も差があるように見えます。しかしこれはグラフのトリックです。注意して横軸を見てみましょう。</p>
+<p>次の <a href="#fig-hoken_ugly">図&nbsp;<span>1.4</span></a> は文部科学省が毎年行う「学校保健統計調査」から5歳の幼児（男）における都道府県別の身長・体重の平均値を棒グラフにしたものです。全国で最も順位の低い県は徳島県であることがわかります。全国一位の宮城県と比べると何倍も差があるように見えます。しかしこれはグラフのトリックです。注意して横軸を見てみましょう。</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-hoken_ugly" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="intro_files/figure-html/fig-hoken_ugly-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 1.2: 誤解を招きやすいグラフの例。5歳の幼児における都道府県別の平均身長。グラフの横軸が0から始まっていないために値の差が大きく見えてしまう。</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 1.4: 誤解を招きやすいグラフの例。5歳の幼児における都道府県別の平均身長。グラフの横軸が0から始まっていないために値の差が大きく見えてしまう。</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>この<strong>グラフの横軸は0で始まっていない</strong>ことに気がついたでしょうか。 これがグラフのトリックを引き起こしている原因です。 横軸が0からの図（<a href="#fig-hoken">図&nbsp;<span>1.3</span></a>）と見比べてみましょう。</p>
+<p>この<strong>グラフの横軸は0で始まっていない</strong>ことに気がついたでしょうか。 これがグラフのトリックを引き起こしている原因です。 横軸が0からの図（<a href="#fig-hoken">図&nbsp;<span>1.5</span></a>）と見比べてみましょう。</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-hoken" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="intro_files/figure-html/fig-hoken-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 1.3: 横軸を0から示した平均身長を示す棒グラフ</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 1.5: 横軸を0から示した平均身長を示す棒グラフ</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>先ほどは都道府県間の差が大きく感じたものが、今度はどの県も平坦な様子に思えたのではないでしょうか。 <strong>数値が変わったわけではないので、順位に違いはありませんが見た目の印象が大きく違います</strong>。 数値で確認すると、全国一位の宮城県の5歳の男児の平均身長は112.8cmで徳島県では110.1cmで、その差は2.7cmです。 <a href="#fig-hoken_ugly">図&nbsp;<span>1.2</span></a> で何倍も開きがあるように感じた印象ほどではないと思える数値ではないでしょうか。</p>
+<p>先ほどは都道府県間の差が大きく感じたものが、今度はどの県も平坦な様子に思えたのではないでしょうか。 <strong>数値が変わったわけではないので、順位に違いはありませんが見た目の印象が大きく違います</strong>。 数値で確認すると、全国一位の宮城県の5歳の男児の平均身長は112.8cmで徳島県では110.1cmで、その差は2.7cmです。 <a href="#fig-hoken_ugly">図&nbsp;<span>1.4</span></a> で何倍も開きがあるように感じた印象ほどではないと思える数値ではないでしょうか。</p>
 <p>数字やグラフにはある種の説得力が存在します。 目に見えるものが示す内容を鵜呑みにして物事を判断してしまうことは危険です。 テストの点数がクラスの平均よりも低かったからと言って、クラスの上位に含まれていないとは限りません（逆もあります）。 また、最近では一日の新型コロナウィルス感染症の新規感染者数が報道されますが、悲観的になり過ぎる心配はない場合もあります。</p>
 <div class="callout-tip tokupon callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -413,13 +456,13 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> x) <span class="sc">|&gt;</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">+</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"40名のテスト点数の分布"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> x) <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"40名のテスト点数の分布"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>答えと解説は<a href="./exercise.html#章-テストの点数がクラスの平均点よりも低くても上位に含まれる">練習問題</a>を見てね。</p>
