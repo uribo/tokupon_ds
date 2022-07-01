@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.629">
+<meta name="generator" content="quarto-0.9.634">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -291,7 +291,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#データ分析における2つの関係" id="toc-データ分析における2つの関係" class="nav-link active" data-scroll-target="#データ分析における2つの関係"> <span class="header-section-number">4.1</span> データ分析における2つの関係</a></li>
-  <li><a href="#相関" id="toc-相関" class="nav-link" data-scroll-target="#相関"> <span class="header-section-number">4.2</span> 相関</a>
+  <li><a href="#相関-2つの変数の間の関係" id="toc-相関-2つの変数の間の関係" class="nav-link" data-scroll-target="#相関-2つの変数の間の関係"> <span class="header-section-number">4.2</span> 相関: 2つの変数の間の関係</a>
   <ul class="collapse">
   <li><a href="#相関係数" id="toc-相関係数" class="nav-link" data-scroll-target="#相関係数"> <span class="header-section-number">4.2.1</span> 相関係数</a></li>
   </ul></li>
@@ -328,10 +328,10 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>因果関係を明らかにするのは容易ではありません。</p>
 <p>因果関係がないものに因果関係を見出すことの危険性</p>
 <p>擬似相関 … ２つの変数に因果関係がないのに、見えない要因によって因果関係があるかのように推測されること</p>
-<p>擬似相関の例として有名な話があります。 ある街でのアイスクリームの売り上げが最も高い時期には、熱中症の搬送者数も最も多いことが指摘されました。 この時、アイスクリームの売り上げ増が熱中症の原因（あるいは結果）であると主張されましたが、 アイスクリームの売り上げや熱中症の増加も実際には、気温の高さが原因となっています。 気温について無視し、2つの変数の関係を議論すること、特に因果関係の有無を判断することは危険です。 ここでの気温のような観測されていない変数を潜在変数といいます。</p>
+<p>擬似相関の例として有名な話があります。 ある街でのアイスクリームの売り上げが最も高い時期には、熱中症の搬送者数も最も多いことが指摘されました。 この時、アイスクリームの売り上げ増が熱中症の原因（あるいは結果）であると主張されましたが、 アイスクリームの売り上げや熱中症の増加も実際には、気温の高さが原因となっています。 気温について無視し、2つの変数の関係を議論すること、特に因果関係の有無を判断することは危険です。 熱中症患者の増加を抑えるために、アイスクリームの販売を規制するなどの誤った対策が取られてしまう恐れがあります。 気温について考慮せずに分析を進めてしまうと、見せかけの因果関係を発生させてしまいます。 ここでの気温のような観測されていない変数を潜在変数といいます。</p>
 </section>
-<section id="相関" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="相関"><span class="header-section-number">4.2</span> 相関</h2>
+<section id="相関-2つの変数の間の関係" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="相関-2つの変数の間の関係"><span class="header-section-number">4.2</span> 相関: 2つの変数の間の関係</h2>
 <p>2つの量的変数の関係性を明らかにするために、相関という考え方を導入します。 ペンギンデータでは翼と口ばしの長さの関係を見ました。 これらの変数のように、互いの値が増えれば片方も増えるという傾向を示す関係を正の相関関係といいます。 一方、片方の変数の値が増えたときにもう片方の値が減少する場合、負の相関関係があるといいます。 この2つの関係に加えて、相関にはもう一つの関係があります。 それは変数の間に関係が見られない状態です。このことを無相関と呼びます。</p>
 <p>変数間の相関関係はグラフ上に表現すると傾向を掴みやすくなります。 <strong>散布図</strong>と呼ばれる2つの変数を扱うグラフを利用して相関関係を整理してみましょう<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。 <span class="citation" data-cites="fig_correlation">(<a href="references.html#ref-fig_correlation" role="doc-biblioref"><strong>fig_correlation?</strong></a>)</span> に相関関係を表わす3つの状態を示しました。</p>
 <div class="cell">
@@ -487,6 +487,7 @@ sample estimates:
 </div>
 <p>どんな変数間であろうと相関係数は必ず出る</p>
 <p>相関係数は標準化された値どうしの共分散とも考えられる</p>
+<p>繰り返しになりますが、相関係数は変数間の因果関係を示すものではありません。</p>
 <p>外れ値が相関係数に及ぼす影響</p>
 </section>
 </section>
