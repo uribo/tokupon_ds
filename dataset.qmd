@@ -25,6 +25,8 @@ df_hoken_toukei
 
 ## とくしま動物園で飼育される動物の体の大きさと体重
 
+![](images/animal_silhouette.png)
+
 - 名称: **動物データ**
 
 ```{r}
