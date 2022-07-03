@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.634">
+<meta name="generator" content="quarto-0.9.640">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -291,11 +291,18 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#データの位置を示す代表値-平均値中央値最頻値" id="toc-データの位置を示す代表値-平均値中央値最頻値" class="nav-link active" data-scroll-target="#データの位置を示す代表値-平均値中央値最頻値"> <span class="header-section-number">3.1</span> データの位置を示す代表値: 平均値、中央値、最頻値</a></li>
+  <li><a href="#データの位置を示す代表値-平均値中央値最頻値" id="toc-データの位置を示す代表値-平均値中央値最頻値" class="nav-link active" data-scroll-target="#データの位置を示す代表値-平均値中央値最頻値"> <span class="header-section-number">3.1</span> データの位置を示す代表値: 平均値、中央値、最頻値</a>
+  <ul class="collapse">
+  <li><a href="#平均値" id="toc-平均値" class="nav-link" data-scroll-target="#平均値"> <span class="header-section-number">3.1.1</span> 平均値</a></li>
+  <li><a href="#中央値" id="toc-中央値" class="nav-link" data-scroll-target="#中央値"> <span class="header-section-number">3.1.2</span> 中央値</a></li>
+  <li><a href="#四分位点" id="toc-四分位点" class="nav-link" data-scroll-target="#四分位点"> <span class="header-section-number">3.1.3</span> 四分位点</a></li>
+  <li><a href="#最頻値" id="toc-最頻値" class="nav-link" data-scroll-target="#最頻値"> <span class="header-section-number">3.1.4</span> 最頻値</a></li>
+  </ul></li>
   <li><a href="#データのばらつきと分布の形" id="toc-データのばらつきと分布の形" class="nav-link" data-scroll-target="#データのばらつきと分布の形"> <span class="header-section-number">3.2</span> データのばらつきと分布の形</a>
   <ul class="collapse">
-  <li><a href="#正規分布" id="toc-正規分布" class="nav-link" data-scroll-target="#正規分布"> <span class="header-section-number">3.2.1</span> 正規分布</a></li>
-  <li><a href="#箱ヒゲ図" id="toc-箱ヒゲ図" class="nav-link" data-scroll-target="#箱ヒゲ図"> <span class="header-section-number">3.2.2</span> 箱ヒゲ図</a></li>
+  <li><a href="#分布の形" id="toc-分布の形" class="nav-link" data-scroll-target="#分布の形"> <span class="header-section-number">3.2.1</span> 分布の形</a></li>
+  <li><a href="#正規分布" id="toc-正規分布" class="nav-link" data-scroll-target="#正規分布"> <span class="header-section-number">3.2.2</span> 正規分布</a></li>
+  <li><a href="#箱ヒゲ図" id="toc-箱ヒゲ図" class="nav-link" data-scroll-target="#箱ヒゲ図"> <span class="header-section-number">3.2.3</span> 箱ヒゲ図</a></li>
   </ul></li>
   <li><a href="#データの分布" id="toc-データの分布" class="nav-link" data-scroll-target="#データの分布"> <span class="header-section-number">3.3</span> データの分布</a>
   <ul class="collapse">
@@ -338,6 +345,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <h2 data-number="3.1" class="anchored" data-anchor-id="データの位置を示す代表値-平均値中央値最頻値"><span class="header-section-number">3.1</span> データの位置を示す代表値: 平均値、中央値、最頻値</h2>
 <p>数値の傾向を捉えるには、その値が位置する分布を考えることが重要になります。 そこで、まずは複数の数値の性質や特徴をよく表す代表値を調べてみましょう。 <strong>代表値によるデータの要約は、データに含まれる数値が位置するところについて大まかに傾向を把握する</strong>ために用いられます。 代表値という名前の通り、数値によるデータの表現方法となります。</p>
 <p>代表値によるデータの要約方法にはさまざまなものがあります。代表的なものは<strong>平均値</strong>の計算です。 平均値の他に中央値、最頻値が代表値としてしばしば使われます。 それぞれの特徴をみていきましょう。</p>
+<section id="平均値" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="平均値"><span class="header-section-number">3.1.1</span> 平均値</h3>
 <p>まず、代表値の代表として平均値を紹介します。 平均値にも複数の種類が存在しますが、ここではより一般的な<strong>算術平均</strong>を平均値の例として扱います<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。 算術平均とは、2個以上のデータ（データの数を<span class="math inline">\(N\)</span>とします）があるとき、そのすべての数値を足し合わせて<span class="math inline">\(N\)</span>で割った値のことです。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1,3,5,7,10の平均を求めましょう</span></span>
@@ -418,6 +427,9 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p></p><figcaption aria-hidden="true" class="figure-caption">図 3.1: 平均値は外れ値の影響を受けやすい</figcaption><p></p>
 </figure>
 </div>
+</section>
+<section id="中央値" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="中央値"><span class="header-section-number">3.1.2</span> 中央値</h3>
 <p>中央値は、すべてのデータを大きさの順番に並べたとき、大きい方と小さい方のちょうど真ん中にくる値を指します。 例えば得られている数値が1, 10, 5, 3, 7の場合には数値の数は5個なので、その真ん中の順位は3になります。 この真ん中の順位にくる数値を中央値とします。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># xの数値は大きさの順番になっていないので並び替える</span></span>
@@ -456,21 +468,57 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <pre><code>[1] 3</code></pre>
 </div>
 </div>
+</section>
+<section id="四分位点" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="四分位点"><span class="header-section-number">3.1.3</span> 四分位点</h3>
+<p>中央値の考え方を拡張したものとして四分位点があります。 これはデータを小さい方から並び替えたとき、<strong>データ全体を均等な数からなる4つのグループに分ける3つの点（値）</strong>のことを指します。 各グループ区切りの値となる点をそれぞれ第1四分位点（25パーセンタイル)）、第2四分位点（50パーセンタイル）、第3四分位点（75パーセンタイル）と呼びます。 第2四分位点はデータの値を並び替えたときの真ん中となる値、つまり中央値です。 また、パーセンタイルというのは値を小さい方から並び替えたときの最後の値の位置を100としたときの四分位点の位置を示す値です。 つまり最小値は0パーセンタイル、最大値は100パーセンタイルとなります。</p>
+<p>ペンギンデータの口ばしの長さ (<code>flipper_length_mm</code>)について四分位点を確認しましょう。 まずはおさらいとして中央値を求めます。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(penguins<span class="sc">$</span>flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 197</code></pre>
+</div>
+</div>
+<p>Rでは<code>quantile()</code>関数を使い四分位点を求めます。 また、<code>summary()</code>関数で出力される値からも四分位点を確認できます。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(penguins<span class="sc">$</span>flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  0%  25%  50%  75% 100% 
+ 172  190  197  213  231 </code></pre>
+</div>
+</div>
+<p><code>quantile()</code>関数の出力の25%、50%、75%の表示がそれぞれ第1四分位点、第2四分位点、第3四分位点です。 50%が中央値と同じ値になっている点を確認できました。</p>
+<!-- 文部科学省の中学校学習指導要領での解説との差を説明するべきか
+ref) https://www.mext.go.jp/component/a_menu/education/micro_detail/__icsFiles/afieldfile/2019/03/18/1387018_004.pdf
+pp. 120-121
+-->
+<p>続いて<code>summary()</code>関数の出力結果を見てみます。 こちらは<code>1st Qu.</code>、<code>Median</code>、<code>3rd Qu.</code>が該当する項目です。 <code>Qu.</code>は四分位点を意味する英語のQuantileに由来する表記です。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(penguins<span class="sc">$</span>flipper_length_mm)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  172.0   190.0   197.0   200.9   213.0   231.0       2 </code></pre>
+</div>
+</div>
+<p>平均値や中央値ではデータの位置を示す値として一つの値しかわからなかったのに対して、四分位点を用いることで、より多くの情報を得ることができるようになりました。 この四分位点を利用したデータの視覚的な表現方法として箱ヒゲ図があります。 箱ヒゲ図についてはこの章で後ほど登場します。</p>
+</section>
+<section id="最頻値" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="最頻値"><span class="header-section-number">3.1.4</span> 最頻値</h3>
 <p>最頻値はデータの中で最も頻繁に出現する値のことを言います。 クラスのテストの点数で、96点の人が3人と最も多かったとき、最頻値は96です。ただし92点の人が同様に3人いたときには96、92が最頻値となります。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">73</span>, <span class="dv">58</span>, <span class="dv">96</span>, <span class="dv">61</span>, <span class="dv">87</span>, <span class="dv">54</span>, <span class="dv">92</span>, <span class="dv">92</span>, <span class="dv">63</span>, <span class="dv">80</span>,</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">92</span>, <span class="dv">59</span>, <span class="dv">77</span>, <span class="dv">96</span>, <span class="dv">62</span>, <span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">59</span>, <span class="dv">76</span>, <span class="dv">96</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 各点数の人数を求めます</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(x)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">73</span>, <span class="dv">58</span>, <span class="dv">96</span>, <span class="dv">61</span>, <span class="dv">87</span>, <span class="dv">54</span>, <span class="dv">92</span>, <span class="dv">92</span>, <span class="dv">63</span>, <span class="dv">80</span>,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">92</span>, <span class="dv">59</span>, <span class="dv">77</span>, <span class="dv">96</span>, <span class="dv">62</span>, <span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">59</span>, <span class="dv">76</span>, <span class="dv">96</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 各点数の人数を求めます</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(x)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x
 54 58 59 61 62 63 64 73 76 77 80 87 92 96 
  1  1  2  1  1  1  2  1  1  1  1  1  3  3 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 最頻値を求めます</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">which</span>(<span class="fu">table</span>(x) <span class="sc">==</span> <span class="fu">max</span>(<span class="fu">table</span>(x))))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 最頻値を求めます</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">which</span>(<span class="fu">table</span>(x) <span class="sc">==</span> <span class="fu">max</span>(<span class="fu">table</span>(x))))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "92" "96"</code></pre>
 </div>
@@ -493,6 +541,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
+</section>
 <section id="データのばらつきと分布の形" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="データのばらつきと分布の形"><span class="header-section-number">3.2</span> データのばらつきと分布の形</h2>
 <p>代表値によって、データが分布する大まかな位置を知ることができるようになりました。 一方で外れ値を含む平均値や単純な頻度で求める最頻値のように、分布の形を推定することはできません。 外れ値によって中心がずれているかもしれませんし、最頻値が中心であるという保証はないのです。</p>
@@ -500,34 +549,34 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>ばらつき具合を数値で表現する方法として代表的なものに、範囲、分散、標準偏差があります。 ここでも動物データを例にして算出方法をみていきましょう。</p>
 <p>範囲はもっとも単純で、データの最小値と最大値から求めます。 Rでは最小値、最大値を求める関数としてそれぞれ<code>min()</code>関数、<code>max()</code>関数が用意されています。 また、最小値・最大値を同時に出力する<code>range()</code>関数も利用できます。 これらの関数はいずれも対象の変数を与えることで計算が行われます。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 動物データの体長について最小値・最大値を求める</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># bl ... body_lengthの略称として使います</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>min_bl <span class="ot">&lt;-</span> </span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">min</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>min_bl</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 動物データの体長について最小値・最大値を求める</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># bl ... body_lengthの略称として使います</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>min_bl <span class="ot">&lt;-</span> </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">min</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>min_bl</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>max_bl <span class="ot">&lt;-</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">max</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>max_bl</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>max_bl <span class="ot">&lt;-</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">max</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>max_bl</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 250</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   1.2 250.0</code></pre>
 </div>
 </div>
 <p>最小値と最大値がわかれば、次のその差を求めます。この値がデータのとりうる範囲となります。 <strong>範囲により区間という意味でのデータのばらつきの程度がわかる</strong>ようになります。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 動物データの体長の範囲</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>max_bl <span class="sc">-</span> min_bl</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 動物データの体長の範囲</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>max_bl <span class="sc">-</span> min_bl</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 248.8</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># このやり方でもOK</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(<span class="fu">range</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># このやり方でもOK</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(<span class="fu">range</span>(df_zoo<span class="sc">$</span>body_length_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 248.8</code></pre>
 </div>
@@ -546,20 +595,19 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 \]</span></p>
 <p>上記の式は標本分散を求める式となっています。 Rにおける分散の算出は<code>var()</code>関数で行われますが、ここでの分散は不偏分散と呼ばれるもので データの数から１引いた値で割る点で異なります。 ここまでの内容をおさらいしてみましょう。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span> </span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(body_mass_g) <span class="sc">|&gt;</span> </span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_mass_g)) <span class="sc">|&gt;</span> </span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">5</span>)</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 各値について偏差 deviation（平均よりもいくら大きいか小さいか）を求める</span></span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">deviation =</span> body_mass_g <span class="sc">-</span> <span class="fu">mean</span>(df<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(body_mass_g) <span class="sc">|&gt;</span> </span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_mass_g)) <span class="sc">|&gt;</span> </span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">5</span>)</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 各値について偏差 deviation（平均よりもいくら大きいか小さいか）を求める</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">deviation =</span> body_mass_g <span class="sc">-</span> <span class="fu">mean</span>(df<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped">
@@ -596,44 +644,44 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 偏差の合計は0になる</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>deviation)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 偏差の合計は0になる</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>deviation)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 偏差の値はプラスとマイナスが混ざる</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>deviation</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 偏差の値はプラスとマイナスが混ざる</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>deviation</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  170  220 -330 -130   70</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 偏差は2乗することでプラスの値のみになる</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>deviation<span class="sc">^</span><span class="dv">2</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 偏差は2乗することでプラスの値のみになる</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>deviation<span class="sc">^</span><span class="dv">2</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  28900  48400 108900  16900   4900</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分散 variance ... ここでは不偏分散</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>deviation<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">nrow</span>(df) <span class="sc">-</span> <span class="dv">1</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分散 variance ... ここでは不偏分散</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>deviation<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">nrow</span>(df) <span class="sc">-</span> <span class="dv">1</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 52000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># var()関数に対象の変数を直接与えて求めても良い</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(df<span class="sc">$</span>body_mass_g)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># var()関数に対象の変数を直接与えて求めても良い</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(df<span class="sc">$</span>body_mass_g)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 52000</code></pre>
 </div>
 </div>
 <p>合計が０になる差に対して2乗するのではなく、絶対値をとり、その合計を求めたものを平均偏差と呼びます。 また、<strong>分散について平方根を求めたものが標準偏差</strong>となります。 標準偏差は散らばりの具合を見るための指標となります。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 標準偏差</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">sum</span>(df<span class="sc">$</span>deviation<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">nrow</span>(df) <span class="sc">-</span> <span class="dv">1</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 標準偏差</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">sum</span>(df<span class="sc">$</span>deviation<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">nrow</span>(df) <span class="sc">-</span> <span class="dv">1</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 228.0351</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(df<span class="sc">$</span>body_mass_g))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(df<span class="sc">$</span>body_mass_g))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 228.0351</code></pre>
 </div>
@@ -645,47 +693,49 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p></p><figcaption aria-hidden="true" class="figure-caption">標準偏差を導くまでの過程</figcaption><p></p>
 </figure>
 </div>
-<p>偏差値</p>
-<p>パーセンタイル、誤差</p>
-<section id="正規分布" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="正規分布"><span class="header-section-number">3.2.1</span> 正規分布</h3>
+<section id="分布の形" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="分布の形"><span class="header-section-number">3.2.1</span> 分布の形</h3>
+<p>これまで見てきたように、代表値やデータのばらつきを調べることでデータがどのような値を持っているのか、その分布の傾向を掴むことができるようになりました。 一方でまだ分布の姿そのものについては明らかではありません。 これについては次の度数分布表やヒストグラム、箱ヒゲ図の作成により知ることができるようになります。</p>
+<p>偏差値、誤差</p>
+</section>
+<section id="正規分布" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="正規分布"><span class="header-section-number">3.2.2</span> 正規分布</h3>
 <p>左右対称に山のような形をしている</p>
 </section>
-<section id="箱ヒゲ図" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="箱ヒゲ図"><span class="header-section-number">3.2.2</span> 箱ヒゲ図</h3>
+<section id="箱ヒゲ図" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="箱ヒゲ図"><span class="header-section-number">3.2.3</span> 箱ヒゲ図</h3>
 <p>散らばり具合を可視化する方法</p>
 <p>中央値を太い線で描く</p>
 <p>箱</p>
 <p>箱から<ruby>髭<rt>ひげ</rt></ruby>が伸びているような図であることから箱ヒゲ図と呼ばれます。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> body_length_cm)) <span class="sc">+</span></span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> body_length_cm)) <span class="sc">+</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="summary_statistics_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<p><img src="summary_statistics_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分類群ごとの箱ヒゲ図を描画</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co"># あらかじめ中央値を計算し、グラフ上では中央値の並びで分類群が表示されるように</span></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 調整しています。</span></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(taxon) <span class="sc">|&gt;</span> </span>
-<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">body_length_median =</span> <span class="fu">median</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
-<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">taxon =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(taxon, body_length_median)) <span class="sc">|&gt;</span> </span>
-<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(taxon, body_length_cm)) <span class="sc">+</span></span>
-<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分類群ごとの箱ヒゲ図を描画</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="co"># あらかじめ中央値を計算し、グラフ上では中央値の並びで分類群が表示されるように</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 調整しています。</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(taxon) <span class="sc">|&gt;</span> </span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">body_length_median =</span> <span class="fu">median</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">taxon =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(taxon, body_length_median)) <span class="sc">|&gt;</span> </span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(taxon, body_length_cm)) <span class="sc">+</span></span>
+<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="summary_statistics_files/figure-html/unnamed-chunk-18-2.png" class="img-fluid" width="672"></p>
+<p><img src="summary_statistics_files/figure-html/unnamed-chunk-21-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
 </section>
 <section id="データの分布" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="データの分布"><span class="header-section-number">3.3</span> データの分布</h2>
-<p>データの分布を明らかにする。</p>
-<p>ある値がデータに含まれる数を<ruby>度数<rt>どすう</rt></ruby>または<ruby>頻度<rt>ひんど</rt></ruby>といいます。</p>
-<p>分布を見れば本当の真ん中がわかる</p>
+<p>実験や観測により値が得られたら、まずは<strong>度数分布表</strong>を作ることから始めると全体の分布の状況を理解しやすい傾向があります。 度数分布表とはその名の通り、度数の分布を示す表を指します。 ある値がデータに含まれる数を<ruby>度数<rt>どすう</rt></ruby>または<ruby>頻度<rt>ひんど</rt></ruby>といいます。 データに対する度数がどのように分布するかを示すかを表したものが度数分布表です。</p>
+<p>すべてのデータに対して、度数によって大まかな位置を集計することになるため、データの分布が明らかになります。</p>
 <p>分布のグラフがどのような形になっているか</p>
 <p>右に尻尾が長く伸びているような形 … ロングテール型 べき分布 最頻値、中央値、平均値の順に並ぶ</p>
 <div class="quarto-figure quarto-figure-center">
@@ -696,8 +746,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 <p>動物のデータセットの分類群に対して度数を求めると次のようになります。</p>
 <div class="cell" data-df-print="kable">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 度数、頻度を英語で frequency といいます</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(df_zoo, taxon, <span class="at">name =</span> <span class="st">"frequency"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 度数、頻度を英語で frequency といいます</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(df_zoo, taxon, <span class="at">name =</span> <span class="st">"frequency"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped">
@@ -741,24 +791,117 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>対象が量的変数の場合は頻度を簡単に求めることができます。 それでは量的変数、特に連続変数に対し度数を求めるにはどうすれば良いでしょうか。 量的変数に対して連続変数では同じ値をとることが少ないです。 そのため連続変数の度数を求めるときは、変数がとり得る値をいくつかの階級に分けて考えます。</p>
-<p>階級分けのために、まずは変数の最小値と最大値を調べましょう。</p>
-<p>最小値と最大値がわかったところで、次は階級を設定します。</p>
+<p>対象が量的変数の場合は頻度を簡単に求めることができます。 それでは量的変数、特に連続変数に対し度数を求めるにはどうすれば良いでしょうか。 量的変数に対して連続変数では同じ値をとることが少ないです。 そのため連続変数の度数を求めるときは、<strong>変数がとり得る値をいくつかの区間に分割した階級(class)を考えます</strong>。 このときの区間の幅を階級幅と呼びます。</p>
+<p>ペンギンデータに含まれる体重を例として、まずは階級分けのために、まずは変数の最小値と最大値を調べましょう。 Rでは最小値・最大値を調べるのに<code>range()</code>関数が利用できることを思い出しましょう。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2700 6300</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># range()関数を使わないでmin()関数やmax()関数を使っても良い</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2700</code></pre>
+</div>
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6300</code></pre>
+</div>
+</div>
+<p>最小値と最大値がわかったところで、次は階級と階級幅を設定します。 階級はデータ中のすべての値が含まれるようにします。 ペンギンデータの体重の最小値は2700、最大値は6300ですので、 2000から7000までの階級を設定しておきましょう。 この場合、階級幅を区切りが良い1000とすると階級数は5つあることになります。</p>
+<p>つづいて、階級ごとに含まれる値の件数を数えます。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>weight_freq <span class="ot">&lt;-</span> </span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>(<span class="fu">cut</span>(penguins<span class="sc">$</span>body_mass_g, </span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2000</span>, </span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>                         <span class="dv">7000</span>, </span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">by =</span> <span class="dv">1000</span>),</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">dig.lab =</span> <span class="dv">4</span>))</span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">class =</span> <span class="fu">names</span>(weight_freq),</span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">frequency =</span> weight_freq)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">class</th>
+<th style="text-align: right;">frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(2000,3000]</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">(3000,4000]</td>
+<td style="text-align: right;">159</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">(4000,5000]</td>
+<td style="text-align: right;">111</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">(5000,6000]</td>
+<td style="text-align: right;">59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">(6000,7000]</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>以上の手順が量的変数に対する度数分布表の求め方です。 ペンギンデータの体重についての度数分布表を作成することができました。 3000から4000の区間に含まれる値が最も多く、その次に4000から5000の区間の値、そのほかの区間の値はわずかということがわかります。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(df_zoo<span class="sc">$</span>weight_kg, <span class="at">breaks =</span> <span class="dv">10</span>)<span class="sc">$</span>breaks</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(df_zoo<span class="sc">$</span>weight_kg, <span class="at">breaks =</span> <span class="dv">10</span>)<span class="sc">$</span>counts</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(df_zoo<span class="sc">$</span>weight_kg, <span class="at">breaks =</span> <span class="dv">10</span>)<span class="sc">$</span>density</span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(df_zoo<span class="sc">$</span>weight_kg, <span class="at">breaks =</span> <span class="dv">10</span>)<span class="sc">$</span>mids</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note tokupon callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+適切な階級数はどうやって決めるの？
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>階級数を決める方法としては、最小値と最大値、データの範囲やデータ数などが参考になるよ。</p>
+<p>でも階級数によってヒストグラムの見た目が変わると</p>
+<p>適切かはわからないよね</p>
+<p>スタージェスの公式</p>
+</div>
+</div>
 <p>データ中の度数をまとめて表形式にしたものは度数分布表と呼ばれます。</p>
 <p>分類群の値ごとに同じデータがどれだけあるかをカウントして度数を求めます。</p>
-<p><strong>度数分布表</strong>は手元のデータの値をいくつかの階級 (class)</p>
+<p><strong>度数分布表</strong>は手元のデータの値をいくつかの階級に分割します。</p>
 <p>数学は統計学的な考え方において必須ではありません。</p>
-<p>探索的データ分析</p>
-<p>度数分布表、ヒストグラム、箱ヒゲ図、散布図、カルトグラム</p>
 <p>量的変数はデータを度数分布表やヒストグラムに表わすことで、 その分布の形を調べることができます。</p>
 <section id="ヒストグラム" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="ヒストグラム"><span class="header-section-number">3.3.1</span> ヒストグラム</h3>
 <p>代表値に対して、データを図で表現する方法を解説します。 ヒストグラム、箱ヒゲ図、散布図は数値を図で表すための方法として用いられます。</p>
+<p>横軸に興味のある変数の階級、縦軸に階級内に含まれる度数を示します。</p>
 <p>度数分布をグラフ化する方法の一つとして<strong>ヒストグラム</strong>があります。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_length_cm)) <span class="sc">+</span></span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">6</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_length_cm)) <span class="sc">+</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">6</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
