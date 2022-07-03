@@ -6,7 +6,8 @@ df-print: paged
 ## 南極大陸に生育するペンギンの大きさについての観測データ
 
 ```{r}
-# library(palmerpenguins)
+library(palmerpenguins)
+penguins
 ```
 
 ## 令和2年度 学校保健統計調査 都道府県別の身長・体重の平均値及び標準偏差
