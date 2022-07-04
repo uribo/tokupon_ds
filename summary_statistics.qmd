@@ -391,7 +391,7 @@ df_zoo$taxon
 #| df-print: kable
 # 度数、頻度を英語で frequency といいます
 # 度数が大きな分類群の順で表示するように sort = TRUE を指定しています
-count(df_zoo,, taxon, sort = TRUE, name = "frequency")
+count(df_zoo, taxon, sort = TRUE, name = "frequency")
 ```
 
 対象が量的変数の場合は頻度を簡単に求めることができます。

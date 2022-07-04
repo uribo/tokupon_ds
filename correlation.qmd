@@ -12,6 +12,7 @@ source("data-raw/zoo.R")
 library(dplyr)
 library(ggplot2)
 library(patchwork)
+library(palmerpenguins)
 ```
 
 
