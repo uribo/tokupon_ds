@@ -294,6 +294,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
   <li><a href="#相関-2つの変数の間の関係" id="toc-相関-2つの変数の間の関係" class="nav-link" data-scroll-target="#相関-2つの変数の間の関係"> <span class="header-section-number">4.2</span> 相関: 2つの変数の間の関係</a>
   <ul class="collapse">
   <li><a href="#相関係数" id="toc-相関係数" class="nav-link" data-scroll-target="#相関係数"> <span class="header-section-number">4.2.1</span> 相関係数</a></li>
+  <li><a href="#散布図" id="toc-散布図" class="nav-link" data-scroll-target="#散布図"> <span class="header-section-number">4.2.2</span> 散布図</a></li>
   </ul></li>
   <li><a href="#クロス集計表" id="toc-クロス集計表" class="nav-link" data-scroll-target="#クロス集計表"> <span class="header-section-number">4.3</span> クロス集計表</a></li>
   <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">4.4</span> 参考文献・URL</a></li>
@@ -319,7 +320,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 </header>
 
-<p><a href="./summary_statistics.html">前章</a>では、動物の体長や体重といった1つの変数を扱う方法を紹介しました。 この章では、体長と体重、体重と分類群を一度に考える、つまり2変数の関係を見ていくことにします。 まずは関係という言葉自体について、データ分析の視点で扱われる2つの関係を説明します。</p>
+<p><a href="./summary_statistics.html">前章</a>では、動物の体長や体重といった1つの変数を扱う方法を紹介しました。 データ分析では、1つ以上の変数を同時に扱い、それらの変数について意味や関係を明らかにする目的があります。 この章では、体長と体重、体重と分類群を一度に考える、つまり2変数の関係を見ていくことにします。 2つの変数の関係を表す概念としての相関の導入から、関係を表すための手法としての相関係数や散布図、クロス集計表について紹介します。 まずは関係という言葉自体について、データ分析の視点で扱われる2つの関係を説明します。</p>
 <section id="データ分析における2つの関係" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="データ分析における2つの関係"><span class="header-section-number">4.1</span> データ分析における2つの関係</h2>
 <p><strong>データ分析における「関係」は複数の変数がともに変化する状態</strong>を指します。 関係を扱うときには次に説明する<strong>因果関係と<ruby>相関<rt>そうかん</rt></ruby>関係</strong>の2種類があり、似たものでありながら異なる状態を示すもので注意が必要です。</p>
@@ -333,40 +334,38 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <section id="相関-2つの変数の間の関係" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="相関-2つの変数の間の関係"><span class="header-section-number">4.2</span> 相関: 2つの変数の間の関係</h2>
 <p>2つの量的変数の関係性を明らかにするために、相関という考え方を導入します。 ペンギンデータでは翼と口ばしの長さの関係を見ました。 これらの変数のように、互いの値が増えれば片方も増えるという傾向を示す関係を正の相関関係といいます。 一方、片方の変数の値が増えたときにもう片方の値が減少する場合、負の相関関係があるといいます。 この2つの関係に加えて、相関にはもう一つの関係があります。 それは変数の間に関係が見られない状態です。このことを無相関と呼びます。</p>
-<p>変数間の相関関係はグラフ上に表現すると傾向を掴みやすくなります。 <strong>散布図</strong>と呼ばれる2つの変数を扱うグラフを利用して相関関係を整理してみましょう<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。 <span class="citation" data-cites="fig_correlation">(<a href="references.html#ref-fig_correlation" role="doc-biblioref"><strong>fig_correlation?</strong></a>)</span> に相関関係を表わす3つの状態を示しました。</p>
+<p>変数間の相関関係はグラフ上に表現すると傾向を掴みやすくなります。 <strong>散布図</strong>と呼ばれる2つの変数を視覚的に扱うグラフを利用して相関関係を整理してみましょう<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。 <span class="citation" data-cites="fig_correlation">(<a href="references.html#ref-fig_correlation" role="doc-biblioref"><strong>fig_correlation?</strong></a>)</span> に相関関係を表わす3つの状態を示しました。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df_corr <span class="ot">&lt;-</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_positive =</span> <span class="dv">5</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">3</span>),</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_negative =</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">4</span>))</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  df_corr <span class="sc">|&gt;</span> </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y_positive)) <span class="sc">+</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"正の相関関係"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  df_corr <span class="sc">|&gt;</span>  </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"無相関"</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> </span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  df_corr <span class="sc">|&gt;</span> </span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y_negative)) <span class="sc">+</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"負の相関関係"</span>)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> </span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">3</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df_corr <span class="ot">&lt;-</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_positive =</span> <span class="dv">5</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">3</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_negative =</span> <span class="sc">-</span><span class="dv">5</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">4</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  df_corr <span class="sc">|&gt;</span> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y_positive)) <span class="sc">+</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"正の相関関係"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  df_corr <span class="sc">|&gt;</span>  </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"無相関"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  df_corr <span class="sc">|&gt;</span> </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y_negative)) <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"負の相関関係"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">+</span> </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">3</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -377,12 +376,10 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>回帰モデルにつながる</p>
 <section id="相関係数" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="相関係数"><span class="header-section-number">4.2.1</span> 相関係数</h3>
-<p><strong>相関係数は2つの変数の間の関係性の強さを評価する指標</strong>です。 -1以上から1以下の値をとり、変数の関係が強いほど、散布図にしたときに直線関係に近いものほど、絶対値が1に近づきます。</p>
+<p>2つの変数の関係について、数値的に評価する方法として相関係数が用いられます。 <strong>相関係数は2つの変数の間の直線的な関係の強さを評価する指標</strong>です。 -1以上から1以下の値をとり、変数の関係が強いほど、散布図にしたときに直線関係に近いものほど、絶対値が1に近づきます。</p>
 <p>相関係数にはいくつかの種類があり、中でもピアソンの積率相関係数が最も頻繁に利用されます<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。 本書でも、相関係数といった時にはピアソンの積率相関係数を指して使います。</p>
-<p>共分散… データの測定単位に依存</p>
 <div class="callout-warning tokupon_none callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -393,12 +390,11 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>相関係数はあくまでも変数の関係が直線関係にあることを仮定しているよ。 だから2変数間の関係が直線的でないときは適切な計算が行えないんだ。</p>
-<p>また、相関係数は外れ値の影響を受けやすいよ。 外れ値とはデータに含まれる極端に小さい・大きい値のことだよ。</p>
+<p>相関係数はあくまでも変数の関係が直線関係にあることを仮定しているよ。 だから2変数間の関係が<strong>直線的でないときは適切な計算が行えない</strong>んだ。</p>
+<p>また、相関係数は外れ値の影響を受けやすいよ。 外れ値とはデータに含まれる極端に小さい・大きい値のことだよ。 平均値が外れ値の影響を受けやすいということや、箱ヒゲ図を描画した際にも外れ値は他のデータと区別して表現していたことを思い出してね。 外れ値はデータ全体の傾向を大きく左右する影響があるから注意が必要なんだ。</p>
 </div>
 </div>
-<p>Rでは相関係数の算出を<code>cor.test()</code>関数によって行います。</p>
-<p><span class="citation" data-cites="fig_correlation">(<a href="references.html#ref-fig_correlation" role="doc-biblioref"><strong>fig_correlation?</strong></a>)</span> で示した3つの状態について、それぞれ相関係数を算出すると次の値になります。</p>
+<p>Rでは相関係数の算出を<code>cor.test()</code>関数によって行います。 <span class="citation" data-cites="fig_correlation">(<a href="references.html#ref-fig_correlation" role="doc-biblioref"><strong>fig_correlation?</strong></a>)</span> で示した3つの状態について、それぞれ相関係数を算出すると次の値になります。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">formula =</span> <span class="sc">~</span> x <span class="sc">+</span> y_positive, <span class="at">data =</span> df_corr) <span class="co"># 正の相関関係</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -490,6 +486,1430 @@ sample estimates:
 <p>繰り返しになりますが、相関係数は変数間の因果関係を示すものではありません。</p>
 <p>外れ値が相関係数に及ぼす影響</p>
 </section>
+<section id="散布図" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="散布図"><span class="header-section-number">4.2.2</span> 散布図</h3>
+<p>2変数のデータに対するグラフ表現として<strong>散布図</strong>があります。 関心のある2つの量的変数を縦軸と横軸にとり、それぞれの値を2グラフ上に投影した図で、2変数の関係を示すために広く利用されます。</p>
+<p>ペンギンデータの口ばしの長さと翼の長さの関係を散布図で表してみましょう。 まずはデータを確認します。</p>
+<div class="cell" data-df-print="paged">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(bill_length_mm, flipper_length_mm)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<caption>ペンギンデータの口ばしと翼の長さの値 </caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">bill_length_mm</th>
+<th style="text-align: right;">flipper_length_mm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">181</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">39.5</td>
+<td style="text-align: right;">186</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">40.3</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.7</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.9</td>
+<td style="text-align: right;">181</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">39.2</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">34.1</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">37.8</td>
+<td style="text-align: right;">186</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37.8</td>
+<td style="text-align: right;">180</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">41.1</td>
+<td style="text-align: right;">182</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">38.6</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">34.6</td>
+<td style="text-align: right;">198</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">36.6</td>
+<td style="text-align: right;">185</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.7</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">42.5</td>
+<td style="text-align: right;">197</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">34.4</td>
+<td style="text-align: right;">184</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">194</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">37.8</td>
+<td style="text-align: right;">174</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37.7</td>
+<td style="text-align: right;">180</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35.9</td>
+<td style="text-align: right;">189</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">38.2</td>
+<td style="text-align: right;">185</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.8</td>
+<td style="text-align: right;">180</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">35.3</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">40.6</td>
+<td style="text-align: right;">183</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40.5</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">37.9</td>
+<td style="text-align: right;">172</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40.5</td>
+<td style="text-align: right;">180</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">39.5</td>
+<td style="text-align: right;">178</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37.2</td>
+<td style="text-align: right;">178</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">39.5</td>
+<td style="text-align: right;">188</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40.9</td>
+<td style="text-align: right;">184</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.4</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">39.2</td>
+<td style="text-align: right;">196</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.8</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">42.2</td>
+<td style="text-align: right;">180</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">37.6</td>
+<td style="text-align: right;">181</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">39.8</td>
+<td style="text-align: right;">184</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.5</td>
+<td style="text-align: right;">182</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40.8</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.0</td>
+<td style="text-align: right;">186</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">44.1</td>
+<td style="text-align: right;">196</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">37.0</td>
+<td style="text-align: right;">185</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">39.6</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">41.1</td>
+<td style="text-align: right;">182</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37.5</td>
+<td style="text-align: right;">179</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.0</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">42.3</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">39.6</td>
+<td style="text-align: right;">186</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40.1</td>
+<td style="text-align: right;">188</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35.0</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">34.5</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.4</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">39.0</td>
+<td style="text-align: right;">186</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40.6</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.5</td>
+<td style="text-align: right;">181</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37.6</td>
+<td style="text-align: right;">194</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35.7</td>
+<td style="text-align: right;">185</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.3</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">37.6</td>
+<td style="text-align: right;">185</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.1</td>
+<td style="text-align: right;">192</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.4</td>
+<td style="text-align: right;">184</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.6</td>
+<td style="text-align: right;">192</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35.5</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.1</td>
+<td style="text-align: right;">188</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35.9</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.8</td>
+<td style="text-align: right;">198</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">33.5</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">39.7</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">39.6</td>
+<td style="text-align: right;">196</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">45.8</td>
+<td style="text-align: right;">197</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35.5</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">42.8</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">40.9</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37.2</td>
+<td style="text-align: right;">184</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.2</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">42.1</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">34.6</td>
+<td style="text-align: right;">189</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">42.9</td>
+<td style="text-align: right;">196</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.7</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">35.1</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">37.3</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.3</td>
+<td style="text-align: right;">194</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.3</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">36.9</td>
+<td style="text-align: right;">189</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.3</td>
+<td style="text-align: right;">189</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">38.9</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35.7</td>
+<td style="text-align: right;">202</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.1</td>
+<td style="text-align: right;">205</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">34.0</td>
+<td style="text-align: right;">185</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">39.6</td>
+<td style="text-align: right;">186</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.2</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40.8</td>
+<td style="text-align: right;">208</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.1</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40.3</td>
+<td style="text-align: right;">196</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">33.1</td>
+<td style="text-align: right;">178</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">43.2</td>
+<td style="text-align: right;">192</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35.0</td>
+<td style="text-align: right;">192</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.0</td>
+<td style="text-align: right;">203</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">37.7</td>
+<td style="text-align: right;">183</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37.8</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">37.9</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">39.7</td>
+<td style="text-align: right;">184</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.6</td>
+<td style="text-align: right;">199</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">38.2</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.1</td>
+<td style="text-align: right;">181</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">43.2</td>
+<td style="text-align: right;">197</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.1</td>
+<td style="text-align: right;">198</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">45.6</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">39.7</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">42.2</td>
+<td style="text-align: right;">197</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">39.6</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">42.7</td>
+<td style="text-align: right;">196</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.6</td>
+<td style="text-align: right;">188</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37.3</td>
+<td style="text-align: right;">199</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35.7</td>
+<td style="text-align: right;">189</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.1</td>
+<td style="text-align: right;">189</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.2</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37.7</td>
+<td style="text-align: right;">198</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">40.2</td>
+<td style="text-align: right;">176</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.4</td>
+<td style="text-align: right;">202</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35.2</td>
+<td style="text-align: right;">186</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40.6</td>
+<td style="text-align: right;">199</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.8</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.5</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">39.0</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">44.1</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.5</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">43.1</td>
+<td style="text-align: right;">197</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.8</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37.5</td>
+<td style="text-align: right;">199</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">38.1</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.1</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35.6</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40.2</td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">37.0</td>
+<td style="text-align: right;">185</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">39.7</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">40.2</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40.6</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">32.1</td>
+<td style="text-align: right;">188</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">40.7</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">37.3</td>
+<td style="text-align: right;">192</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">39.0</td>
+<td style="text-align: right;">185</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">39.2</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">36.6</td>
+<td style="text-align: right;">184</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.0</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37.8</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">36.0</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">41.5</td>
+<td style="text-align: right;">201</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.1</td>
+<td style="text-align: right;">211</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.0</td>
+<td style="text-align: right;">230</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">48.7</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.0</td>
+<td style="text-align: right;">218</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47.6</td>
+<td style="text-align: right;">215</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.5</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.4</td>
+<td style="text-align: right;">211</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.7</td>
+<td style="text-align: right;">219</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">43.3</td>
+<td style="text-align: right;">209</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.8</td>
+<td style="text-align: right;">215</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">40.9</td>
+<td style="text-align: right;">214</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.0</td>
+<td style="text-align: right;">216</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.5</td>
+<td style="text-align: right;">214</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">48.4</td>
+<td style="text-align: right;">213</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.8</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.3</td>
+<td style="text-align: right;">217</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.2</td>
+<td style="text-align: right;">221</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.2</td>
+<td style="text-align: right;">209</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">48.7</td>
+<td style="text-align: right;">222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">50.2</td>
+<td style="text-align: right;">218</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">45.1</td>
+<td style="text-align: right;">215</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.5</td>
+<td style="text-align: right;">213</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.3</td>
+<td style="text-align: right;">215</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">42.9</td>
+<td style="text-align: right;">215</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.1</td>
+<td style="text-align: right;">215</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">44.5</td>
+<td style="text-align: right;">216</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">47.8</td>
+<td style="text-align: right;">215</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">48.2</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.0</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47.3</td>
+<td style="text-align: right;">222</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">42.8</td>
+<td style="text-align: right;">209</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.1</td>
+<td style="text-align: right;">207</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">59.6</td>
+<td style="text-align: right;">230</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">49.1</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">48.4</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">42.6</td>
+<td style="text-align: right;">213</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">44.4</td>
+<td style="text-align: right;">219</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">44.0</td>
+<td style="text-align: right;">208</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">48.7</td>
+<td style="text-align: right;">208</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">42.7</td>
+<td style="text-align: right;">208</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.6</td>
+<td style="text-align: right;">225</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.3</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.6</td>
+<td style="text-align: right;">216</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">50.5</td>
+<td style="text-align: right;">222</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">43.6</td>
+<td style="text-align: right;">217</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.5</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.5</td>
+<td style="text-align: right;">225</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">44.9</td>
+<td style="text-align: right;">213</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">45.2</td>
+<td style="text-align: right;">215</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.6</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">48.5</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.1</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.1</td>
+<td style="text-align: right;">225</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.5</td>
+<td style="text-align: right;">217</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">45.0</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">43.8</td>
+<td style="text-align: right;">208</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">45.5</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">43.2</td>
+<td style="text-align: right;">208</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.4</td>
+<td style="text-align: right;">224</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.3</td>
+<td style="text-align: right;">208</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.2</td>
+<td style="text-align: right;">221</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.7</td>
+<td style="text-align: right;">214</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">54.3</td>
+<td style="text-align: right;">231</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.8</td>
+<td style="text-align: right;">219</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.8</td>
+<td style="text-align: right;">230</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.2</td>
+<td style="text-align: right;">214</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.5</td>
+<td style="text-align: right;">229</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">43.5</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.7</td>
+<td style="text-align: right;">223</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47.7</td>
+<td style="text-align: right;">216</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.4</td>
+<td style="text-align: right;">221</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">48.2</td>
+<td style="text-align: right;">221</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.5</td>
+<td style="text-align: right;">217</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.4</td>
+<td style="text-align: right;">216</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">48.6</td>
+<td style="text-align: right;">230</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47.5</td>
+<td style="text-align: right;">209</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">51.1</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.2</td>
+<td style="text-align: right;">215</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">45.2</td>
+<td style="text-align: right;">223</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">49.1</td>
+<td style="text-align: right;">212</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">52.5</td>
+<td style="text-align: right;">221</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47.4</td>
+<td style="text-align: right;">212</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.0</td>
+<td style="text-align: right;">224</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">44.9</td>
+<td style="text-align: right;">212</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.8</td>
+<td style="text-align: right;">228</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">43.4</td>
+<td style="text-align: right;">218</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">51.3</td>
+<td style="text-align: right;">218</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47.5</td>
+<td style="text-align: right;">212</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">52.1</td>
+<td style="text-align: right;">230</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47.5</td>
+<td style="text-align: right;">218</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">52.2</td>
+<td style="text-align: right;">228</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.5</td>
+<td style="text-align: right;">212</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.5</td>
+<td style="text-align: right;">224</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">44.5</td>
+<td style="text-align: right;">214</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.8</td>
+<td style="text-align: right;">226</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">49.4</td>
+<td style="text-align: right;">216</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.9</td>
+<td style="text-align: right;">222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">48.4</td>
+<td style="text-align: right;">203</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">51.1</td>
+<td style="text-align: right;">225</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">48.5</td>
+<td style="text-align: right;">219</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">55.9</td>
+<td style="text-align: right;">228</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47.2</td>
+<td style="text-align: right;">215</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.1</td>
+<td style="text-align: right;">228</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47.3</td>
+<td style="text-align: right;">216</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.8</td>
+<td style="text-align: right;">215</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">41.7</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">53.4</td>
+<td style="text-align: right;">219</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">43.3</td>
+<td style="text-align: right;">208</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">48.1</td>
+<td style="text-align: right;">209</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">50.5</td>
+<td style="text-align: right;">216</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.8</td>
+<td style="text-align: right;">229</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">43.5</td>
+<td style="text-align: right;">213</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">51.5</td>
+<td style="text-align: right;">230</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.2</td>
+<td style="text-align: right;">217</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">55.1</td>
+<td style="text-align: right;">230</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">44.5</td>
+<td style="text-align: right;">217</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">48.8</td>
+<td style="text-align: right;">222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47.2</td>
+<td style="text-align: right;">214</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.8</td>
+<td style="text-align: right;">215</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.4</td>
+<td style="text-align: right;">222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.2</td>
+<td style="text-align: right;">212</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.9</td>
+<td style="text-align: right;">213</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.5</td>
+<td style="text-align: right;">192</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.0</td>
+<td style="text-align: right;">196</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">51.3</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">45.4</td>
+<td style="text-align: right;">188</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">52.7</td>
+<td style="text-align: right;">197</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">45.2</td>
+<td style="text-align: right;">198</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.1</td>
+<td style="text-align: right;">178</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">51.3</td>
+<td style="text-align: right;">197</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">51.3</td>
+<td style="text-align: right;">198</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.6</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">51.7</td>
+<td style="text-align: right;">194</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47.0</td>
+<td style="text-align: right;">185</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">52.0</td>
+<td style="text-align: right;">201</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.9</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.5</td>
+<td style="text-align: right;">201</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">50.3</td>
+<td style="text-align: right;">197</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">58.0</td>
+<td style="text-align: right;">181</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.4</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.2</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">42.4</td>
+<td style="text-align: right;">181</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">48.5</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">43.2</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.6</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.7</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">52.0</td>
+<td style="text-align: right;">197</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">50.5</td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.5</td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.4</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">52.8</td>
+<td style="text-align: right;">205</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">40.9</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">54.2</td>
+<td style="text-align: right;">201</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">42.5</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">51.0</td>
+<td style="text-align: right;">203</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">49.7</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">47.5</td>
+<td style="text-align: right;">199</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47.6</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">52.0</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">46.9</td>
+<td style="text-align: right;">192</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">53.5</td>
+<td style="text-align: right;">205</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">49.0</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.2</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">50.9</td>
+<td style="text-align: right;">196</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">45.5</td>
+<td style="text-align: right;">196</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">50.9</td>
+<td style="text-align: right;">196</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.8</td>
+<td style="text-align: right;">201</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">50.1</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.0</td>
+<td style="text-align: right;">212</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">51.5</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.8</td>
+<td style="text-align: right;">198</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">48.1</td>
+<td style="text-align: right;">199</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">51.4</td>
+<td style="text-align: right;">201</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.7</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.7</td>
+<td style="text-align: right;">203</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">42.5</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">52.2</td>
+<td style="text-align: right;">197</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.2</td>
+<td style="text-align: right;">191</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.3</td>
+<td style="text-align: right;">203</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">50.2</td>
+<td style="text-align: right;">202</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">45.6</td>
+<td style="text-align: right;">194</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">51.9</td>
+<td style="text-align: right;">206</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.8</td>
+<td style="text-align: right;">189</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45.7</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">55.8</td>
+<td style="text-align: right;">207</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">43.5</td>
+<td style="text-align: right;">202</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49.6</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">50.8</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50.2</td>
+<td style="text-align: right;">198</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>一見すると傾向が掴みにくい2変数の関係もグラフに表すことで関係を捉えやすくなります。 散布図で横軸に示す口ばしの長さも、縦軸に示す翼の長さもいずれも値が大きいほど、もう片方の値も大きいことがわかります。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(bill_length_mm, flipper_length_mm)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="correlation_files/figure-html/fig_zoo_body_length-weight_scatter-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">ペンギンデータの口ばしと翼の長さの散布図</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<!-- 共分散... データの測定単位に依存。平均からの偏差 -->
+</section>
 </section>
 <section id="クロス集計表" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="クロス集計表"><span class="header-section-number">4.3</span> クロス集計表</h2>
@@ -498,11 +1918,11 @@ sample estimates:
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species, island) <span class="sc">|&gt;</span> </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> island, <span class="at">values_from =</span> n, <span class="at">values_fill =</span> <span class="dv">0</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species, island) <span class="sc">|&gt;</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> island, <span class="at">values_from =</span> n, <span class="at">values_fill =</span> <span class="dv">0</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
@@ -548,7 +1968,8 @@ sample estimates:
 <li>ヒゲペンギン Chinstrap はDream島にだけ生育する</li>
 <li>ジェンツーペンギン Gentoo はBiscoe島に多いがDreamやTorgersenには生育しない</li>
 </ul>
-<p>クロス集計表の利用によって1変数を調べただけではわからなかったデータの特徴を知ることができました。</p>
+<p>クロス集計表の利用によって1変数を調べただけではわからなかった質的変数の特徴を知ることができました。</p>
+<p>クロス集計表によって、データの比較が行いやすくなりましたが、 その差は本当にデータの性質を反映しているのでしょうか。 統計的な手法を用いることで、このような差の有無を判断できるようになります。 「なんとなく差がある」結果を<strong>統計的仮説検定</strong>を行うことで客観的に評価できるようになります。</p>
 </section>
 <section id="参考文献url" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">4.4</span> 参考文献・URL</h2>
