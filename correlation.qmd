@@ -67,10 +67,10 @@ library(palmerpenguins)
 
 変数間の相関関係はグラフ上に表現すると傾向を掴みやすくなります。
 **散布図**と呼ばれる2つの変数を視覚的に扱うグラフを利用して相関関係を整理してみましょう[^ch4-1]。
-@fig_correlation に相関関係を表わす3つの状態を示しました。
+@fig-correlation に相関関係を表わす3つの状態を示しました。
 
 ```{r}
-#| label: fig_correlation
+#| label: fig-correlation
 #| fig-cap: 相関関係を示す3つの状態
 #| fig-width: 12
 #| fig-height: 4.6
