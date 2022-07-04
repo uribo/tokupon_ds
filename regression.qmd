@@ -48,6 +48,8 @@ summary(lm_res)
 dplyr::select(penguins, species, bill_length_mm, body_mass_g)
 ```
 
+### 決定係数
+
 ## 回帰と相関
 
 
