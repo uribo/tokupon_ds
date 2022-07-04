@@ -35,8 +35,6 @@ library(ggplot2)
 
 [相関](correlation.qmd)を調べる際に散布図を用いる
 
-2つの量的変数を縦軸と横軸
-
 [Datasaurus](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html)の紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。
 
 アンスコムの例

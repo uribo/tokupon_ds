@@ -3,6 +3,8 @@ title: "回帰問題に挑戦"
 ---
 
 ```{r}
+library(ggplot2)
+library(ragg)
 library(palmerpenguins)
 ```
 
@@ -12,13 +14,22 @@ library(palmerpenguins)
 
 関数によって変数の間の関係を定式化
 
+直線の関数とみなし、$\hat{Y}_i = a + bX_i$
+
 変数の関係を理解、
 
 予測ができるようになります。
+例として、生まれてからのチンバンジーの日齢と体重
+
+前者の変数が後者の変数に影響していると想定できるため
 
 $x$を説明変数、$y$を目的変数と呼びます。
 
 ## 単回帰モデル
+
+線形回帰のうち、説明変数が一つの場合を単回帰といいます。
+これに対して複数の説明変数によって目的変数の挙動を推定する線形回帰を重回帰と呼びますが、これについては本書では扱いません。
+単回帰の基礎を抑えることで、重回帰への理解も深まります。
 
 ```{r}
 #| include: false
@@ -38,17 +49,48 @@ summary(lm_res)
 次に示すのは南極大陸に生育するペンギンの大きさを調べた観測データです。
 それぞれの変数は次の意味をもちます（詳細は[付録のデータセット](dataset.qmd)を参照してください）。
 
-- `species`: ペンギンの種類（種名）
 - `bill_length_mm`: 口ばしの長さ。単位はミリメートル
 - `body_mass_g`: 体重。単位はグラム
 
 ```{r}
 #| echo: false
 #| eval: true
-dplyr::select(penguins, species, bill_length_mm, body_mass_g)
+dplyr::select(penguins, bill_length_mm, body_mass_g)
 ```
 
+`lm()`関数
+
+```{r}
+lm_res <- 
+  lm(formula = body_mass_g ~ bill_length_mm, data = penguins)
+
+lm_res
+
+summary(lm_res)
+```
+
+
+`predict()`関数
+
+```{r}
+ggplot(penguins, aes(bill_length_mm, body_mass_g)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+点の配置にもっともよくあてはまる回帰直線は、最小二乗法の原理で求めることができる
+
+データ点に対して、最も適合する直線を引く
+
+二つのパラメータ、切片 $a$ と傾き $b$を決定する
+
+残差
+符号の影響を除くために二乗、さらに和をとって残差平方和
+
+
 ### 決定係数
+
+### 95%信頼区間
 
 ## 回帰と相関
 
