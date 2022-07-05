@@ -5,6 +5,8 @@
 
 徳島県統計グラフコンクール、統計グラフ全国コンクールに挑戦してみよう。
 
+[統計データ分析コンペティション](https://www.nstac.go.jp/statcompe/)
+
 ## その他の学習コンテンツ
 
 - なるほど統計学園 https://www.stat.go.jp/naruhodo/index.html

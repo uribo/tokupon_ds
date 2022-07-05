@@ -33,7 +33,7 @@ $x$を説明変数、$y$を目的変数と呼びます。
 
 ```{r}
 #| include: false
-#| file: "data-raw/zoo.R"
+source("data-raw/zoo.R")
 ```
 
 ```{r}
@@ -54,7 +54,7 @@ summary(lm_res)
 
 ```{r}
 #| echo: false
-#| eval: true
+#| eval: false
 dplyr::select(penguins, bill_length_mm, body_mass_g)
 ```
 

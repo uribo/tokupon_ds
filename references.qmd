@@ -1,4 +1,8 @@
 # 参考文献・URL {.unnumbered}
 
+- 高校からの統計・データサイエンス活用 https://www.soumu.go.jp/toukei_toukatsu/info/guide/stkankyo.htm
+- なるほど統計学園 https://www.stat.go.jp/naruhodo/
+
+
 ::: {#refs}
 :::
