@@ -1,0 +1,7 @@
+libcurl4-openssl-dev
+libharfbuzz-dev
+libfribidi-dev
+libudunits2-dev
+libgdal-dev
+libgeos-dev
+libproj-dev
