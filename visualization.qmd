@@ -3,7 +3,9 @@ title: "グラフの作成"
 ---
 
 ```{r}
+#| include: false
 library(ggplot2)
+theme_set(new = theme_gray(base_family = "IPAGothic"))
 ```
 
 ## 探索的データ解析

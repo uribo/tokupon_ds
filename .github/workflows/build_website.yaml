@@ -27,10 +27,12 @@ jobs:
       - name: Install system requirements
         run: |
           sudo apt-get update
+          sudo apt-get install -y fonts-ipafont
           sudo apt-get install -y libcurl4-openssl-dev
           sudo apt-get install -y libharfbuzz-dev
           sudo apt-get install -y libfribidi-dev
           sudo apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libproj-dev
+          fc-cache -fv
 
       - uses: r-lib/actions/setup-r@v2
         with:

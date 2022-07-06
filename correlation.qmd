@@ -13,6 +13,7 @@ library(dplyr)
 library(ggplot2)
 library(patchwork)
 library(palmerpenguins)
+theme_set(new = theme_gray(base_family = "IPAGothic"))
 ```
 
 
