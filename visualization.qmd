@@ -4,20 +4,126 @@ title: "グラフの作成"
 
 ```{r}
 #| include: false
+library(dplyr)
 library(ggplot2)
+library(patchwork)
 theme_set(new = theme_gray(base_family = "IPAGothic"))
 ```
+
+[データをグラフに表現する](data.qmd#データをグラフに表現する)では、ヒストグラムと箱ヒゲ図を紹介しました。
+
+データの可視化が重要
+
+データ分析の目的に沿った考え
+
+データの内容を伝える
+
+コミュニケーション
+
+グラフが示されたときに正しく読み解く能力を身につけるとともに、グラフを作成する立場になった場合に情報を正しく伝えられるか、誤解を招かない方法について紹介します。
+
 
 ## 探索的データ解析
 
 第二次世界大戦の後、1977年にジョン・テューキーが著書「Exploratory Data Analysis」のなかで探索的データ解析（探索的データ分析）の重要性を説きました。
 
+その内容は
+
 データ解析の第一歩は計算ではない
 
 視覚化がモデル構築の足がかりになる
 
+与えられたデータセットからパターンやトレンドを探す
 
-[データをグラフに表現する](data.qmd#データをグラフに表現する)では、ヒストグラムと箱ヒゲ図を紹介しました。
+生データを理解することには限界があります。
+
+### 同じ統計量でも異なるグラフ: アンスコムの例
+
+データを直接扱うのではなく、グラフ上に可視化することの重要性を説明する例として、アンスコムの例（アンスコムの数値例）がしばしば用いられます。これは1973年にフランク・アンスコムが紹介したもので、記述統計量や2変数の関係の強さを表す相関係数が小数点第二位まで同じ値となる場合であっても、中身のデータは大きく異なることを示すものです。
+
+@tbl-anscombe にアンスコムが同じ統計量でも異なるグラフを作成する例として示したデータを表示します。
+
+```{r}
+#| label: tbl-anscombe
+#| tbl-cap: アンスコムの例として示される統計量が同じ4種類のデータセット
+#| code-fold: false
+anscombe
+```
+
+アンスコムの例を検証してみましょう。
+一見異なる値をもつこれらのデータに対して、4種類のデータセットそれぞれで平均と分散、相関係数を求めてみます。
+
+```{r}
+#| code-fold: false
+anscombe_long <- 
+  anscombe |> 
+  tidyr::pivot_longer(
+    tidyselect::everything(),
+    names_to = c(".value", "set"),
+    names_pattern = "(.)(.)")
+
+# 記述統計量（平均と分散）の算出
+# setがデータセットの種類を示します
+anscombe_long |> 
+  group_by(set) |> 
+  summarise(across(.cols = c(x, y), .fns = list(mean = mean, sd = sd))) |> 
+  summarise(across(.cols = contains("_"), .fns = ~ round(.x, digits = 2)))
+
+# 同様にデータセットごとに相関係数を求めます
+anscombe_long |> 
+  group_by(set) |> 
+  group_modify(~ tibble::tibble(cor = cor.test(.x$x, .x$y)$estimate)) |> 
+  ungroup() |> 
+  mutate(cor = round(cor, digits = 2))
+```
+
+小数点第二位までは同じ値となることが確かめられました。
+それでは問題となる散布図を見てみましょう。
+2つの変数の直線回帰を行った際の回帰直線も同時に示します (@fig-anscombe)。
+
+```{r}
+#| label: fig-anscombe
+#| fig-cap: アンスコムの例をグラフにしたもの。記述統計量が同じデータであっても散布図にすると見た目が異なる
+#| message: false
+anscombe_long |> 
+  group_by(set) |> 
+  group_map(
+    ~ ggplot(.x, aes(x, y)) +
+  geom_point(color = "orange") +
+  geom_smooth(method = lm, se = FALSE)) |> 
+  wrap_plots(ncol = 2)
+```
+
+記述統計量が同じデータセットであっても、散布図の形は異なることが示されました。
+また、外れ値が回帰直線に大きく影響している様子も見てとれます。
+このようにアンスコムの例は、データを可視化することの重要性だけでなく、外れ値が統計量に与える影響の大きさも示しています。
+
+::: {.callout-note .tokupon}
+#### アンスコムサウルス
+
+アンスコムの例と同じく、記述統計量が同じでありながら散布図にすると異なる図を描くアルゴリズムを[アルベルト・カイロ](http://www.thefunctionalart.com)が発見したよ。
+これによって生成されたデータの一つを使うと次のような「恐竜」を描くことができるんだ。
+この恐竜と同じ記述統計量となるデータを使ってさまざまな散布図が描画できるよ。
+
+```{r}
+library(datasauRus)
+
+datasaurus_dozen |> 
+  filter(dataset == "dino") |> 
+  ggplot(aes(x = x, y = y)) +
+  geom_point()
+
+datasaurus_dozen |> 
+  filter(dataset != "dino") |> 
+  ggplot(aes(x = x, y = y, colour = dataset)) +
+  geom_point() +
+  theme(legend.position = "none") +
+  facet_wrap(~dataset, ncol = 3)
+```
+
+:::
+
+
 
 ## 1変数のデータの要約
 
@@ -61,30 +167,7 @@ theme_set(new = theme_gray(base_family = "IPAGothic"))
 
 [Datasaurus](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html)の紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。
 
-アンスコムの例
 
-```{r}
-anscombe
-```
-
-```{r}
-anscombe_long <- 
-  anscombe |> 
-  tidyr::pivot_longer(
-    tidyselect::everything(),
-    names_to = c(".value", "set"),
-    names_pattern = "(.)(.)")
-
-# anscombe_long |> 
-#   dplyr::filter(set == 1) |> 
-#   ggplot(aes(x, y)) +
-#   geom_point(color = "orange") +
-#   geom_smooth(method = lm, se = FALSE)
-```
-
-```{r}
-library(datasauRus)
-```
 
 
 ## 地図表現
@@ -153,4 +236,6 @@ mapview(sf_zoo_conservation,
 ## 参考文献・URL
 
 - [@R300000001-I000002440327-00]
+- [@R300000001-I031579212-00]
+- [@R300000001-I030185215-00]
 - [@R300000001-I030421662-00]
