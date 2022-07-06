@@ -290,7 +290,10 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#探索的データ解析" id="toc-探索的データ解析" class="nav-link active" data-scroll-target="#探索的データ解析"> <span class="header-section-number">5.1</span> 探索的データ解析</a></li>
+  <li><a href="#探索的データ解析" id="toc-探索的データ解析" class="nav-link active" data-scroll-target="#探索的データ解析"> <span class="header-section-number">5.1</span> 探索的データ解析</a>
+  <ul class="collapse">
+  <li><a href="#同じ統計量でも異なるグラフ-アンスコムの例" id="toc-同じ統計量でも異なるグラフ-アンスコムの例" class="nav-link" data-scroll-target="#同じ統計量でも異なるグラフ-アンスコムの例"> <span class="header-section-number">5.1.1</span> 同じ統計量でも異なるグラフ: アンスコムの例</a></li>
+  </ul></li>
   <li><a href="#変数のデータの要約" id="toc-変数のデータの要約" class="nav-link" data-scroll-target="#変数のデータの要約"> <span class="header-section-number">5.2</span> 1変数のデータの要約</a></li>
   <li><a href="#棒グラフ" id="toc-棒グラフ" class="nav-link" data-scroll-target="#棒グラフ"> <span class="header-section-number">5.3</span> 棒グラフ</a>
   <ul class="collapse">
@@ -324,53 +327,31 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 </header>
 
+<p><a href="./data.html#データをグラフに表現する">データをグラフに表現する</a>では、ヒストグラムと箱ヒゲ図を紹介しました。</p>
+<p>データの可視化が重要</p>
+<p>データ分析の目的に沿った考え</p>
+<p>データの内容を伝える</p>
+<p>コミュニケーション</p>
+<p>グラフが示されたときに正しく読み解く能力を身につけるとともに、グラフを作成する立場になった場合に情報を正しく伝えられるか、誤解を招かない方法について紹介します。</p>
 <section id="探索的データ解析" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="探索的データ解析"><span class="header-section-number">5.1</span> 探索的データ解析</h2>
 <p>第二次世界大戦の後、1977年にジョン・テューキーが著書「Exploratory Data Analysis」のなかで探索的データ解析（探索的データ分析）の重要性を説きました。</p>
+<p>その内容は</p>
 <p>データ解析の第一歩は計算ではない</p>
 <p>視覚化がモデル構築の足がかりになる</p>
-<p><a href="./data.html#データをグラフに表現する">データをグラフに表現する</a>では、ヒストグラムと箱ヒゲ図を紹介しました。</p>
-</section>
-<section id="変数のデータの要約" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="変数のデータの要約"><span class="header-section-number">5.2</span> 1変数のデータの要約</h2>
-<p>代表値、ヒストグラムや箱ヒゲ図による表現から一歩進んで</p>
-<p>ドット、蜂群図、ヴァイオリンプロット、Sina、ハイブリッド、雨雲プロット</p>
-</section>
-<section id="棒グラフ" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="棒グラフ"><span class="header-section-number">5.3</span> 棒グラフ</h2>
-<p><strong>棒グラフはデータの大小を棒の高さで比較する</strong>グラフの種類です。</p>
-<p>データの大小関係が棒の高低で表されるためにデータの大小を比較するのに適します。</p>
-<p>データの並びはグラフ作成ツールや作成者が決めることになります。</p>
-<p>横軸に並ぶ項目の五十音順、データの大きさの順</p>
-<p>値が小さいものから大きいものへの並び替えを昇順、 値が大きいものから小さいものへの並び替えを降順と呼びます。</p>
-<p>年月や曜日など、順番に意味がある項目について順番を入れ替えることは好ましくありません。</p>
-<section id="積み上げ棒グラフ" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="積み上げ棒グラフ"><span class="header-section-number">5.3.1</span> 積み上げ棒グラフ</h3>
-<!-- 帯グラフ -->
-</section>
-</section>
-<section id="折れ線グラフ" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="折れ線グラフ"><span class="header-section-number">5.4</span> 折れ線グラフ</h2>
-<p>系列グラフ</p>
-<p>主に時系列のデータを扱う際のグラフ表現となります。</p>
-<p>横軸に年や月といった時間要素、縦軸にデータの値を投影します。 さらにそれぞれのデータ点を線で繋げることで、データが時系列で変化する様子を表現します。</p>
-</section>
-<section id="円グラフ" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="円グラフ"><span class="header-section-number">5.5</span> 円グラフ</h2>
-</section>
-<section id="散布図" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="散布図"><span class="header-section-number">5.6</span> 散布図</h2>
-<p><a href="./correlation.html">相関</a>を調べる際に散布図を用いる</p>
-<p><a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html">Datasaurus</a>の紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。</p>
-<p>アンスコムの例</p>
+<p>与えられたデータセットからパターンやトレンドを探す</p>
+<p>生データを理解することには限界があります。</p>
+<section id="同じ統計量でも異なるグラフ-アンスコムの例" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="同じ統計量でも異なるグラフ-アンスコムの例"><span class="header-section-number">5.1.1</span> 同じ統計量でも異なるグラフ: アンスコムの例</h3>
+<p>データを直接扱うのではなく、グラフ上に可視化することの重要性を説明する例として、アンスコムの例（アンスコムの数値例）がしばしば用いられます。これは1973年にフランク・アンスコムが紹介したもので、記述統計量や2変数の関係の強さを表す相関係数が小数点第二位まで同じ値となる場合であっても、中身のデータは大きく異なることを示すものです。</p>
+<p><a href="#tbl-anscombe">表&nbsp;<span>5.1</span></a> にアンスコムが同じ統計量でも異なるグラフを作成する例として示したデータを表示します。</p>
 <div class="cell">
-<details>
-<summary>コードを表示</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>anscombe</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="kable-table">
+<div id="tbl-anscombe" class="anchored">
 <table class="table table-sm table-striped">
+<caption>表 5.1: アンスコムの例として示される統計量が同じ4種類のデータセット</caption>
 <thead>
 <tr class="header">
 <th style="text-align: right;">x1</th>
@@ -499,9 +480,9 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+</div>
+<p>アンスコムの例を検証してみましょう。 一見異なる値をもつこれらのデータに対して、4種類のデータセットそれぞれで平均と分散、相関係数を求めてみます。</p>
 <div class="cell">
-<details>
-<summary>コードを表示</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="ot">&lt;-</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  anscombe <span class="sc">|&gt;</span> </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
@@ -509,19 +490,183 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">".value"</span>, <span class="st">"set"</span>),</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_pattern =</span> <span class="st">"(.)(.)"</span>)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># anscombe_long |&gt; </span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   dplyr::filter(set == 1) |&gt; </span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   ggplot(aes(x, y)) +</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point(color = "orange") +</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_smooth(method = lm, se = FALSE)</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 記述統計量（平均と分散）の算出</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># setがデータセットの種類を示します</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="sc">|&gt;</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(set) <span class="sc">|&gt;</span> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">c</span>(x, y), <span class="at">.fns =</span> <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">sd =</span> sd))) <span class="sc">|&gt;</span> </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">contains</span>(<span class="st">"_"</span>), <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">round</span>(.x, <span class="at">digits =</span> <span class="dv">2</span>)))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: right;">x_mean</th>
+<th style="text-align: right;">x_sd</th>
+<th style="text-align: right;">y_mean</th>
+<th style="text-align: right;">y_sd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3.32</td>
+<td style="text-align: right;">7.5</td>
+<td style="text-align: right;">2.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3.32</td>
+<td style="text-align: right;">7.5</td>
+<td style="text-align: right;">2.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3.32</td>
+<td style="text-align: right;">7.5</td>
+<td style="text-align: right;">2.03</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3.32</td>
+<td style="text-align: right;">7.5</td>
+<td style="text-align: right;">2.03</td>
+</tr>
+</tbody>
+</table>
 </div>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 同様にデータセットごとに相関係数を求めます</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(set) <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_modify</span>(<span class="sc">~</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">cor =</span> <span class="fu">cor.test</span>(.x<span class="sc">$</span>x, .x<span class="sc">$</span>y)<span class="sc">$</span>estimate)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cor =</span> <span class="fu">round</span>(cor, <span class="at">digits =</span> <span class="dv">2</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">set</th>
+<th style="text-align: right;">cor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">0.82</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">0.82</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">0.82</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">0.82</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>小数点第二位までは同じ値となることが確かめられました。 それでは問題となる散布図を見てみましょう。 2つの変数の直線回帰を行った際の回帰直線も同時に示します (<a href="#fig-anscombe">図&nbsp;<span>5.1</span></a>)。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasauRus)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>anscombe_long <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(set) <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_map</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> <span class="fu">ggplot</span>(.x, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"orange"</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">se =</span> <span class="cn">FALSE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">wrap_plots</span>(<span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output-display">
+<div id="fig-anscombe" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization_files/figure-html/fig-anscombe-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 5.1: アンスコムの例をグラフにしたもの。記述統計量が同じデータであっても散布図にすると見た目が異なる</figcaption><p></p>
+</figure>
 </div>
+</div>
+</div>
+<p>記述統計量が同じデータセットであっても、散布図の形は異なることが示されました。 また、外れ値が回帰直線に大きく影響している様子も見てとれます。 このようにアンスコムの例は、データを可視化することの重要性だけでなく、外れ値が統計量に与える影響の大きさも示しています。</p>
+<div class="callout-note tokupon callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+アンスコムサウルス
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>アンスコムの例と同じく、記述統計量が同じでありながら散布図にすると異なる図を描くアルゴリズムを<a href="http://www.thefunctionalart.com">アルベルト・カイロ</a>が発見したよ。 これによって生成されたデータの一つを使うと次のような「恐竜」を描くことができるんだ。 この恐竜と同じ記述統計量となるデータを使ってさまざまな散布図が描画できるよ。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasauRus)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>datasaurus_dozen <span class="sc">|&gt;</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset <span class="sc">==</span> <span class="st">"dino"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="visualization_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>datasaurus_dozen <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset <span class="sc">!=</span> <span class="st">"dino"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">colour =</span> dataset)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>dataset, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="visualization_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="変数のデータの要約" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="変数のデータの要約"><span class="header-section-number">5.2</span> 1変数のデータの要約</h2>
+<p>代表値、ヒストグラムや箱ヒゲ図による表現から一歩進んで</p>
+<p>ドット、蜂群図、ヴァイオリンプロット、Sina、ハイブリッド、雨雲プロット</p>
+</section>
+<section id="棒グラフ" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="棒グラフ"><span class="header-section-number">5.3</span> 棒グラフ</h2>
+<p><strong>棒グラフはデータの大小を棒の高さで比較する</strong>グラフの種類です。</p>
+<p>データの大小関係が棒の高低で表されるためにデータの大小を比較するのに適します。</p>
+<p>データの並びはグラフ作成ツールや作成者が決めることになります。</p>
+<p>横軸に並ぶ項目の五十音順、データの大きさの順</p>
+<p>値が小さいものから大きいものへの並び替えを昇順、 値が大きいものから小さいものへの並び替えを降順と呼びます。</p>
+<p>年月や曜日など、順番に意味がある項目について順番を入れ替えることは好ましくありません。</p>
+<section id="積み上げ棒グラフ" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="積み上げ棒グラフ"><span class="header-section-number">5.3.1</span> 積み上げ棒グラフ</h3>
+<!-- 帯グラフ -->
+</section>
+</section>
+<section id="折れ線グラフ" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="折れ線グラフ"><span class="header-section-number">5.4</span> 折れ線グラフ</h2>
+<p>系列グラフ</p>
+<p>主に時系列のデータを扱う際のグラフ表現となります。</p>
+<p>横軸に年や月といった時間要素、縦軸にデータの値を投影します。 さらにそれぞれのデータ点を線で繋げることで、データが時系列で変化する様子を表現します。</p>
+</section>
+<section id="円グラフ" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="円グラフ"><span class="header-section-number">5.5</span> 円グラフ</h2>
+</section>
+<section id="散布図" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="散布図"><span class="header-section-number">5.6</span> 散布図</h2>
+<p><a href="./correlation.html">相関</a>を調べる際に散布図を用いる</p>
+<p><a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html">Datasaurus</a>の紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。</p>
 </section>
 <section id="地図表現" class="level2" data-number="5.7">
 <h2 data-number="5.7" class="anchored" data-anchor-id="地図表現"><span class="header-section-number">5.7</span> 地図表現</h2>
@@ -530,59 +675,59 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearthhires)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearthhires)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_countries <span class="ot">&lt;-</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  countrycode<span class="sc">::</span>codelist <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(iso2c, cldr.name.ja) <span class="sc">|&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ne_world <span class="ot">&lt;-</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  rnaturalearth<span class="sc">::</span><span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="dv">10</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(admin, name, pop_est, pop_year, iso_a2, continent)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>sf_zoo_conservation <span class="ot">&lt;-</span> </span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  ne_world <span class="sc">|&gt;</span> </span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(df_zoo_conservation <span class="sc">|&gt;</span> </span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>              <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"フンボルトペンギン"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>              tidyr<span class="sc">::</span><span class="fu">unnest</span>(<span class="at">cols =</span> occ) <span class="sc">|&gt;</span> </span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>              <span class="fu">select</span>(code, presence),</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"iso_a2"</span> <span class="ot">=</span> <span class="st">"code"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">presence =</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(presence, <span class="st">"Absence"</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_countries <span class="ot">&lt;-</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  countrycode<span class="sc">::</span>codelist <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(iso2c, cldr.name.ja) <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>ne_world <span class="ot">&lt;-</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  rnaturalearth<span class="sc">::</span><span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="dv">10</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(admin, name, pop_est, pop_year, iso_a2, continent)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>sf_zoo_conservation <span class="ot">&lt;-</span> </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  ne_world <span class="sc">|&gt;</span> </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(df_zoo_conservation <span class="sc">|&gt;</span> </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>              <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"フンボルトペンギン"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>              tidyr<span class="sc">::</span><span class="fu">unnest</span>(<span class="at">cols =</span> occ) <span class="sc">|&gt;</span> </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>              <span class="fu">select</span>(code, presence),</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"iso_a2"</span> <span class="ot">=</span> <span class="st">"code"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">presence =</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(presence, <span class="st">"Absence"</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>動物の分布を示す地図を作成してみましょう。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> sf_zoo_conservation, </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">fill =</span> presence), </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="fl">0.001</span>) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> sf_zoo_conservation, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">fill =</span> presence), </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="fl">0.001</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="visualization_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapview)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapview)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mapview</span>(sf_zoo_conservation, </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">zcol =</span> <span class="st">"presence"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mapview</span>(sf_zoo_conservation, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">zcol =</span> <span class="st">"presence"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -593,11 +738,19 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <h2 data-number="5.9" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">5.9</span> 参考文献・URL</h2>
 <ul>
 <li><span class="citation" data-cites="R300000001-I000002440327-00">(<a href="references.html#ref-R300000001-I000002440327-00" role="doc-biblioref">著 と 訳 1995</a>)</span></li>
+<li><span class="citation" data-cites="R300000001-I031579212-00">(<a href="references.html#ref-R300000001-I031579212-00" role="doc-biblioref">[著] と 訳 2021</a>)</span></li>
+<li><span class="citation" data-cites="R300000001-I030185215-00">(<a href="references.html#ref-R300000001-I030185215-00" role="doc-biblioref">著S. S. S., 監訳, と 訳 2020</a>)</span></li>
 <li><span class="citation" data-cites="R300000001-I030421662-00">(<a href="references.html#ref-R300000001-I030421662-00" role="doc-biblioref">アルベルト・カイロ著(薮井真澄訳) 2020</a>)</span></li>
 </ul>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-R300000001-I031579212-00" class="csl-entry" role="doc-biblioentry">
+[著]Andy Kirk, と 訳. 2021. <em>データビジュアライゼーション : データ駆動型デザインガイド</em>. 朝倉書店. <a href="http://id.ndl.go.jp/bib/031579212">http://id.ndl.go.jp/bib/031579212</a>.
+</div>
+<div id="ref-R300000001-I030185215-00" class="csl-entry" role="doc-biblioentry">
+著Steven S.Skiena, 監訳, と 訳. 2020. <em>データサイエンス設計マニュアル</em>. オライリー・ジャパン. <a href="http://id.ndl.go.jp/bib/030185215">http://id.ndl.go.jp/bib/030185215</a>.
+</div>
 <div id="ref-R300000001-I030421662-00" class="csl-entry" role="doc-biblioentry">
 アルベルト・カイロ著(薮井真澄訳). 2020. <em>グラフのウソを見破る技術 : マイアミ大学ビジュアル・ジャーナリズム講座</em>. ダイヤモンド社. <a href="http://id.ndl.go.jp/bib/030421662">http://id.ndl.go.jp/bib/030421662</a>.
 </div>

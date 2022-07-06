@@ -25,7 +25,7 @@
     "href": "intro.html#データ分析で扱う問題",
     "title": "1  はじめに",
     "section": "1.3 データ分析で扱う問題",
-    "text": "1.3 データ分析で扱う問題\nデータ分析では「モデル」と呼ばれる考え方\n統計モデルを使って問題の解決に挑みます。\n回帰と分類\nこのコースでも、発展として簡単な回帰と分類問題に挑戦します。\n\n\n\n\n\n\nR言語について\n\n\n\nこのコースではR言語を使った実習を行うよ。 R言語は統計計算と作図の機能に優れたプログラミング言語の一種だよ。 オープンソース・フリーソフトウェアと言って、誰もが自由に使うことができるんだ。\nR言語に関心を持ったなら、付録の「Rのイロハ」を見てみてね。\nRのインストール方法、簡単な使い方を紹介するよ。"
+    "text": "1.3 データ分析で扱う問題\nデータ分析では「モデル」と呼ばれる考え方\n統計モデルを使って問題の解決に挑みます。\n回帰と分類\n扱う課題が回帰問題か分類問題か\n分類と回帰の問題を解くために使われるアルゴリズムは異なります。\nこのコースでも、発展として簡単な回帰と分類問題に挑戦します。\n\n\n\n\n\n\nR言語について\n\n\n\nこのコースではR言語を使った実習を行うよ。 R言語は統計計算と作図の機能に優れたプログラミング言語の一種だよ。 オープンソース・フリーソフトウェアと言って、誰もが自由に使うことができるんだ。\nR言語に関心を持ったなら、付録の「Rのイロハ」を見てみてね。\nRのインストール方法、簡単な使い方を紹介するよ。"
   },
   {
     "objectID": "intro.html#まとめと課題",
@@ -81,7 +81,7 @@
     "href": "summary_statistics.html",
     "title": "3  データの特徴を捉える",
     "section": "",
-    "text": "データ分析の目的の一つに「データを要約すること」があることを示しました。 それでは実際に、データの要約に取り組んでみましょう。 例として動物データの体長を表示します。\nこのデータの特徴として言えることは何でしょうか？ 動物データに含まれるわずか22件の数値でも、こうした数値の羅列からデータの特徴を説明することは困難です。 データ分析で扱うデータの件数は数千、数万となる場合もあり、一つ一つデータを見ていくことも 現実的ではありません。 そこでデータを要約するために代表値の計算やデータの可視化が行われます。"
+    "text": "データ分析の目的の一つに「データを要約すること」があることを示しました。 それでは実際に、データの要約に取り組んでみましょう。 例として動物データの体長を表示します。\nこのデータの特徴として言えることは何でしょうか？ 動物データに含まれるわずか22件の数値でも、こうした数値の羅列からデータの特徴を説明することは困難です。\nデータ分析で扱うデータの件数は数千、数万となる場合もあり、一つ一つデータを見ていくことも 現実的ではありません。 そこでデータを要約するために記述統計量（要約統計量）の計算やデータの可視化が行われます。 記述統計量はデータ全体を表現する代わりとしてデータを要約したものとして機能します。 記述統計量は大きく分けるとデータの位置を示す値を提供する代表値とデータのばらつきを説明する値の2つに考えられます。 記述統計量を組み合わせてデータの分布を考えることで、データのすべてを説明しなくても十分にデータの内容を伝えることが可能になります。 データの可視化は、データを値そのものとして表現するのではなく、グラフやチャートを用いて説明を行うものです。 記述統計量では失われてしまう情報も、グラフ上に投影することで効果的に示せる可能性があります。"
   },
   {
     "objectID": "summary_statistics.html#データの位置を示す代表値-平均値中央値最頻値",
@@ -109,7 +109,7 @@
     "href": "summary_statistics.html#まとめと課題",
     "title": "3  データの特徴を捉える",
     "section": "3.4 まとめと課題",
-    "text": "3.4 まとめと課題\n\nデータ分析の目的の一つであるデータの要約を行う際に、平均値や中央値などの代表値が利用できる\nデータにはばらつきが存在し、そのばらつきを表現するための分散や標準偏差を計算できる\nヒストグラムを作って、いろいろな分布の形があることを確認しよう"
+    "text": "3.4 まとめと課題\n\nデータを要約する方法の一つに記述統計量がある。記述統計量は大きく次の2種類に分けられる\n\nデータ分析の目的の一つであるデータの要約を行う際に、平均値や中央値などの代表値が利用できる\nデータにはばらつきが存在し、そのばらつきを表現するための分散や標準偏差を計算できる\n\nヒストグラムを作って、いろいろな分布の形があることを確認しよう"
   },
   {
     "objectID": "summary_statistics.html#参考文献url",
@@ -158,14 +158,21 @@
     "href": "correlation.html#参考文献url",
     "title": "4  相関: 2変数の関係を調べる",
     "section": "4.5 参考文献・URL",
-    "text": "4.5 参考文献・URL\n\n(日本統計学会 2020)\n(阿部真人 2021)\n\n\n\n\n\n日本統計学会. 2020. データの分析 : 日本統計学会公式認定統計検定3級対応. 改訂版. 東京図書. http://id.ndl.go.jp/bib/030221455.\n\n\n阿部真人. 2021. 統計学入門 : データ分析に必須の知識・考え方 : 仮説検定から統計モデリングまで重要トピックを完全網羅. ソシム. http://id.ndl.go.jp/bib/031803943."
+    "text": "4.5 参考文献・URL\n\n(日本統計学会 2020)\n(阿部真人 2021)\n(著, 監訳, と 訳 2020)\n\n\n\n\n\n日本統計学会. 2020. データの分析 : 日本統計学会公式認定統計検定3級対応. 改訂版. 東京図書. http://id.ndl.go.jp/bib/030221455.\n\n\n著Steven S.Skiena, 監訳, と 訳. 2020. データサイエンス設計マニュアル. オライリー・ジャパン. http://id.ndl.go.jp/bib/030185215.\n\n\n阿部真人. 2021. 統計学入門 : データ分析に必須の知識・考え方 : 仮説検定から統計モデリングまで重要トピックを完全網羅. ソシム. http://id.ndl.go.jp/bib/031803943."
   },
   {
     "objectID": "visualization.html",
     "href": "visualization.html",
     "title": "5  グラフの作成",
     "section": "",
-    "text": "第二次世界大戦の後、1977年にジョン・テューキーが著書「Exploratory Data Analysis」のなかで探索的データ解析（探索的データ分析）の重要性を説きました。\nデータ解析の第一歩は計算ではない\n視覚化がモデル構築の足がかりになる\nデータをグラフに表現するでは、ヒストグラムと箱ヒゲ図を紹介しました。"
+    "text": "データをグラフに表現するでは、ヒストグラムと箱ヒゲ図を紹介しました。\nデータの可視化が重要\nデータ分析の目的に沿った考え\nデータの内容を伝える\nコミュニケーション\nグラフが示されたときに正しく読み解く能力を身につけるとともに、グラフを作成する立場になった場合に情報を正しく伝えられるか、誤解を招かない方法について紹介します。"
+  },
+  {
+    "objectID": "visualization.html#探索的データ解析",
+    "href": "visualization.html#探索的データ解析",
+    "title": "5  グラフの作成",
+    "section": "5.1 探索的データ解析",
+    "text": "5.1 探索的データ解析\n第二次世界大戦の後、1977年にジョン・テューキーが著書「Exploratory Data Analysis」のなかで探索的データ解析（探索的データ分析）の重要性を説きました。\nその内容は\nデータ解析の第一歩は計算ではない\n視覚化がモデル構築の足がかりになる\n与えられたデータセットからパターンやトレンドを探す\n生データを理解することには限界があります。\n\n5.1.1 同じ統計量でも異なるグラフ: アンスコムの例\nデータを直接扱うのではなく、グラフ上に可視化することの重要性を説明する例として、アンスコムの例（アンスコムの数値例）がしばしば用いられます。これは1973年にフランク・アンスコムが紹介したもので、記述統計量や2変数の関係の強さを表す相関係数が小数点第二位まで同じ値となる場合であっても、中身のデータは大きく異なることを示すものです。\n表 5.1 にアンスコムが同じ統計量でも異なるグラフを作成する例として示したデータを表示します。\n\nanscombe\n\n\n\n\n表 5.1: アンスコムの例として示される統計量が同じ4種類のデータセット\n\n\nx1\nx2\nx3\nx4\ny1\ny2\ny3\ny4\n\n\n\n\n10\n10\n10\n8\n8.04\n9.14\n7.46\n6.58\n\n\n8\n8\n8\n8\n6.95\n8.14\n6.77\n5.76\n\n\n13\n13\n13\n8\n7.58\n8.74\n12.74\n7.71\n\n\n9\n9\n9\n8\n8.81\n8.77\n7.11\n8.84\n\n\n11\n11\n11\n8\n8.33\n9.26\n7.81\n8.47\n\n\n14\n14\n14\n8\n9.96\n8.10\n8.84\n7.04\n\n\n6\n6\n6\n8\n7.24\n6.13\n6.08\n5.25\n\n\n4\n4\n4\n19\n4.26\n3.10\n5.39\n12.50\n\n\n12\n12\n12\n8\n10.84\n9.13\n8.15\n5.56\n\n\n7\n7\n7\n8\n4.82\n7.26\n6.42\n7.91\n\n\n5\n5\n5\n8\n5.68\n4.74\n5.73\n6.89\n\n\n\n\n\n\n\nアンスコムの例を検証してみましょう。 一見異なる値をもつこれらのデータに対して、4種類のデータセットそれぞれで平均と分散、相関係数を求めてみます。\n\nanscombe_long <- \n  anscombe |> \n  tidyr::pivot_longer(\n    tidyselect::everything(),\n    names_to = c(\".value\", \"set\"),\n    names_pattern = \"(.)(.)\")\n\n# 記述統計量（平均と分散）の算出\n# setがデータセットの種類を示します\nanscombe_long |> \n  group_by(set) |> \n  summarise(across(.cols = c(x, y), .fns = list(mean = mean, sd = sd))) |> \n  summarise(across(.cols = contains(\"_\"), .fns = ~ round(.x, digits = 2)))\n\n\n\n\n\nx_mean\nx_sd\ny_mean\ny_sd\n\n\n\n\n9\n3.32\n7.5\n2.03\n\n\n9\n3.32\n7.5\n2.03\n\n\n9\n3.32\n7.5\n2.03\n\n\n9\n3.32\n7.5\n2.03\n\n\n\n\n\n# 同様にデータセットごとに相関係数を求めます\nanscombe_long |> \n  group_by(set) |> \n  group_modify(~ tibble::tibble(cor = cor.test(.x$x, .x$y)$estimate)) |> \n  ungroup() |> \n  mutate(cor = round(cor, digits = 2))\n\n\n\n\n\nset\ncor\n\n\n\n\n1\n0.82\n\n\n2\n0.82\n\n\n3\n0.82\n\n\n4\n0.82\n\n\n\n\n\n\n小数点第二位までは同じ値となることが確かめられました。 それでは問題となる散布図を見てみましょう。 2つの変数の直線回帰を行った際の回帰直線も同時に示します (図 5.1)。\n\n\nコードを表示\nanscombe_long |> \n  group_by(set) |> \n  group_map(\n    ~ ggplot(.x, aes(x, y)) +\n  geom_point(color = \"orange\") +\n  geom_smooth(method = lm, se = FALSE)) |> \n  wrap_plots(ncol = 2)\n\n\n\n\n\n図 5.1: アンスコムの例をグラフにしたもの。記述統計量が同じデータであっても散布図にすると見た目が異なる\n\n\n\n\n記述統計量が同じデータセットであっても、散布図の形は異なることが示されました。 また、外れ値が回帰直線に大きく影響している様子も見てとれます。 このようにアンスコムの例は、データを可視化することの重要性だけでなく、外れ値が統計量に与える影響の大きさも示しています。\n\n\n\n\n\n\nアンスコムサウルス\n\n\n\nアンスコムの例と同じく、記述統計量が同じでありながら散布図にすると異なる図を描くアルゴリズムをアルベルト・カイロが発見したよ。 これによって生成されたデータの一つを使うと次のような「恐竜」を描くことができるんだ。 この恐竜と同じ記述統計量となるデータを使ってさまざまな散布図が描画できるよ。\n\n\nコードを表示\nlibrary(datasauRus)\n\ndatasaurus_dozen |> \n  filter(dataset == \"dino\") |> \n  ggplot(aes(x = x, y = y)) +\n  geom_point()\n\n\n\n\n\nコードを表示\ndatasaurus_dozen |> \n  filter(dataset != \"dino\") |> \n  ggplot(aes(x = x, y = y, colour = dataset)) +\n  geom_point() +\n  theme(legend.position = \"none\") +\n  facet_wrap(~dataset, ncol = 3)"
   },
   {
     "objectID": "visualization.html#変数のデータの要約",
@@ -200,7 +207,7 @@
     "href": "visualization.html#散布図",
     "title": "5  グラフの作成",
     "section": "5.6 散布図",
-    "text": "5.6 散布図\n相関を調べる際に散布図を用いる\nDatasaurusの紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。\nアンスコムの例\n\n\nコードを表示\nanscombe\n\n\n\n\n\n\nx1\nx2\nx3\nx4\ny1\ny2\ny3\ny4\n\n\n\n\n10\n10\n10\n8\n8.04\n9.14\n7.46\n6.58\n\n\n8\n8\n8\n8\n6.95\n8.14\n6.77\n5.76\n\n\n13\n13\n13\n8\n7.58\n8.74\n12.74\n7.71\n\n\n9\n9\n9\n8\n8.81\n8.77\n7.11\n8.84\n\n\n11\n11\n11\n8\n8.33\n9.26\n7.81\n8.47\n\n\n14\n14\n14\n8\n9.96\n8.10\n8.84\n7.04\n\n\n6\n6\n6\n8\n7.24\n6.13\n6.08\n5.25\n\n\n4\n4\n4\n19\n4.26\n3.10\n5.39\n12.50\n\n\n12\n12\n12\n8\n10.84\n9.13\n8.15\n5.56\n\n\n7\n7\n7\n8\n4.82\n7.26\n6.42\n7.91\n\n\n5\n5\n5\n8\n5.68\n4.74\n5.73\n6.89\n\n\n\n\n\n\n\n\nコードを表示\nanscombe_long <- \n  anscombe |> \n  tidyr::pivot_longer(\n    tidyselect::everything(),\n    names_to = c(\".value\", \"set\"),\n    names_pattern = \"(.)(.)\")\n\n# anscombe_long |> \n#   dplyr::filter(set == 1) |> \n#   ggplot(aes(x, y)) +\n#   geom_point(color = \"orange\") +\n#   geom_smooth(method = lm, se = FALSE)\n\n\n\n\nコードを表示\nlibrary(datasauRus)"
+    "text": "5.6 散布図\n相関を調べる際に散布図を用いる\nDatasaurusの紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。"
   },
   {
     "objectID": "visualization.html#地図表現",
@@ -221,7 +228,7 @@
     "href": "visualization.html#参考文献url",
     "title": "5  グラフの作成",
     "section": "5.9 参考文献・URL",
-    "text": "5.9 参考文献・URL\n\n(著 と 訳 1995)\n(アルベルト・カイロ著(薮井真澄訳) 2020)\n\n\n\n\n\nアルベルト・カイロ著(薮井真澄訳). 2020. グラフのウソを見破る技術 : マイアミ大学ビジュアル・ジャーナリズム講座. ダイヤモンド社. http://id.ndl.go.jp/bib/030421662.\n\n\n著, と 訳. 1995. 地図は嘘つきである. 晶文社. http://id.ndl.go.jp/bib/000002440327."
+    "text": "5.9 参考文献・URL\n\n(著 と 訳 1995)\n([著] と 訳 2021)\n(著S. S. S., 監訳, と 訳 2020)\n(アルベルト・カイロ著(薮井真澄訳) 2020)\n\n\n\n\n\n[著]Andy Kirk, と 訳. 2021. データビジュアライゼーション : データ駆動型デザインガイド. 朝倉書店. http://id.ndl.go.jp/bib/031579212.\n\n\n著Steven S.Skiena, 監訳, と 訳. 2020. データサイエンス設計マニュアル. オライリー・ジャパン. http://id.ndl.go.jp/bib/030185215.\n\n\nアルベルト・カイロ著(薮井真澄訳). 2020. グラフのウソを見破る技術 : マイアミ大学ビジュアル・ジャーナリズム講座. ダイヤモンド社. http://id.ndl.go.jp/bib/030421662.\n\n\n著, と 訳. 1995. 地図は嘘つきである. 晶文社. http://id.ndl.go.jp/bib/000002440327."
   },
   {
     "objectID": "regression.html",
@@ -235,7 +242,7 @@
     "href": "regression.html#単回帰モデル",
     "title": "6  回帰問題に挑戦",
     "section": "6.1 単回帰モデル",
-    "text": "6.1 単回帰モデル\n線形回帰のうち、説明変数が一つの場合を単回帰といいます。 これに対して複数の説明変数によって目的変数の挙動を推定する線形回帰を重回帰と呼びますが、これについては本書では扱いません。 単回帰の基礎を抑えることで、重回帰への理解も深まります。\n\n\nコードを表示\nlm_res <- \n  lm(weight_kg ~ body_length_cm, data = df_zoo)\nlm_res\n\n\n\nCall:\nlm(formula = weight_kg ~ body_length_cm, data = df_zoo)\n\nCoefficients:\n   (Intercept)  body_length_cm  \n       -72.574           1.324  \n\n\nコードを表示\nsummary(lm_res)\n\n\n\nCall:\nlm(formula = weight_kg ~ body_length_cm, data = df_zoo)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-90.587 -37.539  -6.151  25.768 151.495 \n\nCoefficients:\n               Estimate Std. Error t value Pr(>|t|)    \n(Intercept)    -72.5743    26.0890  -2.782   0.0133 *  \nbody_length_cm   1.3243     0.2109   6.280  1.1e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 61.48 on 16 degrees of freedom\n  (4 observations deleted due to missingness)\nMultiple R-squared:  0.7114,    Adjusted R-squared:  0.6933 \nF-statistic: 39.43 on 1 and 16 DF,  p-value: 1.098e-05\n\n\n\n6.1.1 最小二乗法\n次に示すのは南極大陸に生育するペンギンの大きさを調べた観測データです。 それぞれの変数は次の意味をもちます（詳細は付録のデータセットを参照してください）。\n\nbill_length_mm: 口ばしの長さ。単位はミリメートル\nbody_mass_g: 体重。単位はグラム\n\n\n\n\nlm()関数\n\n\nコードを表示\nlm_res <- \n  lm(formula = body_mass_g ~ bill_length_mm, data = penguins)\n\nlm_res\n\n\n\nCall:\nlm(formula = body_mass_g ~ bill_length_mm, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm  \n        362.31           87.42  \n\n\nコードを表示\nsummary(lm_res)\n\n\n\nCall:\nlm(formula = body_mass_g ~ bill_length_mm, data = penguins)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1762.08  -446.98    32.59   462.31  1636.86 \n\nCoefficients:\n               Estimate Std. Error t value Pr(>|t|)    \n(Intercept)     362.307    283.345   1.279    0.202    \nbill_length_mm   87.415      6.402  13.654   <2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 645.4 on 340 degrees of freedom\n  (2 observations deleted due to missingness)\nMultiple R-squared:  0.3542,    Adjusted R-squared:  0.3523 \nF-statistic: 186.4 on 1 and 340 DF,  p-value: < 2.2e-16\n\n\npredict()関数\n\n\nコードを表示\nggplot(penguins, aes(bill_length_mm, body_mass_g)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE)\n\n\n`geom_smooth()` using formula 'y ~ x'\n\n\nWarning: Removed 2 rows containing non-finite values (stat_smooth).\n\n\nWarning: Removed 2 rows containing missing values (geom_point).\n\n\n\n\n\n点の配置にもっともよくあてはまる回帰直線は、最小二乗法の原理で求めることができる\nデータ点に対して、最も適合する直線を引く\n二つのパラメータ、切片 \\(a\\) と傾き \\(b\\)を決定する\n残差 符号の影響を除くために二乗、さらに和をとって残差平方和\n\n\n6.1.2 決定係数\n\n\n6.1.3 95%信頼区間"
+    "text": "6.1 単回帰モデル\n線形回帰のうち、説明変数が一つの場合を単回帰といいます。 これに対して複数の説明変数によって目的変数の挙動を推定する線形回帰を重回帰と呼びますが、これについては本書では扱いません。 単回帰の基礎を抑えることで、重回帰への理解も深まります。\n\n\nコードを表示\nlm_res <- \n  lm(weight_kg ~ body_length_cm, data = df_zoo)\nlm_res\n\n\n\nCall:\nlm(formula = weight_kg ~ body_length_cm, data = df_zoo)\n\nCoefficients:\n   (Intercept)  body_length_cm  \n       -72.574           1.324  \n\n\nコードを表示\nsummary(lm_res)\n\n\n\nCall:\nlm(formula = weight_kg ~ body_length_cm, data = df_zoo)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-90.587 -37.539  -6.151  25.768 151.495 \n\nCoefficients:\n               Estimate Std. Error t value Pr(>|t|)    \n(Intercept)    -72.5743    26.0890  -2.782   0.0133 *  \nbody_length_cm   1.3243     0.2109   6.280  1.1e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 61.48 on 16 degrees of freedom\n  (4 observations deleted due to missingness)\nMultiple R-squared:  0.7114,    Adjusted R-squared:  0.6933 \nF-statistic: 39.43 on 1 and 16 DF,  p-value: 1.098e-05\n\n\n\n6.1.1 最小二乗法\n回帰直線によって２つの変数の関係をどの程度表現できているかを示す指標\n\n回帰直線からの差（残差）\n残差が小さいほど予測がうまく行っている\n\n残差を２乗し平均をとる –> 残差分散。値が小さいほど回帰直線による予測がうまくいくことを示す\n次に示すのは南極大陸に生育するペンギンの大きさを調べた観測データです。 それぞれの変数は次の意味をもちます（詳細は付録のデータセットを参照してください）。\n\nbill_length_mm: 口ばしの長さ。単位はミリメートル\nbody_mass_g: 体重。単位はグラム\n\n\n\n\nlm()関数\n\n\nコードを表示\nlm_res <- \n  lm(formula = body_mass_g ~ bill_length_mm, data = penguins)\n\nlm_res\n\n\n\nCall:\nlm(formula = body_mass_g ~ bill_length_mm, data = penguins)\n\nCoefficients:\n   (Intercept)  bill_length_mm  \n        362.31           87.42  \n\n\nコードを表示\nsummary(lm_res)\n\n\n\nCall:\nlm(formula = body_mass_g ~ bill_length_mm, data = penguins)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1762.08  -446.98    32.59   462.31  1636.86 \n\nCoefficients:\n               Estimate Std. Error t value Pr(>|t|)    \n(Intercept)     362.307    283.345   1.279    0.202    \nbill_length_mm   87.415      6.402  13.654   <2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 645.4 on 340 degrees of freedom\n  (2 observations deleted due to missingness)\nMultiple R-squared:  0.3542,    Adjusted R-squared:  0.3523 \nF-statistic: 186.4 on 1 and 340 DF,  p-value: < 2.2e-16\n\n\npredict()関数\n\n\nコードを表示\nggplot(penguins, aes(bill_length_mm, body_mass_g)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE)\n\n\n`geom_smooth()` using formula 'y ~ x'\n\n\nWarning: Removed 2 rows containing non-finite values (stat_smooth).\n\n\nWarning: Removed 2 rows containing missing values (geom_point).\n\n\n\n\n\n点の配置にもっともよくあてはまる回帰直線は、最小二乗法の原理で求めることができる\nデータ点に対して、最も適合する直線を引く\n二つのパラメータ、切片 \\(a\\) と傾き \\(b\\)を決定する\n残差 符号の影響を除くために二乗、さらに和をとって残差平方和\n\n\n6.1.2 決定係数\nモデルにおける予測値と実測値との相関係数を2乗した値。\n観測値の分散のうち予測によって説明される部分の割合を示す\n単純な線形回帰でどのくらい説明できるかを表す値\n\n\n6.1.3 95%信頼区間"
   },
   {
     "objectID": "regression.html#回帰と相関",
@@ -243,6 +250,20 @@
     "title": "6  回帰問題に挑戦",
     "section": "6.2 回帰と相関",
     "text": "6.2 回帰と相関"
+  },
+  {
+    "objectID": "regression.html#まとめと課題",
+    "href": "regression.html#まとめと課題",
+    "title": "6  回帰問題に挑戦",
+    "section": "6.3 まとめと課題",
+    "text": "6.3 まとめと課題"
+  },
+  {
+    "objectID": "regression.html#参考文献url",
+    "href": "regression.html#参考文献url",
+    "title": "6  回帰問題に挑戦",
+    "section": "6.4 参考文献・URL",
+    "text": "6.4 参考文献・URL\n\n(著 と 竹内惠行 2021)\n(著S. S. S., 監訳, と 訳 2020)\n\n\n\n\n\n著Steven S.Skiena, 監訳, と 訳. 2020. データサイエンス設計マニュアル. オライリー・ジャパン. http://id.ndl.go.jp/bib/030185215.\n\n\n著, と 竹内惠行濵田悦生 訳. 2021. 「誤差」「大間違い」「ウソ」を見分ける統計学. 共立出版. http://id.ndl.go.jp/bib/031563181."
   },
   {
     "objectID": "classification.html",
@@ -284,7 +305,7 @@
     "href": "summary.html#次の一歩",
     "title": "まとめ",
     "section": "次の一歩",
-    "text": "次の一歩\nデータ分析や統計グラフに興味をもった人のために、政府や行政が行っているデータ分析のイベントを紹介します。\n統計グラフ全国コンクールは1953年から開催されている統計グラフの作成によるコンクルールです。過去の受賞作品を閲覧できるため、優れた統計グラフの例も知ることができます。 なお全国コンクルールは各都道府県で実施されるコンクールの優秀作品が評価対象となります。 そのため、まずは徳島県統計グラフコンクールへの応募を目指してはいかがでしょうか。 今年度(令和4年度)の募集締め切りは9月5日です。詳細は県のページを見てください。\n統計データ分析コンペティションは、高校生、大学生等を対象としたデータ分析コンペティションの一つです。SSDSE（教育用標準データセット）などを用いた統計データ分析内容をを論文として提出することになっています。統計データに対するアイデアと解析力が競われます。\n統計の日（10月18日）を中心に、統計に関する行事が行われます。\n関連行事に参加してみよう。\n\nその他の学習コンテンツ\n\nなるほど統計学園 https://www.stat.go.jp/naruhodo/index.html"
+    "text": "次の一歩\nデータ分析や統計グラフに興味をもった人のために、ウェブ上の学習資料やコンテンツ、政府や行政が行っているデータ分析のイベントを紹介します。\n統計グラフ全国コンクールは1953年から開催されている統計グラフの作成によるコンクルールです。過去の受賞作品を閲覧できるため、優れた統計グラフの例も知ることができます。 なお全国コンクルールは各都道府県で実施されるコンクールの優秀作品が評価対象となります。 そのため、まずは徳島県統計グラフコンクールへの応募を目指してはいかがでしょうか。 今年度(令和4年度)の募集締め切りは9月5日です。詳細は県のページを見てください。\n統計データ分析コンペティションは、高校生、大学生等を対象としたデータ分析コンペティションの一つです。SSDSE（教育用標準データセット）などを用いた統計データ分析内容をを論文として提出することになっています。統計データに対するアイデアと解析力が競われます。\n統計の日（10月18日）を中心に、統計に関する行事が行われます。\n\nその他の学習コンテンツ\n\nなるほど統計学園 https://www.stat.go.jp/naruhodo/index.html"
   },
   {
     "objectID": "summary.html#謝辞",
@@ -298,7 +319,7 @@
     "href": "references.html",
     "title": "参考文献・URL",
     "section": "",
-    "text": "Peter Bruce, Peter Gedeck 著, Andrew Bruce, 訳, and 技術監修. 2020.\nデータサイエンスのための統計学入門 :\n予測、分類、統計モデリング、統計的機械学習とR/Pythonプログラミング.\n第2版 ed. オライリー・ジャパン. http://id.ndl.go.jp/bib/030715636.\n\n\nアルベルト・カイロ著(薮井真澄訳). 2020. グラフのウソを見破る技術 :\nマイアミ大学ビジュアル・ジャーナリズム講座. ダイヤモンド社. http://id.ndl.go.jp/bib/030421662.\n\n\nマイケル・フレンドリーハワード・ウェイナー 著, and 訳. 2021.\nデータ視覚化の人類史 : グラフの発明から時間と空間の可視化まで.\n青土社. http://id.ndl.go.jp/bib/031736628.\n\n\n北川源四郎竹村彰通 編, and 内田誠一孝忠大輔. 2021.\n教養としてのデータサイエンス = Data Science as the Liberal\nArts. データサイエンス入門シリーズ. 講談社. http://id.ndl.go.jp/bib/031484010.\n\n\n日本統計学会. 2020. データの分析 :\n日本統計学会公式認定統計検定3級対応. 改訂版. 東京図書. http://id.ndl.go.jp/bib/030221455.\n\n\n江崎貴裕. 2020. 分析者のためのデータ解釈学入門 :\nデータの本質をとらえる技術. ソシム. http://id.ndl.go.jp/bib/030791751.\n\n\n滋賀大学データサイエンス学部長崎大学情報データ科学部 共編. 2022.\nデータサイエンスの歩き方. 学術図書出版社. http://id.ndl.go.jp/bib/032035878.\n\n\n神林博史. 2019. 1歩前からはじめる「統計」の読み方・考え方.\n第2版 ed. ミネルヴァ書房. http://id.ndl.go.jp/bib/029539543.\n\n\n竹内薫. 2014. 統計の9割はウソ :\n世界にはびこる「数字トリック」を見破る技術. 徳間書店. http://id.ndl.go.jp/bib/025194412.\n\n\n編. 1991. 基礎統計学. 1 (統計学入門). 東京大学出版会. http://id.ndl.go.jp/bib/000002123507.\n\n\n著. 2018. データサイエンス入門. 岩波新書 新赤版 ; 1713.\n岩波書店. http://id.ndl.go.jp/bib/028897021.\n\n\n著, and 訳. 1995. 地図は嘘つきである. 晶文社. http://id.ndl.go.jp/bib/000002440327.\n\n\n西内啓. 2013. 統計学が最強の学問である :\nデータ社会を生き抜くための武器と教養. ダイヤモンド社. http://id.ndl.go.jp/bib/024193446.\n\n\n阿部真人. 2021. 統計学入門 : データ分析に必須の知識・考え方 :\n仮説検定から統計モデリングまで重要トピックを完全網羅. ソシム. http://id.ndl.go.jp/bib/031803943."
+    "text": "Peter Bruce, Peter Gedeck 著, Andrew Bruce, 訳, and 技術監修. 2020.\nデータサイエンスのための統計学入門 :\n予測、分類、統計モデリング、統計的機械学習とR/Pythonプログラミング.\n第2版 ed. オライリー・ジャパン. http://id.ndl.go.jp/bib/030715636.\n\n\nアルベルト・カイロ著(薮井真澄訳). 2020. グラフのウソを見破る技術 :\nマイアミ大学ビジュアル・ジャーナリズム講座. ダイヤモンド社. http://id.ndl.go.jp/bib/030421662.\n\n\nマイケル・フレンドリーハワード・ウェイナー 著, and 訳. 2021.\nデータ視覚化の人類史 : グラフの発明から時間と空間の可視化まで.\n青土社. http://id.ndl.go.jp/bib/031736628.\n\n\n北川源四郎竹村彰通 編, and 内田誠一孝忠大輔. 2021.\n教養としてのデータサイエンス = Data Science as the Liberal\nArts. データサイエンス入門シリーズ. 講談社. http://id.ndl.go.jp/bib/031484010.\n\n\n日本統計学会. 2020. データの分析 :\n日本統計学会公式認定統計検定3級対応. 改訂版. 東京図書. http://id.ndl.go.jp/bib/030221455.\n\n\n江崎貴裕. 2020. 分析者のためのデータ解釈学入門 :\nデータの本質をとらえる技術. ソシム. http://id.ndl.go.jp/bib/030791751.\n\n\n滋賀大学データサイエンス学部長崎大学情報データ科学部 共編. 2022.\nデータサイエンスの歩き方. 学術図書出版社. http://id.ndl.go.jp/bib/032035878.\n\n\n神林博史. 2019. 1歩前からはじめる「統計」の読み方・考え方.\n第2版 ed. ミネルヴァ書房. http://id.ndl.go.jp/bib/029539543.\n\n\n竹内薫. 2014. 統計の9割はウソ :\n世界にはびこる「数字トリック」を見破る技術. 徳間書店. http://id.ndl.go.jp/bib/025194412.\n\n\n編. 1991. 基礎統計学. 1 (統計学入門). 東京大学出版会. http://id.ndl.go.jp/bib/000002123507.\n\n\n著. 2018. データサイエンス入門. 岩波新書 新赤版 ; 1713.\n岩波書店. http://id.ndl.go.jp/bib/028897021.\n\n\n[著]Andy Kirk, and 訳. 2021. データビジュアライゼーション :\nデータ駆動型デザインガイド. 朝倉書店. http://id.ndl.go.jp/bib/031579212.\n\n\n著Steven S.Skiena, 監訳, and 訳. 2020.\nデータサイエンス設計マニュアル. オライリー・ジャパン. http://id.ndl.go.jp/bib/030185215.\n\n\n著, and 竹内惠行濵田悦生 訳. 2021.\n「誤差」「大間違い」「ウソ」を見分ける統計学. 共立出版. http://id.ndl.go.jp/bib/031563181.\n\n\n著, and 訳. 1995. 地図は嘘つきである. 晶文社. http://id.ndl.go.jp/bib/000002440327.\n\n\n西内啓. 2013. 統計学が最強の学問である :\nデータ社会を生き抜くための武器と教養. ダイヤモンド社. http://id.ndl.go.jp/bib/024193446.\n\n\n阿部真人. 2021. 統計学入門 : データ分析に必須の知識・考え方 :\n仮説検定から統計モデリングまで重要トピックを完全網羅. ソシム. http://id.ndl.go.jp/bib/031803943."
   },
   {
     "objectID": "exercise.html",
