@@ -7,8 +7,15 @@ title: "グラフの作成"
 library(dplyr)
 library(ggplot2)
 library(patchwork)
+library(palmerpenguins)
 theme_set(new = theme_gray(base_family = "IPAGothic"))
 ```
+
+```{r}
+#| include: false
+source("data-raw/zoo.R")
+```
+
 
 [データをグラフに表現する](data.qmd#データをグラフに表現する)では、ヒストグラムと箱ヒゲ図を紹介しました。
 
@@ -21,6 +28,8 @@ theme_set(new = theme_gray(base_family = "IPAGothic"))
 コミュニケーション
 
 グラフが示されたときに正しく読み解く能力を身につけるとともに、グラフを作成する立場になった場合に情報を正しく伝えられるか、誤解を招かない方法について紹介します。
+
+グラフの良し悪しを判断できるようになるためには、数多くのグラフを見ること、審美眼を養うこと、そしてデータ表現について批判できるようになるが重要です。
 
 
 ## 探索的データ解析
@@ -124,12 +133,63 @@ datasaurus_dozen |>
 :::
 
 
+## 分布を示すさまざまなグラフ
 
-## 1変数のデータの要約
+データの分布を示す際、ヒストグラムや箱ヒゲ図から一歩進んだグラフ表現を考えてみましょう。
+実際問題として、ヒストグラムや箱ヒゲ図では階級や箱を利用することでデータを効率的に表現できていますが、
+個々のデータについては一部の最小値・最大値や外れ値を除いてグラフ表現から無視することになっています。
+この問題に対して、代替えとなるいくつかの可視化方法が検証されています。
 
-代表値、ヒストグラムや箱ヒゲ図による表現から一歩進んで
+### ヴァイオリンプロット
 
-ドット、蜂群図、ヴァイオリンプロット、Sina、ハイブリッド、雨雲プロット
+同じ値があるときに横に広がります。
+
+上部の細長い糸巻き部とくびれのある胴部からなるヴァイオリンに似た形をすることがあることから、ヴァイオリンプロットと呼ばれます。
+
+```{r}
+#| warning: false
+penguins |> 
+  ggplot(aes(species, bill_length_mm)) +
+  geom_violin()
+```
+
+### 蜂群図
+
+蜂群図（ジッタープロットとも呼びます）はデータの分布の形とそのばらつきを構成する具体的な各値について説明します。
+通常、ある質的変数についての量的変数の分布を示すのに用います。
+横軸にはデータの値を点として投影します。このとき、もし複数の同じ値があるときには横に広がって表現されます。
+点が集まっている様子が蜂の群を連想させることからこの名がついています。
+
+```{r}
+#| warning: false
+library(ggbeeswarm)
+penguins |> 
+  ggplot(aes(species, bill_length_mm)) +
+  geom_beeswarm()
+```
+
+```{r}
+#| eval: false
+#| echo: true
+# ggplot2の標準関数にもgeom_jitter()関数が提供されています
+penguins |> 
+  ggplot(aes(species, bill_length_mm)) +
+  geom_jitter()
+```
+
+### 雨雲プロット
+
+```{r}
+#| warning: false
+library(gghalves)
+library(ggdist)
+penguins |> 
+  ggplot(aes(species, bill_length_mm)) +
+  geom_half_point() +
+  geom_boxplot() + 
+  stat_halfeye()
+```
+
 
 ## 棒グラフ
 
@@ -160,6 +220,8 @@ datasaurus_dozen |>
 さらにそれぞれのデータ点を線で繋げることで、データが時系列で変化する様子を表現します。
 
 ## 円グラフ
+
+3D円グラフはやめよう
 
 ## 散布図
 

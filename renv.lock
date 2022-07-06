@@ -17,6 +17,14 @@
       "Hash": "b2866e62bab9378c3cc9476a1954226b",
       "Requirements": []
     },
+    "HDInterval": {
+      "Package": "HDInterval",
+      "Version": "0.2.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "3b986a53325a1d95610b8d86a284dac0",
+      "Requirements": []
+    },
     "KernSmooth": {
       "Package": "KernSmooth",
       "Version": "2.23-20",
@@ -103,6 +111,14 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "543776ae6848fde2f48ff3816d0628bc",
+      "Requirements": []
+    },
+    "beeswarm": {
+      "Package": "beeswarm",
+      "Version": "0.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "0f4e9d8caa6feaa7e409ae6c30f2ca66",
       "Requirements": []
     },
     "bit": {
@@ -317,6 +333,25 @@
       "Hash": "cf6b206a045a684728c3267ef7596190",
       "Requirements": []
     },
+    "distributional": {
+      "Package": "distributional",
+      "Version": "0.3.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "1cba2656c1cab717a3ddea79664cc534",
+      "Requirements": [
+        "digest",
+        "ellipsis",
+        "farver",
+        "generics",
+        "ggplot2",
+        "lifecycle",
+        "numDeriv",
+        "rlang",
+        "scales",
+        "vctrs"
+      ]
+    },
     "dplyr": {
       "Package": "dplyr",
       "Version": "1.0.9",
@@ -459,6 +494,50 @@
       "Hash": "be29054e97e756ade56d13a89c6d5243",
       "Requirements": [
         "Rcpp"
+      ]
+    },
+    "ggbeeswarm": {
+      "Package": "ggbeeswarm",
+      "Version": "0.6.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "dd68b9b215b2d3119603549a794003c3",
+      "Requirements": [
+        "beeswarm",
+        "ggplot2",
+        "vipor"
+      ]
+    },
+    "ggdist": {
+      "Package": "ggdist",
+      "Version": "3.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5b03512755c82140b90a950a5ca72594",
+      "Requirements": [
+        "HDInterval",
+        "distributional",
+        "dplyr",
+        "ggplot2",
+        "glue",
+        "numDeriv",
+        "rlang",
+        "scales",
+        "tibble",
+        "tidyselect",
+        "vctrs",
+        "withr"
+      ]
+    },
+    "gghalves": {
+      "Package": "gghalves",
+      "Version": "0.1.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "4fcb7fe33c767fcdf0988033349a7ff3",
+      "Requirements": [
+        "ggplot2",
+        "gtable"
       ]
     },
     "ggplot2": {
@@ -887,6 +966,14 @@
       "Requirements": [
         "lattice"
       ]
+    },
+    "numDeriv": {
+      "Package": "numDeriv",
+      "Version": "2016.8-1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "df58958f293b166e4ab885ebcad90e02",
+      "Requirements": []
     },
     "openssl": {
       "Package": "openssl",
@@ -1550,6 +1637,14 @@
         "glue",
         "rlang"
       ]
+    },
+    "vipor": {
+      "Package": "vipor",
+      "Version": "0.4.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ea85683da7f2bfa63a98dc6416892591",
+      "Requirements": []
     },
     "viridis": {
       "Package": "viridis",
