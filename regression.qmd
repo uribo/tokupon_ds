@@ -7,7 +7,6 @@ title: "回帰問題に挑戦"
 library(ggplot2)
 library(ragg)
 library(palmerpenguins)
-theme_set(new = theme_gray(base_family = "IPAGothic"))
 ```
 
 [相関](correlation.qmd)では2つの量的変数の関係を分析する方法として相関係数や散布図を紹介しました。
