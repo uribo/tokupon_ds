@@ -205,6 +205,40 @@ penguins |>
 
 年月や曜日など、順番に意味がある項目について順番を入れ替えることは好ましくありません。
 
+原点が0じゃない棒グラフはだめ
+
+```{r}
+#| fig-cap: 複数の項目を並べる棒グラフ。項目が多すぎて文字が潰れてしまっています
+df_zoo |>
+  filter(!is.na(body_length_cm)) |> 
+  ggplot(aes(name, body_length_cm, fill = taxon)) +
+  geom_bar(stat = "identity") +
+  xlab(NULL) +
+  ylab("体長 (cm)") +
+  labs(title = "とくしま動物園で飼育される動物の標準的な体長")
+```
+
+これではグラフの内容を理解することが困難です。
+
+項目は横ではなく縦に配置する
+
+項目の並びを工夫する（動物の名前の順序に意味はないので値の大きさで降順に並び替える）
+
+```{r}
+#| fig-cap: 棒グラフの改善。
+df_zoo |>
+  filter(!is.na(body_length_cm)) |> 
+  ggplot(aes(forcats::fct_reorder(name, body_length_cm), body_length_cm, fill = taxon)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  xlab(NULL) +
+  ylab("体長 (cm)") +
+  labs(title = "とくしま動物園で飼育される動物の標準的な体長")
+```
+
+同じデータを示すグラフであっても、その見せ方によって、見る人へ与える印象が変わります。
+
+
 ### 積み上げ棒グラフ
 
 <!-- 帯グラフ -->
@@ -220,14 +254,70 @@ penguins |>
 
 ## 円グラフ
 
+円グラフは、グラフに描いた円の中にデータの割合を表すグラフです。
+**質的変数がもつ割合に対して各値を円の領域（内角）に反映させることで、円全体で100%の構成を表現**できます。
+円グラフはデータ全体を占める内訳を表現するのに適したグラフです。
+つまり、関心のある項目について全体と比較することを念頭にしています。
+
+円グラフは円の真上、時計の12時の位置から円の重心に引いた線を起点として、データの割合を角度で表します。
+円の中に占める割合が大きい項目ほど、データの中での割合も多いことを示します。
+例えば円グラフの半分、半円を占める値はデータ中の50%の値を意味します。
+
+円グラフを作る場合、起点が12時であること、項目の並びに意味がない場合には値の大きさの順番に配置することが肝心です。
+
+円グラフはデータ可視化の際に棒グラフとともにまず試される図の種類ですが、
+円グラフを用いずに棒グラフやその他の方法で示すのが良い場面もあります。
+それにはいくつかの理由があります。
+第一に円グラフは複数のデータの比較に適さない点が挙げられます。
+繰り返しになりますが、円グラフの利点はデータ全体に対する割合を示すことです。
+一つの円の中での相対的な比較は可能ですが、別の円グラフを並べたとき、その比較は困難になります。
+同様の理由から時系列を扱う場合には円グラフは適しません。
+内訳について考えないグラフであれば一般的には棒グラフを選択することを勧めます。
+
+<!-- 項目の間に隙間がなく、色や線の濃淡によってのみ区別できる -->
+
+```{r}
+#| fig-cap: 考えなしに作った円グラフ
+df_zoo |> 
+  count(taxon) |> 
+  mutate(prop = n / sum(n) * 100) |> 
+  ggplot(aes(x = "", y = prop, fill = taxon)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar("y")
+```
+
+このグラフの改善点は
+
+値が大きい順にする
+
+分類群の数は`r n_distinct(df_zoo$taxon)`です。
+
+上位以外の分類群は「その他」としてまとめることにしましょう。
+ここではカウントして1種だけしか含まれない「偶蹄類」と「奇蹄類」を「その他」として処理しました。
+
+「その他」は他の項目と違い、複数の項目を混ぜて集計した値です。
+そのため円グラフの最後の部分を埋める位置に配置させるが適切です。
+
+```{r}
+library(forcats)
+df_zoo |> 
+  mutate(taxon = fct_other(taxon, drop = c("偶蹄類", "奇蹄類"), other_level = "その他")) |> 
+  count(taxon) |> 
+  mutate(prop = n / sum(n) * 100,
+         taxon = fct_rev(fct_relevel(fct_reorder(taxon, n), "食肉類", "鳥類", "霊長類", "齧歯類", "鯨偶蹄類", "その他"))) |> 
+  arrange(taxon) |> 
+  ggplot(aes(x = "", y = prop, fill = taxon)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar("y", start = 0) +
+  guides(fill = guide_legend(reverse = TRUE)) +
+  theme(axis.text = element_blank())
+```
+
 3D円グラフはやめよう
 
 ## 散布図
 
 [相関](correlation.qmd)を調べる際に散布図を用いる
-
-[Datasaurus](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html)の紹介。相関係数や回帰直線が同じであっても散布図の形状が異なる。
-
 
 
 
@@ -294,9 +384,17 @@ mapview(sf_zoo_conservation,
 
 ## まとめと課題
 
+- さまざまなグラフの種類、グラフを構成する要素を紐解き、示されているデータを理解することができる
+- グラフを作る際には（自分と）他人を騙す行為をしてはいけません
+- ここで紹介したグラフの他に、どんな種類のグラフがあるか探してみよう
+
 ## 参考文献・URL
 
 - [@R300000001-I000002440327-00]
+- [@R300000001-I028499054-00]
 - [@R300000001-I031579212-00]
 - [@R300000001-I030185215-00]
+- [@R300000001-I031219712-00]
 - [@R300000001-I030421662-00]
+- 誤解を与える統計グラフ - Wikipedia https://ja.wikipedia.org/wiki/誤解を与える統計グラフ
+- Download the Datasaurus: Never trust summary statistics alone; always visualize your data http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html 
