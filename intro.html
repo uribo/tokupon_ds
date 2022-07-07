@@ -324,7 +324,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <section id="データ分析って何" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="データ分析って何"><span class="header-section-number">1.1</span> データ分析って何？</h2>
 <p>私たちは日常中で多くのデータに触れながら暮らしています。 データを扱う計算機の処理性能の向上やインターネット回線の高速化、 そしてスマートフォンの普及により、ビッグデータと呼ばれる莫大な量のデータが身の回りに溢れています。</p>
-<p>データと触れている、といってもデータは実態がなく、認識しづらいものです。 データとは一体何でしょうか。 辞書を引いて確認してみますと、「判断や立論のもとになる資料・情報・事実」とあります。 物事を判断、何かについて議論するための材料といったところでしょうか。 材料であるデータは、ある対象について調査、観測や実験などを行うことで得られます。 そこにはたくさんの情報が含まれていることが多いです。</p>
+<p>データと触れている、といってもデータは実体がなく、認識しづらいものです。 データとは一体何でしょうか。 辞書を引いて確認してみますと、「判断や立論のもとになる資料・情報・事実」とあります。 物事を判断、何かについて議論するための材料といったところでしょうか。 材料であるデータは、ある対象について調査、観測や実験などを行うことで得られます。 そこにはたくさんの情報が含まれていることが多いです。</p>
 <p>例えば、ある個人の一日の行動を調査し、データ化するとします。 その場合、生年月日や氏名、住所や一日の行動（何時にどこへいたか）などが情報として扱われます<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。 一方でこうしたデータを<ruby>蓄積<rt>ちくせき</rt></ruby>しただけでは、情報の<ruby>羅列<rt>られつ</rt></ruby>となり、あまり意味がありません。 集めたデータをもとにして、分析を行うことで見えてくるものがあります。 <strong>データから得られる情報を読み解き、データを人間が利用できる形に変換・処理を行うことで対象についての理解や予測を目指す手続きを「データ分析」と呼びます</strong>。</p>
 <p>データ分析には次の目的があります。</p>
 <ul>
@@ -332,9 +332,10 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <li>データの意味・関係を説明すること</li>
 <li>新たに得られるデータに対する予測を行うこと</li>
 </ul>
-<p>要約とは物事の中心となる大切な部分を短くまとめることです。 一般的にデータ分析の対象となるデータは<ruby>膨大<rt>ぼうだい</rt></ruby>です。 そのため一つ一つのデータを見ていくことは難しいです。 そこでデータを要約する方法として代表値によるデータの集約やグラフによるデータ可視化が行われます。 この方法について、コースの中でも<a href="./summary_statistics.html">第2章</a>と<a href="./visualization.html">第4章</a>で扱います。</p>
-<p>２つ目の目的として、データがもつ意味やデータに含まれる値の関係性を説明することがあります。 例えば、動物園で飼育されるペンギンの各個体について、体の部位を測定したデータを集めたとします。 そのとき、体の部位ごとにどのような意味、関係があるかを説明する場合、データ分析が役立ちます。</p>
-<p>次に示す <a href="#fig-penguins">図&nbsp;<span>1.1</span></a> は、ペンギンの各個体の大きさを記録したデータをグラフ化したものです。 この図からどのようなことが言えるでしょうか。</p>
+<p>要約とは物事の中心となる大切な部分を短くまとめることです。 一般的にデータ分析の対象となるデータは<ruby>膨大<rt>ぼうだい</rt></ruby>です。 そのため一つ一つのデータを見ていくことは難しいです。 そこでデータを要約する方法として代表値によるデータの集約やグラフによるデータ可視化が行われます。 この方法について、コースの中でも<a href="./summary_statistics.html">第3章</a>と<a href="./visualization.html">第5章</a>で扱います。</p>
+<p>２つ目の目的として、データがもつ意味やデータに含まれる値の関係性を説明することがあります。 例えば、動物園で飼育されるペンギンの各個体について、体の部位を測定したデータを集めたとします。 そのとき、体の部位ごとにどのような意味、関係があるかを説明する場合、データ分析が役立ちます。 これについては<a href="./correlation.html">第4章</a>で議論します。</p>
+<p>またデータを説明するためにはグラフ上にデータを投影することも有効な手段となります。 データ可視化と呼ばれる手法はデータ分析の歴史とともに発展してきました。 <a href="./visualization.html">第5章</a>でさまざまなデータ可視化の方法を見ていくとともに実際にグラフを作る方法を学びます。</p>
+<p>データの関係を説明する簡単な例をみてみましょう。 次に示す <a href="#fig-penguins">図&nbsp;<span>1.1</span></a> は、ペンギンの各個体の大きさを記録したデータをグラフ化したものです。 この図からどのようなことが言えるでしょうか。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
@@ -360,20 +361,21 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 <p><a href="#fig-penguins">図&nbsp;<span>1.1</span></a> のようなグラフを散布図（または相関図）と呼びます。 散布図は２つのデータの関係を示すのによく使われます。 ここではグラフの下部と左側に表記がある通り（それぞれx軸、y軸と言います）、 「翼の長さ」と「口ばしの長さ」を示しています。 軸の横に書かれている数値はその大きさです。 一つ一つの点がペンギンの個体を表しています。</p>
-<p><a href="#fig-penguins">図&nbsp;<span>1.1</span></a> を見ると、<strong>翼の長さが大きい個体ほど口ばしの長さも大きい</strong>と言えるような気がします。 そこでデータ分析では「ペンギンの個体は翼の長さが大きい個体ほど口ばしの長さも大きい」という仮定を置きます。 この仮定を説明するために、データ分析ではデータの間の関係を説明する「モデル」を考えます。</p>
-<p>また、先ほどの<strong>ペンギンデータ</strong>は実は複数のペンギンの種類について調べたデータだったとします。 このとき、体の部位の関係の説明にペンギンの種類という、もう一つのデータが加わることになります。 そこで <a href="#fig-penguins">図&nbsp;<span>1.1</span></a> の図に手を入れて、種類ごとに色分けした図を見てみることにします (<a href="#fig-penguins_species">図&nbsp;<span>1.2</span></a>)。</p>
+<p><a href="#fig-penguins">図&nbsp;<span>1.1</span></a> を見ると、<strong>翼の長い個体ほど口ばしも長い</strong>と言えるような気がします。 そこでデータ分析では「ペンギンの個体は翼の長い個体ほど口ばしも長い」という仮定を置きます。 この仮定を説明するために、データ分析ではデータの間の関係を説明する「モデル」を考えます。</p>
+<p>また、先ほどの<strong>ペンギンデータ</strong>は実は複数のペンギンの種名<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>について調べたデータだったとします。 このとき、体の部位の関係の説明にペンギンの種名という、もう一つのデータが加わることになります。 そこで <a href="#fig-penguins">図&nbsp;<span>1.1</span></a> の図に手を入れて、種類ごとに色分けした図を見てみることにします (<a href="#fig-penguins_species">図&nbsp;<span>1.2</span></a>)。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"アデリーペンギン"</span>, <span class="st">"ヒゲペンギン"</span>, <span class="st">"ジェンツーペンギン"</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">"種名"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"アデリーペンギン"</span>, <span class="st">"ヒゲペンギン"</span>, <span class="st">"ジェンツーペンギン"</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-penguins_species" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="intro_files/figure-html/fig-penguins_species-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 1.2: ペンギンの体の大きさの関係を種類別に比較する</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 1.2: ペンギンの体の大きさの関係を種名別に比較する</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -432,6 +434,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <div class="callout-body-container callout-body">
 <p>ゴールデン・スクエアのブロード・ストリート周辺における死亡者の状態を示す地図 (1854)</p>
 <p>ロンドン給水地図(1856)</p>
+<!-- [todo]利用可能な図を用意したい -->
 </div>
 </div>
 <p>データを用いることで医療に貢献した人物として、もう一人、フローレンス・ナイチンゲールの例を挙げます。 近代看護教育の母として知られる人物ですが、効果的なグラフ作成を行った人物でもあります。</p>
@@ -580,7 +583,8 @@ R言語について
 <section class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1" role="doc-endnote"><p>こうした個人に関する情報で、特定の個人を識別できるものを「個人情報」と呼びます。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>生物の種を表す名前を種名と呼びます。日本語での種名は和名（カタカナで表記するのが一般的です）、学術的な種名を学名といい、学名はラテン語で表記されます。ここではカタカナ和名を用います。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>生物の種を表す名前を種名と呼びます。日本語での種名は和名（カタカナで表記するのが一般的です）、学術的な種名を学名といい、学名はラテン語で表記されます。ここではカタカナ和名を用います。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
