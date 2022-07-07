@@ -53,7 +53,8 @@ library(palmerpenguins)
 p <- 
   ggplot(penguins, aes(flipper_length_mm, bill_length_mm)) +
   xlab("翼の長さ(mm)") +
-  ylab("口ばしの長さ(mm)")
+  ylab("口ばしの長さ(mm)") +
+  labs(title = "ペンギンの体の大きさの関係")
 
 p + 
   geom_point()
