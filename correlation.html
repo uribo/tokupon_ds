@@ -294,11 +294,11 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
   <li><a href="#相関-2つの変数の間の関係" id="toc-相関-2つの変数の間の関係" class="nav-link" data-scroll-target="#相関-2つの変数の間の関係"> <span class="header-section-number">4.2</span> 相関: 2つの変数の間の関係</a>
   <ul class="collapse">
   <li><a href="#相関係数" id="toc-相関係数" class="nav-link" data-scroll-target="#相関係数"> <span class="header-section-number">4.2.1</span> 相関係数</a></li>
-  <li><a href="#散布図" id="toc-散布図" class="nav-link" data-scroll-target="#散布図"> <span class="header-section-number">4.2.2</span> 散布図</a></li>
   </ul></li>
-  <li><a href="#クロス集計表" id="toc-クロス集計表" class="nav-link" data-scroll-target="#クロス集計表"> <span class="header-section-number">4.3</span> クロス集計表</a></li>
-  <li><a href="#まとめと課題" id="toc-まとめと課題" class="nav-link" data-scroll-target="#まとめと課題"> <span class="header-section-number">4.4</span> まとめと課題</a></li>
-  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">4.5</span> 参考文献・URL</a></li>
+  <li><a href="#散布図" id="toc-散布図" class="nav-link" data-scroll-target="#散布図"> <span class="header-section-number">4.3</span> 散布図</a></li>
+  <li><a href="#クロス集計表" id="toc-クロス集計表" class="nav-link" data-scroll-target="#クロス集計表"> <span class="header-section-number">4.4</span> クロス集計表</a></li>
+  <li><a href="#まとめと課題" id="toc-まとめと課題" class="nav-link" data-scroll-target="#まとめと課題"> <span class="header-section-number">4.5</span> まとめと課題</a></li>
+  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">4.6</span> 参考文献・URL</a></li>
   </ul>
 </nav>
     </div>
@@ -483,12 +483,13 @@ sample estimates:
 </div>
 </div>
 <p>どんな変数間であろうと相関係数は必ず出る</p>
-<p>相関係数は標準化された値どうしの共分散とも考えられる</p>
+<p>相関係数は標準化された値どうしの共分散とも考えられます。</p>
 <p>繰り返しになりますが、相関係数は変数間の因果関係を示すものではありません。</p>
 <p>外れ値が相関係数に及ぼす影響</p>
 </section>
-<section id="散布図" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="散布図"><span class="header-section-number">4.2.2</span> 散布図</h3>
+</section>
+<section id="散布図" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="散布図"><span class="header-section-number">4.3</span> 散布図</h2>
 <p>2変数のデータに対するグラフ表現として<strong>散布図</strong>があります。 関心のある2つの量的変数を縦軸と横軸にとり、それぞれの値を2グラフ上に投影した図で、2変数の関係を示すために広く利用されます。</p>
 <p>ペンギンデータの口ばしの長さと翼の長さの関係を散布図で表してみましょう。 まずはデータを確認します。</p>
 <div class="cell" data-df-print="paged">
@@ -1911,9 +1912,8 @@ sample estimates:
 </div>
 <!-- 共分散... データの測定単位に依存。平均からの偏差 -->
 </section>
-</section>
-<section id="クロス集計表" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="クロス集計表"><span class="header-section-number">4.3</span> クロス集計表</h2>
+<section id="クロス集計表" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="クロス集計表"><span class="header-section-number">4.4</span> クロス集計表</h2>
 <p>質的変数の変数間の関係を調べる方法を紹介します。 <strong>ペンギンデータ</strong>には、種の名前 species、生育する島の名前 island、性別 sex の3つの質的変数があります。 これらの質的変数間の関係を調べるためにクロス集計表を用います。</p>
 <p>クロス集計表では、対象の質的変数に含まれる件数をカウントし、表にまとめます。 表の行・列には変数の項目が並びます。 <a href="#tbl-penguins_sp_islands">表&nbsp;<span>4.1</span></a> にペンギンデータにおける島ごとの種数を整理しました。</p>
 <div class="cell">
@@ -1972,14 +1972,14 @@ sample estimates:
 <p>クロス集計表の利用によって1変数を調べただけではわからなかった質的変数の特徴を知ることができました。</p>
 <p>クロス集計表によって、データの比較が行いやすくなりましたが、 その差は本当にデータの性質を反映しているのでしょうか。 統計的な手法を用いることで、このような差の有無を判断できるようになります。 「なんとなく差がある」結果を<strong>統計的仮説検定</strong>を行うことで客観的に評価できるようになります。</p>
 </section>
-<section id="まとめと課題" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="まとめと課題"><span class="header-section-number">4.4</span> まとめと課題</h2>
+<section id="まとめと課題" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="まとめと課題"><span class="header-section-number">4.5</span> まとめと課題</h2>
 <ul>
 <li>相関の例を探してみよう。擬似相関や因果関係とは違うか考えてみよう。</li>
 </ul>
 </section>
-<section id="参考文献url" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">4.5</span> 参考文献・URL</h2>
+<section id="参考文献url" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">4.6</span> 参考文献・URL</h2>
 <ul>
 <li><span class="citation" data-cites="R300000001-I030221455-00">(<a href="references.html#ref-R300000001-I030221455-00" role="doc-biblioref">日本統計学会 2020</a>)</span></li>
 <li><span class="citation" data-cites="R300000001-I031803943-00">(<a href="references.html#ref-R300000001-I031803943-00" role="doc-biblioref">阿部真人 2021</a>)</span></li>
