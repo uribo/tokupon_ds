@@ -41,6 +41,11 @@ library(palmerpenguins)
 library(patchwork)
 ```
 
+```{r}
+# 作図のための関数
+source("scripts/color_palette.R")
+```
+
 ## データの位置を示す代表値: 平均値、中央値、最頻値
 
 数値の傾向を捉えるには、その値が分布する位置を考えることが重要になります。
@@ -509,18 +514,23 @@ p
 #| dev: ragg_png
 #| code-fold: true
 p +
-  geom_vline(xintercept = mean(penguins$body_mass_g, na.rm = TRUE)) +
+  geom_vline(xintercept = mean(penguins$body_mass_g, na.rm = TRUE),
+             color = course_colors[3]) +
   geom_vline(xintercept = median(penguins$body_mass_g, na.rm = TRUE),
-             color = "red") +
-  geom_vline(xintercept = as.numeric(names(which.max(table(penguins$body_mass_g))))) +
+             color = course_colors[2]) +
+  geom_vline(xintercept = as.numeric(names(which.max(table(penguins$body_mass_g)))),
+             color = course_colors[1]) +
   geom_label(aes(4400, 20), 
              label = "平均値", 
+             color = course_colors[3],
              show.legend = FALSE) +
   geom_label(aes(4050, 50), 
              label = "中央値", 
+             color = course_colors[2],
              show.legend = FALSE) +
   geom_label(aes(3600, 80), 
              label = "最頻値", 
+             color = course_colors[1],
              show.legend = FALSE)
 ```
 
@@ -541,14 +551,14 @@ p +
 p1 <-
   penguins |> 
   ggplot(aes(body_mass_g)) +
-  geom_histogram(bins = 2) +
+  geom_histogram(bins = 2, fill = course_colors[1]) +
   ylab("Frequency") +
   xlab("Body mass (g)") +
   labs(title = "ペンギンの体重のヒストグラム。階級数2")
 p2 <-
   penguins |> 
   ggplot(aes(body_mass_g)) +
-  geom_histogram(bins = 30) +
+  geom_histogram(bins = 30, fill = course_colors[2]) +
   ylab("Frequency") +
   xlab("Body mass (g)") +
   labs(title = "ペンギンの体重のヒストグラム。階級数30")
@@ -633,9 +643,11 @@ df_zoo |>
   mutate(body_length_median = median(body_length_cm)) |> 
   ungroup() |> 
   mutate(taxon = forcats::fct_reorder(taxon, body_length_median)) |> 
-  ggplot(aes(taxon, body_length_cm)) +
+  ggplot(aes(taxon, body_length_cm, color = taxon)) +
   geom_boxplot() +
   coord_flip() +
+  scale_colour_tokupon() +
+  guides(color = "none") +
   labs(title = "動物データの分類群ごとの体長の箱ヒゲ図")
 ```
 

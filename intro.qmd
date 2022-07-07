@@ -88,9 +88,10 @@ p +
 #| fig-cap: ペンギンの体の大きさの関係を種名別に比較する
 #| warning: false
 #| dev: ragg_png
+source("scripts/color_palette.R")
 p + 
   geom_point(aes(color = species)) +
-  scale_color_discrete(name = "種名",
+  scale_colour_tokupon(name = "種名",
                        labels = c("アデリーペンギン", "ヒゲペンギン", "ジェンツーペンギン"))
 ```
 

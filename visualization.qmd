@@ -4,17 +4,9 @@ title: "グラフの作成"
 
 ```{r}
 #| include: false
-library(dplyr)
-library(ggplot2)
-library(patchwork)
-library(palmerpenguins)
-```
-
-```{r}
-#| include: false
 source("data-raw/zoo.R")
+source("data-raw/zoo_conservation.R")
 ```
-
 
 [データをグラフに表現する](data.qmd#データをグラフに表現する)では、ヒストグラムと箱ヒゲ図を紹介しました。
 
@@ -29,6 +21,26 @@ source("data-raw/zoo.R")
 グラフが示されたときに正しく読み解く能力を身につけるとともに、グラフを作成する立場になった場合に情報を正しく伝えられるか、誤解を招かない方法について紹介します。
 
 グラフの良し悪しを判断できるようになるためには、数多くのグラフを見ること、審美眼を養うこと、そしてデータ表現について批判できるようになるが重要です。
+
+章の中で利用するパッケージを次のコマンドで読み込みます。
+
+```{r}
+#| message: false
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+library(palmerpenguins)
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthhires)
+```
+
+また次のコマンドの実行は作図の塗り分けを行うための関数を読み込むための処理です。
+
+```{r}
+source("scripts/color_palette.R")
+```
+
 
 
 ## 探索的データ解析
@@ -97,8 +109,8 @@ anscombe_long |>
   group_by(set) |> 
   group_map(
     ~ ggplot(.x, aes(x, y)) +
-  geom_point(color = "orange") +
-  geom_smooth(method = lm, se = FALSE)) |> 
+  geom_point(color = course_colors[1]) +
+  geom_smooth(method = lm, se = FALSE, color = course_colors[2])) |> 
   wrap_plots(ncol = 2)
 ```
 
@@ -213,6 +225,7 @@ df_zoo |>
   filter(!is.na(body_length_cm)) |> 
   ggplot(aes(name, body_length_cm, fill = taxon)) +
   geom_bar(stat = "identity") +
+  scale_fill_tokupon() +
   xlab(NULL) +
   ylab("体長 (cm)") +
   labs(title = "とくしま動物園で飼育される動物の標準的な体長")
@@ -230,6 +243,7 @@ df_zoo |>
   filter(!is.na(body_length_cm)) |> 
   ggplot(aes(forcats::fct_reorder(name, body_length_cm), body_length_cm, fill = taxon)) +
   geom_bar(stat = "identity") +
+  scale_fill_tokupon() +
   coord_flip() +
   xlab(NULL) +
   ylab("体長 (cm)") +
@@ -283,6 +297,7 @@ df_zoo |>
   mutate(prop = n / sum(n) * 100) |> 
   ggplot(aes(x = "", y = prop, fill = taxon)) +
   geom_bar(stat = "identity", width = 1) +
+  scale_fill_tokupon() +
   coord_polar("y")
 ```
 
@@ -308,6 +323,7 @@ df_zoo |>
   arrange(taxon) |> 
   ggplot(aes(x = "", y = prop, fill = taxon)) +
   geom_bar(stat = "identity", width = 1) +
+  scale_fill_tokupon() +
   coord_polar("y", start = 0) +
   guides(fill = guide_legend(reverse = TRUE)) +
   theme(axis.text = element_blank())
@@ -320,19 +336,6 @@ df_zoo |>
 カルトグラム
 
 <!-- スノウのコレラの話 -->
-
-```{r}
-#| include: false
-source("data-raw/zoo_conservation.R")
-```
-
-```{r}
-#| message: false
-library(sf)
-library(rnaturalearth)
-library(rnaturalearthhires)
-library(dplyr)
-```
 
 ```{r}
 df_countries <-
