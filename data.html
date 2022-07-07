@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.651">
+<meta name="generator" content="quarto-0.9.653">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -323,10 +323,10 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 </header>
 
-<p>データを図で可視化する方法</p>
+<p>データ分析を行う上では「データ」のことを知らなくては進めません。 データの種類は数値だけではありません。さらに数値にもいくつかのタイプがあります。 最近ではビックデータや機械学習の普及によりログデータや画像、動画ファイルをデータとして扱う機会も増えていますが、ここではデータの種類として古くから存在する表形式のデータを例に解説します。</p>
 <section id="データの種類" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="データの種類"><span class="header-section-number">2.1</span> データの種類</h2>
-<p>データと言われて思い浮かべるものはなんでしょうか。 ここではデータをさまざまな計測や観察により得られる情報のことを示します。 対象から情報を引き出したものと言い換えることもできます。 多くは数値の形をしていますが、文字列である場合もあります。 例をあげてみましょう。 ある動物について、体の一部の大きさや体重を測る、雌雄を調べる。 これらはデータの一つです。</p>
+<p>データと言われて思い浮かべるものはなんでしょうか。 ここではデータをさまざまな計測や観察により得られる情報のことを示します。 対象から情報を引き出したものと言い換えることもできます。 多くは数値の形をしていますが、文字列である場合もあります。 データの例をあげてみましょう。 ある動物について、体の一部の大きさや体重を測る、雌雄を調べる。 これらはデータの一つです。 体の部位や体重は数値によって観測されますが、雌雄は「雄」や「雌」という文字列で記録されるのが一般的です。</p>
 <p>Rを使ったデータの記述方法を紹介します。 ここではある動物の種類についての体重と分類群を調べた結果を入力します。 <code>c()</code>関数<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>の括弧の中（<ruby>引数<rt>ひきすう</rt></ruby>）に値である数値や文字列を記述します。 値と値の間にカンマ <code>,</code> を入力すると複数の値を記述することになります。 数値は直接入力できますが、文字列を与えるときは引用符 <code>"</code> で文字列を囲む必要があります。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ある動物の種類についての体重と分類群を調べました</span></span>
@@ -345,7 +345,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <section id="変数の性質の違い" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="変数の性質の違い"><span class="header-section-number">2.1.1</span> 変数の性質の違い</h3>
 <p>体重を記録するときは数値を用いました。 このように<strong>数量を表す変数のことを量的変数</strong>といいます。 数値からなる変数なので、平均を求めたり大きい順番に並び替えるといった処理が可能です。</p>
-<p>量的変数の場合、数値の種類によってさらに離散変数と連続変数に分類できます。 <strong>変数の数値がとり得る値が一定の間隔によりバラバラなものを<ruby>離散<rt>りさん</rt></ruby>変数</strong>と呼びます。 例えばサイコロの出目は一般的に1から6までの整数であるため、離散変数です。 また動物を1頭、2頭と数えた個体数も同じです。</p>
+<p>量的変数の場合、数値の種類によってさらに離散変数と連続変数に分類できます。 <strong>とり得る値が一定の間隔によりバラバラな変数を<ruby>離散<rt>りさん</rt></ruby>変数</strong>と呼びます。 例えばサイコロの出目は一般的に1から6までの整数であるため、離散変数です。 また動物を1頭、2頭と数えた個体数も同じです。</p>
 <p>離散型の量的変数に対し、<strong>連続値で表現される変数を連続変数</strong>といいます。 3.5<span class="math inline">\(kg\)</span>、5.4<span class="math inline">\(kg\)</span>のように表現される体重は連続変数です。</p>
 <p>では雌雄や分類群はどのように記録するのが適切でしょうか。 これらは数量として扱いにくいものです。 「雄」や「雌」、「鳥類」や「霊長類」という具合に項目を変数として扱う場合、 それは<strong>質的変数</strong>またはカテゴリ変数と呼ばれます。 質的変数は量的変数のように足し算や引き算といった計算ができないのが特徴です。</p>
 <!-- 因子、水準 -->
