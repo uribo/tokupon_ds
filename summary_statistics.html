@@ -334,7 +334,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 </header>
 
-<p><a href="./intro.html#データ分析って何">データ分析の目的</a>の一つに「データを要約すること」があることを示しました。 それでは実際に、データの要約に取り組んでみましょう。 例として動物データの体長を表示します。</p>
+<p><a href="./intro.html#データ分析って何">データ分析の目的</a>の一つに「データを要約すること」があることを示しました。 それでは実際に、データの要約に取り組んでみましょう。 例として<a href="./dataset.html#とくしま動物園で飼育される動物の体の大きさと体重"><strong>動物データ</strong></a>の体長を表示します。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_zoo<span class="sc">$</span>body_length_cm</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -342,7 +342,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 [13]  31.0    NA   1.2 250.0  35.0  69.0    NA    NA  40.0    NA</code></pre>
 </div>
 </div>
-<p>このデータの特徴として言えることは何でしょうか？ 動物データに含まれるわずか22件の数値でも、こうした数値の羅列からデータの特徴を説明することは困難です。</p>
+<p>このデータの特徴として言えることは何でしょうか？ <strong>動物データ</strong>に含まれるわずか22件の数値でも、こうした数値の羅列からデータの特徴を説明することは困難です。</p>
 <p>データ分析で扱うデータの件数は数千、数万となる場合もあり、一つ一つデータを見ていくことも 現実的ではありません。 そこでデータを要約するために記述統計量（要約統計量）の計算や<strong>データの可視化</strong>が行われます。 記述統計量はデータ全体を表現する代わりとしてデータを要約したものとして機能します。 記述統計量は大きく分けるとデータの位置を示す値を提供する代表値とデータのばらつきを説明する値の2つに考えられます。 記述統計量を組み合わせてデータの分布を考えることで、データのすべてを説明しなくても十分にデータの内容を伝えることが可能になります。 データの可視化は、データを値そのものとして表現するのではなく、グラフやチャートを用いて説明を行うものです。 記述統計量では失われてしまう情報も、グラフ上に投影することで効果的に示せる可能性があります。</p>
 <section id="データの位置を示す代表値-平均値中央値最頻値" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="データの位置を示す代表値-平均値中央値最頻値"><span class="header-section-number">3.1</span> データの位置を示す代表値: 平均値、中央値、最頻値</h2>
@@ -371,7 +371,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 <p>平均値はその言葉の通り、データの真ん中あたりを示す代表値です。 しかし、「あたり」という点に注意してください。 <strong>平均値は必ずしもデータの真ん中を示す値ではありません</strong>。</p>
-<p>平均値を扱うときは<ruby>外れ値<rt>はずれち</rt></ruby>の影響を受けやすい性質があるを理解しておきましょう。 外れ値とはデータの中の極端に大きい・小さい値のことです。 次に示す、動物データの一部の動物の体重について平均値がどのくらいになるか考えてみましょう。</p>
+<p>平均値を扱うときは<ruby>外れ値<rt>はずれち</rt></ruby>の影響を受けやすい性質があるを理解しておきましょう。 外れ値とはデータの中の極端に大きい・小さい値のことです。 次に示す、<strong>動物データ</strong>の一部の動物の体重について平均値がどのくらいになるか考えてみましょう。</p>
 <div class="cell" data-df-print="kable">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_zoo_subset <span class="ot">&lt;-</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  df_zoo <span class="sc">|&gt;</span> </span>
@@ -449,7 +449,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <pre><code>[1] 5</code></pre>
 </div>
 </div>
-<p>中央値はデータの値に関わらず、順番だけを気にするために外れ値が含まれている場合でも影響を受けません。 先ほどの動物データの一部に対しても中央値を求めましょう。</p>
+<p>中央値はデータの値に関わらず、順番だけを気にするために外れ値が含まれている場合でも影響を受けません。 先ほどの<strong>動物データ</strong>の一部に対しても中央値を求めましょう。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(df_zoo_subset<span class="sc">$</span>weight_kg)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -476,7 +476,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="四分位点"><span class="header-section-number">3.1.3</span> 四分位点</h3>
 <p>中央値の考え方を拡張したものとして四分位点があります。 これはデータを小さい方から並び替えたとき、<strong>データ全体を均等な数からなる4つのグループに分ける3つの点（値）</strong>のことを指します。 各グループ区切りの値となる点をそれぞれ第1四分位点（25パーセンタイル)）、第2四分位点（50パーセンタイル）、第3四分位点（75パーセンタイル）と呼びます。 第2四分位点はデータの値を並び替えたときの真ん中となる値、つまり中央値です。 また、パーセンタイルというのは値を小さい方から並び替えたときの最後の値の位置を100としたときの四分位点の位置を示す値です。 つまり最小値は0パーセンタイル、最大値は100パーセンタイルとなります。</p>
 <p>データの半分が含まれる第1四分位点から第3四分位数までの範囲のことを四分位範囲と呼びます。 四分位範囲は第3四分位点から第1四分位点の値を引くことで求められます。</p>
-<p>ペンギンデータの翼の長さ (<code>flipper_length_mm</code>)について四分位点を確認しましょう。 まずはおさらいとして中央値を求めます。</p>
+<p><a href="./dataset.html#南極大陸に生育するペンギンの大きさについての観測データ"><strong>ペンギンデータ</strong></a>の翼の長さ (<code>flipper_length_mm</code>)について四分位点を確認しましょう。 まずはおさらいとして中央値を求めます。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>flipper_length_mm</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -562,7 +562,7 @@ pp. 120-121
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>動物データに対して平均値や中央値、最頻値を求めてみよう。 Rにはここで紹介した<code>mean()</code>や<code>median()</code>以外にも 代表値の算出を行う関数が用意されているよ。 それらについて調べて実行してみよう。</p>
+<p><strong>動物データ</strong>に対して平均値や中央値、最頻値を求めてみよう。 Rにはここで紹介した<code>mean()</code>や<code>median()</code>以外にも 代表値の算出を行う関数が用意されているよ。 それらについて調べて実行してみよう。</p>
 <p>コードの例と解説は<a href="./exercise.html">練習問題</a>をみてね。</p>
 </div>
 </div>
@@ -572,7 +572,7 @@ pp. 120-121
 <h2 data-number="3.2" class="anchored" data-anchor-id="データのばらつき"><span class="header-section-number">3.2</span> データのばらつき</h2>
 <p>代表値によって、データが分布する大まかな位置を知ることができるようになりました。 一方で外れ値を含む平均値や単純な頻度で求める最頻値のように、分布の形を推定することはできません。 外れ値によって中心がずれているかもしれませんし、最頻値が中心であるという保証はないのです。</p>
 <p>そこで今度はデータのもつばらつきを考えてみます。 データは代表値から離れて分布しているのか、代表値の周辺に集中しているのか。 データの大まかな中心としての代表値とそのばらつきを知ることで、データの分布についておおよその傾向が掴めるようになります。</p>
-<p>ばらつき具合を数値で表現する方法として代表的なものに、範囲、分散、標準偏差があります。 ここでも動物データを例にして算出方法をみていきましょう。</p>
+<p>ばらつき具合を数値で表現する方法として代表的なものに、範囲、分散、標準偏差があります。 ここでも<strong>動物データ</strong>を例にして算出方法をみていきましょう。</p>
 <section id="範囲" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="範囲"><span class="header-section-number">3.2.1</span> 範囲</h3>
 <p>範囲はもっとも単純で、データの最小値と最大値から求めます。 Rでは最小値、最大値を求める関数としてそれぞれ<code>min()</code>関数、<code>max()</code>関数が用意されています。 また、最小値・最大値を同時に出力する<code>range()</code>関数も利用できます。 これらの関数はいずれも対象の変数を与えることで計算が行われます。</p>
@@ -798,7 +798,7 @@ pp. 120-121
 </div>
 </div>
 <p>対象が量的変数の場合は頻度を簡単に求めることができます。 それでは量的変数、特に連続変数に対し度数を求めるにはどうすれば良いでしょうか。 量的変数に対して連続変数では同じ値をとることが少ないです。 そのため連続変数の度数を求めるときは、<strong>変数がとり得る値をいくつかの区間に分割した階級(class)を考えます</strong>。 このときの区間の幅を階級幅と呼びます。</p>
-<p>ペンギンデータに含まれる体重を例として、まずは階級分けのために、まずは変数の最小値と最大値を調べましょう。 Rでは最小値・最大値を調べるのに<code>range()</code>関数が利用できることを思い出しましょう。</p>
+<p><strong>ペンギンデータ</strong>に含まれる体重を例として、まずは階級分けのために、まずは変数の最小値と最大値を調べましょう。 Rでは最小値・最大値を調べるのに<code>range()</code>関数が利用できることを思い出しましょう。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -822,7 +822,7 @@ pp. 120-121
 <pre><code>[1] 6300</code></pre>
 </div>
 </div>
-<p>最小値と最大値がわかったところで、次は階級と階級幅を設定します。 階級はデータ中のすべての値が含まれるようにします。 ペンギンデータの体重の最小値は2700、最大値は6300ですので、 2000から7000までの階級を設定しておきましょう。 この場合、階級幅を区切りが良い1000とすると階級数は5つあることになります。</p>
+<p>最小値と最大値がわかったところで、次は階級と階級幅を設定します。 階級はデータ中のすべての値が含まれるようにします。 <strong>ペンギンデータ</strong>の体重の最小値は2700、最大値は6300ですので、 2000から7000までの階級を設定しておきましょう。 この場合、階級幅を区切りが良い1000とすると階級数は5つあることになります。</p>
 <p>つづいて、階級ごとに含まれる値の件数を数えます。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>weight_freq <span class="ot">&lt;-</span> </span>
@@ -874,7 +874,7 @@ pp. 120-121
 </div>
 </div>
 </div>
-<p>以上の手順が量的変数に対する度数分布表の求め方です。 ペンギンデータの体重についての度数分布表を作成することができました(<a href="#tbl-penguins_weight_freq">表&nbsp;<span>3.1</span></a>)。 3000から4000の区間に含まれる値が最も多く、その次に4000から5000の区間の値、そのほかの区間の値はわずかということがわかります。</p>
+<p>以上の手順が量的変数に対する度数分布表の求め方です。 <strong>ペンギンデータ</strong>の体重についての度数分布表を作成することができました(<a href="#tbl-penguins_weight_freq">表&nbsp;<span>3.1</span></a>)。 3000から4000の区間に含まれる値が最も多く、その次に4000から5000の区間の値、そのほかの区間の値はわずかということがわかります。</p>
 <div class="cell">
 
 </div>
@@ -1009,7 +1009,7 @@ pp. 120-121
 <p></p><figcaption aria-hidden="true" class="figure-caption">図 3.5: 箱ヒゲ図の見方と作り方</figcaption><p></p>
 </figure>
 </div>
-<p>動物データの体重について箱ヒゲ図を作成してみます (<a href="#fig-zoo_body_length_boxplot">図&nbsp;<span>3.6</span></a>)。 箱とヒゲについての意味を理解しておく必要がありますが、ヒストグラムのようにデータの分布を確認することができる図となっています。</p>
+<p><strong>動物データ</strong>の体重について箱ヒゲ図を作成してみます (<a href="#fig-zoo_body_length_boxplot">図&nbsp;<span>3.6</span></a>)。 箱とヒゲについての意味を理解しておく必要がありますが、ヒストグラムのようにデータの分布を確認することができる図となっています。</p>
 <p>また箱ヒゲ図の作成方法は上記のものの他に最大値と最小値をヒゲとして利用するものがあります。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
@@ -1025,7 +1025,7 @@ pp. 120-121
 </div>
 </div>
 </div>
-<p>箱ヒゲ図は異なる複数のデータのばらつきを比較する際にも役立ちます。 ヒストグラムでは複数のデータを比較することが困難ですが、箱ヒゲ図では箱ヒゲを90度回転させて横に描画することで複数データの比較が容易になります。 <a href="#fig-zoo_body_length_boxplot_by_taxon">図&nbsp;<span>3.7</span></a> は動物データの分類群ごとに体長の箱ヒゲ図を作成したものです。 箱ヒゲ図ではデータの散らばりが小さい場合には小さくなり、逆に散らばりが大きい時には大きくなります。 このことから、動物データに含まれる動物のうち、食肉類の体長は種の違いが大きく、霊長類は種のばらつきが小さいことが読み取れます。</p>
+<p>箱ヒゲ図は異なる複数のデータのばらつきを比較する際にも役立ちます。 ヒストグラムでは複数のデータを比較することが困難ですが、箱ヒゲ図では箱ヒゲを90度回転させて横に描画することで複数データの比較が容易になります。 <a href="#fig-zoo_body_length_boxplot_by_taxon">図&nbsp;<span>3.7</span></a> は<strong>動物データ</strong>の分類群ごとに体長の箱ヒゲ図を作成したものです。 箱ヒゲ図ではデータの散らばりが小さい場合には小さくなり、逆に散らばりが大きい時には大きくなります。 このことから、<strong>動物データ</strong>に含まれる動物のうち、食肉類の体長は種の違いが大きく、霊長類は種のばらつきが小さいことが読み取れます。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分類群ごとの箱ヒゲ図を描画</span></span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="co"># あらかじめ中央値を計算し、グラフ上では中央値の並びで分類群が表示されるように</span></span>
