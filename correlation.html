@@ -149,6 +149,7 @@ gtag('js', new Date());
 gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -291,14 +292,16 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#データ分析における2つの関係" id="toc-データ分析における2つの関係" class="nav-link active" data-scroll-target="#データ分析における2つの関係"> <span class="header-section-number">4.1</span> データ分析における2つの関係</a></li>
-  <li><a href="#相関-2つの変数の間の関係" id="toc-相関-2つの変数の間の関係" class="nav-link" data-scroll-target="#相関-2つの変数の間の関係"> <span class="header-section-number">4.2</span> 相関: 2つの変数の間の関係</a>
+  <li><a href="#相関-2つの変数の間の関係" id="toc-相関-2つの変数の間の関係" class="nav-link" data-scroll-target="#相関-2つの変数の間の関係"> <span class="header-section-number">4.2</span> 相関: 2つの変数の間の関係</a></li>
+  <li><a href="#つの変数の関係を数値的に評価する" id="toc-つの変数の関係を数値的に評価する" class="nav-link" data-scroll-target="#つの変数の関係を数値的に評価する"> <span class="header-section-number">4.3</span> 2つの変数の関係を数値的に評価する</a>
   <ul class="collapse">
-  <li><a href="#相関係数" id="toc-相関係数" class="nav-link" data-scroll-target="#相関係数"> <span class="header-section-number">4.2.1</span> 相関係数</a></li>
+  <li><a href="#共分散" id="toc-共分散" class="nav-link" data-scroll-target="#共分散"> <span class="header-section-number">4.3.1</span> 共分散</a></li>
+  <li><a href="#相関係数" id="toc-相関係数" class="nav-link" data-scroll-target="#相関係数"> <span class="header-section-number">4.3.2</span> 相関係数</a></li>
   </ul></li>
-  <li><a href="#散布図" id="toc-散布図" class="nav-link" data-scroll-target="#散布図"> <span class="header-section-number">4.3</span> 散布図</a></li>
-  <li><a href="#クロス集計表" id="toc-クロス集計表" class="nav-link" data-scroll-target="#クロス集計表"> <span class="header-section-number">4.4</span> クロス集計表</a></li>
-  <li><a href="#まとめと課題" id="toc-まとめと課題" class="nav-link" data-scroll-target="#まとめと課題"> <span class="header-section-number">4.5</span> まとめと課題</a></li>
-  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">4.6</span> 参考文献・URL</a></li>
+  <li><a href="#散布図" id="toc-散布図" class="nav-link" data-scroll-target="#散布図"> <span class="header-section-number">4.4</span> 散布図</a></li>
+  <li><a href="#クロス集計表" id="toc-クロス集計表" class="nav-link" data-scroll-target="#クロス集計表"> <span class="header-section-number">4.5</span> クロス集計表</a></li>
+  <li><a href="#まとめと課題" id="toc-まとめと課題" class="nav-link" data-scroll-target="#まとめと課題"> <span class="header-section-number">4.6</span> まとめと課題</a></li>
+  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">4.7</span> 参考文献・URL</a></li>
   </ul>
 </nav>
     </div>
@@ -335,7 +338,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <section id="相関-2つの変数の間の関係" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="相関-2つの変数の間の関係"><span class="header-section-number">4.2</span> 相関: 2つの変数の間の関係</h2>
 <p>2つの量的変数の関係性を明らかにするために、相関という考え方を導入します。 ペンギンデータでは翼と口ばしの長さの関係を見ました。 これらの変数のように、互いの値が増えれば片方も増えるという傾向を示す関係を正の相関関係といいます。 一方、片方の変数の値が増えたときにもう片方の値が減少する場合、負の相関関係があるといいます。 この2つの関係に加えて、相関にはもう一つの関係があります。 それは変数の間に関係が見られない状態です。このことを無相関と呼びます。</p>
-<p>変数間の相関関係はグラフ上に表現すると傾向を掴みやすくなります。 <strong>散布図</strong>と呼ばれる2つの変数を視覚的に扱うグラフを利用して相関関係を整理してみましょう<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。 <a href="#fig-correlation">図&nbsp;<span>4.1</span></a> に相関関係を表わす3つの状態を示しました。</p>
+<p>変数間の相関関係はグラフ上に表現すると傾向を掴みやすくなります。 <strong>散布図</strong>と呼ばれる2つの変数を視覚的に扱うグラフを利用して相関関係を整理してみましょう[^ch4-1]。 <a href="#fig-correlation">図&nbsp;<span>4.1</span></a> に相関関係を表わす3つの状態を示しました。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
@@ -377,9 +380,169 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<section id="相関係数" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="相関係数"><span class="header-section-number">4.2.1</span> 相関係数</h3>
-<p>2つの変数の関係について、数値的に評価する方法として相関係数が用いられます。 <strong>相関係数は2つの変数の間の直線的な関係の強さを評価する指標</strong>です。 -1以上から1以下の値をとり、変数の関係が強いほど、散布図にしたときに直線関係に近いものほど、絶対値が1に近づきます。</p>
+<p>散布図は2つの対となる量的変数について、それぞれグラフの縦軸（y軸）と横軸（x軸）からなる平面上に値を投影します。ある変数の値が2であるとき、もう片方の変数の値が3であればグラフの座標は<span class="math inline">\((2,3)\)</span>となり、そこに点が打たれることになります。 [^ch4-1]: <a href="./intro.html#データ分析って何">はじめに</a>の中でペンギンデータの体の部位の関係を見たときに使われていた（<a href="intro.html#fig-penguins">図&nbsp;<span>1.1</span></a>）のも散布図です。 散布図では縦軸と横軸に表示する変数を入れ替えた場合でも同様の相関関係を見ることができます。</p>
+</section>
+<section id="つの変数の関係を数値的に評価する" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="つの変数の関係を数値的に評価する"><span class="header-section-number">4.3</span> 2つの変数の関係を数値的に評価する</h2>
+<p>散布図によって、2つの変数の関係がありそうなのかなさそうなのか、おおよその傾向をつかむことができます。 しかし客観的に関係を評価するためには別の観点でデータを見る必要があります。 数値によって関係の強さを評価する方法として、共分散や相関係数があります。 これらの指標は、ある変数の値が変わったとき、もう片方の変数の値はどう変わるかを数値的に表現します。</p>
+<section id="共分散" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="共分散"><span class="header-section-number">4.3.1</span> 共分散</h3>
+<p>2つの変数の関係を数値的に評価するとき、散布図に表示したように扱う変数を<span class="math inline">\(x\)</span>と<span class="math inline">\(y\)</span>の関係として見ていくことになります。 2つの変数の組を<span class="math inline">\((x_1, y_1), ... (x_n, y_n)\)</span>、これは、一つ目の<span class="math inline">\(x\)</span>変数の値、一つ目の<span class="math inline">\(y\)</span>変数の値から、データに含まれる数までの<span class="math inline">\(x\)</span>変数の値、データに含まれる数(<span class="math inline">\(n\)</span>と表します)までの<span class="math inline">\(y\)</span>変数の値を一つずつ見ることと同じ意味としたとき、共分散<span class="math inline">\(Cov_{xy}\)</span>は次のように計算できます<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。</p>
+<p><span class="math display">\[
+Cov_{xy} = \frac{1}{n} \sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})
+\]</span></p>
+<p>難しそうな記号<span class="math inline">\(\sum\)</span>（シグマ、日本語では<ruby>総和<rt>そうわ</rt></ruby>と読みます。）が出てきましたが、一つずつ進めていきましょう。 ここで出てきた<span class="math inline">\(\bar{x},\bar{y}\)</span>は<span class="math inline">\(x,y\)</span>の平均値を表します。 <span class="math inline">\((x_i - \bar{x})\)</span>ということは、<span class="math inline">\(i\)</span>番目の<span class="math inline">\(x\)</span>変数の値と<span class="math inline">\(x\)</span>の平均値との差、すなわち偏差を求めることになります。 これは<span class="math inline">\(x\)</span>だけでなく<span class="math inline">\((y_i - \bar{y})\)</span>とあるように<span class="math inline">\(y\)</span>についても同様です。 <span class="math inline">\(x\)</span>変数と<span class="math inline">\(y\)</span>変数について偏差を求めたら、それを掛け合わせます。</p>
+<p>さて先ほど<span class="math inline">\(i\)</span>番目の値について偏差を求めると言いましたが、 これは具体的に何番目の数値を示しているのでしょうか。 数学では、<span class="math inline">\(x\)</span>についてのすべての値を足すときに<span class="math inline">\(x_1 + x_2 + ... + x_n\)</span>と書けますが、これを簡略化したものとして <span class="math inline">\(\sum\)</span>を用います。 <span class="math inline">\(\sum\)</span>には上下に添字がつくことがあり、下の部分はどこから始めてということを意味する記号、上の部分にはどこまでかを示す記号を付け加えます。 そして<span class="math inline">\(\sum\)</span>の右側には足し合わされる内容を記述します。 このことを理解して先ほどの共分散の計算式に戻ります。</p>
+<p>共分散の式では、偏差の計算を行う際に<span class="math inline">\(i\)</span>が使われています。 また<span class="math inline">\(\sum_{i=1}^{n}\)</span>を言語化すると「1から始めて<span class="math inline">\(n\)</span>まで足す」となります。 つまり偏差を変数<span class="math inline">\(x\)</span>、<span class="math inline">\(y\)</span>のすべてのデータに対して求めて掛け合わせた値を足すことになります。 最後にデータの数<span class="math inline">\(n\)</span>で割ることで共分散が計算されます。</p>
+<p>実際に値を見ながら計算を行いましょう。 ここでは単純に、データのすべてではなく2つのデータまでで共分散を求める、ということをやってみます。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ペンギンデータから2件分を取り出して共分散を求めます</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(flipper_length_mm, bill_length_mm)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: right;">flipper_length_mm</th>
+<th style="text-align: right;">bill_length_mm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">181</td>
+<td style="text-align: right;">39.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">39.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 平均、偏差を求めます</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(),<span class="at">.fns =</span> mean, <span class="at">.names =</span> <span class="st">"{.col}_mean"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">flipper_length_deviation =</span> flipper_length_mm <span class="sc">-</span> flipper_length_mm_mean,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">bill_length_deviation =</span> bill_length_mm <span class="sc">-</span> bill_length_mm_mean)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">flipper_length_mm</th>
+<th style="text-align: right;">bill_length_mm</th>
+<th style="text-align: right;">flipper_length_mm_mean</th>
+<th style="text-align: right;">bill_length_mm_mean</th>
+<th style="text-align: right;">flipper_length_deviation</th>
+<th style="text-align: right;">bill_length_deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">181</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">183.5</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">-2.5</td>
+<td style="text-align: right;">-0.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">39.5</td>
+<td style="text-align: right;">183.5</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">0.2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>この値を式に当てはめます。<span class="math inline">\(n\)</span>を2として置き換えます。</p>
+<p><span class="math display">\[
+Cov_{xy} = \frac{1}{2} \sum_{i=1}^{2}(x_i - \bar{x})(y_i - \bar{y}) \\
+=\frac{1}{2} ( (181-183.5)(39.1-39.3)+(186-183.5)(39.5-39.3))　\\
+=0.5
+\]</span></p>
+<!-- ( (181-183.5)*(39.1-39.3)+(186-183.5)*(39.5-39.3) ) -->
+<p>となります。Rでも同じ計算を実行します。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">deviation_cross =</span> flipper_length_deviation <span class="sc">*</span> bill_length_deviation) <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(deviation_cross) <span class="sc">|&gt;</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>() <span class="sc">/</span> <span class="fu">nrow</span>(df)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5</code></pre>
+</div>
+</div>
+<p>先ほどの共分散の算出では、最終的にデータの件数<span class="math inline">\(n\)</span>によって割りました。 しかしRの標準的な偏差を求める関数<code>cov()</code>は<span class="math inline">\(n-1\)</span>で割る処理を行います。 この方法で求めれらる共分散は不偏共分散と呼ばれるものです。 得られたデータには偏りがあることを想定し、その偏りを除外する目的で1が引かれます。 話が難しくなりますので、これ以上の説明は参考文献に譲ります。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rでは n -1 で割る不偏共分散が計算される</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(df<span class="sc">$</span>flipper_length_mm, df<span class="sc">$</span>bill_length_mm)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nで割る共分散を知りたい場合</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(df<span class="sc">$</span>flipper_length_mm, df<span class="sc">$</span>bill_length_mm) <span class="sc">*</span> (<span class="fu">nrow</span>(df)<span class="sc">-</span><span class="dv">1</span>) <span class="sc">/</span> <span class="fu">nrow</span>(df)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5</code></pre>
+</div>
+</div>
+<p>共分散と散布図の関係は、共分散の値が正のときには右上がりの散布図、共分散が負の値であれば散布図は右下がりとなります。 また、散布図の中でデータがまんべんなく散らばっている場合、共分散は0に近い値となります。</p>
+<p>共分散は、値が大きいほど2変数の関係が強いことを示します。 しかし共分散の短所は変数の単位に依存して値が変わることです。</p>
+<p>単位の影響の例として、ミリメートル(mm)で記録されるペンギンデータの翼とくちばしの長さについて、 センチメートル(cm)に単位を変換した場合に共分散がどのように変化するのかを示します。</p>
+<div class="cell">
+<details>
+<summary>コードを表示</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_cm <span class="ot">&lt;-</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(flipper_length_mm, bill_length_mm) <span class="sc">|&gt;</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="fu">c</span>(<span class="st">"flipper_length"</span>, <span class="st">"bill_length"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="at">.fns =</span> <span class="sc">~</span> .x <span class="sc">/</span> <span class="dv">10</span>, <span class="at">.names =</span> <span class="st">"{.col}_cm"</span>))</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(df_cm<span class="sc">$</span>flipper_length_cm, df_cm<span class="sc">$</span>bill_length_cm)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01</code></pre>
+</div>
+</div>
+<p>2つの変数の値の関係が変わった訳ではないのに、ミリメートルのときの共分散よりも小さな値になってしまいました。 これでは変数の関係を正しく評価できません。 そこでこの単位依存の問題を修正した尺度として相関係数が登場します。</p>
+</section>
+<section id="相関係数" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="相関係数"><span class="header-section-number">4.3.2</span> 相関係数</h3>
+<p>共分散の単位依存の性質は、共分散を各変数の<a href="./summary_statistics.html#分散と標準偏差">標準偏差</a>の積で割ることで解消できます。 これを相関係数と呼びます。 相関係数(<span class="math inline">\(r\)</span>)は次の式で定義されます。</p>
+<p><span class="math display">\[
+r = \frac{Cov_{xy}}{\sqrt{\frac{1}{n}\sum_{i=i}^{n}{(x_i - \bar{x})^2}} \sqrt{\frac{1}{n}\sum_{i=i}^{n}{(y_i - \bar{y})^2}}}
+\]</span></p>
+<!-- 標準化 -->
+<p><strong>相関係数は2つの変数の間の直線的な関係の強さを評価する指標</strong>です。 -1以上から1以下の値をとり、変数の関係が強いほど、散布図にしたときに直線関係に近いものほど、絶対値が1に近づきます。</p>
 <p>相関係数にはいくつかの種類があり、中でもピアソンの積率相関係数が最も頻繁に利用されます<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。 本書でも、相関係数といった時にはピアソンの積率相関係数を指して使います。</p>
 <div class="callout-warning tokupon_none callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -397,7 +560,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </div>
 <p>Rでは相関係数の算出を<code>cor.test()</code>関数によって行います。 <span class="citation" data-cites="fig_correlation">(<a href="references.html#ref-fig_correlation" role="doc-biblioref"><strong>fig_correlation?</strong></a>)</span> で示した3つの状態について、それぞれ相関係数を算出すると次の値になります。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">formula =</span> <span class="sc">~</span> x <span class="sc">+</span> y_positive, <span class="at">data =</span> df_corr) <span class="co"># 正の相関関係</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">formula =</span> <span class="sc">~</span> x <span class="sc">+</span> y_positive, <span class="at">data =</span> df_corr) <span class="co"># 正の相関関係</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -411,7 +574,7 @@ sample estimates:
      cor 
 0.829446 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">formula =</span> <span class="sc">~</span> x <span class="sc">+</span> y, <span class="at">data =</span> df_corr) <span class="co"># 無相関</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">formula =</span> <span class="sc">~</span> x <span class="sc">+</span> y, <span class="at">data =</span> df_corr) <span class="co"># 無相関</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -425,7 +588,7 @@ sample estimates:
         cor 
 -0.04953215 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">formula =</span> <span class="sc">~</span> x <span class="sc">+</span> y_negative, <span class="at">data =</span> df_corr) <span class="co"># 負の相関関係</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">formula =</span> <span class="sc">~</span> x <span class="sc">+</span> y_negative, <span class="at">data =</span> df_corr) <span class="co"># 負の相関関係</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -443,9 +606,9 @@ sample estimates:
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 相関係数はデータの測定単位に依存しない</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="fu">scale</span>(df_zoo<span class="sc">$</span>body_length_cm), </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">scale</span>(df_zoo<span class="sc">$</span>weight_kg))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 相関係数はデータの測定単位に依存しない</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="fu">scale</span>(df_zoo<span class="sc">$</span>body_length_cm), </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">scale</span>(df_zoo<span class="sc">$</span>weight_kg))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -464,9 +627,9 @@ sample estimates:
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 動物データについて相関係数を求める</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(df_zoo<span class="sc">$</span>body_length_cm, df_zoo<span class="sc">$</span>weight_kg)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 動物データについて相関係数を求める</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(df_zoo<span class="sc">$</span>body_length_cm, df_zoo<span class="sc">$</span>weight_kg)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -488,15 +651,15 @@ sample estimates:
 <p>外れ値が相関係数に及ぼす影響</p>
 </section>
 </section>
-<section id="散布図" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="散布図"><span class="header-section-number">4.3</span> 散布図</h2>
+<section id="散布図" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="散布図"><span class="header-section-number">4.4</span> 散布図</h2>
 <p>2変数のデータに対するグラフ表現として<strong>散布図</strong>があります。 関心のある2つの量的変数を縦軸と横軸にとり、それぞれの値を2グラフ上に投影した図で、2変数の関係を示すために広く利用されます。</p>
 <p>ペンギンデータの口ばしの長さと翼の長さの関係を散布図で表してみましょう。 まずはデータを確認します。</p>
 <div class="cell" data-df-print="paged">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(bill_length_mm, flipper_length_mm)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(bill_length_mm, flipper_length_mm)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
@@ -1894,9 +2057,9 @@ sample estimates:
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(bill_length_mm, flipper_length_mm)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(bill_length_mm, flipper_length_mm)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
@@ -1912,18 +2075,18 @@ sample estimates:
 </div>
 <!-- 共分散... データの測定単位に依存。平均からの偏差 -->
 </section>
-<section id="クロス集計表" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="クロス集計表"><span class="header-section-number">4.4</span> クロス集計表</h2>
+<section id="クロス集計表" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="クロス集計表"><span class="header-section-number">4.5</span> クロス集計表</h2>
 <p>質的変数の変数間の関係を調べる方法を紹介します。 <strong>ペンギンデータ</strong>には、種の名前 species、生育する島の名前 island、性別 sex の3つの質的変数があります。 これらの質的変数間の関係を調べるためにクロス集計表を用います。</p>
 <p>クロス集計表では、対象の質的変数に含まれる件数をカウントし、表にまとめます。 表の行・列には変数の項目が並びます。 <a href="#tbl-penguins_sp_islands">表&nbsp;<span>4.1</span></a> にペンギンデータにおける島ごとの種数を整理しました。</p>
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species, island) <span class="sc">|&gt;</span> </span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> island, <span class="at">values_from =</span> n, <span class="at">values_fill =</span> <span class="dv">0</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species, island) <span class="sc">|&gt;</span> </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> island, <span class="at">values_from =</span> n, <span class="at">values_fill =</span> <span class="dv">0</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
@@ -1972,24 +2135,32 @@ sample estimates:
 <p>クロス集計表の利用によって1変数を調べただけではわからなかった質的変数の特徴を知ることができました。</p>
 <p>クロス集計表によって、データの比較が行いやすくなりましたが、 その差は本当にデータの性質を反映しているのでしょうか。 統計的な手法を用いることで、このような差の有無を判断できるようになります。 「なんとなく差がある」結果を<strong>統計的仮説検定</strong>を行うことで客観的に評価できるようになります。</p>
 </section>
-<section id="まとめと課題" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="まとめと課題"><span class="header-section-number">4.5</span> まとめと課題</h2>
+<section id="まとめと課題" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="まとめと課題"><span class="header-section-number">4.6</span> まとめと課題</h2>
 <ul>
 <li>相関の例を探してみよう。擬似相関や因果関係とは違うか考えてみよう。</li>
 </ul>
 </section>
-<section id="参考文献url" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">4.6</span> 参考文献・URL</h2>
+<section id="参考文献url" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">4.7</span> 参考文献・URL</h2>
 <ul>
+<li><span class="citation" data-cites="R300000001-I023292602-00">(<a href="references.html#ref-R300000001-I023292602-00" role="doc-biblioref">編著 2012</a>)</span></li>
 <li><span class="citation" data-cites="R300000001-I030221455-00">(<a href="references.html#ref-R300000001-I030221455-00" role="doc-biblioref">日本統計学会 2020</a>)</span></li>
+<li><span class="citation" data-cites="R300000001-I027849441-00">(<a href="references.html#ref-R300000001-I027849441-00" role="doc-biblioref">嶋田正和 2017</a>)</span></li>
 <li><span class="citation" data-cites="R300000001-I031803943-00">(<a href="references.html#ref-R300000001-I031803943-00" role="doc-biblioref">阿部真人 2021</a>)</span></li>
 <li><span class="citation" data-cites="R300000001-I030185215-00">(<a href="references.html#ref-R300000001-I030185215-00" role="doc-biblioref">著, 監訳, と 訳 2020</a>)</span></li>
 </ul>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-R300000001-I027849441-00" class="csl-entry" role="doc-biblioentry">
+嶋田正和阿部真人 著. 2017. <em>Rで学ぶ統計学入門</em>. 東京化学同人. <a href="http://id.ndl.go.jp/bib/027849441">http://id.ndl.go.jp/bib/027849441</a>.
+</div>
 <div id="ref-R300000001-I030221455-00" class="csl-entry" role="doc-biblioentry">
 日本統計学会. 2020. <em>データの分析 : 日本統計学会公式認定統計検定3級対応</em>. 改訂版. 東京図書. <a href="http://id.ndl.go.jp/bib/030221455">http://id.ndl.go.jp/bib/030221455</a>.
+</div>
+<div id="ref-R300000001-I023292602-00" class="csl-entry" role="doc-biblioentry">
+編著. 2012. <em>回帰分析入門 : Rで学ぶ最新データ解析</em>. 東京図書. <a href="http://id.ndl.go.jp/bib/023292602">http://id.ndl.go.jp/bib/023292602</a>.
 </div>
 <div id="ref-R300000001-I030185215-00" class="csl-entry" role="doc-biblioentry">
 著Steven S.Skiena, 監訳, と 訳. 2020. <em>データサイエンス設計マニュアル</em>. オライリー・ジャパン. <a href="http://id.ndl.go.jp/bib/030185215">http://id.ndl.go.jp/bib/030185215</a>.
@@ -2002,7 +2173,7 @@ sample estimates:
 <section class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1" role="doc-endnote"><p><a href="./intro.html#データ分析って何">はじめに</a>の中でペンギンデータの体の部位の関係を見たときに使われていた（<a href="intro.html#fig-penguins">図&nbsp;<span>1.1</span></a>）のも散布図です。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>共分散は英語でcovarianceです。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>スピアマンの順位相関係数、ケンドールの順位相関係数などがあります。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
