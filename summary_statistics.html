@@ -486,7 +486,13 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </section>
 <section id="四分位点" class="level3" data-number="3.1.3">
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="四分位点"><span class="header-section-number">3.1.3</span> 四分位点</h3>
-<p>中央値の考え方を拡張したものとして四分位点があります。 これはデータを小さい方から並び替えたとき、<strong>データ全体を均等な数からなる4つのグループに分ける3つの点（値）</strong>のことを指します。 各グループ区切りの値となる点をそれぞれ第1四分位点（25パーセンタイル)）、第2四分位点（50パーセンタイル）、第3四分位点（75パーセンタイル）と呼びます。 第2四分位点はデータの値を並び替えたときの真ん中となる値、つまり中央値です。 また、パーセンタイルというのは値を小さい方から並び替えたときの最後の値の位置を100としたときの四分位点の位置を示す値です。 つまり最小値は0パーセンタイル、最大値は100パーセンタイルとなります。</p>
+<p>中央値の考え方を拡張したものとして四分位点があります。 これはデータを小さい方から並び替えたとき、<strong>データ全体を均等な数からなる4つのグループに分ける3つの点（値）</strong>のことを指します。 各グループ区切りの値となる点をそれぞれ第1四分位点（25パーセンタイル)）、第2四分位点（50パーセンタイル）、第3四分位点（75パーセンタイル）と呼びます。 第2四分位点はデータの値を並び替えたときの真ん中となる値、つまり中央値です(<a href="#fig-quantile_explain">図&nbsp;<span>3.2</span></a>)。 また、パーセンタイルというのは値を小さい方から並び替えたときの最後の値の位置を100としたときの四分位点の位置を示す値です。 つまり最小値は0パーセンタイル、最大値は100パーセンタイルとなります。</p>
+<div id="fig-quantile_explain" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/quantile_explain.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.2: 四分位点のイメージ</figcaption><p></p>
+</figure>
+</div>
 <p>データの半分が含まれる第1四分位点から第3四分位数までの範囲のことを四分位範囲と呼びます。 四分位範囲は第3四分位点から第1四分位点の値を引くことで求められます。</p>
 <p><a href="./dataset.html#南極大陸に生育するペンギンの大きさについての観測データ"><strong>ペンギンデータ</strong></a>の翼の長さ (<code>flipper_length_mm</code>)について四分位点を確認しましょう。 まずはおさらいとして中央値を求めます。</p>
 <div class="cell">
@@ -895,7 +901,7 @@ pp. 120-121
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="ヒストグラム"><span class="header-section-number">3.3.2</span> ヒストグラム</h3>
 <p>ここまではデータを要約する方法として、数値の要約や集計といった処理を行ってきました。 次に登場する<strong>ヒストグラムはこれまでの例とは異なり、データをグラフで表現する手法</strong>になります。 データをグラフ上に可視化することで、データの分布を確認しつづ、データの特徴を素早く捉えることができるようになります。 こうしたグラフ表現はデータに対する説得力を増すためにも使われます。 それでは早速ヒストグラムの作り方を見ていきましょう。</p>
 <p>ヒストグラムの元になるのは先ほど求めた度数分布表です。 <strong>ヒストグラムでは、グラフの横軸に興味のある変数の階級、縦軸に階級内に含まれる度数を示します</strong>。 階級ごとに度数の位置を示す柱を柱の長さによって表現します。 このときに階級の間、つまり柱と柱の間隔を空けないようにします。</p>
-<p>ペンギンの体重の度数分布表 (<a href="#tbl-penguins_weight_freq">表&nbsp;<span>3.1</span></a>) からヒストグラムを作成すると次のようになります(<a href="#fig-histogram_for_body_mass_g">図&nbsp;<span>3.2</span></a>)。</p>
+<p>ペンギンの体重の度数分布表 (<a href="#tbl-penguins_weight_freq">表&nbsp;<span>3.1</span></a>) からヒストグラムを作成すると次のようになります(<a href="#fig-histogram_for_body_mass_g">図&nbsp;<span>3.3</span></a>)。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> </span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span> </span>
@@ -911,7 +917,7 @@ pp. 120-121
 <div id="fig-histogram_for_body_mass_g" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="summary_statistics_files/figure-html/fig-histogram_for_body_mass_g-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.2: ペンギンの体重のヒストグラム</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.3: ペンギンの体重のヒストグラム</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -945,13 +951,13 @@ pp. 120-121
 <div id="fig-histogram_for_body_mass_g_annotate" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="summary_statistics_files/figure-html/fig-histogram_for_body_mass_g_annotate-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.3: ペンギンの体重のヒストグラムと代表値の関係</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.4: ペンギンの体重のヒストグラムと代表値の関係</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-histogram_for_body_mass_g_annotate">図&nbsp;<span>3.3</span></a> を見てわかることは、<strong>代表値の並びが小さい方から最頻値、中央値、平均値の順に並んでいる</strong>ことです。 ヒストグラムの形が左に長く伸びている（この様子を「裾を引いている」と言います）場合、代表値はこの順番に並ぶことが多くなります。</p>
-<p>ヒストグラムを作成するときは、階級数がいくら設けられているかに注目します。 例えば同じデータであっても階級数が異なる場合、ヒストグラムの見た目は大きく異なります。 <a href="#fig-histogram_bins">図&nbsp;<span>3.4</span></a> では、ペンギンの体重について階級数が2のときと30のときのヒストグラムをそれぞれ作成した図を表示しています。 階級数が少ないとデータの分布を把握するのが難しく、逆に階級数が多すぎるときもデータを要約し辛い図になってしまっています。</p>
+<p><a href="#fig-histogram_for_body_mass_g_annotate">図&nbsp;<span>3.4</span></a> を見てわかることは、<strong>代表値の並びが小さい方から最頻値、中央値、平均値の順に並んでいる</strong>ことです。 ヒストグラムの形が左に長く伸びている（この様子を「裾を引いている」と言います）場合、代表値はこの順番に並ぶことが多くなります。</p>
+<p>ヒストグラムを作成するときは、階級数がいくら設けられているかに注目します。 例えば同じデータであっても階級数が異なる場合、ヒストグラムの見た目は大きく異なります。 <a href="#fig-histogram_bins">図&nbsp;<span>3.5</span></a> では、ペンギンの体重について階級数が2のときと30のときのヒストグラムをそれぞれ作成した図を表示しています。 階級数が少ないとデータの分布を把握するのが難しく、逆に階級数が多すぎるときもデータを要約し辛い図になってしまっています。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span></span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span> </span>
@@ -973,7 +979,7 @@ pp. 120-121
 <div id="fig-histogram_bins" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="summary_statistics_files/figure-html/fig-histogram_bins-1.png" class="img-fluid figure-img" width="960"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.4: 階級数によってヒストグラムの見た目は変わる</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.5: 階級数によってヒストグラムの見た目は変わる</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -1011,7 +1017,7 @@ pp. 120-121
 </section>
 <section id="箱ヒゲ図" class="level3" data-number="3.3.3">
 <h3 data-number="3.3.3" class="anchored" data-anchor-id="箱ヒゲ図"><span class="header-section-number">3.3.3</span> 箱ヒゲ図</h3>
-<p>ヒストグラムの他に、グラフを用いたデータの散らばりを表現する方法として箱ヒゲ図 (<a href="#fig-how_to_make_boxplot">図&nbsp;<span>3.5</span></a>) があります。 四角い箱の上下に<ruby>髭<rt>ひげ</rt></ruby>が伸びているような図であることから箱ヒゲ図と呼ばれます。 「箱」と「ヒゲ」を使った簡単な図ですが、データの分布だけでなく、データを小さい方から並び替えてグループ分けを行ったときの代表的な3つの位置を表現する<a href="#四分位点">四分位点</a>も合わせて表示できる図となっています。</p>
+<p>ヒストグラムの他に、グラフを用いたデータの散らばりを表現する方法として箱ヒゲ図 (<a href="#fig-how_to_make_boxplot">図&nbsp;<span>3.6</span></a>) があります。 四角い箱の上下に<ruby>髭<rt>ひげ</rt></ruby>が伸びているような図であることから箱ヒゲ図と呼ばれます。 「箱」と「ヒゲ」を使った簡単な図ですが、データの分布だけでなく、データを小さい方から並び替えてグループ分けを行ったときの代表的な3つの位置を表現する<a href="#四分位点">四分位点</a>も合わせて表示できる図となっています。</p>
 <p>箱ヒゲ図の作成手順は次の通りです。 箱ヒゲ図を作成するときは、データの区間と四分位点を求めることが必要になります。</p>
 <ol type="1">
 <li>まず最小値・最大値から、グラフの縦軸にデータの値が収まるような値を設定します。</li>
@@ -1023,10 +1029,10 @@ pp. 120-121
 <div id="fig-how_to_make_boxplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/how_to_make_boxplot.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.5: 箱ヒゲ図の見方と作り方</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.6: 箱ヒゲ図の見方と作り方</figcaption><p></p>
 </figure>
 </div>
-<p><strong>動物データ</strong>の体重について箱ヒゲ図を作成してみます (<a href="#fig-zoo_body_length_boxplot">図&nbsp;<span>3.6</span></a>)。 箱とヒゲについての意味を理解しておく必要がありますが、ヒストグラムのようにデータの分布を確認することができる図となっています。</p>
+<p><strong>動物データ</strong>の体重について箱ヒゲ図を作成してみます (<a href="#fig-zoo_body_length_boxplot">図&nbsp;<span>3.7</span></a>)。 箱とヒゲについての意味を理解しておく必要がありますが、ヒストグラムのようにデータの分布を確認することができる図となっています。</p>
 <p>また箱ヒゲ図の作成方法は上記のものの他に最大値と最小値をヒゲとして利用するものがあります。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
@@ -1037,12 +1043,12 @@ pp. 120-121
 <div id="fig-zoo_body_length_boxplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="summary_statistics_files/figure-html/fig-zoo_body_length_boxplot-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.6: 動物データの体重の箱ヒゲ図</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.7: 動物データの体重の箱ヒゲ図</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>箱ヒゲ図は異なる複数のデータのばらつきを比較する際にも役立ちます。 ヒストグラムでは複数のデータを比較することが困難ですが、箱ヒゲ図では箱ヒゲを90度回転させて横に描画することで複数データの比較が容易になります。 <a href="#fig-zoo_body_length_boxplot_by_taxon">図&nbsp;<span>3.7</span></a> は<strong>動物データ</strong>の分類群ごとに体長の箱ヒゲ図を作成したものです。 箱ヒゲ図ではデータの散らばりが小さい場合には小さくなり、逆に散らばりが大きい時には大きくなります。 このことから、<strong>動物データ</strong>に含まれる動物のうち、食肉類の体長は種の違いが大きく、霊長類は種のばらつきが小さいことが読み取れます。</p>
+<p>箱ヒゲ図は異なる複数のデータのばらつきを比較する際にも役立ちます。 ヒストグラムでは複数のデータを比較することが困難ですが、箱ヒゲ図では箱ヒゲを90度回転させて横に描画することで複数データの比較が容易になります。 <a href="#fig-zoo_body_length_boxplot_by_taxon">図&nbsp;<span>3.8</span></a> は<strong>動物データ</strong>の分類群ごとに体長の箱ヒゲ図を作成したものです。 箱ヒゲ図ではデータの散らばりが小さい場合には小さくなり、逆に散らばりが大きい時には大きくなります。 このことから、<strong>動物データ</strong>に含まれる動物のうち、食肉類の体長は種の違いが大きく、霊長類は種のばらつきが小さいことが読み取れます。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分類群ごとの箱ヒゲ図を描画</span></span>
 <span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="co"># あらかじめ中央値を計算し、グラフ上では中央値の並びで分類群が表示されるように</span></span>
@@ -1063,7 +1069,7 @@ pp. 120-121
 <div id="fig-zoo_body_length_boxplot_by_taxon" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="summary_statistics_files/figure-html/fig-zoo_body_length_boxplot_by_taxon-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.7: 動物データの分類群ごとの体長の箱ヒゲ図。箱ヒゲ図を並べて描画することで複数のデータを比較しやすくなります。</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">図 3.8: 動物データの分類群ごとの体長の箱ヒゲ図。箱ヒゲ図を並べて描画することで複数のデータを比較しやすくなります。</figcaption><p></p>
 </figure>
 </div>
 </div>
