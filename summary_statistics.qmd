@@ -156,9 +156,22 @@ median(x)
 中央値の考え方を拡張したものとして四分位点があります。
 これはデータを小さい方から並び替えたとき、**データ全体を均等な数からなる4つのグループに分ける3つの点（値）**のことを指します。
 各グループ区切りの値となる点をそれぞれ第1四分位点（25パーセンタイル)）、第2四分位点（50パーセンタイル）、第3四分位点（75パーセンタイル）と呼びます。
-第2四分位点はデータの値を並び替えたときの真ん中となる値、つまり中央値です。
+第2四分位点はデータの値を並び替えたときの真ん中となる値、つまり中央値です(@fig-quantile_explain)。
 また、パーセンタイルというのは値を小さい方から並び替えたときの最後の値の位置を100としたときの四分位点の位置を示す値です。
 つまり最小値は0パーセンタイル、最大値は100パーセンタイルとなります。
+
+```{r}
+#| include: false
+#| eval: false
+library(ggbeeswarm)
+ggplot(penguins, aes(x = "", y = flipper_length_mm)) +
+  geom_beeswarm(size = 0.8) +
+  geom_hline(yintercept = unname(quantile(penguins$flipper_length_mm, na.rm = TRUE)[c(2:4)])) +
+  coord_flip()
+ggsave("images/quantile_explain_bee.png", width = 9, height = 7)
+```
+
+![四分位点のイメージ](images/quantile_explain.png){#fig-quantile_explain}
 
 データの半分が含まれる第1四分位点から第3四分位数までの範囲のことを四分位範囲と呼びます。
 四分位範囲は第3四分位点から第1四分位点の値を引くことで求められます。
