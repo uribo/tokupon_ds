@@ -62,7 +62,7 @@
 
 ## ご意見募集
 
-この内容が分かりにくかった、読めないが漢字があったときには
+この内容が分かりにくかった、読めない漢字があったときには
 気軽にコメントいただけると改善のために役立ちます。
 コメントは`r fontawesome::fa("github")` [GitHub issues](https://github.com/uribo/tokupon_ds/issues/new)もしくは[フォーム](https://docs.google.com/forms/d/e/1FAIpQLScsdOwAHDCj2eFg-PCLayWSQKViWO-BnzRWHCxsZPn_lVf6_A/viewform?usp=sf_link)から投稿をお願いします。
 
