@@ -292,6 +292,7 @@ x[32:40] <- x[32:40] + rpois(n = 9, lambda = 10)
 このとき、点数が45点だった人はクラスの上位20人の中に含まれるでしょうか。
 
 ```{r}
+#| include: false
 library(ggplot2)
 p <- 
   tibble::tibble(x = x) |> 

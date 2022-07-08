@@ -3,6 +3,12 @@ title: "練習問題の答えと解説"
 code-fold: false
 ---
 
+```{r}
+#| include: false
+source("scripts/color_palette.R")
+```
+
+
 ## 1章: テストの点数がクラスの平均点よりも低くても上位に含まれる？
 
 ```{r}
@@ -26,7 +32,7 @@ x[32:40] <- x[32:40] + rpois(n = 9, lambda = 10)
 ```{r}
 library(ggplot2)
 
-# クラス中の40人のテストの点数
+# クラス中の40人のテストの点数（点数順）
 x
 mean(x) # クラスの平均点
 median(x) # クラスの点数の中央値
@@ -35,11 +41,20 @@ p <-
   tibble::tibble(x = x) |> 
   ggplot(aes(x)) +
   geom_density() +
-  xlim(0, 100)
+  xlim(0, 100) +
+  labs(title = "40名のテスト点数の分布")
 
 p +
-  geom_vline(xintercept = median(x), color = "red") +
-  geom_vline(xintercept = mean(x), color = "blue", linetype = "dashed")
+  geom_vline(xintercept = median(x), color = course_colors[1]) +
+  geom_vline(xintercept = mean(x), color = course_colors[2]) +
+  geom_label(aes(mean(x), 0.01), 
+             label = "平均値", 
+             color = course_colors[2],
+             show.legend = FALSE) +
+  geom_label(aes(median(x), 0.02), 
+             label = "中央値", 
+             color = course_colors[1],
+             show.legend = FALSE)
 ```
 
 ```{r}
