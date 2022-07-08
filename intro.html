@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.653">
+<meta name="generator" content="quarto-0.9.655">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -501,18 +501,6 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <div class="callout-body-container callout-body">
 <p>40人のクラスで行われたテスト（100点満点）の平均点が48点でした。</p>
 <p>このとき、点数が45点だった人はクラスの上位20人の中に含まれるでしょうか。</p>
-<div class="cell">
-<details>
-<summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> x) <span class="sc">|&gt;</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">+</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"40名のテスト点数の分布"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
 <p>答えと解説は<a href="./exercise.html#章-テストの点数がクラスの平均点よりも低くても上位に含まれる">練習問題</a>を見てね。</p>
 </div>
 </div>

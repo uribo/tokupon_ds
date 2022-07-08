@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.653">
+<meta name="generator" content="quarto-0.9.655">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -631,12 +631,14 @@ pp. 120-121
 </section>
 <section id="分散と標準偏差" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="分散と標準偏差"><span class="header-section-number">3.2.2</span> 分散と標準偏差</h3>
-<p>分散とは、それぞれのデータが<strong>平均値を中心としてどのように散らばっているかを示す</strong>ものです。 分散を求めることで、例えばペンギンの各個体の体長が、平均値から全般的に近い値をしているのか、特定の個体が平均値よりも特段高い（あるいは低い）のか、はたまた体長が高い個体と低いがバラバラにいるのかがわかるようになります。</p>
+<p>分散とは、それぞれのデータが<strong>平均値を中心としてどのように散らばっているかを示す</strong>ものです。 分散を求めることで、例えばペンギンの各個体の体長は全般的に均一な値をしているのか、特定の個体が平均値よりも特段高い（あるいは低い）のか、はたまた体長が高い個体と低いがバラバラにいるのかがわかるようになります。</p>
 <p>分散は次のように求めます。</p>
 <ol type="1">
 <li>変数の値の平均値を出す</li>
 <li>変数の各値と平均値の差を求める（偏差と呼びます）</li>
 <li>2で求めた差を2乗する</li>
+<li>すべての値に対して1~3を繰り返し、合計する</li>
+<li>4をデータの数で割る</li>
 </ol>
 <p><strong>各値と平均値の差を求めたあと、その合計を計算すると、どんなデータであっても合計は０になります</strong>。 平均値より小さい・大きい値との差を求めてその合計を出しているので、差を相殺することになっています。 これではばらつきを評価できません。 そこで分散を求める際には、その差を2乗し、値を足し合わせます。 ここまでの内容を整理すると次のように表現できます。</p>
 <p><span class="math display">\[
