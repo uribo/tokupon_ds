@@ -205,6 +205,9 @@ tibble::tribble(
   gt::gt() |> 
   gt::gtsave("out.png")
 
+anscombe |> 
+  gt::gt() |> 
+  gt::gtsave("out.png")
 
 # penguins |> 
 #   head() |> 
