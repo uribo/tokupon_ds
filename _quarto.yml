@@ -11,7 +11,7 @@ book:
   date: "2022/7/05"
   cover-image: cover.png
   search: true
-  number-depth: 2
+  number-depth: 3
   chapters:
     - index.qmd
     - intro.qmd
