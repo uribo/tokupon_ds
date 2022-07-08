@@ -196,6 +196,21 @@ reprex({
   cor(df_cm$flipper_length, df_cm$bill_length,  use = "complete.obs")
 }, venue = "rtf")
 
+reprex({
+  library(ggplot2)
+  library(dplyr)
+  source("data-raw/zoo.R")
+  source("scripts/color_palette.R")
+  knitr::opts_knit$set(upload.fun = identity)
+  df_zoo |> 
+    count(taxon) |> 
+    mutate(prop = n / sum(n) * 100) |> 
+    ggplot(aes(x = "", y = prop, fill = taxon)) +
+    geom_bar(stat = "identity", width = 1) +
+    scale_fill_tokupon() +
+    coord_polar("y")
+}, wd = getwd(), venue = "rtf")
+
 tibble::tribble(
   ~相関係数, ~相関の強さ,
   "\u00b10.7以上", "とても強い",
