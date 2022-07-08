@@ -714,25 +714,33 @@ pp. 120-121
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分散 variance ... ここでは不偏分散</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>deviation<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">nrow</span>(df) <span class="sc">-</span> <span class="dv">1</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分散</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>deviation<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">nrow</span>(df)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 52000</code></pre>
+<pre><code>[1] 41600</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># var()関数に対象の変数を直接与えて求めても良い</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(df<span class="sc">$</span>body_mass_g)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(df<span class="sc">$</span>body_mass_g) <span class="sc">*</span> (<span class="fu">nrow</span>(df)<span class="sc">-</span><span class="dv">1</span>) <span class="sc">/</span> <span class="fu">nrow</span>(df)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 41600</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rでは不偏分散</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(df<span class="sc">$</span>body_mass_g)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 52000</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum(df$deviation^2) / (nrow(df) - 1)</span></span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>合計が０になる差に対して2乗するのではなく、絶対値をとり、その合計を求めたものを平均偏差と呼びます。 また、<strong>分散について平方根を求めたものが標準偏差</strong>となります。 標準偏差は散らばりの具合を見るための指標となります。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 標準偏差</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">sum</span>(df<span class="sc">$</span>deviation<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">nrow</span>(df) <span class="sc">-</span> <span class="dv">1</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 標準偏差</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">sum</span>(df<span class="sc">$</span>deviation<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">nrow</span>(df) <span class="sc">-</span> <span class="dv">1</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 228.0351</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(df<span class="sc">$</span>body_mass_g))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(df<span class="sc">$</span>body_mass_g))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 228.0351</code></pre>
 </div>
@@ -752,16 +760,15 @@ pp. 120-121
 <section id="度数分布表" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="度数分布表"><span class="header-section-number">3.3.1</span> 度数分布表</h3>
 <p>実験や観測により値が得られたら、まずは<strong>度数分布表</strong>を作ることから始めると全体の分布の状況を理解しやすい傾向があります。 ある値がデータに含まれる数を<ruby>度数<rt>どすう</rt></ruby>または<ruby>頻度<rt>ひんど</rt></ruby>といいます。 度数分布表とはその名の通り、度数の分布を表形式にまとめたものを指します。 データに対する度数がどのように分布するかを示すかを表したものが度数分布表です。 度数によってすべてのデータに対して大まかな位置を集計することになるため、データの分布が明らかになります。</p>
-<p><strong>度数分布表</strong>は手元のデータの値をいくつかの階級に分割します。</p>
+<p>動物のデータセットの分類群を例にすると、<code>df_zoo$taxon</code>で分類群の値（霊長類や鳥類）を確認し、各値をカウントして度数を求め、それを分類群ごとに集約するという手順をとります。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/animal_species_count.png" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">分類群ごとに何種類の動物がいるか数えてみよう</figcaption><p></p>
 </figure>
 </div>
-<p>動物のデータセットの分類群を例にすると、<code>df_zoo$taxon</code>で分類群の値（霊長類や鳥類）を確認し、各値をカウントして度数を求め、それを分類群ごとに集約するという手順をとります。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>df_zoo<span class="sc">$</span>taxon</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>df_zoo<span class="sc">$</span>taxon</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "食肉類"   "鳥類"     "食肉類"   "鳥類"     "霊長類"   "霊長類"  
  [7] "霊長類"   "食肉類"   "齧歯類"   "食肉類"   "鳥類"     "偶蹄類"  
@@ -771,9 +778,9 @@ pp. 120-121
 </div>
 <p>結果は次のようになります。</p>
 <div class="cell" data-df-print="kable">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 度数、頻度を英語で frequency といいます</span></span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 度数が大きな分類群の順で表示するように sort = TRUE を指定しています</span></span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(df_zoo, taxon, <span class="at">sort =</span> <span class="cn">TRUE</span>, <span class="at">name =</span> <span class="st">"frequency"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 度数、頻度を英語で frequency といいます</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 度数が大きな分類群の順で表示するように sort = TRUE を指定しています</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(df_zoo, taxon, <span class="at">sort =</span> <span class="cn">TRUE</span>, <span class="at">name =</span> <span class="st">"frequency"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped">
@@ -817,10 +824,10 @@ pp. 120-121
 </div>
 </div>
 </div>
-<p>対象が量的変数の場合は頻度を簡単に求めることができます。 それでは量的変数、特に連続変数に対し度数を求めるにはどうすれば良いでしょうか。 量的変数に対して連続変数では同じ値をとることが少ないです。 そのため連続変数の度数を求めるときは、<strong>変数がとり得る値をいくつかの区間に分割した階級(class)を考えます</strong>。 このときの区間の幅を階級幅と呼びます。</p>
+<p>対象が質的変数の場合は頻度を簡単に求めることができます。 それでは量的変数の度数を求めるにはどうすれば良いでしょうか。 量的変数のうち、離散変数でサイコロの目のようにとりうる値が限られる際には質的変数と同じように考えることもできます。 一方で連続変数では質的変数や離散変数のように同じ値をとることが少ないです。 そのため連続変数や離散変数の度数を求めるときは、<strong>変数がとり得る値をいくつかの区間に分割した階級(class)を考えます</strong>。 このときの区間の幅を階級幅と呼びます。</p>
 <p><strong>ペンギンデータ</strong>に含まれる体重を例として、まずは階級分けのために、まずは変数の最小値と最大値を調べましょう。 Rでは最小値・最大値を調べるのに<code>range()</code>関数が利用できることを思い出しましょう。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2700 6300</code></pre>
 </div>
@@ -828,15 +835,15 @@ pp. 120-121
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># range()関数を使わないでmin()関数やmax()関数を使っても良い</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># range()関数を使わないでmin()関数やmax()関数を使っても良い</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2700</code></pre>
 </div>
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6300</code></pre>
@@ -845,17 +852,17 @@ pp. 120-121
 <p>最小値と最大値がわかったところで、次は階級と階級幅を設定します。 階級はデータ中のすべての値が含まれるようにします。 <strong>ペンギンデータ</strong>の体重の最小値は2700、最大値は6300ですので、 2000から7000までの階級を設定しておきましょう。 この場合、階級幅を区切りが良い1000とすると階級数は5つあることになります。</p>
 <p>つづいて、階級ごとに含まれる値の件数を数えます。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>weight_freq <span class="ot">&lt;-</span> </span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>(<span class="fu">cut</span>(penguins<span class="sc">$</span>body_mass_g, </span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2000</span>, </span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>                         <span class="dv">7000</span>, </span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">by =</span> <span class="dv">1000</span>),</span>
-<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">dig.lab =</span> <span class="dv">4</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>weight_freq <span class="ot">&lt;-</span> </span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>(<span class="fu">cut</span>(penguins<span class="sc">$</span>body_mass_g, </span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2000</span>, </span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>                         <span class="dv">7000</span>, </span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">by =</span> <span class="dv">1000</span>),</span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">dig.lab =</span> <span class="dv">4</span>))</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">class =</span> <span class="fu">names</span>(weight_freq),</span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">frequency =</span> weight_freq)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">class =</span> <span class="fu">names</span>(weight_freq),</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">frequency =</span> weight_freq)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <div id="tbl-penguins_weight_freq" class="anchored">
@@ -902,19 +909,19 @@ pp. 120-121
 <section id="ヒストグラム" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="ヒストグラム"><span class="header-section-number">3.3.2</span> ヒストグラム</h3>
 <p>ここまではデータを要約する方法として、数値の要約や集計といった処理を行ってきました。 次に登場する<strong>ヒストグラムはこれまでの例とは異なり、データをグラフで表現する手法</strong>になります。 データをグラフ上に可視化することで、データの分布を確認しつづ、データの特徴を素早く捉えることができるようになります。 こうしたグラフ表現はデータに対する説得力を増すためにも使われます。 それでは早速ヒストグラムの作り方を見ていきましょう。</p>
-<p>ヒストグラムの元になるのは先ほど求めた度数分布表です。 <strong>ヒストグラムでは、グラフの横軸に興味のある変数の階級、縦軸に階級内に含まれる度数を示します</strong>。 階級ごとに度数の位置を示す柱を柱の長さによって表現します。 このときに階級の間、つまり柱と柱の間隔を空けないようにします。</p>
+<p>ヒストグラムの元になるのは先ほど求めた度数分布表です。 <strong>ヒストグラムでは、グラフの横軸に興味のある変数の階級、縦軸に階級内に含まれる度数を示します</strong>。 階級ごとに柱を設け、柱の高さで度数を表現します。 このときに階級の間、つまり柱と柱の間隔を空けないようにします。</p>
 <p>ペンギンの体重の度数分布表 (<a href="#tbl-penguins_weight_freq">表&nbsp;<span>3.1</span></a>) からヒストグラムを作成すると次のようになります(<a href="#fig-histogram_for_body_mass_g">図&nbsp;<span>3.3</span></a>)。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> </span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span> </span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_mass_g)) <span class="sc">+</span></span>
-<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ヒストグラムでは柱の階級をビン bin と呼びます</span></span>
-<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Frequency"</span>) <span class="sc">+</span></span>
-<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Body mass (g)"</span>) <span class="sc">+</span></span>
-<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"ペンギンの体重のヒストグラム"</span>)</span>
-<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> </span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span> </span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_mass_g)) <span class="sc">+</span></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ヒストグラムでは柱の階級をビン bin と呼びます</span></span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Body mass (g)"</span>) <span class="sc">+</span></span>
+<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"ペンギンの体重のヒストグラム"</span>)</span>
+<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-histogram_for_body_mass_g" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -929,25 +936,25 @@ pp. 120-121
 <div class="cell">
 <details>
 <summary>コードを表示</summary>
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">3</span>]) <span class="sc">+</span></span>
-<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">2</span>]) <span class="sc">+</span></span>
-<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.numeric</span>(<span class="fu">names</span>(<span class="fu">which.max</span>(<span class="fu">table</span>(penguins<span class="sc">$</span>body_mass_g)))),</span>
-<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">1</span>]) <span class="sc">+</span></span>
-<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="dv">4400</span>, <span class="dv">20</span>), </span>
-<span id="cb75-9"><a href="#cb75-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"平均値"</span>, </span>
-<span id="cb75-10"><a href="#cb75-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">3</span>],</span>
-<span id="cb75-11"><a href="#cb75-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb75-12"><a href="#cb75-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="dv">4050</span>, <span class="dv">50</span>), </span>
-<span id="cb75-13"><a href="#cb75-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"中央値"</span>, </span>
-<span id="cb75-14"><a href="#cb75-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">2</span>],</span>
-<span id="cb75-15"><a href="#cb75-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb75-16"><a href="#cb75-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="dv">3600</span>, <span class="dv">80</span>), </span>
-<span id="cb75-17"><a href="#cb75-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"最頻値"</span>, </span>
-<span id="cb75-18"><a href="#cb75-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">1</span>],</span>
-<span id="cb75-19"><a href="#cb75-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">3</span>]) <span class="sc">+</span></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">2</span>]) <span class="sc">+</span></span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.numeric</span>(<span class="fu">names</span>(<span class="fu">which.max</span>(<span class="fu">table</span>(penguins<span class="sc">$</span>body_mass_g)))),</span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="dv">4400</span>, <span class="dv">20</span>), </span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"平均値"</span>, </span>
+<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">3</span>],</span>
+<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="dv">4050</span>, <span class="dv">50</span>), </span>
+<span id="cb78-13"><a href="#cb78-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"中央値"</span>, </span>
+<span id="cb78-14"><a href="#cb78-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">2</span>],</span>
+<span id="cb78-15"><a href="#cb78-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb78-16"><a href="#cb78-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="dv">3600</span>, <span class="dv">80</span>), </span>
+<span id="cb78-17"><a href="#cb78-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"最頻値"</span>, </span>
+<span id="cb78-18"><a href="#cb78-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">1</span>],</span>
+<span id="cb78-19"><a href="#cb78-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-histogram_for_body_mass_g_annotate" class="quarto-figure quarto-figure-center anchored">
@@ -961,22 +968,22 @@ pp. 120-121
 <p><a href="#fig-histogram_for_body_mass_g_annotate">図&nbsp;<span>3.4</span></a> を見てわかることは、<strong>代表値の並びが小さい方から最頻値、中央値、平均値の順に並んでいる</strong>ことです。 ヒストグラムの形が左に長く伸びている（この様子を「裾を引いている」と言います）場合、代表値はこの順番に並ぶことが多くなります。</p>
 <p>ヒストグラムを作成するときは、階級数がいくら設けられているかに注目します。 例えば同じデータであっても階級数が異なる場合、ヒストグラムの見た目は大きく異なります。 <a href="#fig-histogram_bins">図&nbsp;<span>3.5</span></a> では、ペンギンの体重について階級数が2のときと30のときのヒストグラムをそれぞれ作成した図を表示しています。 階級数が少ないとデータの分布を把握するのが難しく、逆に階級数が多すぎるときもデータを要約し辛い図になってしまっています。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span></span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span> </span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_mass_g)) <span class="sc">+</span></span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">2</span>, <span class="at">fill =</span> course_colors[<span class="dv">1</span>]) <span class="sc">+</span></span>
-<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Frequency"</span>) <span class="sc">+</span></span>
-<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Body mass (g)"</span>) <span class="sc">+</span></span>
-<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"ペンギンの体重のヒストグラム。階級数2"</span>)</span>
-<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span></span>
-<span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span> </span>
-<span id="cb76-10"><a href="#cb76-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_mass_g)) <span class="sc">+</span></span>
-<span id="cb76-11"><a href="#cb76-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> course_colors[<span class="dv">2</span>]) <span class="sc">+</span></span>
-<span id="cb76-12"><a href="#cb76-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Frequency"</span>) <span class="sc">+</span></span>
-<span id="cb76-13"><a href="#cb76-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Body mass (g)"</span>) <span class="sc">+</span></span>
-<span id="cb76-14"><a href="#cb76-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"ペンギンの体重のヒストグラム。階級数30"</span>)</span>
-<span id="cb76-15"><a href="#cb76-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-16"><a href="#cb76-16" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span> </span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_mass_g)) <span class="sc">+</span></span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">2</span>, <span class="at">fill =</span> course_colors[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Body mass (g)"</span>) <span class="sc">+</span></span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"ペンギンの体重のヒストグラム。階級数2"</span>)</span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span></span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>  penguins <span class="sc">|&gt;</span> </span>
+<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(body_mass_g)) <span class="sc">+</span></span>
+<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> course_colors[<span class="dv">2</span>]) <span class="sc">+</span></span>
+<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Body mass (g)"</span>) <span class="sc">+</span></span>
+<span id="cb79-14"><a href="#cb79-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"ペンギンの体重のヒストグラム。階級数30"</span>)</span>
+<span id="cb79-15"><a href="#cb79-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-16"><a href="#cb79-16" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-histogram_bins" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -1019,7 +1026,7 @@ pp. 120-121
 </section>
 <section id="箱ヒゲ図" class="level3" data-number="3.3.3">
 <h3 data-number="3.3.3" class="anchored" data-anchor-id="箱ヒゲ図"><span class="header-section-number">3.3.3</span> 箱ヒゲ図</h3>
-<p>ヒストグラムの他に、グラフを用いたデータの散らばりを表現する方法として箱ヒゲ図 (<a href="#fig-how_to_make_boxplot">図&nbsp;<span>3.6</span></a>) があります。 四角い箱の上下に<ruby>髭<rt>ひげ</rt></ruby>が伸びているような図であることから箱ヒゲ図と呼ばれます。 「箱」と「ヒゲ」を使った簡単な図ですが、データの分布だけでなく、データを小さい方から並び替えてグループ分けを行ったときの代表的な3つの位置を表現する<a href="#四分位点">四分位点</a>も合わせて表示できる図となっています。</p>
+<p><a href="#ヒストグラム">ヒストグラム</a>の他に、グラフを用いたデータの散らばりを表現する方法として箱ヒゲ図 (<a href="#fig-how_to_make_boxplot">図&nbsp;<span>3.6</span></a>) があります。 四角い箱の上下に<ruby>髭<rt>ひげ</rt></ruby>が伸びているような図であることから箱ヒゲ図と呼ばれます。 「箱」と「ヒゲ」を使った簡単な図ですが、データの分布だけでなく、データを小さい方から並び替えてグループ分けを行ったときの代表的な3つの位置を表現する<a href="#四分位点">四分位点</a>も合わせて表示できる図となっています。</p>
 <p>箱ヒゲ図の作成手順は次の通りです。 箱ヒゲ図を作成するときは、データの区間と四分位点を求めることが必要になります。</p>
 <ol type="1">
 <li>まず最小値・最大値から、グラフの縦軸にデータの値が収まるような値を設定します。</li>
@@ -1037,10 +1044,10 @@ pp. 120-121
 <p><strong>動物データ</strong>の体重について箱ヒゲ図を作成してみます (<a href="#fig-zoo_body_length_boxplot">図&nbsp;<span>3.7</span></a>)。 箱とヒゲについての意味を理解しておく必要がありますが、ヒストグラムのようにデータの分布を確認することができる図となっています。</p>
 <p>また箱ヒゲ図の作成方法は上記のものの他に最大値と最小値をヒゲとして利用するものがあります。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> body_length_cm)) <span class="sc">+</span></span>
-<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"動物データの体重の箱ヒゲ図"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> body_length_cm)) <span class="sc">+</span></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"動物データの体重の箱ヒゲ図"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-zoo_body_length_boxplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -1050,23 +1057,23 @@ pp. 120-121
 </div>
 </div>
 </div>
-<p>箱ヒゲ図は異なる複数のデータのばらつきを比較する際にも役立ちます。 ヒストグラムでは複数のデータを比較することが困難ですが、箱ヒゲ図では箱ヒゲを90度回転させて横に描画することで複数データの比較が容易になります。 <a href="#fig-zoo_body_length_boxplot_by_taxon">図&nbsp;<span>3.8</span></a> は<strong>動物データ</strong>の分類群ごとに体長の箱ヒゲ図を作成したものです。 箱ヒゲ図ではデータの散らばりが小さい場合には小さくなり、逆に散らばりが大きい時には大きくなります。 このことから、<strong>動物データ</strong>に含まれる動物のうち、食肉類の体長は種の違いが大きく、霊長類は種のばらつきが小さいことが読み取れます。</p>
+<p>箱ヒゲ図は複数データのばらつきを比較する際にも役立ちます。 ヒストグラムでは複数のデータを比較することが困難ですが、箱ヒゲ図では箱ヒゲを90度回転させて横に描画することで複数データの比較が容易になります。 <a href="#fig-zoo_body_length_boxplot_by_taxon">図&nbsp;<span>3.8</span></a> は<strong>動物データ</strong>の分類群ごとに体長の箱ヒゲ図を作成したものです。 箱ヒゲ図ではデータの散らばりが小さい場合には小さくなり、逆に散らばりが大きい時には大きくなります。 このことから、<strong>動物データ</strong>に含まれる動物のうち、食肉類の体長は種の違いが大きく、霊長類は種のばらつきが小さいことが読み取れます。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分類群ごとの箱ヒゲ図を描画</span></span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="co"># あらかじめ中央値を計算し、グラフ上では中央値の並びで分類群が表示されるように</span></span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 調整しています。</span></span>
-<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
-<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
-<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(taxon) <span class="sc">|&gt;</span> </span>
-<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">body_length_median =</span> <span class="fu">median</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
-<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">taxon =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(taxon, body_length_median)) <span class="sc">|&gt;</span> </span>
-<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(taxon, body_length_cm, <span class="at">color =</span> taxon)) <span class="sc">+</span></span>
-<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb78-13"><a href="#cb78-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_tokupon</span>() <span class="sc">+</span></span>
-<span id="cb78-14"><a href="#cb78-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb78-15"><a href="#cb78-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"動物データの分類群ごとの体長の箱ヒゲ図"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分類群ごとの箱ヒゲ図を描画</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="co"># あらかじめ中央値を計算し、グラフ上では中央値の並びで分類群が表示されるように</span></span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 調整しています。</span></span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>df_zoo <span class="sc">|&gt;</span> </span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(taxon) <span class="sc">|&gt;</span> </span>
+<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">body_length_median =</span> <span class="fu">median</span>(body_length_cm)) <span class="sc">|&gt;</span> </span>
+<span id="cb81-8"><a href="#cb81-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb81-9"><a href="#cb81-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">taxon =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(taxon, body_length_median)) <span class="sc">|&gt;</span> </span>
+<span id="cb81-10"><a href="#cb81-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(taxon, body_length_cm, <span class="at">color =</span> taxon)) <span class="sc">+</span></span>
+<span id="cb81-11"><a href="#cb81-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb81-12"><a href="#cb81-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb81-13"><a href="#cb81-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_tokupon</span>() <span class="sc">+</span></span>
+<span id="cb81-14"><a href="#cb81-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb81-15"><a href="#cb81-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"動物データの分類群ごとの体長の箱ヒゲ図"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-zoo_body_length_boxplot_by_taxon" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
