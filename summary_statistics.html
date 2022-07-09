@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.655">
+<meta name="generator" content="quarto-1.0.3">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -590,7 +590,7 @@ pp. 120-121
 <h2 data-number="3.2" class="anchored" data-anchor-id="データのばらつき"><span class="header-section-number">3.2</span> データのばらつき</h2>
 <p>代表値によって、データが分布する大まかな位置を知ることができるようになりました。 一方で外れ値を含む平均値や単純な頻度で求める最頻値のように、分布の形を推定することはできません。 外れ値によって中心がずれているかもしれませんし、最頻値が中心であるという保証はないのです。</p>
 <p>そこで今度はデータのもつばらつきを考えてみます。 データは代表値から離れて分布しているのか、代表値の周辺に集中しているのか。 データの大まかな中心としての代表値とそのばらつきを知ることで、データの分布についておおよその傾向が掴めるようになります。</p>
-<p>ばらつき具合を数値で表現する方法として代表的なものに、範囲、分散、標準偏差があります。 ここでも<strong>動物データ</strong>を例にして算出方法をみていきましょう。</p>
+<p>ばらつき具合を数値で表現する方法として代表的なものに、範囲、分散、標準<ruby>偏差<rt>へんさ</rt></ruby>があります。 ここでも<strong>動物データ</strong>を例にして算出方法をみていきましょう。</p>
 <section id="範囲" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="範囲"><span class="header-section-number">3.2.1</span> 範囲</h3>
 <p>範囲はもっとも単純で、データの最小値と最大値から求めます。 Rでは最小値、最大値を求める関数としてそれぞれ<code>min()</code>関数、<code>max()</code>関数が用意されています。 また、最小値・最大値を同時に出力する<code>range()</code>関数も利用できます。 これらの関数はいずれも対象の変数を与えることで計算が行われます。</p>
@@ -635,7 +635,7 @@ pp. 120-121
 <p>分散は次のように求めます。</p>
 <ol type="1">
 <li>変数の値の平均値を出す</li>
-<li>変数の各値と平均値の差を求める（偏差と呼びます）</li>
+<li>変数の各値と平均値の差を求める（<ruby>偏差<rt>へんさ</rt></ruby>と呼びます）</li>
 <li>2で求めた差を2乗する</li>
 <li>すべての値に対して1~3を繰り返し、合計する</li>
 <li>4をデータの数で割る</li>
