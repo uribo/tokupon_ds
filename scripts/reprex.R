@@ -28,6 +28,10 @@ reprex({
   median(x)
 }, venue = "rtf")
 reprex({
+  library(palmerpenguins)
+  quantile(penguins$flipper_length_mm, na.rm = TRUE)
+}, venue = "rtf")
+reprex({
   x <- c(5, 1, 3, 5, 10, 5, 3, 7)
   # 最頻値を求めます
   names(which(table(x) == max(table(x))))
@@ -195,7 +199,31 @@ reprex({
     dplyr::transmute(across(everything(), .fns = ~ .x / 10))
   cor(df_cm$flipper_length, df_cm$bill_length,  use = "complete.obs")
 }, venue = "rtf")
-
+reprex({
+  library(ggplot2)
+  library(dplyr)
+  source("data-raw/zoo.R")
+  source("scripts/color_palette.R")
+  knitr::opts_knit$set(upload.fun = identity)
+  df_zoo |>
+    filter(!is.na(body_length_cm)) |> 
+    ggplot(aes(name, body_length_cm, fill = taxon)) +
+    geom_bar(stat = "identity") +
+    scale_fill_tokupon() +
+    xlab(NULL) +
+    ylab("体長 (cm)") +
+    labs(title = "とくしま動物園で飼育される動物の標準的な体長")
+  
+  df_zoo |>
+    filter(!is.na(body_length_cm)) |> 
+    ggplot(aes(forcats::fct_reorder(name, body_length_cm), body_length_cm, fill = taxon)) +
+    geom_bar(stat = "identity") +
+    scale_fill_tokupon() +
+    coord_flip() +
+    xlab(NULL) +
+    ylab("体長 (cm)") +
+    labs(title = "とくしま動物園で飼育される動物の標準的な体長")
+}, wd = getwd(), venue = "rtf")
 reprex({
   library(ggplot2)
   library(dplyr)
