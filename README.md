@@ -13,6 +13,14 @@ binderによる演習環境を提供しています。
 必要なデータ、パッケージはすでにインストールされている状態です。
 資料のqmdファイルを開き、内容を試してみてください。
 
+## スライド
+
+当日投影したスライドの公開版をSpeaker Deckで公開しています。
+
+![](images/slide_top.jpeg)
+
 ## ライセンス
 
 MIT
+
+[とくぽん](https://www.tokushima-u.ac.jp/about/profile/univ_mascot/)(徳島大学マスコットキャラクター)の著作権は徳島大学に帰属します。
