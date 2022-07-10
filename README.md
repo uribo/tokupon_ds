@@ -17,7 +17,9 @@ binderによる演習環境を提供しています。
 
 当日投影したスライドの公開版をSpeaker Deckで公開しています。
 
-![](images/slide_top.jpeg)
+https://speakerdeck.com/s_uryu/tokupon-ds2022
+
+[![スライドへのリンク](images/slide_top.jpeg)](https://speakerdeck.com/s_uryu/tokupon-ds2022)
 
 ## ライセンス
 
