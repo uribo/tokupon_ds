@@ -7,18 +7,18 @@
 
 データ分析や統計グラフに興味をもった人のために、ウェブ上の学習資料やコンテンツ、政府や行政が行っているデータ分析のイベントを紹介します。
 
-[統計グラフ全国コンクール](https://www.sinfonica.or.jp/tokei/graph/index.html)は1953年から開催されている統計グラフの作成によるコンクルールです。過去の受賞作品を閲覧できるため、優れた統計グラフの例も知ることができます。
-なお全国コンクルールは各都道府県で実施されるコンクールの優秀作品が評価対象となります。
+[統計グラフ全国コンクール](https://www.sinfonica.or.jp/tokei/graph/index.html)は1953年から開催されている統計グラフの作成によるコンクールです。過去の受賞作品を閲覧できるため、優れた統計グラフの例も知ることができます。
+なお全国コンクールは各都道府県で実施されるコンクールの優秀作品が評価対象となります。
 そのため、まずは徳島県統計グラフコンクールへの応募を目指してはいかがでしょうか。
 今年度(令和4年度)の募集締め切りは9月5日です。詳細は[県のページ](https://www.pref.tokushima.lg.jp/ippannokata/kyoiku/seishonenikusei/7207189)を見てください。
 
-[統計データ分析コンペティション](https://www.nstac.go.jp/statcompe/)は、高校生、大学生等を対象としたデータ分析コンペティションの一つです。[SSDSE（教育用標準データセット）](https://www.nstac.go.jp/use/literacy/ssdse/)などを用いた統計データ分析内容をを論文として提出することになっています。統計データに対するアイデアと解析力が競われます。
+[統計データ分析コンペティション](https://www.nstac.go.jp/statcompe/)は、高校生、大学生等を対象としたデータ分析コンペティションの一つです。[SSDSE（教育用標準データセット）](https://www.nstac.go.jp/use/literacy/ssdse/)などを用いた統計データ分析内容を論文として提出することになっています。統計データに対するアイデアと解析力が競われます。
 
 [統計の日](https://www.soumu.go.jp/toukei_toukatsu/info/guide/r3toukeinohi_kanren.html)（10月18日）を中心に、統計に関する行事が行われます。
 
 ### その他の学習コンテンツ
 
-- なるほど統計学園 https://www.stat.go.jp/naruhodo/index.html
+- なるほど統計学園 [https://www.stat.go.jp/naruhodo/index.html](https://www.stat.go.jp/naruhodo/index.html)
 
 ## 謝辞
 
@@ -30,21 +30,21 @@
 
 <!-- 18種 -->
 
-- http://phylopic.org/image/eedde61f-3402-4f7c-9350-49b74f5e1dba ([Public Domain Mark 1.0](https://creativecommons.org/publicdomain/mark/1.0/))
-- http://phylopic.org/image/7133ab33-cc79-4d7c-9656-48717359abb4 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/071db0d0-20a2-4f1b-9c26-fa20db640664 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/87c44856-307d-4d1a-84fd-ec54f8591f1a ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/dd7c7bc6-2c6d-48e4-860b-02bf37886b5b ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/9c234021-ce53-45d9-8fdd-b0ca3115a451 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/44ead7ca-cc09-4469-8975-17827084abb3 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/c97400f5-fab6-4452-ab32-1ee071848f31 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/e4e306cd-73b6-4ca3-a08c-753a856f7f12 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/c11b4873-aa21-4394-9f5e-6996033c379f ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/a0afbb0a-2bb8-4d69-999d-3ed3a09e9966 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/02990f6d-82d3-45a9-b85e-99deb69d2a96 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/75836dad-906e-4066-8518-ab60f0f96b73 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/15020fb1-f6f7-432f-8905-8fd429627cc8 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/7b8fb3d4-0cac-4552-8cd1-bd493b7de679 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/7f02b605-c87b-4ec2-9e14-011f813c23a4 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/b7344c53-6115-49cf-836d-ae71cc3853a8 ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
-- http://phylopic.org/image/dcd56e52-c6e0-4831-824f-c65bee8875ca ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/eedde61f-3402-4f7c-9350-49b74f5e1dba](http://phylopic.org/image/eedde61f-3402-4f7c-9350-49b74f5e1dba) ([Public Domain Mark 1.0](https://creativecommons.org/publicdomain/mark/1.0/))
+- [http://phylopic.org/image/7133ab33-cc79-4d7c-9656-48717359abb4](http://phylopic.org/image/7133ab33-cc79-4d7c-9656-48717359abb4) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/071db0d0-20a2-4f1b-9c26-fa20db640664](http://phylopic.org/image/071db0d0-20a2-4f1b-9c26-fa20db640664) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/87c44856-307d-4d1a-84fd-ec54f8591f1a](http://phylopic.org/image/87c44856-307d-4d1a-84fd-ec54f8591f1a) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/dd7c7bc6-2c6d-48e4-860b-02bf37886b5b](http://phylopic.org/image/dd7c7bc6-2c6d-48e4-860b-02bf37886b5b) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/9c234021-ce53-45d9-8fdd-b0ca3115a451](http://phylopic.org/image/9c234021-ce53-45d9-8fdd-b0ca3115a451) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/44ead7ca-cc09-4469-8975-17827084abb3](http://phylopic.org/image/44ead7ca-cc09-4469-8975-17827084abb3) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/c97400f5-fab6-4452-ab32-1ee071848f31](http://phylopic.org/image/c97400f5-fab6-4452-ab32-1ee071848f31) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/e4e306cd-73b6-4ca3-a08c-753a856f7f12](http://phylopic.org/image/e4e306cd-73b6-4ca3-a08c-753a856f7f12) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/c11b4873-aa21-4394-9f5e-6996033c379f](http://phylopic.org/image/c11b4873-aa21-4394-9f5e-6996033c379f) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/a0afbb0a-2bb8-4d69-999d-3ed3a09e9966](http://phylopic.org/image/a0afbb0a-2bb8-4d69-999d-3ed3a09e9966) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/02990f6d-82d3-45a9-b85e-99deb69d2a96](http://phylopic.org/image/02990f6d-82d3-45a9-b85e-99deb69d2a96) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/75836dad-906e-4066-8518-ab60f0f96b73](http://phylopic.org/image/75836dad-906e-4066-8518-ab60f0f96b73) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/15020fb1-f6f7-432f-8905-8fd429627cc8](http://phylopic.org/image/15020fb1-f6f7-432f-8905-8fd429627cc8) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/7b8fb3d4-0cac-4552-8cd1-bd493b7de679](http://phylopic.org/image/7b8fb3d4-0cac-4552-8cd1-bd493b7de679) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/7f02b605-c87b-4ec2-9e14-011f813c23a4](http://phylopic.org/image/7f02b605-c87b-4ec2-9e14-011f813c23a4) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/b7344c53-6115-49cf-836d-ae71cc3853a8](http://phylopic.org/image/b7344c53-6115-49cf-836d-ae71cc3853a8) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
+- [http://phylopic.org/image/dcd56e52-c6e0-4831-824f-c65bee8875ca](http://phylopic.org/image/dcd56e52-c6e0-4831-824f-c65bee8875ca) ([CC 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
