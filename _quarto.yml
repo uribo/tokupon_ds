@@ -51,6 +51,7 @@ callout-appearance: default
 callout-icon: true
 
 bibliography: references.bib
+csl: tokuponds.csl
 ascii: false
 
 knitr:
