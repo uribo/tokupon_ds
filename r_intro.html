@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.8">
+<meta name="generator" content="quarto-1.0.12">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -117,8 +117,8 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -461,17 +461,21 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <section id="参考文献url" class="level2" data-number="C.5">
 <h2 data-number="C.5" class="anchored" data-anchor-id="参考文献url"><span class="header-section-number">C.5</span> 参考文献・URL</h2>
 <ul>
-<li><span class="citation" data-cites="R300000001-I023999239-00">(<a href="references.html#ref-R300000001-I023999239-00" role="doc-biblioref">石田基広 2012</a>)</span></li>
-<li><span class="citation" data-cites="R300000001-I031457544-00">(<a href="references.html#ref-R300000001-I031457544-00" role="doc-biblioref">松村優哉 2021</a>)</span></li>
+<li><span class="citation" data-cites="isbn9784320110298">石田 基広 (<a href="references.html#ref-isbn9784320110298" role="doc-biblioref"><strong>2012</strong></a>)</span></li>
+<li><span class="citation" data-cites="isbn9784873118147">ハドリー・ウィッカム と ギャレット・グロールマンド (<a href="references.html#ref-isbn9784873118147" role="doc-biblioref"><strong>2017</strong></a>)</span></li>
+<li><span class="citation" data-cites="isbn9784297121709">松村優哉 ほか (<a href="references.html#ref-isbn9784297121709" role="doc-biblioref"><strong>2021</strong></a>)</span></li>
 </ul>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-R300000001-I031457544-00" class="csl-entry" role="doc-biblioentry">
-松村優哉紀ノ定保礼. 2021. <em>RユーザのためのRStudio〈実践〉入門 : tidyverseによるモダンな分析フローの世界</em>. 改訂2版 版. 技術評論社. <a href="http://id.ndl.go.jp/bib/031457544">http://id.ndl.go.jp/bib/031457544</a>.
+<div id="ref-isbn9784873118147" class="csl-entry" role="doc-biblioentry">
+ハドリー・ウィッカム と ギャレット・グロールマンド, <strong>2017</strong>. <a href="http://id.ndl.go.jp/bib/028571179">Rではじめるデータサイエンス</a>. オライリー・ジャパン. ISBN:<em>9784873118147</em>. 翻訳者： 黒川利明
 </div>
-<div id="ref-R300000001-I023999239-00" class="csl-entry" role="doc-biblioentry">
-石田基広. 2012. <em>Rで学ぶデータ・プログラミング入門 = R Data Programming with RStudio : RStudioを活用する</em>. 共立出版. <a href="http://id.ndl.go.jp/bib/023999239">http://id.ndl.go.jp/bib/023999239</a>.
+<div id="ref-isbn9784297121709" class="csl-entry" role="doc-biblioentry">
+松村優哉, 湯谷啓明, 紀ノ定保礼, と 前田和寛, <strong>2021</strong>. <a href="http://id.ndl.go.jp/bib/031457544">改訂2版 RユーザのためのRStudio[実践]入門〜tidyverseによるモダンな分析フローの世界</a>. 技術評論社. ISBN:<em>9784297121709</em>
+</div>
+<div id="ref-isbn9784320110298" class="csl-entry" role="doc-biblioentry">
+石田 基広, <strong>2012</strong>. <a href="http://id.ndl.go.jp/bib/023999239">Rで学ぶデータ・プログラミング入門 = R Data Programming with RStudio : RStudioを活用する</a>. 共立出版. ISBN:<em>9784320110298</em>
 </div>
 </div>
 </section>
@@ -479,6 +483,21 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
+  }
+  toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
     for (let i=0; i < stylesheets.length; i++) {
       const stylesheet = stylesheets[i];
@@ -508,8 +527,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     manageTransitions('#quarto-margin-sidebar .nav-link', false);
     if (alternate) {
       enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
     } else {
       disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
     }
     manageTransitions('#quarto-margin-sidebar .nav-link', true);
     // Switch the toggles

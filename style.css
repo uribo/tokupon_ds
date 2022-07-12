@@ -32,3 +32,13 @@ div.callout-caption-container {
 div.callout-caption-container {
   background-image: url("images/tokupon_normal.svg");
 }
+
+div.references div strong {
+  font-weight: bold;
+  background: none;
+}
+
+span.citation strong {
+  font-weight: normal;
+  background: none;
+}
