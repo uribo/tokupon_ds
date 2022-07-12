@@ -412,11 +412,11 @@ mapview(sf_zoo_conservation,
 
 ## 参考文献・URL
 
-- [@R300000001-I000002440327-00]
-- [@R300000001-I028499054-00]
-- [@R300000001-I031579212-00]
-- [@R300000001-I030185215-00]
-- [@R300000001-I031219712-00]
+- @isbn9784794962188
+- @isbn9784774192192
+- @isbn9784254102932
+- @isbn9784873118918
+- @isbn9784065164044
 - [@R300000001-I030421662-00]
 - 誤解を与える統計グラフ - Wikipedia [https://ja.wikipedia.org/wiki/誤解を与える統計グラフ](https://ja.wikipedia.org/wiki/誤解を与える統計グラフ)
 - Download the Datasaurus: Never trust summary statistics alone; always visualize your data [http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html) 

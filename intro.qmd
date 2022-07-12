@@ -343,12 +343,12 @@ Rのインストール方法、簡単な使い方を紹介するよ。
 
 ## 参考文献・URL
 
-- [@nishiuchi13]
-- [@ezaki20]
-- [@R300000001-I025194412-00]
-- [@R300000001-I028897021-00]
-- [@R300000001-I030421662-00]
-- [@R300000001-I031736628-00]
+- @isbn9784478022214
+- @isbn9784802612906
+- @isbn9784198637064
+- @isbn9784004317135
+- @isbn9784478110348
+- @isbn9784791774197
 - 小・中学生のための統計学習 まなぼう統計 [https://www.toukei.metro.tokyo.lg.jp/manabou/ma-index.htm](https://www.toukei.metro.tokyo.lg.jp/manabou/ma-index.htm) 
 - なるほど統計学園 [https://www.stat.go.jp/naruhodo/](https://www.stat.go.jp/naruhodo/) ... 総務省統計局による、統計について興味・関心を持ってもらうための統計学習サイト
 - 青空文庫 コレラの伝染様式について [https://www.aozora.gr.jp/cards/001600/files/53757_67624.html](https://www.aozora.gr.jp/cards/001600/files/53757_67624.html)
