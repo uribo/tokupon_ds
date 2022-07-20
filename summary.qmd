@@ -26,6 +26,11 @@
 現在、次の方に改善案をいただいています。これらの方々に感謝します。
 [\@niszet](https://github.com/niszet)（順不同、敬称略）
 
+このプロジェクトを含め、私のOSSに携わる活動を支援してくださっている[GitHubスポンサー](https://github.com/sponsors/uribo)の方々にもこの場で感謝いたします。
+活動を支援するためにGitHubスポンサーに加わっていただける方はこちらのリンクから登録をお願います。
+
+<iframe src="https://github.com/sponsors/uribo/card" title="Sponsor uribo" height="225" width="600" style="border: 0;"></iframe>
+
 コンテンツの一部として使用した動物のシルエットは[PHYLOPIC](http://phylopic.org)がクリエイティブ・コモンズライセンスで提供するものです。以下に使用したシルエットのリンクを掲載します。
 
 <!-- 18種 -->
