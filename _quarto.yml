@@ -5,13 +5,13 @@ lang: "ja"
 
 book:
   title: "データ分析入門"
-  author: "瓜生真也（徳島大学デザイン型AI教育研究センター）"
-  institute: "徳島大学デザイン型AI教育研究センター"
+  author:
+    name: "瓜生真也"
+    institute: "徳島大学デザイン型AI教育研究センター"
   google-analytics: "G-1VZEWMXCVL"
   date: "2022/7/12"
   cover-image: cover.png
   search: true
-  number-depth: 3
   chapters:
     - index.qmd
     - intro.qmd
@@ -45,7 +45,6 @@ book:
 crossref:
   appendix-title: "付録"
   appendix-delim: "."
-  appendix-labels: arabic
 
 callout-appearance: default
 callout-icon: true
