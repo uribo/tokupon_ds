@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "textlint": "^12.2.1",
+    "textlint-rule-common-misspellings": "^1.0.1",
+    "textlint-rule-preset-jtf-style": "^2.3.13"
+  }
+}
