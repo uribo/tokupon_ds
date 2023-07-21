@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.32">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,16 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -41,48 +47,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -96,8 +73,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -120,6 +96,9 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -136,7 +115,8 @@ div.csl-indent {
     "search-more-matches-text": "追加の検索結果",
     "search-clear-button-title": "消去",
     "search-detached-cancel-button-title": "取消",
-    "search-submit-button-title": "検索"
+    "search-submit-button-title": "検索",
+    "search-label": "サーチ"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1VZEWMXCVL"></script>
@@ -157,11 +137,16 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -169,114 +154,130 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">データ分析入門</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/uribo/tokupon_ds" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/uribo/tokupon_ds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="ダークモードの切り替え"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="サーチ"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">前書き</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前書き</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></a>
+  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">基礎</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">基礎</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">データの種類と表現方法</span></a>
+  <a href="./data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">データの種類と表現方法</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">データの特徴を捉える</span></a>
+  <a href="./summary_statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">データの特徴を捉える</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./correlation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">相関: 2変数の関係を調べる</span></a>
+  <a href="./correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">相関: 2変数の関係を調べる</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">グラフの作成</span></a>
+  <a href="./visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">グラフの作成</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">発展</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">発展</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></a>
+  <a href="./regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></a>
+  <a href="./classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">まとめ</a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">まとめ</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">参考文献・URL</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献・URL</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">付録</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">付録</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercise.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">練習問題の答えと解説</span></a>
+  <a href="./exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">練習問題の答えと解説</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dataset.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">データセット</span></a>
+  <a href="./dataset.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">データセット</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Rのイロハ</span></a>
+  <a href="./r_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Rのイロハ</span></span></a>
   </div>
 </li>
       </ul>
@@ -284,21 +285,22 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#データ分析って何" id="toc-データ分析って何" class="nav-link active" data-scroll-target="#データ分析って何"> <span class="header-section-number">1.1</span> データ分析って何？</a>
+  <li><a href="#データ分析って何" id="toc-データ分析って何" class="nav-link active" data-scroll-target="#データ分析って何"><span class="header-section-number">1.1</span> データ分析って何？</a>
   <ul class="collapse">
-  <li><a href="#データ分析の手順" id="toc-データ分析の手順" class="nav-link" data-scroll-target="#データ分析の手順"> <span class="header-section-number">1.1.1</span> データ分析の手順</a></li>
-  <li><a href="#データを意思決定に役立てる" id="toc-データを意思決定に役立てる" class="nav-link" data-scroll-target="#データを意思決定に役立てる"> <span class="header-section-number">1.1.2</span> データを意思決定に役立てる</a></li>
+  <li><a href="#データ分析の手順" id="toc-データ分析の手順" class="nav-link" data-scroll-target="#データ分析の手順"><span class="header-section-number">1.1.1</span> データ分析の手順</a></li>
+  <li><a href="#データを意思決定に役立てる" id="toc-データを意思決定に役立てる" class="nav-link" data-scroll-target="#データを意思決定に役立てる"><span class="header-section-number">1.1.2</span> データを意思決定に役立てる</a></li>
   </ul></li>
-  <li><a href="#データグラフに騙されない" id="toc-データグラフに騙されない" class="nav-link" data-scroll-target="#データグラフに騙されない"> <span class="header-section-number">1.2</span> データ、グラフに騙されない</a></li>
-  <li><a href="#データ分析で扱う問題" id="toc-データ分析で扱う問題" class="nav-link" data-scroll-target="#データ分析で扱う問題"> <span class="header-section-number">1.3</span> データ分析で扱う問題</a></li>
-  <li><a href="#まとめと課題" id="toc-まとめと課題" class="nav-link" data-scroll-target="#まとめと課題"> <span class="header-section-number">1.4</span> まとめと課題</a></li>
-  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">1.5</span> 参考文献・URL</a></li>
+  <li><a href="#データグラフに騙されない" id="toc-データグラフに騙されない" class="nav-link" data-scroll-target="#データグラフに騙されない"><span class="header-section-number">1.2</span> データ、グラフに騙されない</a></li>
+  <li><a href="#データ分析で扱う問題" id="toc-データ分析で扱う問題" class="nav-link" data-scroll-target="#データ分析で扱う問題"><span class="header-section-number">1.3</span> データ分析で扱う問題</a></li>
+  <li><a href="#まとめと課題" id="toc-まとめと課題" class="nav-link" data-scroll-target="#まとめと課題"><span class="header-section-number">1.4</span> まとめと課題</a></li>
+  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"><span class="header-section-number">1.5</span> 参考文献・URL</a></li>
   </ul>
 </nav>
     </div>
@@ -307,7 +309,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></h1>
 </div>
 
 
@@ -315,6 +317,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -338,7 +341,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>データの関係を説明する簡単な例をみてみましょう。 次に示す <a href="#fig-penguins">図&nbsp;<span>1.1</span></a> は、ペンギンの各個体の大きさを記録したデータをグラフ化したものです。 この図からどのようなことが言えるでしょうか。</p>
 <div class="cell">
 <details>
-<summary>コードを表示</summary>
+<summary>コード</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -354,8 +357,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div id="fig-penguins" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="intro_files/figure-html/fig-penguins-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">図 1.1: ペンギンの体の大きさの関係</figcaption><p></p>
+<p><a href="intro_files/figure-html/fig-penguins-1.png" class="lightbox" title="ペンギンの体の大きさの関係" data-gallery="quarto-lightbox-gallery-1"><img src="intro_files/figure-html/fig-penguins-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figcaption class="figure-caption">図&nbsp;1.1: ペンギンの体の大きさの関係</figcaption>
 </figure>
 </div>
 </div>
@@ -365,7 +368,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>また、先ほどの<a href="./dataset.html#南極大陸に生育するペンギンの大きさについての観測データ"><strong>ペンギンデータ</strong></a>は実は複数のペンギンの種名<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>について調べたデータだったとします。 このとき、体の部位の関係の説明にペンギンの種名という、もう一つのデータが加わることになります。 そこで <a href="#fig-penguins">図&nbsp;<span>1.1</span></a> の図に手を入れて、種類ごとに色分けした図を見てみることにします (<a href="#fig-penguins_species">図&nbsp;<span>1.2</span></a>)。</p>
 <div class="cell">
 <details>
-<summary>コードを表示</summary>
+<summary>コード</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"scripts/color_palette.R"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
@@ -375,8 +378,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div id="fig-penguins_species" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="intro_files/figure-html/fig-penguins_species-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">図 1.2: ペンギンの体の大きさの関係を種名別に比較する</figcaption><p></p>
+<p><a href="intro_files/figure-html/fig-penguins_species-1.png" class="lightbox" title="ペンギンの体の大きさの関係を種名別に比較する" data-gallery="quarto-lightbox-gallery-2"><img src="intro_files/figure-html/fig-penguins_species-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figcaption class="figure-caption">図&nbsp;1.2: ペンギンの体の大きさの関係を種名別に比較する</figcaption>
 </figure>
 </div>
 </div>
@@ -384,12 +387,12 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p><a href="#fig-penguins_species">図&nbsp;<span>1.2</span></a> では、最初の仮定（翼の長さと口ばしの長さが比例して大きくなる）が変わることはなさそうです。 しかしペンギンの種類によって体の部位の大きさには幅が決まっていそうだ、ということも見えてきました。 具体的にはアデリーペンギン、ヒゲペンギン、ジェンツーペンギンの順番で体の大きさに違いがあるようです。 これも新たな仮定としておきましょう。 この仮定を調べるためのモデルも存在します。 こうしたデータ間の<ruby>比較<rt>ひかく</rt></ruby>（2つあるいは3つ以上のものを比べ、そこにある違いを考えること）もデータ分析で扱う内容です。</p>
 <p>データ分析の最後の目的は、新たに得られるデータに対する予測を行うことです。 これまでに集めたデータや構築したモデルから、新たなデータへの予測を行います。 モデルが存在することで、ある程度の未知のデータに対する予測が可能になります。 ペンギンの体の大きさの例で見たように、翼の長さがわかれば、口ばしの長さに対する見通しが立ちます。 また、ある程度の大きさであれば種類まで特定できるかもしれません。</p>
 <p>データ分析を行うために、数学の知識が活用できます。 特に統計学や機械学習では、数学を用いたデータ分析の手法を扱います。 数学は理系の印象がありますが、データ分析では文理問わず求められる技能なのです。 しかし数学はデータ分析において必須ではありません。 この書籍の中でも高度な数学を用いずにデータ分析を行う方法や、データを表現する可視化の手法について紹介します。</p>
-<div class="callout-note tokupon_none callout callout-style-default callout-captioned">
+<div class="tokupon_none callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 データサイエンスとデータサイエンティスト
 </div>
 </div>
@@ -404,8 +407,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p><a href="#fig-data_science_flow">図&nbsp;<span>1.3</span></a> は一般的なデータ分析の手順を示したものです。 まずデータを入手し、コンピュータが扱えるように読み込みます。 続いて、その後の処理が行いやすいように整形を行います。 多くのデータは人間が解釈しやすいように記録されています。 その形はコンピュータやプログラムで利用できる状態でないことがしばしばあります。 また、データ化に伴う不備や正しく読み取れないデータというのも存在します。 こうした問題に対する処理もデータ分析では必要になります。</p>
 <div id="fig-data_science_flow" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/data_science_flow.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">図 1.3: データ分析の大まかな流れ</figcaption><p></p>
+<p><a href="images/data_science_flow.png" class="lightbox" title="データ分析の大まかな流れ" data-gallery="quarto-lightbox-gallery-3"><img src="images/data_science_flow.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">図&nbsp;1.3: データ分析の大まかな流れ</figcaption>
 </figure>
 </div>
 <p>データを正しく読み取り、プログラムで扱いやすい形式に加工したら、 データ分析の主要な部分である加工、可視化、モデルの作業です。 可視化とは、図表を用いてデータを表現することを意味します。 これらの作業は一方向的なものではなく、互いに繋がっています。 例えば、モデルの作成のためにデータを加工する、加工したデータを使って可視化をする、 といった具合です。</p>
@@ -423,12 +426,12 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </ul>
 <p>確証がないとの理由から、残念ながらジョン・スノウが導いた細菌に汚染された水が問題であるとする意見は政府に受け入れられた訳ではありませんでしたが、ジョン・スノウは得られたデータ（患者が使用していた井戸水の位置と井戸水を供給する水道会社）をもとに原因解決のために働きます。 問題となる井戸を特定したり、死者が発生した家で利用される水道会社の比較を行うことで、水の停止を求め、一部の地域ではコレラの感染を抑えることに成功しました。</p>
 <p>ジョン・スノウはデータと分析に基づき、問題解決のために働いた人物です。 ジョン・スノウが行ったデータの比較方法や分析は、現代の疫学研究の基礎となるものでした。 そのため彼は現代では疫学の父と呼ばれています。</p>
-<div class="callout-note tokupon_none callout callout-style-default callout-captioned">
+<div class="tokupon_none callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 ジョン・スノウによる地図
 </div>
 </div>
@@ -436,8 +439,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>ジョン・スノウは住民への聞き込み調査と合わせて、コレラで死亡した人の居住地を地図上にマッピングしたんだ。 <a href="#fig-snow_cholera_map">図&nbsp;<span>1.4</span></a> に示すように、一人の死者に対して黒い棒グラフを描いて死者が多い地域を強調しようとした試みがされているね。 地図にはさらに井戸の位置も表示されているよ。 これはコレラの流行の原因が、細菌に汚染された水にあると考えるジョン・スノウならではの視点だったのかもしれないね。</p>
 <div id="fig-snow_cholera_map" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Snow-cholera-map-1.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">図 1.4: 1854年にジョン・スノウが作成したゴールデン・スクエアのブロード・ストリート周辺における死亡者の状態を示す地 パブリックドメイン https://commons.wikimedia.org/wiki/File:Snow-cholera-map-1.jpg</figcaption><p></p>
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/2/27/Snow-cholera-map-1.jpg" class="lightbox" title="1854年にジョン・スノウが作成したゴールデン・スクエアのブロード・ストリート周辺における死亡者の状態を示す地 パブリックドメイン https://commons.wikimedia.org/wiki/File:Snow-cholera-map-1.jpg" data-gallery="quarto-lightbox-gallery-8"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Snow-cholera-map-1.jpg" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">図&nbsp;1.4: 1854年にジョン・スノウが作成したゴールデン・スクエアのブロード・ストリート周辺における死亡者の状態を示す地 パブリックドメイン https://commons.wikimedia.org/wiki/File:Snow-cholera-map-1.jpg</figcaption>
 </figure>
 </div>
 </div>
@@ -446,8 +449,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>ナイチンゲールは1853年から1856年の間に発生していたクリミア戦争において、戦場で負傷した兵士の看護と衛生面の改善に取り組みました。戦争終了後、戦争による死者の原因を分析する中で、戦闘で負った傷が原因で亡くなる兵士よりも、負傷後に何らかの菌に感染した影響で病気となり死亡する兵士のほうが圧倒的に多いことを明らかにしました。 しかし軍はその結果を認めようとはしませんでした。 そこでナイチンゲールはデータをよりわかりやすく、明確に伝えるための工夫としてグラフを作成しました (<a href="#fig-nightingale_rose_diagram">図&nbsp;<span>1.5</span></a>)。</p>
 <div id="fig-nightingale_rose_diagram" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/nightingale_rose_diagram.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">図 1.5: Nightingale, Florence. A contribution to the sanitary history of the British army during the late war with Russia. London : John W. Parker and Son, 1859. (page 19 (seq. 25)). Repository: Countway Library of Medicine. Institution: Harvard University. アクセス日: 2022年7月6日. リンク: https://nrs.lib.harvard.edu/urn-3:hms.count:1177146?n=25</figcaption><p></p>
+<p><a href="images/nightingale_rose_diagram.jpg" class="lightbox" title="Nightingale, Florence. A contribution to the sanitary history of the British army during the late war with Russia. London : John W. Parker and Son, 1859. (page 19 (seq. 25)). Repository: Countway Library of Medicine. Institution: Harvard University. アクセス日: 2022年7月6日. リンク: https://nrs.lib.harvard.edu/urn-3:hms.count:1177146?n=25" data-gallery="quarto-lightbox-gallery-4"><img src="images/nightingale_rose_diagram.jpg" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">図&nbsp;1.5: Nightingale, Florence. A contribution to the sanitary history of the British army during the late war with Russia. London : John W. Parker and Son, 1859. (page 19 (seq. 25)). Repository: Countway Library of Medicine. Institution: Harvard University. アクセス日: 2022年7月6日. リンク: https://nrs.lib.harvard.edu/urn-3:hms.count:1177146?n=25</figcaption>
 </figure>
 </div>
 <p>ナイチンゲールが示したのは風変わりなグラフでしたが、単純な棒グラフ以上に関心を引きやすい、美しい画像を用意することで、政府の説得を目指したのかもしれません。</p>
@@ -460,8 +463,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>普段の生活の中で、数値やグラフを目にする機会がたくさんあります。 天気予報や学校のテストの成績、スマートフォンやスマートウォッチで記録される歩数（<a href="#fig-my_activity">図&nbsp;<span>1.6</span></a>）などです。</p>
 <div id="fig-my_activity" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/my_activity.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">図 1.6: スマートフォンに記録される活動量。数値を時間ごとにグラフ化し、一日の活動量と時間帯の関係がわかる</figcaption><p></p>
+<p><a href="images/my_activity.jpeg" class="lightbox" title="スマートフォンに記録される活動量。数値を時間ごとにグラフ化し、一日の活動量と時間帯の関係がわかる" data-gallery="quarto-lightbox-gallery-5"><img src="images/my_activity.jpeg" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">図&nbsp;1.6: スマートフォンに記録される活動量。数値を時間ごとにグラフ化し、一日の活動量と時間帯の関係がわかる</figcaption>
 </figure>
 </div>
 <p>このような数字やグラフを見た時に感じる印象は人それぞれですが、 多くの人が共感するものも存在します。</p>
@@ -470,8 +473,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div id="fig-hoken_ugly" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="intro_files/figure-html/fig-hoken_ugly-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">図 1.7: 誤解を招きやすいグラフの例。5歳の幼児における都道府県別の平均身長。グラフの横軸が0から始まっていないために値の差が大きく見えてしまう。</figcaption><p></p>
+<p><a href="intro_files/figure-html/fig-hoken_ugly-1.png" class="lightbox" title="誤解を招きやすいグラフの例。5歳の幼児における都道府県別の平均身長。グラフの横軸が0から始まっていないために値の差が大きく見えてしまう。" data-gallery="quarto-lightbox-gallery-6"><img src="intro_files/figure-html/fig-hoken_ugly-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figcaption class="figure-caption">図&nbsp;1.7: 誤解を招きやすいグラフの例。5歳の幼児における都道府県別の平均身長。グラフの横軸が0から始まっていないために値の差が大きく見えてしまう。</figcaption>
 </figure>
 </div>
 </div>
@@ -481,20 +484,20 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div id="fig-hoken" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="intro_files/figure-html/fig-hoken-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">図 1.8: 横軸を0から示した平均身長を示す棒グラフ</figcaption><p></p>
+<p><a href="intro_files/figure-html/fig-hoken-1.png" class="lightbox" title="横軸を0から示した平均身長を示す棒グラフ" data-gallery="quarto-lightbox-gallery-7"><img src="intro_files/figure-html/fig-hoken-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figcaption class="figure-caption">図&nbsp;1.8: 横軸を0から示した平均身長を示す棒グラフ</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>先ほどは都道府県間の差が大きく感じたものが、今度はどの県も平坦な様子に思えたのではないでしょうか。 <strong>数値が変わったわけではないので、順位に違いはありませんが見た目の印象が大きく違います</strong>。 数値で確認すると、全国一位の宮城県の5歳の男児の平均身長は112.8cmで徳島県では110.1cmで、その差は2.7cmです。 <a href="#fig-hoken_ugly">図&nbsp;<span>1.7</span></a> で何倍も開きがあるように感じた印象ほどではないと思える数値ではないでしょうか。</p>
 <p>数字やグラフにはある種の説得力が存在します。 目に見えるものが示す内容を鵜呑みにして物事を判断してしまうことは危険です。 テストの点数がクラスの平均よりも低かったからと言って、クラスの上位に含まれていないとは限りません（逆もあります）。 また、最近では一日の新型コロナウィルス感染症の新規感染者数が報道されますが、悲観的になり過ぎる心配はない場合もあります。</p>
-<div class="callout-tip tokupon callout callout-style-default callout-captioned">
+<div class="tokupon callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 テストの点数がクラスの平均点よりも低くても上位に含まれる？
 </div>
 </div>
@@ -514,12 +517,12 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>扱う課題が回帰問題か分類問題か</p>
 <p>分類と回帰の問題を解くために使われるアルゴリズムは異なります。</p>
 <p>このコースでも、発展として簡単な回帰と分類問題に挑戦します。</p>
-<div class="callout-note tokupon callout callout-style-default callout-captioned">
+<div class="tokupon callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 R言語について
 </div>
 </div>
@@ -552,32 +555,32 @@ R言語について
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-isbn9784791774197" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-isbn9784791774197" class="csl-entry" role="listitem">
 マイケル・フレンドリー と ハワード・ウェイナー, <strong>2021</strong>. <a href="http://id.ndl.go.jp/bib/031736628">データ視覚化の人類史: グラフの発明から時間と空間の可視化まで</a>. 青土社. ISBN:<em>9784791774197</em>. 翻訳者： 飯嶋貴子
 </div>
-<div id="ref-isbn9784478110348" class="csl-entry" role="doc-biblioentry">
+<div id="ref-isbn9784478110348" class="csl-entry" role="listitem">
 アルベルト・カイロ, <strong>2020</strong>. <a href="http://id.ndl.go.jp/bib/030421662">グラフのウソを見破る技術: マイアミ大学ビジュアル・ジャーナリズム講座</a>. ダイヤモンド社. ISBN:<em>9784478110348</em>. 翻訳者： 薮井真澄
 </div>
-<div id="ref-isbn9784802612906" class="csl-entry" role="doc-biblioentry">
+<div id="ref-isbn9784802612906" class="csl-entry" role="listitem">
 江崎貴裕, <strong>2020</strong>. <a href="http://id.ndl.go.jp/bib/030791751">分析者のためのデータ解釈学入門: データの本質をとらえる技術</a>. ソシム. ISBN:<em>9784802612906</em>
 </div>
-<div id="ref-isbn9784198637064" class="csl-entry" role="doc-biblioentry">
+<div id="ref-isbn9784198637064" class="csl-entry" role="listitem">
 竹内薫, <strong>2014</strong>. <a href="http://id.ndl.go.jp/bib/025194412">統計の9割はウソ: 世界にはびこる「数字トリック」を見破る技術</a>. 徳間書店. ISBN:<em>9784198637064</em>
 </div>
-<div id="ref-isbn9784004317135" class="csl-entry" role="doc-biblioentry">
+<div id="ref-isbn9784004317135" class="csl-entry" role="listitem">
 竹村 彰通, <strong>2018</strong>. <a href="http://id.ndl.go.jp/bib/028897021">データサイエンス入門</a>, 岩波新書　新赤版　1713. 岩波書店. ISBN:<em>9784004317135</em>
 </div>
-<div id="ref-isbn9784478022214" class="csl-entry" role="doc-biblioentry">
+<div id="ref-isbn9784478022214" class="csl-entry" role="listitem">
 西内 啓, <strong>2013</strong>. <a href="http://id.ndl.go.jp/bib/024193446">統計学が最強の学問である: データ社会を生き抜くための武器と教養</a>. ダイヤモンド社. ISBN:<em>9784478022214</em>
 </div>
 </div>
 </section>
-<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1" role="doc-endnote"><p>こうした個人に関する情報で、特定の個人を識別できるものを「個人情報」と呼びます。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>生物の種を表す名前を種名と呼びます。日本語での種名は和名（カタカナで表記するのが一般的です）、学術的な種名を学名といい、学名はラテン語で表記されます。ここではカタカナ和名を用います。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>こうした個人に関する情報で、特定の個人を識別できるものを「個人情報」と呼びます。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>生物の種を表す名前を種名と呼びます。日本語での種名は和名（カタカナで表記するのが一般的です）、学術的な種名を学名といい、学名はラテン語で表記されます。ここではカタカナ和名を用います。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -653,6 +656,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       }
     }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
   }
   const isFileUrl = () => { 
     return window.location.protocol === 'file:';
@@ -704,7 +717,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -712,9 +727,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -725,8 +754,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "完了");
+    button.setAttribute("title", "コピーしました");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "コピーしました");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -754,31 +800,136 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
@@ -798,6 +949,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Copyright 2022, Shinya Uryu</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -816,6 +970,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":true});</script>
 
 
 

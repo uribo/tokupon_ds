@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.32">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,16 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -41,48 +47,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -96,8 +73,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -120,6 +96,9 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -136,7 +115,8 @@ div.csl-indent {
     "search-more-matches-text": "追加の検索結果",
     "search-clear-button-title": "消去",
     "search-detached-cancel-button-title": "取消",
-    "search-submit-button-title": "検索"
+    "search-submit-button-title": "検索",
+    "search-label": "サーチ"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1VZEWMXCVL"></script>
@@ -149,6 +129,7 @@ gtag('js', new Date());
 gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="style.css">
@@ -158,11 +139,16 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">データの特徴を捉える</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data.html">基礎</a></li><li class="breadcrumb-item"><a href="./summary_statistics.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">データの特徴を捉える</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -170,114 +156,130 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">データ分析入門</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/uribo/tokupon_ds" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/uribo/tokupon_ds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="ダークモードの切り替え"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="サーチ"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">前書き</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前書き</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></a>
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">基礎</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">基礎</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">データの種類と表現方法</span></a>
+  <a href="./data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">データの種類と表現方法</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary_statistics.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">データの特徴を捉える</span></a>
+  <a href="./summary_statistics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">データの特徴を捉える</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./correlation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">相関: 2変数の関係を調べる</span></a>
+  <a href="./correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">相関: 2変数の関係を調べる</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">グラフの作成</span></a>
+  <a href="./visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">グラフの作成</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">発展</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">発展</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></a>
+  <a href="./regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">回帰問題に挑戦</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./classification.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></a>
+  <a href="./classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">分類問題に挑戦</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">まとめ</a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">まとめ</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">参考文献・URL</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献・URL</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">付録</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">付録</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="セクションを切り替え">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercise.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">練習問題の答えと解説</span></a>
+  <a href="./exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">練習問題の答えと解説</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dataset.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">データセット</span></a>
+  <a href="./dataset.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">データセット</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Rのイロハ</span></a>
+  <a href="./r_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Rのイロハ</span></span></a>
   </div>
 </li>
       </ul>
@@ -285,33 +287,34 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#データの位置を示す代表値-平均値中央値最頻値" id="toc-データの位置を示す代表値-平均値中央値最頻値" class="nav-link active" data-scroll-target="#データの位置を示す代表値-平均値中央値最頻値"> <span class="header-section-number">3.1</span> データの位置を示す代表値: 平均値、中央値、最頻値</a>
+  <li><a href="#データの位置を示す代表値-平均値中央値最頻値" id="toc-データの位置を示す代表値-平均値中央値最頻値" class="nav-link active" data-scroll-target="#データの位置を示す代表値-平均値中央値最頻値"><span class="header-section-number">3.1</span> データの位置を示す代表値: 平均値、中央値、最頻値</a>
   <ul class="collapse">
-  <li><a href="#平均値" id="toc-平均値" class="nav-link" data-scroll-target="#平均値"> <span class="header-section-number">3.1.1</span> 平均値</a></li>
-  <li><a href="#中央値" id="toc-中央値" class="nav-link" data-scroll-target="#中央値"> <span class="header-section-number">3.1.2</span> 中央値</a></li>
-  <li><a href="#四分位点" id="toc-四分位点" class="nav-link" data-scroll-target="#四分位点"> <span class="header-section-number">3.1.3</span> 四分位点</a></li>
-  <li><a href="#最頻値" id="toc-最頻値" class="nav-link" data-scroll-target="#最頻値"> <span class="header-section-number">3.1.4</span> 最頻値</a></li>
+  <li><a href="#平均値" id="toc-平均値" class="nav-link" data-scroll-target="#平均値"><span class="header-section-number">3.1.1</span> 平均値</a></li>
+  <li><a href="#中央値" id="toc-中央値" class="nav-link" data-scroll-target="#中央値"><span class="header-section-number">3.1.2</span> 中央値</a></li>
+  <li><a href="#四分位点" id="toc-四分位点" class="nav-link" data-scroll-target="#四分位点"><span class="header-section-number">3.1.3</span> 四分位点</a></li>
+  <li><a href="#最頻値" id="toc-最頻値" class="nav-link" data-scroll-target="#最頻値"><span class="header-section-number">3.1.4</span> 最頻値</a></li>
   </ul></li>
-  <li><a href="#データのばらつき" id="toc-データのばらつき" class="nav-link" data-scroll-target="#データのばらつき"> <span class="header-section-number">3.2</span> データのばらつき</a>
+  <li><a href="#データのばらつき" id="toc-データのばらつき" class="nav-link" data-scroll-target="#データのばらつき"><span class="header-section-number">3.2</span> データのばらつき</a>
   <ul class="collapse">
-  <li><a href="#範囲" id="toc-範囲" class="nav-link" data-scroll-target="#範囲"> <span class="header-section-number">3.2.1</span> 範囲</a></li>
-  <li><a href="#分散と標準偏差" id="toc-分散と標準偏差" class="nav-link" data-scroll-target="#分散と標準偏差"> <span class="header-section-number">3.2.2</span> 分散と標準偏差</a></li>
+  <li><a href="#範囲" id="toc-範囲" class="nav-link" data-scroll-target="#範囲"><span class="header-section-number">3.2.1</span> 範囲</a></li>
+  <li><a href="#分散と標準偏差" id="toc-分散と標準偏差" class="nav-link" data-scroll-target="#分散と標準偏差"><span class="header-section-number">3.2.2</span> 分散と標準偏差</a></li>
   </ul></li>
-  <li><a href="#分布の姿を捉える" id="toc-分布の姿を捉える" class="nav-link" data-scroll-target="#分布の姿を捉える"> <span class="header-section-number">3.3</span> 分布の姿を捉える</a>
+  <li><a href="#分布の姿を捉える" id="toc-分布の姿を捉える" class="nav-link" data-scroll-target="#分布の姿を捉える"><span class="header-section-number">3.3</span> 分布の姿を捉える</a>
   <ul class="collapse">
-  <li><a href="#度数分布表" id="toc-度数分布表" class="nav-link" data-scroll-target="#度数分布表"> <span class="header-section-number">3.3.1</span> 度数分布表</a></li>
-  <li><a href="#ヒストグラム" id="toc-ヒストグラム" class="nav-link" data-scroll-target="#ヒストグラム"> <span class="header-section-number">3.3.2</span> ヒストグラム</a></li>
-  <li><a href="#箱ヒゲ図" id="toc-箱ヒゲ図" class="nav-link" data-scroll-target="#箱ヒゲ図"> <span class="header-section-number">3.3.3</span> 箱ヒゲ図</a></li>
-  <li><a href="#さまざまな分布の形" id="toc-さまざまな分布の形" class="nav-link" data-scroll-target="#さまざまな分布の形"> <span class="header-section-number">3.3.4</span> さまざまな分布の形</a></li>
+  <li><a href="#度数分布表" id="toc-度数分布表" class="nav-link" data-scroll-target="#度数分布表"><span class="header-section-number">3.3.1</span> 度数分布表</a></li>
+  <li><a href="#ヒストグラム" id="toc-ヒストグラム" class="nav-link" data-scroll-target="#ヒストグラム"><span class="header-section-number">3.3.2</span> ヒストグラム</a></li>
+  <li><a href="#箱ヒゲ図" id="toc-箱ヒゲ図" class="nav-link" data-scroll-target="#箱ヒゲ図"><span class="header-section-number">3.3.3</span> 箱ヒゲ図</a></li>
+  <li><a href="#さまざまな分布の形" id="toc-さまざまな分布の形" class="nav-link" data-scroll-target="#さまざまな分布の形"><span class="header-section-number">3.3.4</span> さまざまな分布の形</a></li>
   </ul></li>
-  <li><a href="#まとめと課題" id="toc-まとめと課題" class="nav-link" data-scroll-target="#まとめと課題"> <span class="header-section-number">3.4</span> まとめと課題</a></li>
-  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"> <span class="header-section-number">3.5</span> 参考文献・URL</a></li>
+  <li><a href="#まとめと課題" id="toc-まとめと課題" class="nav-link" data-scroll-target="#まとめと課題"><span class="header-section-number">3.4</span> まとめと課題</a></li>
+  <li><a href="#参考文献url" id="toc-参考文献url" class="nav-link" data-scroll-target="#参考文献url"><span class="header-section-number">3.5</span> 参考文献・URL</a></li>
   </ul>
 </nav>
     </div>
@@ -320,7 +323,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">データの特徴を捉える</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">データの特徴を捉える</span></h1>
 </div>
 
 
@@ -328,6 +331,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -394,7 +398,7 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>df_zoo_subset</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">name</th>
@@ -438,8 +442,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>データを見ると一番体重の大きなホッキョクグマが410kgで、二番目に大きな動物とも404.6kgも差があります。 <strong>平均値が大きく釣り上げられてしまった原因は、ホッキョクグマの体重が他の動物に比べて極端に大きな値、外れ値であったため</strong>です。 ホッキョクグマを除いたときの平均値は2.225となります。 このように平均値はデータの中の外れ値によって大きく左右される特徴があり、注意してください（<a href="#fig-average_outlier">図&nbsp;<span>3.1</span></a>）。</p>
 <div id="fig-average_outlier" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/average_outlier.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">図 3.1: 平均値は外れ値の影響を受けやすい</figcaption><p></p>
+<p><a href="images/average_outlier.png" class="lightbox" title="平均値は外れ値の影響を受けやすい" data-gallery="quarto-lightbox-gallery-1"><img src="images/average_outlier.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">図&nbsp;3.1: 平均値は外れ値の影響を受けやすい</figcaption>
 </figure>
 </div>
 </section>
@@ -489,8 +493,8 @@ gtag('config', 'G-1VZEWMXCVL', { 'anonymize_ip': true});
 <p>中央値の考え方を拡張したものとして四分位点があります。 これはデータを小さい方から並び替えたとき、<strong>データ全体を均等な数からなる4つのグループに分ける3つの点（値）</strong>のことを指します。 各グループ区切りの値となる点をそれぞれ第1四分位点（25パーセンタイル)、第2四分位点（50パーセンタイル）、第3四分位点（75パーセンタイル）と呼びます。 第2四分位点はデータの値を並び替えたときの真ん中となる値、つまり中央値です(<a href="#fig-quantile_explain">図&nbsp;<span>3.2</span></a>)。 また、パーセンタイルというのは値を小さい方から並び替えたときの最後の値の位置を100としたときの四分位点の位置を示す値です。 つまり最小値は0パーセンタイル、最大値は100パーセンタイルとなります。</p>
 <div id="fig-quantile_explain" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/quantile_explain.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">図 3.2: 四分位点のイメージ</figcaption><p></p>
+<p><a href="images/quantile_explain.png" class="lightbox" title="四分位点のイメージ" data-gallery="quarto-lightbox-gallery-2"><img src="images/quantile_explain.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">図&nbsp;3.2: 四分位点のイメージ</figcaption>
 </figure>
 </div>
 <p>データの半分が含まれる第1四分位点から第3四分位点までの範囲のことを四分位範囲と呼びます。 四分位範囲は第3四分位点から第1四分位点の値を引くことで求められます。</p>
@@ -570,12 +574,12 @@ pp. 120-121
 </div>
 <p>上記の例は変数が離散変数の場合の最頻値の求め方でした。 連続変数の場合も手順は変わりませんが、数値を適当な間隔でまとめた階級を設定することで判断することがあります。 これについては後ほど、<a href="#度数分布表">度数分布表</a>を紹介するときに説明します。</p>
 <p>データの位置を示す代表値3種類を説明しました。 それではデータの特徴を捉えるのに、平均値、中央値、最頻値のどれを使うのが適切でしょうか。 よく使われるのは平均値ですが、だからと言って平均値がどのような時にも優れているわけではありません。 扱うデータの内容、注目する事柄によって重要な代表値は変わってきます。 <a href="./intro.html">前の章</a>で、テストの平均点よりも低かった場合の位置について考えましたが、 そのとき中央値を計算していれば、平均よりも低い点であってもクラスの上位に含まれる可能性があることがわかったはずです。</p>
-<div class="callout-tip tokupon_none callout callout-style-default callout-captioned">
+<div class="tokupon_none callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 動物データの代表値を計算しよう
 </div>
 </div>
@@ -661,7 +665,7 @@ pp. 120-121
 <span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">body_mass_g</th>
@@ -748,8 +752,8 @@ pp. 120-121
 <p><strong>標準偏差を求める際に平方根を利用する理由は、分散を求めたときに2乗したものを元に戻すため</strong>です。 具体的には2乗した場合に単位が変わってしまうものを元に戻す必要があるためです。 例えば、長さの単位としてセンチメートルで測ったものならば平方センチメートルとなり、面積の単位になってしまうのを防ぐ効果があります。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/variance_table.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">標準偏差を導くまでの過程</figcaption><p></p>
+<p><a href="images/variance_table.png" class="lightbox" title="標準偏差を導くまでの過程" data-gallery="quarto-lightbox-gallery-3"><img src="images/variance_table.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">標準偏差を導くまでの過程</figcaption>
 </figure>
 </div>
 </section>
@@ -763,8 +767,8 @@ pp. 120-121
 <p>動物のデータセットの分類群を例にすると、<code>df_zoo$taxon</code>で分類群の値（霊長類や鳥類）を確認し、各値をカウントして度数を求め、それを分類群ごとに集約するという手順をとります。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/animal_species_count.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">分類群ごとに何種類の動物がいるか数えてみよう</figcaption><p></p>
+<p><a href="images/animal_species_count.png" class="lightbox" title="分類群ごとに何種類の動物がいるか数えてみよう" data-gallery="quarto-lightbox-gallery-4"><img src="images/animal_species_count.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">分類群ごとに何種類の動物がいるか数えてみよう</figcaption>
 </figure>
 </div>
 <div class="cell">
@@ -783,7 +787,7 @@ pp. 120-121
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(df_zoo, taxon, <span class="at">sort =</span> <span class="cn">TRUE</span>, <span class="at">name =</span> <span class="st">"frequency"</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">taxon</th>
@@ -834,7 +838,7 @@ pp. 120-121
 </div>
 <div class="cell">
 <details>
-<summary>コードを表示</summary>
+<summary>コード</summary>
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># range()関数を使わないでmin()関数やmax()関数を使っても良い</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -842,7 +846,7 @@ pp. 120-121
 <pre><code>[1] 2700</code></pre>
 </div>
 <details>
-<summary>コードを表示</summary>
+<summary>コード</summary>
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -866,8 +870,8 @@ pp. 120-121
 <div class="cell-output-display">
 <div class="kable-table">
 <div id="tbl-penguins_weight_freq" class="anchored">
-<table class="table table-sm table-striped">
-<caption>表 3.1: ペンギンデータの体重の度数分布表</caption>
+<table class="table table-sm table-striped small">
+<caption>表&nbsp;3.1: ペンギンデータの体重の度数分布表</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">class</th>
@@ -902,9 +906,6 @@ pp. 120-121
 </div>
 </div>
 <p>以上の手順が量的変数に対する度数分布表の求め方です。 <strong>ペンギンデータ</strong>の体重についての度数分布表を作成することができました(<a href="#tbl-penguins_weight_freq">表&nbsp;<span>3.1</span></a>)。 3000から4000の区間に含まれる値が最も多く、その次に4000から5000の区間の値、そのほかの区間の値はわずかということがわかります。</p>
-<div class="cell">
-
-</div>
 </section>
 <section id="ヒストグラム" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="ヒストグラム"><span class="header-section-number">3.3.2</span> ヒストグラム</h3>
@@ -925,8 +926,8 @@ pp. 120-121
 <div class="cell-output-display">
 <div id="fig-histogram_for_body_mass_g" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="summary_statistics_files/figure-html/fig-histogram_for_body_mass_g-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">図 3.3: ペンギンの体重のヒストグラム</figcaption><p></p>
+<p><a href="summary_statistics_files/figure-html/fig-histogram_for_body_mass_g-1.png" class="lightbox" title="ペンギンの体重のヒストグラム" data-gallery="quarto-lightbox-gallery-5"><img src="summary_statistics_files/figure-html/fig-histogram_for_body_mass_g-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figcaption class="figure-caption">図&nbsp;3.3: ペンギンの体重のヒストグラム</figcaption>
 </figure>
 </div>
 </div>
@@ -935,7 +936,7 @@ pp. 120-121
 <p>次に、これまで見てきた代表値やばらつきを表す数値とヒストグラムの関係を見てみましょう。 データ全体の傾向を示すヒストグラムと、代表的な値の関係を見ることで、データに対する理解が深まります。</p>
 <div class="cell">
 <details>
-<summary>コードを表示</summary>
+<summary>コード</summary>
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span></span>
 <span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> course_colors[<span class="dv">3</span>]) <span class="sc">+</span></span>
@@ -959,8 +960,8 @@ pp. 120-121
 <div class="cell-output-display">
 <div id="fig-histogram_for_body_mass_g_annotate" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="summary_statistics_files/figure-html/fig-histogram_for_body_mass_g_annotate-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">図 3.4: ペンギンの体重のヒストグラムと代表値の関係</figcaption><p></p>
+<p><a href="summary_statistics_files/figure-html/fig-histogram_for_body_mass_g_annotate-1.png" class="lightbox" title="ペンギンの体重のヒストグラムと代表値の関係" data-gallery="quarto-lightbox-gallery-6"><img src="summary_statistics_files/figure-html/fig-histogram_for_body_mass_g_annotate-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figcaption class="figure-caption">図&nbsp;3.4: ペンギンの体重のヒストグラムと代表値の関係</figcaption>
 </figure>
 </div>
 </div>
@@ -987,18 +988,18 @@ pp. 120-121
 <div class="cell-output-display">
 <div id="fig-histogram_bins" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="summary_statistics_files/figure-html/fig-histogram_bins-1.png" class="img-fluid figure-img" width="960"></p>
-<p></p><figcaption class="figure-caption">図 3.5: 階級数によってヒストグラムの見た目は変わる</figcaption><p></p>
+<p><a href="summary_statistics_files/figure-html/fig-histogram_bins-1.png" class="lightbox" title="階級数によってヒストグラムの見た目は変わる" data-gallery="quarto-lightbox-gallery-7"><img src="summary_statistics_files/figure-html/fig-histogram_bins-1.png" class="img-fluid figure-img" width="960"></a></p>
+<figcaption class="figure-caption">図&nbsp;3.5: 階級数によってヒストグラムの見た目は変わる</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 階級幅の異なるヒストグラム
 </div>
 </div>
@@ -1006,12 +1007,12 @@ pp. 120-121
 <p>階級の幅が一定でないヒストグラムが存在するよ。</p>
 </div>
 </div>
-<div class="callout-note tokupon callout callout-style-default callout-captioned">
+<div class="tokupon callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 適切な階級数はどうやって決めるの？
 </div>
 </div>
@@ -1037,8 +1038,8 @@ pp. 120-121
 </ol>
 <div id="fig-how_to_make_boxplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/how_to_make_boxplot.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">図 3.6: 箱ヒゲ図の見方と作り方</figcaption><p></p>
+<p><a href="images/how_to_make_boxplot.png" class="lightbox" title="箱ヒゲ図の見方と作り方" data-gallery="quarto-lightbox-gallery-8"><img src="images/how_to_make_boxplot.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">図&nbsp;3.6: 箱ヒゲ図の見方と作り方</figcaption>
 </figure>
 </div>
 <p><strong>動物データ</strong>の体重について箱ヒゲ図を作成してみます (<a href="#fig-zoo_body_length_boxplot">図&nbsp;<span>3.7</span></a>)。 箱とヒゲについての意味を理解しておく必要がありますが、ヒストグラムのようにデータの分布を確認することができる図となっています。</p>
@@ -1051,8 +1052,8 @@ pp. 120-121
 <div class="cell-output-display">
 <div id="fig-zoo_body_length_boxplot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="summary_statistics_files/figure-html/fig-zoo_body_length_boxplot-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">図 3.7: 動物データの体重の箱ヒゲ図</figcaption><p></p>
+<p><a href="summary_statistics_files/figure-html/fig-zoo_body_length_boxplot-1.png" class="lightbox" title="動物データの体重の箱ヒゲ図" data-gallery="quarto-lightbox-gallery-9"><img src="summary_statistics_files/figure-html/fig-zoo_body_length_boxplot-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figcaption class="figure-caption">図&nbsp;3.7: 動物データの体重の箱ヒゲ図</figcaption>
 </figure>
 </div>
 </div>
@@ -1077,8 +1078,8 @@ pp. 120-121
 <div class="cell-output-display">
 <div id="fig-zoo_body_length_boxplot_by_taxon" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="summary_statistics_files/figure-html/fig-zoo_body_length_boxplot_by_taxon-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">図 3.8: 動物データの分類群ごとの体長の箱ヒゲ図。箱ヒゲ図を並べて描画することで複数のデータを比較しやすくなります。</figcaption><p></p>
+<p><a href="summary_statistics_files/figure-html/fig-zoo_body_length_boxplot_by_taxon-1.png" class="lightbox" title="動物データの分類群ごとの体長の箱ヒゲ図。箱ヒゲ図を並べて描画することで複数のデータを比較しやすくなります。" data-gallery="quarto-lightbox-gallery-10"><img src="summary_statistics_files/figure-html/fig-zoo_body_length_boxplot_by_taxon-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figcaption class="figure-caption">図&nbsp;3.8: 動物データの分類群ごとの体長の箱ヒゲ図。箱ヒゲ図を並べて描画することで複数のデータを比較しやすくなります。</figcaption>
 </figure>
 </div>
 </div>
@@ -1122,28 +1123,28 @@ pp. 120-121
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-isbn9784873119267" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-isbn9784873119267" class="csl-entry" role="listitem">
 ピーター・ブルース, アンドリュー・ブルース, と ピーター・ゲデック, <strong>2020</strong>. <a href="http://id.ndl.go.jp/bib/030715636">データサイエンスのための統計学入門: 予測、分類、統計モデリング、統計的機械学習とR/Pythonプログラミング</a>, 第2版 ed. オライリー・ジャパン. ISBN:<em>9784873119267</em>. 翻訳者： 黒川利明
 </div>
-<div id="ref-isbn9784489023323" class="csl-entry" role="doc-biblioentry">
+<div id="ref-isbn9784489023323" class="csl-entry" role="listitem">
 日本統計学会, <strong>2020</strong>. <a href="http://id.ndl.go.jp/bib/030221455">データの分析 : 日本統計学会公式認定統計検定3級対応</a>, 改訂版. ed. 東京図書.
 </div>
-<div id="ref-isbn9784130420655" class="csl-entry" role="doc-biblioentry">
+<div id="ref-isbn9784130420655" class="csl-entry" role="listitem">
 東京大学教養学部統計学教室 (編), <strong>1991</strong>. <a href="http://id.ndl.go.jp/bib/000002123507">統計学入門</a>, 基礎統計学. 東京大学出版会. ISBN:<em>9784130420655</em>
 </div>
-<div id="ref-isbn9784780609363" class="csl-entry" role="doc-biblioentry">
+<div id="ref-isbn9784780609363" class="csl-entry" role="listitem">
 滋賀大学データサイエンス学部 と 長崎大学情報データ科学部 (編), <strong>2022</strong>. <a href="http://id.ndl.go.jp/bib/032035878">データサイエンスの歩き方</a>. 学術図書出版社. ISBN:<em>9784780609363</em>
 </div>
-<div id="ref-isbn9784623084784" class="csl-entry" role="doc-biblioentry">
+<div id="ref-isbn9784623084784" class="csl-entry" role="listitem">
 神林 博史, <strong>2019</strong>. <a href="http://id.ndl.go.jp/bib/029539543">1歩前からはじめる「統計」の読み方・考え方</a>, 第2版 ed. ミネルヴァ書房. ISBN:<em>9784623084784</em>
 </div>
 </div>
 </section>
-<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1" role="doc-endnote"><p>平均として使われるものには、算術平均の他に幾何平均や加重平均などがあります。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>平均として使われるものには、算術平均の他に幾何平均や加重平均などがあります。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1219,6 +1220,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       }
     }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
   }
   const isFileUrl = () => { 
     return window.location.protocol === 'file:';
@@ -1270,7 +1281,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -1278,9 +1291,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1291,8 +1318,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "完了");
+    button.setAttribute("title", "コピーしました");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "コピーしました");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1320,31 +1364,136 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
@@ -1364,6 +1513,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Copyright 2022, Shinya Uryu</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -1382,6 +1534,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"loop":true,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});</script>
 
 
 
