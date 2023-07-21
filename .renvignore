@@ -1,0 +1,10 @@
+_book/
+_extensions/
+.git/
+.github/
+.quarto/
+.Rprofile
+.Rproj.user/
+.textlintrc
+images/
+node_modules/
