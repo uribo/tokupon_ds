@@ -12,6 +12,7 @@ reprex({
 
 reprex({
   x <- c(1, 10, 5, 3, 7)
+  (1 + 10 + 5 + 3 + 7) / length(x)
   # mean()関数を用いて平均値を計算します。
   mean(x)
 }, venue = "rtf")
