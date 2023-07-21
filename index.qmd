@@ -1,13 +1,13 @@
 # 前書き {.unnumbered}
 
-このページは徳島大学[デザイン型AI教育研究センター](http://tokushima-u.ac.jp/ai/)が
-開催する、**小中高生を対象にした「とくぽんAI塾 2022」のコースの一つである「データ分析入門」**
+このページは徳島大学[デザイン型AI教育研究センター](https://www.tokushima-u.ac.jp/ai/)が
+開催する、**小中高生を対象にした「とくぽんAI塾 2023」のコースの一つである「データ分析入門」**
 の資料置き場です。
 
 コースは基礎編と発展編の2つに分けられます。基礎編では、データ分析に必要な知識・背景の理解のための
 素養を身につけることを目指します。発展編ではデータ分析の問題への挑戦として、回帰と分類問題について
 取り組みます。
-このコースでは、基礎から発展まで通して`r fontawesome::fa("r-project")` [R言語](http://cran.r-project.org)を使ったデータ分析を行います。
+このコースでは、基礎から発展まで通して{{< fa brands r-project >}} [R言語](http://cran.r-project.org)を使ったデータ分析を行います。
 
 まずデータ分析についての大まかな内容とデータ分析で扱われる課題について[第1章](intro.qmd)で学びます。
 次に[第2章](data.qmd)では、データの種類と扱い方、表現方法を身につけます。
@@ -36,7 +36,7 @@
 
 ## 登場する動物について
 
-とくぽんAI塾2022のテーマは「動物園」です。
+過去に行ったとくぽんAI塾2022のテーマは「動物園」でした。
 そこでこのコースでも動物が登場します。
 
 ## とくぽんによる解説
@@ -67,14 +67,14 @@
 
 この内容が分かりにくかった、読めない漢字があったときには
 気軽にコメントいただけると改善のために役立ちます。
-コメントは`r fontawesome::fa("github")` [GitHub issues](https://github.com/uribo/tokupon_ds/issues/new)もしくは[フォーム](https://docs.google.com/forms/d/e/1FAIpQLScsdOwAHDCj2eFg-PCLayWSQKViWO-BnzRWHCxsZPn_lVf6_A/viewform?usp=sf_link)から投稿をお願いします。
+コメントは{{< fa brands github >}} [GitHub issues](https://github.com/uribo/tokupon_ds/issues/new)もしくは[フォーム](https://docs.google.com/forms/d/e/1FAIpQLScsdOwAHDCj2eFg-PCLayWSQKViWO-BnzRWHCxsZPn_lVf6_A/viewform?usp=sf_link)から投稿をお願いします。
 
-## `r fontawesome::fa("r-project")` Rコードおよび実行環境
+## {{< fa brands r-project >}} Rコードおよび実行環境
 
-- R version 4.2.1
-- macOS Monterey 12.4
+- R version 4.2.3
+- macOS Ventura 13.4
 
-このページは[Quarto](http://quarto.org)を使って作成されています。
+このページは[Quarto](https://quarto.org)を使って作成されています。
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/uribo/tokupon_ds/main?urlpath=rstudio)
 

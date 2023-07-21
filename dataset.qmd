@@ -46,7 +46,7 @@ df_hoken_toukei
 df_zoo
 ```
 
-このデータは`r fontawesome::fa("github")` [GitHubリポジトリ](https://github.com/uribo/tokupon_ds)に保存してあります。
+このデータは{{< fa brands github >}} [GitHubリポジトリ](https://github.com/uribo/tokupon_ds)に保存してあります。
 
 https://github.com/uribo/tokupon_ds/blob/main/data-raw/tokushima_zoo_animals22.csv
 
