@@ -42,6 +42,11 @@ book:
       - icon: twitter 
         href: https://twitter.com/u_ribo
 
+filters: 
+  - lightbox
+
+lightbox: auto
+
 crossref:
   appendix-title: "付録"
   appendix-delim: "."
