@@ -10,7 +10,7 @@
 [統計グラフ全国コンクール](https://www.sinfonica.or.jp/tokei/graph/index.html)は1953年から開催されている統計グラフの作成によるコンクールです。過去の受賞作品を閲覧できるため、優れた統計グラフの例も知ることができます。
 なお全国コンクールは各都道府県で実施されるコンクールの優秀作品が評価対象となります。
 そのため、まずは徳島県統計グラフコンクールへの応募を目指してはいかがでしょうか。
-今年度(令和4年度)の募集締め切りは9月5日です。詳細は[県のページ](https://www.pref.tokushima.lg.jp/ippannokata/kyoiku/seishonenikusei/7207189)を見てください。
+今年度(令和5年度)の募集締め切りは9月4日です。詳細は[県のページ](https://www.pref.tokushima.lg.jp/ippannokata/kyoiku/seishonenikusei/7217398/)を見てください。
 
 [統計データ分析コンペティション](https://www.nstac.go.jp/statcompe/)は、高校生、大学生等を対象としたデータ分析コンペティションの一つです。[SSDSE（教育用標準データセット）](https://www.nstac.go.jp/use/literacy/ssdse/)などを用いた統計データ分析内容を論文として提出することになっています。統計データに対するアイデアと解析力が競われます。
 

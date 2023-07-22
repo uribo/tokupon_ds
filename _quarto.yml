@@ -9,7 +9,7 @@ book:
     name: "瓜生真也"
     institute: "徳島大学デザイン型AI教育研究センター"
   google-analytics: "G-1VZEWMXCVL"
-  date: "2022/7/12"
+  date: "2023/7/22"
   cover-image: cover.png
   search: true
   chapters:
@@ -35,7 +35,7 @@ book:
   repo-url: https://github.com/uribo/tokupon_ds
   page-footer: 
     background: light
-    left: "Copyright 2022, Shinya Uryu"
+    left: "Copyright 2022-2023, Shinya Uryu"
     right: 
       - icon: github
         href: https://github.com/uribo
